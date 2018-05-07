@@ -6,10 +6,11 @@ import {Headers, BaseRequestOptions,Response,Http, XHRBackend, RequestMethod} fr
 import {HttpClientModule} from '@angular/common/http';
 
 import { OffersService } from './offers.service';
-import { PRODUCTS_OF_A_VENDOR, NEG_PRODUCTS_OF_A_VENDOR } from './product-detail-mockdata';
+import { PRODUCTS_OF_A_VENDOR, NEG_PRODUCTS_OF_A_VENDOR, OFFER_BY_ID } from './product-detail-mockdata';
 
 fdescribe('OffersService', () => {
   let mockBackend: MockBackend;
+    let offerResult:any;
   let products_of_a_vendor:any;
   let  neg_products_of_a_vendor:any;
   beforeEach(async() => {
@@ -28,7 +29,9 @@ fdescribe('OffersService', () => {
       imports : [HttpClientModule,HttpModule],
     });
     mockBackend = getTestBed().get(MockBackend);
-    products_of_a_vendor= []
+    products_of_a_vendor= [];
+    offerResult=OFFER_BY_ID;
+
     neg_products_of_a_vendor=NEG_PRODUCTS_OF_A_VENDOR;
 
   });
@@ -62,7 +65,7 @@ fdescribe('OffersService', () => {
     });
   })));
 
-  it('check for getOffers function', async(inject([OffersService], (service: OffersService) => {
+  it('neg check for getOffers function', async(inject([OffersService], (service: OffersService) => {
     mockBackend.connections.subscribe(
       (connection: MockConnection) => {
         connection.mockRespond(new Response(
@@ -76,60 +79,91 @@ fdescribe('OffersService', () => {
     });
   })));
 
+
   it('check for addToCarrybag function', async(inject([OffersService], (service: OffersService) => {
     mockBackend.connections.subscribe(
       (connection: MockConnection) => {
         connection.mockRespond(new Response(
           new ResponseOptions({
-            body: 'offerResult'
+            body: true
           }
           )));
       });  
     service.addToCarrybag('vendorId').subscribe(results=>{
-      expect(results).toEqual('offerResult');
+      expect(results).not.toEqual(true);
     });
   })));
 
-  // it('neg check for addToCarrybag function', async(inject([OffersService], (service: OffersService) => {
-  //   mockBackend.connections.subscribe(
-  //     (connection: MockConnection) => {
-  //       connection.mockRespond(new Response(
-  //         new ResponseOptions({
-  //           body: 'negofferResult'
-  //         }
-  //         )));
-  //     });  
-  //   service.addToCarrybag('vendorId').subscribe(results=>{
-  //     expect(results).toEqual('offerResult');
-  //   });
-  // })));
+  it('neg check for addToCarrybag function', async(inject([OffersService], (service: OffersService) => {
+    mockBackend.connections.subscribe(
+      (connection: MockConnection) => {
+        connection.mockRespond(new Response(
+          new ResponseOptions({
+            body: false
+          }
+          )));
+      });  
+    service.addToCarrybag('vendorId').subscribe(results=>{
+      expect(results).not.toEqual(true);
+    });
+  })));
 
-  // it('check for getAddress function', async(inject([OffersService], (service: OffersService) => {
-  //   mockBackend.connections.subscribe(
-  //     (connection: MockConnection) => {
-  //       connection.mockRespond(new Response(
-  //         new ResponseOptions({
-  //           body: 'offerResult'
-  //         }
-  //         )));
-  //     });  
-  //   service.getAddress('street','city','state','zip').subscribe(results=>{
-  //     expect(results).toEqual('offerResult');
-  //   });
-  // })));
+  it('check for getOffersByOfferId function', async(inject([OffersService], (service: OffersService) => {
+    mockBackend.connections.subscribe(
+      (connection: MockConnection) => {
+        connection.mockRespond(new Response(
+          new ResponseOptions({
+            body: offerResult
+          }
+          )));
+      });  
+    service.getOffersByOfferId('vendorId').subscribe(results=>{
+      expect(results).toEqual(offerResult);
+    });
+  })));
 
-  // it('neg check for getAddress function', async(inject([OffersService], (service: OffersService) => {
-  //   mockBackend.connections.subscribe(
-  //     (connection: MockConnection) => {
-  //       connection.mockRespond(new Response(
-  //         new ResponseOptions({
-  //           body: 'negofferResult'
-  //         }
-  //         )));
-  //     });  
-  //   service.getAddress('street','city','state','zip').subscribe(results=>{
-  //     expect(results).toEqual('offerResult');
-  //   });
-  // })));
+  it('check for getOffersByOfferId function', async(inject([OffersService], (service: OffersService) => {
+    mockBackend.connections.subscribe(
+      (connection: MockConnection) => {
+        connection.mockRespond(new Response(
+          new ResponseOptions({
+            body: offerResult
+          }
+          )));
+      });  
+    service.getOffersByOfferId('vendorId').subscribe(results=>{
+      expect(results).not.toEqual({});
+    });
+  })));
+
+   it('check for getOffersByLocation function', async(inject([OffersService], (service: OffersService) => {
+    mockBackend.connections.subscribe(
+      (connection: MockConnection) => {
+        connection.mockRespond(new Response(
+          new ResponseOptions({
+            body: offerResult
+          }
+          )));
+      });  
+    service.getOffersByLocation('vendorId').subscribe(results=>{
+      expect(results).toEqual(offerResult);
+    });
+  })));
+
+ it('neg check for getOffersByLocation function', async(inject([OffersService], (service: OffersService) => {
+    mockBackend.connections.subscribe(
+      (connection: MockConnection) => {
+        connection.mockRespond(new Response(
+          new ResponseOptions({
+            body: offerResult
+          }
+          )));
+      });  
+    service.getOffersByLocation('vendorId').subscribe(results=>{
+      expect(results).not.toEqual({});
+    });
+  })));
+
+
 
 });

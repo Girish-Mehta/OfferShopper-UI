@@ -9,6 +9,8 @@ import { LocationService } from './location.service';
 
 fdescribe('LocationService', () => {
 let mockBackend: MockBackend;
+let mockData: any;
+let neg_mockData:any;
 
   beforeEach(async() => {
     TestBed.configureTestingModule({
@@ -26,6 +28,8 @@ let mockBackend: MockBackend;
       imports : [HttpClientModule,HttpModule],
     });
     mockBackend = getTestBed().get(MockBackend);
+    mockData= {"res":"response"};
+    neg_mockData={"res":"negativeResponse"};
 
   });
 
@@ -37,5 +41,37 @@ let mockBackend: MockBackend;
   it('should have getLocation function', inject([LocationService], (service: LocationService) => {
     expect(service.getLocation).toBeTruthy();
   }));
+
+  it('should have updateLocation function', inject([LocationService], (service: LocationService) => {
+    expect(service.updateLocation).toBeTruthy();
+  }));
+
+   it('check for getLocation function', async(inject([LocationService], (service: LocationService) => {
+    mockBackend.connections.subscribe(
+      (connection: MockConnection) => {
+        connection.mockRespond(new Response(
+          new ResponseOptions({
+            body: mockData
+          }
+          )));
+      });  
+    service.getLocation('latitude', 'longitude').subscribe(results=>{
+      expect(results).toEqual(mockData);
+    });
+  })));
+
+      it('neg check for getLocation function', async(inject([LocationService], (service: LocationService) => {
+    mockBackend.connections.subscribe(
+      (connection: MockConnection) => {
+        connection.mockRespond(new Response(
+          new ResponseOptions({
+            body: neg_mockData
+          }
+          )));
+      });  
+    service.getLocation('latitude', 'longitude').subscribe(results=>{
+      expect(results).not.toEqual(mockData);
+    });
+  })));
 
 });
