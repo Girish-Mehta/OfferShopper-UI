@@ -26,9 +26,9 @@
     <div class="col-sm-12 col-md-4 col-lg-2">
       <ul class="links">
         <h4 class="text-heading"> {{ 'FOOTER.LINKS.LINK' | translate }} </h4>
-        <li class="text-lead" >{{ 'FOOTER.LINKS.SEARCH' | translate }}</li>
+        <li class="text-lead" [routerLink]="['/search']">{{ 'FOOTER.LINKS.SEARCH' | translate }}</li>
         <li class="text-lead">{{ 'FOOTER.LINKS.ABOUT' | translate }}</li>
-        <li class="text-lead">{{ 'FOOTER.LINKS.CONTACT' | translate }}</li>
+        <li class="text-lead" [routerLink]="['/contact']">{{ 'FOOTER.LINKS.CONTACT' | translate }}</li>
       </ul>
     </div>
     <!-- Help -->

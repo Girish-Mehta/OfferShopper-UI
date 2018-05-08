@@ -6,35 +6,37 @@
         <div class="card-img img-hover-cursor" [routerLink]="['/', 'product',result.userId,result._id]">
           <img class="card-img-top" src="../../../assets/opentable-scenic-restaurants.jpg" alt="Card image cap">
           <div class="card-rating bg-white border-bottom px-2 py-1">
-            Rating <span>|</span> {{result.offerRating}}
+            {{ 'HOMEPAGE.PRODUCT-LIST.RATING' | translate }}Rating <span>|</span> {{result.offerRating}}
           </div>
         </div>
         <div class="card-body">
           <h5 class="card-title text-heading" [routerLink]="['/', 'product',result.userId,result._id]">{{result.offerTitle}}</h5>
           <p class="card-text text-lead ">
-            <span class="border border-danger rounded px-2 py-1 mb-3">{{result.discount}}% off</span>
+            <span class="border border-danger rounded px-2 py-1 mb-3">{{result.discount}}{{ 'HOMEPAGE.PRODUCT-HEADER.OFF' | translate }}</span>
             <br/>
-            <span class="offer-deleted-price">MRP:<del>₹{{result.originalPrice}}</del></span>
-            <span>₹{{priceAfterDiscount}}</span>
+            <span class="offer-deleted-price">{{ 'HOMEPAGE.PRODUCT-LIST.MRP' | translate }}<del>{{ 'HOMEPAGE.PRODUCT-LIST.RS' | translate }}{{result.originalPrice}}</del></span>
+            <span>{{ 'HOMEPAGE.PRODUCT-LIST.RS' | translate }}{{priceAfterDiscount}}</span>
           </p>
           <button class="btn btn-dark my-2 my-sm-0 container-button" [routerLink]="['/', 'vendorInfo',result.userId]" type="button">{{result.address.name}}</button>
         </div>
         <div class="card-footer py-2 px-3">
           <div class="btn-group card-footer-button-group" *ngIf="user; else elseBlock">
-            <button class="btn btn-success mr-4" type="button" (click)="addToCarrybag(result)"><i class="fa fa-cart-plus" aria-hidden="true"></i> Carrybag</button>
-            <button class="btn btn-success" type="button" (click)="addToWishlist(result)"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Wishlist</button>
+            <button class="btn btn-success mr-4" type="button" (click)="addToCarrybag(result)"><i class="fa fa-cart-plus" aria-hidden="true"></i> {{ 'BUTTONS.CARRYBAG' | translate }}</button>
+            <button class="btn btn-success" type="button" (click)="addToWishlist(result)"><i class="fa fa-shopping-basket" aria-hidden="true"></i> {{ 'BUTTONS.WISHLIST' | translate }}</button>
           </div>
           <ng-template #elseBlock>
             <div class="btn-group btn-group-justified">
-              <button class="btn btn-success mr-4" type="button" (click)="notLogin()"><i class="fa fa-cart-plus" aria-hidden="true"></i> Carrybag</button>
-              <button class="btn btn-success" type="button" (click)="notLogin()"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Wishlist</button>
+              <button class="btn btn-success mr-4" type="button" (click)="notLogin()"><i class="fa fa-cart-plus" aria-hidden="true"></i> {{ 'BUTTONS.CARRYBAG' | translate }}</button>
+              <button class="btn btn-success" type="button" (click)="notLogin()"><i class="fa fa-shopping-basket" aria-hidden="true"></i> {{ 'BUTTONS.WISHLIST' | translate }}</button>
             </div>
           </ng-template>
         </div>
       </div>
     </div>
   </div>
-  <pagination-controls (pageChange)="p=$event"></pagination-controls>
+  <div class="text-center pt-5">
+    <pagination-controls (pageChange)="p=$event"></pagination-controls>
+  </div>
 </div>
 
 <ng-template #noResultsFound>

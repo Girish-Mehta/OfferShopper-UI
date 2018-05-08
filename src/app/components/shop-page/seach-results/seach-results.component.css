@@ -1,13 +1,28 @@
-.card-w{
-	cursor: pointer;
-	max-width: 22rem;
-	min-width: 22rem;
-	min-height: 28rem;
-	max-height: 28rem;
-}
+@media (min-width: 576px) {
+	.card-w{
+		cursor: pointer;
+		max-width: 18rem;
+		max-height: 18rem;
+	}
 
-.card-img {
-	position: relative;
+	.card-data {
+		margin-left: -1.1rem;
+		font-family: 'Julius Sans One', sans-serif;
+		margin-top: -0.5rem;
+	}
+
+	.card-discount {
+		font-family: 'Poiret One', cursive;
+	}
+
+	.card-heading {
+		font-size: 0.6rem;
+	}
+
+	.card-discounted-price {
+		color:red;
+	}
+
 }
 
 .card-rating {
@@ -47,4 +62,29 @@ h5 {
 #no-products-found{
 	margin-left: 30%;
 	width: 30%;
+}
+
+.card-w{
+	cursor: pointer;
+	max-width: 18rem;
+	min-height: 22rem;
+	max-height: 22rem;
+}
+
+.card-data {
+	margin-left: -1.1rem;
+	font-family: 'Julius Sans One', sans-serif;
+	margin-top: -0.5rem;
+}
+
+.card-discount {
+	font-family: 'Poiret One', cursive;
+}
+
+.card-heading {
+	font-size: 0.9rem;
+}
+
+.card-discounted-price {
+	color:red;
 }

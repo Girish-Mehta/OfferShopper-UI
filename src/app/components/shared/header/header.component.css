@@ -3,63 +3,86 @@
     .wrapper-large {
         display: none;
     }
-}*/
-/* for extra-large devices */
-@media (min-width: 96rem) {
-   .small {
+    }*/
+    /* for extra-large devices */
+    @media (min-width: 96rem) {
+     .small {
        display: none;
+     }
+
    }
 
- }
-
- @media (max-width: 160rem) {
+   @media (max-width: 160rem) {
      .large {
-         display: none;
+       display: none;
      }
 
      .logo {
-         font-size: 1rem;
+       font-size: 1rem;
      }
- }
+   }
 
- .btn-default
- {
-  background-color: darkcyan;
-  color: white;
- }
+   .btn-default
+   {
+    background-color: darkcyan;
+    color: white;
+  }
 
- .modallabel
- {
-  font-family: 'Poiret One','Sree Krushnadevaraya','Suranna','Ramaraja',"Mukta Malar", cursive;
-  text-transform: uppercase;
-  letter-spacing: 0.25rem;
-  font-weight: bold;
-  font-variant-caps: titling-case;
- }
+  .modallabel
+  {
+    font-family: 'Poiret One','Sree Krushnadevaraya','Suranna','Ramaraja',"Mukta Malar", cursive;
+    text-transform: uppercase;
+    letter-spacing: 0.25rem;
+    font-weight: bold;
+    font-variant-caps: titling-case;
+  }
 
-.maincities
-{
-  height: 4.5rem;
-  width: 4.5rem;
-  margin-right: 1.5rem;
-  margin-left: 1rem;
-}
+  .maincities
+  {
+    height: 4.5rem;
+    width: 4.5rem;
+    margin-right: 1.5rem;
+    margin-left: 1rem;
+  }
 
-.maincitiestext
-{
-  font-family: 'Julius Sans One', sans-serif,'Sree Krushnadevaraya','Suranna','Ramaraja',"Mukta Malar";
-  font-weight: bold;
-  padding-right: 1.75rem;
-  padding-left: 1.70rem;
-  font-size: 0.75rem;
-}
+  .maincitiestext
+  {
+    font-family: 'Julius Sans One', sans-serif,'Sree Krushnadevaraya','Suranna','Ramaraja',"Mukta Malar";
+    font-weight: bold;
+    padding-right: 1.75rem;
+    padding-left: 1.70rem;
+    font-size: 0.75rem;
+  }
 
-.dropdown-toggle
-{
-  margin-left: 5rem;
-  margin-bottom: 1rem;
-}
+  .dropdown-toggle
+  {
+    margin-left: 5rem;
+    margin-bottom: 1rem;
+  }
 
-.maincitiestext1 {
+  .maincitiestext1 {
    padding: 0;
  }
+
+ ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+
+li {
+  float: left;
+}
+
+#_setImg {
+ background-color: transparent;
+ border: none;
+}
+
+
+.header-shadow {
+  margin-left: -5px;
+  box-shadow: 1rem 0rem 1rem black;
+}

@@ -1,7 +1,7 @@
 <div class="add-offer">
   <div class="d-flex justify-content-end">
-    <button type="button" class="btn btn-success d-flex justify-content-end" data-toggle="modal" data-target="#couponVerifyModal">validatecoupon</button>
-      <button type="button" class="btn btn-success d-flex justify-content-end" data-toggle="modal" data-target="#myAddofferModal">Add Offer</button>
+    <button type="button" class="btn btn-success d-flex justify-content-end" data-toggle="modal" data-target="#couponVerifyModal">{{ 'USER.OFFER.VALIDATE-COUPON' |  translate }}</button>
+      <button type="button" class="btn btn-success d-flex justify-content-end" data-toggle="modal" data-target="#myAddofferModal">{{ 'USER.ADD-OFFER' |  translate }}</button>
   </div>
   <div class="container mt-2">
     <div class="row ">
@@ -10,17 +10,17 @@
           <div class="card-body ">
             <h5 class="card-title">{{offer.offerTitle.toUpperCase()}}</h5>
             <p class="card-text">
-                Validity:{{offer.offerValidity | date}}
+              {{ 'USER.OFFER.VALIDITY' |  translate }}{{offer.offerValidity | date}}
             </p>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">{{offer.offerDescription}}</li>
-            <li class="list-group-item">Rs{{offer.originalPrice}}</li>
-            <li class="list-group-item">{{offer.discount}}%</li>
+            <li class="list-group-item">{{ 'HOMEPAGE.PRODUCT-LIST.RS' |  translate }}{{offer.originalPrice}}</li>
+            <li class="list-group-item">{{offer.discount}}{{ 'PRODUCT-PAGE.PER' |  translate }}</li>
           </ul>
           <div class="card-body">
-            <button type="button" class="btn btn-secondary" (click)="updateOffer(offer.offerId)" data-toggle="modal" data-target="#myModal">Update</button>
-            <button type="button" class="btn btn-dark" (click)="deleteOffer(offer.offerId)">Delete</button>
+            <button type="button" class="btn btn-secondary" (click)="updateOffer(offer.offerId)" data-toggle="modal" data-target="#myModal">{{ 'BUTTONS.UPDATE' |  translate }}</button>
+            <button type="button" class="btn btn-dark" (click)="deleteOffer(offer.offerId)">{{ 'BUTTONS.DELETE' |  translate }}</button>
           </div>
         </div>
       </div>
@@ -35,46 +35,52 @@
     <!-- Modal content-->
     <div class="modal-content">
      <div class="modal-header ">
-          <h4 class="modal-title ">UPDATE OFFER</h4>
+          <h4 class="modal-title ">{{ 'USER.OFFER.UPDATE-OFFER' |  translate }}</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
         <form>
           <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="offerCategories">Categories</label>
-              <input type="offerCategories" class="form-control" id="offerCategories" placeholder="{{offerCategories}}" [(ngModel)]="offerCategories" [ngModelOptions]="{standalone: true}">
+              <select class="custom-select custom-select-md mb-3"  name="offerCategories" [(ngModel)]="offerCategories">
+                <option selected>{{ 'HOMEPAGE.CATEGORIES.CATEGORY' |  translate }}</option>
+                <option value="sports">{{ 'HOMEPAGE.CATEGORIES.SPORTS' |  translate }}</option>
+                <option value="clothing">{{ 'HOMEPAGE.CATEGORIES.CLOTHES' |  translate }}</option>
+                <option value="food">{{ 'HOMEPAGE.CATEGORIES.FOOD' |  translate }}</option>
+              </select>
+
+
             </div>
             <div class="form-group col-md-6">
-              <label for="discount">Discount Percentage</label>
+              <label for="discount">{{ 'USER.OFFER.DISCOUNT' |  translate }}</label>
               <input type="discount" class="form-control" id="discount" placeholder="{{discount}}" [(ngModel)]="discount" [ngModelOptions]="{standalone: true}">
             </div>
             <div class="form-group col-md-6">
-              <label for="keywords"> keywords</label>
+              <label for="keywords"> {{ 'USER.OFFER.KEYWORD' |  translate }}</label>
               <input type="keywords" class="form-control" id="keywords" placeholder="{{keywords}}" [(ngModel)]="keywords" [ngModelOptions]="{standalone: true}">
             </div>
             <div class="form-group col-md-6">
-              <label for="offerValidity"> Validity</label>
+              <label for="offerValidity"> {{ 'USER.OFFER.VALIDITY' |  translate }}</label>
               <input type="offerValidity" class="form-control" id="offerValidity" placeholder="{{offerValidity}}" [(ngModel)]="offerValidity" [ngModelOptions]="{standalone: true}">
             </div>
             <div class="form-group col-md-6">
-              <label for="offerDescription"> Product Description</label>
+              <label for="offerDescription"> {{ 'USER.OFFER.DESCRIPTION' |  translate }}</label>
               <input type="offerDescription" class="form-control" id="offerDescription" placeholder="{{offerDescription}}" [(ngModel)]="offerDescription" [ngModelOptions]="{standalone: true}">
             </div>
             <div class="form-group col-md-6">
-              <label for="offerTerms">Terms and Conditions</label>
+              <label for="offerTerms">{{ 'USER.OFFER.TAC' |  translate }}</label>
               <input type="offerTerms" class="form-control" id="offerTerms" placeholder="{{offerTerms}}" [(ngModel)]="offerTerms" [ngModelOptions]="{standalone: true}">
             </div>
             <div class="form-group col-md-6">
-              <label for="offerTitle">Offer Name</label>
+              <label for="offerTitle">{{ 'USER.OFFER.NAME' |  translate }}</label>
               <input type="offerTitle" class="form-control" id="offerTitle" placeholder="{{offerTitle}}" [(ngModel)]="offerTitle" [ngModelOptions]="{standalone: true}">
             </div>
             <div class="form-group col-md-6">
-              <label for="originalPrice">Original Price</label>
+              <label for="originalPrice">{{ 'USER.OFFER.O-PRICE' |  translate }}</label>
               <input type="originalPrice" class="form-control" id="originalPrice" placeholder="{{originalPrice}}" [(ngModel)]="originalPrice" [ngModelOptions]="{standalone: true}">
             </div>
           </div>
-          <button type="submit" class="btn button justify-content-center" data-dismiss="modal" (click)="submit()">Submit</button>
+          <button type="submit" class="btn button justify-content-center" data-dismiss="modal" (click)="submit()">{{ 'BUTTONS.SUBMIT' |  translate }}</button>
       </form>
       </div>
     </div>
@@ -89,71 +95,56 @@
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header ">
-          <h4 class="modal-title ">ADD OFFER</h4>
+          <h4 class="modal-title ">{{ 'USER.ADD-OFFER' |  translate }}</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
         <form>
           <div class="form-row">
             <div class="form-group col-md-6">
-                <!-- <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Select Category
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                      <button class="dropdown-item" type="button">sports</button>
-                      <button class="dropdown-item" type="button">clothing</button>
-                      <button class="dropdown-item" type="button">food</button>
-                    </div>
-                  </div> -->
-
-
-
-                  <select class="custom-select custom-select-lg mb-3" name="offerCategories" [(ngModel)]="offerCategories">
-                    <option selected>Select Category</option>
-                    <option value="sports">sports</option>
-                    <option value="clothing">clothing</option>
-                    <option value="food">food</option>
+                  <select class="custom-select custom-select-md mb-3"  name="offerCategories" [(ngModel)]="offerCategories">
+                    <option selected>{{ 'HOMEPAGE.CATEGORIES.CATEGORY' |  translate }}Select Category</option>
+                    <option value="sports">{{ 'HOMEPAGE.CATEGORIES.SPORTS' |  translate }}sports</option>
+                    <option value="clothing">{{ 'HOMEPAGE.CATEGORIES.CLOTHES' |  translate }}clothing</option>
+                    <option value="food">{{ 'HOMEPAGE.CATEGORIES.FOOD' |  translate }}</option>
                   </select>
-              <!-- <label for="offerCategories">Select Category</label>
-              <input type="offerCategories" class="form-control" id="offerCategories" placeholder="{{offerCategories}}" [(ngModel)]="offerCategories" [ngModelOptions]="{standalone: true}"> -->
             </div>
             <div class="form-group col-md-6">
-              <label for="discount">Discount Percentage</label>
+              <label for="discount">{{ 'USER.OFFER.DISCOUNT' |  translate }}</label>
               <input type="Discount" class="form-control" id="discount" placeholder="{{discount}}" [(ngModel)]="discount" [ngModelOptions]="{standalone: true}">
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="keywords"> Keywords</label>
+              <label for="keywords"> {{ 'USER.OFFER.KEYWORD' |  translate }}</label>
               <input type="keywords" class="form-control" id="keywords" placeholder="{{keywords}}" [(ngModel)]="keywords" [ngModelOptions]="{standalone: true}">
             </div>
             <div class="form-group col-md-6">
-              <label for="offerValidity">Validity</label>
+              <label for="offerValidity">{{ 'USER.OFFER.VALIDITY' |  translate }}</label>
               <input type="date" class="form-control" id="offerValidity" placeholder="{{offerValidity}}" [(ngModel)]="offerValidity" [ngModelOptions]="{standalone: true}">
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="offerDescription">Description</label>
+              <label for="offerDescription">{{ 'USER.OFFER.DESCRIPTION' |  translate }}</label>
               <input type="offerDescription" class="form-control" id="offerDescription" placeholder="{{offerDescription}}" [(ngModel)]="offerDescription" [ngModelOptions]="{standalone: true}">
             </div>
             <div class="form-group col-md-6">
-              <label for="offerTerms">Terms and Conditions</label>
+              <label for="offerTerms">{{ 'USER.OFFER.TAC' |  translate }}</label>
               <input type="offerTerms" class="form-control" id="offerTerms" placeholder="{{offerTerms}}" [(ngModel)]="offerTerms" [ngModelOptions]="{standalone: true}">
             </div>
           </div>
            <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="offerTitle">Offer Name</label>
+              <label for="offerTitle">{{ 'USER.OFFER.NAME' |  translate }}</label>
               <input type="offerTitle" class="form-control" id="offerTitle" placeholder="{{offerTitle}}" [(ngModel)]="offerTitle" [ngModelOptions]="{standalone: true}">
             </div>
             <div class="form-group col-md-6">
-              <label for="originalPrice">Price of Product</label>
+              <label for="originalPrice">{{ 'USER.OFFER.PRICE' |  translate }}</label>
               <input type="originalPrice" class="form-control" id="originalPrice" placeholder="{{originalPrice}}" [(ngModel)]="originalPrice" [ngModelOptions]="{standalone: true}">
             </div>
           </div>
-          <button type="submit" class="btn  btn-secondary button justify-content-center" data-dismiss="modal" (click)="getOffer()">Add Offer</button>
+          <button type="submit" class="btn  btn-secondary button justify-content-center" data-dismiss="modal" (click)="getOffer()">{{ 'USER.ADD-OFFER' |  translate }}</button>
       </form>
       </div>
     </div>
@@ -167,22 +158,22 @@
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header ">
-          <h4 class="modal-title ">verify coupon</h4>
+          <h4 class="modal-title ">{{ 'USER.OFFER.VERIFY-COUPON' |  translate }}</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
         <form>
           <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="coupon">COUPON</label>
+              <label for="coupon">{{ 'USER.OFFER.COUPON' |  translate }}</label>
               <input type="coupon" class="form-control" id="coupon" [(ngModel)]="coupon" [ngModelOptions]="{standalone: true}">
             </div>
           </div>
-          <button type="submit" class="btn  btn-secondary button justify-content-center" data-dismiss="modal" (click)="couponValidate()">VALIDATE</button>
+          <button type="submit" class="btn  btn-secondary button justify-content-center" data-dismiss="modal" (click)="couponValidate()">{{ 'BUTTONS.VALIDATE' |  translate }}</button>
       </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-dark btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-dark btn-default" data-dismiss="modal">{{ 'BUTTONS.CLOSE' |  translate }}</button>
       </div>
     </div>
     </div>

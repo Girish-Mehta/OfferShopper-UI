@@ -1,86 +1,75 @@
-<!-- <div class="container-fluid">
-	<div class="row">
-		<div class="col-3 help-sidebar border-right"> -->
-			<!-- <a class="active" *ngIf="helpOption=='FAQs'" [routerLink]="['/help', 'FAQs']">FAQs</a>
-			<a *ngIf="helpOption!='FAQs'" [routerLink]="['/help', 'FAQs']">FAQs</a>
-			<hr/>
-			<a class="active" *ngIf="helpOption=='terms'" [routerLink]="['/help', 'terms']">Terms and Conditions</a>
-			<a *ngIf="helpOption!='terms'" [routerLink]="['/help', 'terms']">Terms and Conditions</a>
-			<hr/> -->
-			<div class="help-sidebar border-right d-flex justify-content-center mt-2">
-			<ul class="nav nav-pills flex-column ">
-				<li class="text-center active" *ngIf="helpOption=='FAQs'" [routerLink]="['/help', 'FAQs']">
-					{{ 'FOOTER.HELP.FAQ.FQ' | translate }}
+<!--Sidebar of help compomnent-->
+<div class="help-sidebar border-right d-flex justify-content-center mt-2">
+	<ul class="nav nav-pills flex-column ">
+		<li class="text-center py-2" [ngClass]="{active:helpOption=='FAQs', inactive:helpOption!='FAQs'}" [routerLink]="['/help', 'FAQs']">
+			{{ 'FOOTER.HELP.FAQ.FQ' | translate }}
+		</li>
+		<li class="text-center py-2" [ngClass]="{active:helpOption=='terms', inactive:helpOption!='terms'}" [routerLink]="['/help', 'terms']">
+			{{ 'FOOTER.HELP.TAC.TAC' | translate }}
+		</li>		
+	</ul>
+</div>
+<!--Help content-->
+<div class="help-content pl-2">
+	<!--switch case to display FAQs and Terms & conditions-->
+	<div [ngSwitch]="helpOption">
+		<!--Data to display if user selected Terms and Conditions-->
+		<div *ngSwitchCase="'terms'">
+			<h1>{{ 'FOOTER.HELP.TAC.TAC' | translate }}</h1>
+			<h3>{{ 'FOOTER.HELP.TAC.OPERATING.TITLE' | translate }}</h3>
+			<p>{{ 'FOOTER.HELP.TAC.OPERATING.BODY' | translate }}</p>
+			<ul>
+				<li>
+					<h6><strong>{{ 'FOOTER.HELP.TAC.OPERATING.LIST.H1' | translate }}</strong></h6>
+					<p>{{ 'FOOTER.HELP.TAC.OPERATING.LIST.H1' | translate }}</p>
 				</li>
-				<li class="text-center border-bottom py-2" *ngIf="helpOption!='FAQs'" [routerLink]="['/help', 'FAQs']">
-					{{ 'FOOTER.HELP.FAQ.FQ' | translate }}
+				<li>
+					<h6><strong>{{ 'FOOTER.HELP.TAC.OPERATING.LIST.H2' | translate }}</strong></h6>
+					<p>{{ 'FOOTER.HELP.TAC.OPERATING.LIST.B2' | translate }}</p>
 				</li>
-				<li class="text-center active" *ngIf="helpOption=='terms'" [routerLink]="['/help', 'terms']">
-					{{ 'FOOTER.HELP.TAC.TAC' | translate }}
+				<li>
+					<h6><strong>{{ 'FOOTER.HELP.TAC.OPERATING.LIST.H3' | translate }}</strong></h6>
+					<p>{{ 'FOOTER.HELP.TAC.OPERATING.LIST.B3' | translate }}</p>
 				</li>
-				<li class="text-center border-bottom py-2" *ngIf="helpOption!='terms'" [routerLink]="['/help', 'terms']">
-					{{ 'FOOTER.HELP.TAC.TAC' | translate }}
-				</li>				
 			</ul>
+			<h3>{{ 'FOOTER.HELP.TAC.PRODUCT.TITLE' | translate }}</h3>
+			<p>{{ 'FOOTER.HELP.TAC.PRODUCT.BODY' | translate }}</p>
+			<h3>{{ 'FOOTER.HELP.TAC.SEARCH.TITLE' | translate }}</h3>
+			<p>{{ 'FOOTER.HELP.TAC.SEARCH.BODY' | translate }}</p>
+			<h3>{{ 'FOOTER.HELP.TAC.ANYPAGE.TITLE' | translate }}</h3>
+			<p>{{ 'FOOTER.HELP.TAC.ANYPAGE.BODY' | translate }}</p>
+			<h3>{{ 'FOOTER.HELP.TAC.MISCELLANEOUS.TITLE' | translate }}</h3>
+			<p>{{ 'FOOTER.HELP.TAC.MISCELLANEOUS.BODY' | translate }}</p>
 		</div>
-		<div class="help-content pl-2">
-			<div [ngSwitch]="helpOption">
-				<div *ngSwitchCase="'terms'">
-					<h1>{{ 'FOOTER.HELP.TAC.TAC' | translate }}</h1>
-					<h3>{{ 'FOOTER.HELP.TAC.OPERATING.TITLE' | translate }}</h3>
-					<p>{{ 'FOOTER.HELP.TAC.OPERATING.BODY' | translate }}</p>
-					<ul>
-						<li>
-							<h6><strong>{{ 'FOOTER.HELP.TAC.OPERATING.LIST.H1' | translate }}</strong></h6>
-							<p>{{ 'FOOTER.HELP.TAC.OPERATING.LIST.H1' | translate }}</p>
-						</li>
-						<li>
-							<h6><strong>{{ 'FOOTER.HELP.TAC.OPERATING.LIST.H2' | translate }}</strong></h6>
-							<p>{{ 'FOOTER.HELP.TAC.OPERATING.LIST.B2' | translate }}</p>
-						</li>
-						<li>
-							<h6><strong>{{ 'FOOTER.HELP.TAC.OPERATING.LIST.H3' | translate }}</strong></h6>
-							<p>{{ 'FOOTER.HELP.TAC.OPERATING.LIST.B3' | translate }}</p>
-						</li>
-					</ul>
-					<h3>{{ 'FOOTER.HELP.TAC.PRODUCT.TITLE' | translate }}</h3>
-					<p>{{ 'FOOTER.HELP.TAC.PRODUCT.BODY' | translate }}</p>
-					<h3>{{ 'FOOTER.HELP.TAC.SEARCH.TITLE' | translate }}</h3>
-					<p>{{ 'FOOTER.HELP.TAC.SEARCH.BODY' | translate }}</p>
-					<h3>{{ 'FOOTER.HELP.TAC.ANYPAGE.TITLE' | translate }}</h3>
-					<p>{{ 'FOOTER.HELP.TAC.ANYPAGE.BODY' | translate }}</p>
-					<h3>{{ 'FOOTER.HELP.TAC.MISCELLANEOUS.TITLE' | translate }}</h3>
-					<p>{{ 'FOOTER.HELP.TAC.MISCELLANEOUS.BODY' | translate }}</p>
-				</div>
-
-				<div *ngSwitchCase="'FAQs'">
-					<h1> {{ 'FOOTER.HELP.FAQ.TITLE' | translate }}</h1>
-					<ol>
-						<li>
-							<h6><strong>{{ 'FOOTER.HELP.FAQ.Q1' | translate }}</strong></h6>
-							<span>{{ 'FOOTER.HELP.FAQ.A1' | translate }}</span>
-						</li>
-						<li>
-							<h6><strong>{{ 'FOOTER.HELP.FAQ.Q2' | translate }}</strong></h6>
-							<span>{{ 'FOOTER.HELP.FAQ.A2' | translate }}</span>
-						</li>
-						<li>
-							<h6><strong>{{ 'FOOTER.HELP.FAQ.Q3' | translate }}</strong></h6>
-							<span>{{ 'FOOTER.HELP.FAQ.A3' | translate }}</span>
-						</li>
-						<li>
-							<h6><strong>{{ 'FOOTER.HELP.FAQ.Q4' | translate }}</strong></h6>
-							<span>{{ 'FOOTER.HELP.FAQ.A4' | translate }}</span>
-						</li>
-						<li>
-							<h6><strong>{{ 'FOOTER.HELP.FAQ.Q5' | translate }}</strong></h6>
-							<span>{{ 'FOOTER.HELP.FAQ.A5' | translate}}</span>
-						</li>
-						<li>
-							<h6><strong>{{ 'FOOTER.HELP.FAQ.Q6' | translate }}</strong></h6>
-							<span>{{ 'FOOTER.HELP.FAQ.A6' | translate }}</span>
-						</li>
-					</ol>
-				</div>
-			</div>
+		<!--Data to display if user selected FAQs-->
+		<div *ngSwitchCase="'FAQs'">
+			<h1> {{ 'FOOTER.HELP.FAQ.TITLE' | translate }}</h1>
+			<ol>
+				<li>
+					<h6><strong>{{ 'FOOTER.HELP.FAQ.Q1' | translate }}</strong></h6>
+					<span>{{ 'FOOTER.HELP.FAQ.A1' | translate }}</span>
+				</li>
+				<li>
+					<h6><strong>{{ 'FOOTER.HELP.FAQ.Q2' | translate }}</strong></h6>
+					<span>{{ 'FOOTER.HELP.FAQ.A2' | translate }}</span>
+				</li>
+				<li>
+					<h6><strong>{{ 'FOOTER.HELP.FAQ.Q3' | translate }}</strong></h6>
+					<span>{{ 'FOOTER.HELP.FAQ.A3' | translate }}</span>
+				</li>
+				<li>
+					<h6><strong>{{ 'FOOTER.HELP.FAQ.Q4' | translate }}</strong></h6>
+					<span>{{ 'FOOTER.HELP.FAQ.A4' | translate }}</span>
+				</li>
+				<li>
+					<h6><strong>{{ 'FOOTER.HELP.FAQ.Q5' | translate }}</strong></h6>
+					<span>{{ 'FOOTER.HELP.FAQ.A5' | translate}}</span>
+				</li>
+				<li>
+					<h6><strong>{{ 'FOOTER.HELP.FAQ.Q6' | translate }}</strong></h6>
+					<span>{{ 'FOOTER.HELP.FAQ.A6' | translate }}</span>
+				</li>
+			</ol>
 		</div>
+	</div>
+</div>

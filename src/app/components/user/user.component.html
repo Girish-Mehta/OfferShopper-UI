@@ -1,58 +1,23 @@
 <div class="user-sidebar border-right d-flex justify-content-center mt-2">
   <ul class="nav nav-pills flex-column ">
-   <!--  <li class="text-center active" *ngIf="userList=='userdetails'" [routerLink]="['/user', 'userdetails']">
-      Personal Information
-    </li>
-    <li class="text-center border-bottom py-2" *ngIf="userList!='userdetails'" [routerLink]="['/user', 'userdetails']">
-      Personal Information
-    </li>
-    <li class="text-center active" *ngIf="userList=='carrybag'" [routerLink]="['/user', 'carrybag']">
-      Carry Bag
-    </li>
-    <li class="text-center border-bottom py-2" *ngIf="userList!='carrybag'" [routerLink]="['/user', 'carrybag']">
-      Carry Bag
-    </li>
-    <li class="text-center active" *ngIf="userList=='wishlist'" [routerLink]="['/user', 'wishlist']">
-      Wish List
-    </li>
-    <li class="text-center border-bottom py-2" *ngIf="userList!='wishlist'" [routerLink]="['/user', 'wishlist']">
-      Wish List
-    </li>
-    <li class="text-center active" *ngIf="userList=='subscriptionlist'" [routerLink]="['/user', 'subscriptionlist']">
-      Subscriptions
-    </li>
-    <li class="text-center border-bottom py-2" *ngIf="userList!='subscriptionlist'" [routerLink]="['/user', 'subscriptionlist']">
-      Subscriptions
-    </li>
-    <li *ngIf="role=='Vendor' && userList=='add-offer'" class="text-center active" [routerLink]="['/user', 'add-offer']">
-      Add Offers    
-    </li>
-    <li *ngIf="role=='Vendor' && userList!='add-offer'" class="text-center border-bottom py-2" [routerLink]="['/user', 'add-offer']">
-      Add Offers   
-    </li>
-    <li *ngIf="role=='Customer' && userList=='be-a-seller'" class="text-center active" [routerLink]="['/user', 'be-a-seller']">
-      Be a Seller
-    </li>
-    <li *ngIf="role=='Customer' && userList!='be-a-seller'" class="text-center border-bottom py-2" [routerLink]="['/user', 'be-a-seller']">
-      Be a Seller 
-    </li> -->
+    <!-- List of actions for user -->
     <li class="text-center py-2" [ngClass]="{active:userList=='userdetails', inactive:userList!='userdetails'}" [routerLink]="['/user', 'userdetails']">
-      Personal Information
+      {{ 'USER.PERSONAL-INFO' |  translate }}
     </li>
     <li class="text-center py-2" [ngClass]="{active:userList=='carrybag', inactive:userList!='carrybag'}" [routerLink]="['/user', 'carrybag']">
-      Carry Bag
+      {{ 'USER.CARRYBAG' |  translate }}
     </li>    
     <li class="text-center py-2" [ngClass]="{active:userList=='wishlist', inactive:userList!='wishlist'}" [routerLink]="['/user', 'wishlist']">
-      Wish List
+      {{ 'USER.WISHLIST' |  translate }}
     </li>
     <li class="text-center py-2" [ngClass]="{active:userList=='subscriptionlist', inactive:userList!='subscriptionlist'}" [routerLink]="['/user', 'subscriptionlist']">
-      Subscriptions
+      {{ 'USER.SUBSCRIBE' |  translate }}
     </li>
-    <li class="text-center py-2" [ngClass]="{active:userList=='add-offer', inactive:userList!='add-offer'}" *ngIf="role=='Vendor'" [routerLink]="['/user', 'add-offer']">
-      Add Offers    
+    <li class="text-center py-2" [ngClass]="{active:userList=='add-offer', inactive:userList!='add-offer'}" *ngIf="role=='Vendor'||'vendor'" [routerLink]="['/user', 'add-offer']">
+      {{ 'USER.ADD-OFFER' |  translate }}    
     </li>
     <li class="text-center py-2" [ngClass]="{active:userList=='be-a-seller', inactive:userList!='be-a-seller'}" *ngIf="role=='Customer'" [routerLink]="['/user', 'be-a-seller']">
-      Be a Seller
+      {{ 'USER.BE-SELLER' |  translate }}
     </li>
   </ul>
 </div>
@@ -78,76 +43,3 @@
     </div>
   </div>
 </div>
-
-
-
-<!-- <div class="sidenav align-self-center">
-  <div class="sidenav-back-color d-none d-sm-block border">
-    <div class="sidenav-large-content">
-      <ul class="nav nav-pills flex-column">
-        <li class="btn btn-light sidebar-text d-flex justify-content-center" [routerLink]="['/user', 'userdetails']" style="vertical-align:middle">
-          <span>Personal Information</span>
-        </li>
-        <li class="btn btn-light sidebar-text d-flex justify-content-center" [routerLink]="['/user', 'carrybag']">
-          Carry Bag
-        </li>
-        <li class="btn btn-light sidebar-text d-flex justify-content-center" [routerLink]="['/user', 'wishlist']">
-          Wish List
-        </li>
-        <li class="btn btn-light sidebar-text d-flex justify-content-center" [routerLink]="['/user', 'subscriptionlist']">
-          Subscriptions
-        </li>
-        <li *ngIf="role=='vendor'" class="btn btn-light sidebar-text d-flex justify-content-center" [routerLink]="['/user', 'add-offer']">
-          Add Offers
-        </li>
-        <li *ngIf="role=='customer'" class="btn btn-light sidebar-text d-flex justify-content-center" [routerLink]="['/user', 'userdetails']">
-          Be a Seller
-        </li>
-      </ul>
-    </div>
-  </div>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light d-block d-sm-none">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item sidebar-text" routerLink='/userprofile'>
-          Personal Information
-        </li>
-        <li class="nav-item sidebar-text" routerLink='/userprofile'>
-          Carry Bag
-        </li>
-        <li class="nav-item sidebar-text" routerLink='/userprofile'>
-          Wish List
-        </li>
-        <li class="nav-item sidebar-text">
-          Subscriptions
-        </li>
-        <li class="nav-item sidebar-text">
-          Add Offers
-        </li>
-      </ul>
-    </div>
-  </nav>
-</div>
-<div class="main mb-2">
-  <div [ngSwitch]="userList">
-    <div *ngSwitchCase="'userdetails'">
-      <app-userdetails></app-userdetails>
-    </div>
-    <div *ngSwitchCase="'carrybag'">
-      <app-carrybag></app-carrybag>
-    </div>
-    <div *ngSwitchCase="'wishlist'">
-      <app-wishlist></app-wishlist>
-    </div>
-    <div *ngSwitchCase="'subscriptionlist'">
-      <app-subscription-list></app-subscription-list>
-    </div>
-    <div *ngSwitchCase="'add-offer'">
-      <app-add-offer></app-add-offer>
-    </div>
-  </div>
-</div>
- -->

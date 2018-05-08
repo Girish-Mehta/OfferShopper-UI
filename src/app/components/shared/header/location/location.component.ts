@@ -16,7 +16,7 @@ export class LocationComponent implements OnInit {
   languages = Language.languages;
   private location: string;
   private mainUrl: string;
-
+  
   constructor(
     private locationService: LocationService, 
     public translate: TranslateService,
@@ -43,9 +43,13 @@ getlocation(){
   if (!navigator.geolocation){
     return;
   }  
+  
   function error() {    
     if(userMainUrl == "homepage") {
-      _router.navigate(['/',userMainUrl,"Delhi"]);
+      if(localStorage.getItem("loc"))
+        _router.navigate(['/',userMainUrl,localStorage.getItem("loc")]);
+      else
+        _router.navigate(['/',userMainUrl,"Delhi"]);
     }
     console.log("User refused access to his location");
   }  
@@ -85,12 +89,10 @@ ngOnInit(){
   if(value){
     if(value.trim()=="Gurugram".trim()) {
       this.obj.a="Gurgaon";
-      console.log(this.obj.a);
       this.homeResultRelatedToLocation(this.obj.a);
     }
     else {
       this.obj.a=value.trim();
-      console.log(this.obj.a);
       this.homeResultRelatedToLocation(this.obj.a); 
     }
   }
@@ -101,7 +103,8 @@ ngOnInit(){
 homeResultRelatedToLocation(userLocation) {
   this.location = location.pathname;
   this.mainUrl = (this.location.split('/'))[1];
-  console.log(this.mainUrl);
+  if(!this.mainUrl)
+    this.router.navigate(['/homepage',userLocation]);
   if(this.mainUrl=="homepage")
     this.router.navigate(['/',this.mainUrl,userLocation]);
 }

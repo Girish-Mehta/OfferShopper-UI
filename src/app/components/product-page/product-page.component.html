@@ -2,7 +2,7 @@
 	<div class="container-fluid mb-5">
    <div class="row align-items-top pt-4 mt-1">
     <aside class="col-sm-12 col-md-12 col-lg-12 ml-5">
-      <a [routerLink]="['/homepage']"><font class="description"><font class="back-arrow"><</font> Back</font></a>
+      <a [routerLink]="['/homepage']"><font class="description"><font class="back-arrow"></font> {{ 'BUTTONS.BACK' | translate }}</font></a>
     </aside>
   </div>
   <div class="row align-items-top pt-4 mt-1">
@@ -22,11 +22,11 @@
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-     <span class="sr-only">Previous</span>
+     <span class="sr-only">{{ 'BUTTONS.PREV' | translate }}</span>
    </a>
    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-     <span class="sr-only">Next</span>
+     <span class="sr-only">{{ 'BUTTONS.NEXT' | translate }}</span>
    </a>
  </div>
  <!-- End of Offer Images-->
@@ -40,39 +40,40 @@
   <span class="text-lead text-poiret description"><blockquote class="text-justify">{{productDescription}}</blockquote></span>
 </div>
 <div class="row">
-  <label class="text-heading mx-2">Original Price:</label>
-  <span class="text-lead text-poiret price">Rs. {{productOriginalPrice}}</span>
-  <label class="text-heading mx-2 ml-5">Discount</label>
-  <span class="text-lead text-poiret">{{productDiscount}}%</span>
+  <label class="text-heading mx-2">{{ 'PRODUCT-PAGE.ORIGINAL' | translate }}</label>
+  <span class="text-lead text-poiret price">{{ 'HOMEPAGE.PRODUCT-LIST.RS' | translate }} {{productOriginalPrice}}</span>
+  <label class="text-heading mx-2 ml-5">{{ 'PRODUCT-PAGE.DISCOUNT' | translate }}</label>
+  <span class="text-lead text-poiret">{{productDiscount}}{{ 'PRODUCT-PAGE.PER' | translate }}</span>
 </div>
 <div class="row">
-  <label class="text-heading mx-1">Seller Name: </label>
-  <span class="vendor mx-1" [routerLink]="['/', 'vendorInfo',this.productSeller]" > {{productSeller}}</span>
+  <label class="text-heading mx-1">{{ 'PRODUCT-PAGE.SELLER' | translate }}</label>
+  <span class="vendor mx-1" [routerLink]="['/', 'vendorInfo',this.productSeller]" > {{shop}}</span>
 </div>
 <div class="row">
-  <label class="text-heading">Validity: </label>
+  <label class="text-heading">{{ 'PRODUCT-PAGE.VALIDITY' | translate }}</label>
   <span class="text-lead text-poiret">{{productValidity | date}}</span>
 </div>
 <div *ngIf="user">
  <div class="row">
   <!-- Button to add to wishlist-->
-  <input class="btn btn-primary col-3 mx-3 btn-add" (click)="addToWishlist(offer)" type="button" value="Add to Wishlist">
+  <input class="btn btn-primary col-3 mx-3 btn-add" (click)="addToWishlist(offer)" type="button" value="{{ 'BUTTONS.WISHLIST' | translate }}">
   <!-- End of button to add to widhlist-->
 
   <!-- Button to add to carrybag-->
-  <input class="btn btn-primary col-3 mx-3 btn-add" (click)="addToCarrybag(offer)" type="button" value="Add to Carrybag">
+  <input class="btn btn-primary col-3 mx-3 btn-add" (click)="addToCarrybag(offer)" type="button" value="{{ 'BUTTONS.CARRYBAG' | translate }}">
   <!-- End of button to add to carrybag-->
 </div>
 </div>
+
 <div *ngIf="!user">
  <!-- <div class="container-fluid mt-1 mb-3"> -->
  <div class="row">
    <!-- Button to add to wishlist-->
-   <input class="btn btn-primary col-3 mx-3 btn-add" [routerLink]="['/login']" type="button" value="Add to Wishlist">
+   <input class="btn btn-primary col-3 mx-3 btn-add" [routerLink]="['/login']" type="button" value="{{ 'BUTTONS.WISHLIST' | translate }}">
    <!-- End of button to add to widhlist-->
 
    <!-- Button to add to carrybag-->
-   <input class="btn btn-primary col-3 mx-3 btn-add" [routerLink]="['/login']" type="button" value="Add to Carrybag">
+   <input class="btn btn-primary col-3 mx-3 btn-add" [routerLink]="['/login']" type="button" value="{{ 'BUTTONS.CARRYBAG' | translate }}">
    <!-- End of button to add to carrybag-->
  </div>
  <!-- </div> -->
@@ -84,31 +85,31 @@
 </div>
 </div>
 
-      
+
 <!-- related products
--->
+
 <div class="divbody">
   <div id="carouselExampleControls1" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active"> <!-- *ngFor="let i of arr | slice:0:3" -->
+      <div class="carousel-item active"> <!-- *ngFor="let i of arr | slice:0:3" 
         <div class="py-5">
           <div class="container">
-            <div class=corousel_title>Customers who bought this item also bought</div>
+            <div class=corousel_title>{{ 'PRODUCT-PAGE.ALSO-BUY' | translate }}</div>
             <div class="row">
-              <div class="col-md-3" *ngIf="relatedProducts[0]"><!--  *ngFor="let product of relatedProducts | slice:0:3" -->
+              <div class="col-md-3" *ngIf="relatedProducts[0]"><!--  *ngFor="let product of relatedProducts | slice:0:3" 
                 <a [routerLink]="['/', 'product',relatedProducts[0].userId,relatedProducts[0].offerId]">
                   <div class="card">
                     <div class="textWithblurredImage">
-                      <img class="card-img-top" src="../../assets/related_products/ts3.jpg" alt="Card image cap">
+                      <img class="card-img-top" src="../../../assets/card.jpeg" alt="Card image cap">
                       <div class="para">Offer Description</div>
                     </div>
                     <div class="card-body">
                     </div>
                   </div>
                 </a>
-                <b>{{relatedProducts[0].offerTitle}}</b><br> 
+                <b>{{relatedProducts[0].offerTitle}}</b><br>
                 Rs.{{relatedProducts[0].originalPrice}}
-                <br> 
+                <br>
               </div>
               <div class="col-md-3" *ngIf="relatedProducts[1]">
                 <a [routerLink]="['/', 'product',relatedProducts[1].userId,relatedProducts[1].offerId]">
@@ -121,7 +122,7 @@
                     </div>
                   </div>
                 </a>
-                <b>{{relatedProducts[1].offerTitle}}</b><br> 
+                <b>{{relatedProducts[1].offerTitle}}</b><br>
                 Rs.{{relatedProducts[1].originalPrice}}
               </div>
               <div class="col-md-3" *ngIf="relatedProducts[2]">
@@ -136,10 +137,10 @@
                   </div>
                 </div>
               </a>
-              <b>{{relatedProducts[2].offerTitle}}</b><br> 
+              <b>{{relatedProducts[2].offerTitle}}</b><br>
               Rs.{{relatedProducts[2].originalPrice}}
-              <br> 
-            </div>        
+              <br>
+            </div>
             <div class="col-md-3" *ngIf="relatedProducts[3]">
               <a [routerLink]="['/', 'product',relatedProducts[3].userId,relatedProducts[3].offerId]">
                 <div class="card">
@@ -151,9 +152,9 @@
                   </div>
                 </div>
               </a>
-              <b>{{relatedProducts[3].offerTitle}}</b><br> 
+              <b>{{relatedProducts[3].offerTitle}}</b><br>
               Rs.{{relatedProducts[3].originalPrice}}
-              <br> 
+              <br>
             </div>
           </div>
         </div>
@@ -176,9 +177,9 @@
                   </div>
                 </div>
               </a>
-              <b>{{relatedProducts[4].offerTitle}}</b><br> 
+              <b>{{relatedProducts[4].offerTitle}}</b><br>
               Rs.{{relatedProducts[4].originalPrice}}
-              <br> 
+              <br>
             </div>
             <div class="col-md-3" *ngIf="relatedProducts[5]">
               <a [routerLink]="['/', 'product',relatedProducts[5].userId,relatedProducts[5].offerId]">
@@ -191,9 +192,9 @@
                   </div>
                 </div>
               </a>
-              <b>{{relatedProducts[5].offerTitle}}</b><br> 
+              <b>{{relatedProducts[5].offerTitle}}</b><br>
               Rs.{{relatedProducts[5].originalPrice}}
-              <br> 
+              <br>
             </div>
             <div class="col-md-3" *ngIf="relatedProducts[6]">
               <a [routerLink]="['/', 'product',relatedProducts[6].userId,relatedProducts[6].offerId]">
@@ -206,9 +207,9 @@
                   </div>
                 </div>
               </a>
-              <b>{{relatedProducts[6].offerTitle}}</b><br> 
+              <b>{{relatedProducts[6].offerTitle}}</b><br>
               Rs.{{relatedProducts[6].originalPrice}}
-              <br> 
+              <br>
             </div>
             <div class="col-md-3" *ngIf="relatedProducts[7]">
               <a [routerLink]="['/', 'product',relatedProducts[7].userId,relatedProducts[7].offerId]">
@@ -221,9 +222,9 @@
                   </div>
                 </div>
               </a>
-              <b>{{relatedProducts[7].offerTitle}}</b><br> 
+              <b>{{relatedProducts[7].offerTitle}}</b><br>
               Rs.{{relatedProducts[7].originalPrice}}
-              <br> 
+              <br>
             </div>
           </div>
         </div>
@@ -246,9 +247,9 @@
                   </div>
                 </div>
               </a>
-              <b>{{relatedProducts[8].offerTitle}}</b><br> 
+              <b>{{relatedProducts[8].offerTitle}}</b><br>
               Rs.{{relatedProducts[8].originalPrice}}
-              <br> 
+              <br>
             </div>
             <div class="col-md-3" *ngIf="relatedProducts[9]">
               <a [routerLink]="['/', 'product',relatedProducts[9].userId,relatedProducts[9].offerId]">
@@ -261,9 +262,9 @@
                   </div>
                 </div>
               </a>
-              <b>{{relatedProducts[9].offerTitle}}</b><br> 
+              <b>{{relatedProducts[9].offerTitle}}</b><br>
               Rs.{{relatedProducts[9].originalPrice}}
-              <br> 
+              <br>
             </div>
             <div class="col-md-3" *ngIf="relatedProducts[10]">
               <a [routerLink]="['/', 'product',relatedProducts[10].userId,relatedProducts[10].offerId]">
@@ -276,7 +277,7 @@
                   </div>
                 </div>
               </a>
-              <b>{{relatedProducts[10].offerTitle}}</b><br> 
+              <b>{{relatedProducts[10].offerTitle}}</b><br>
               Rs.{{relatedProducts[10].originalPrice}}
               <br>
             </div>
@@ -291,7 +292,7 @@
                   </div>
                 </div>
               </a>
-              <b>{{relatedProducts[11].offerTitle}}</b><br> 
+              <b>{{relatedProducts[11].offerTitle}}</b><br>
               Rs.{{relatedProducts[11].originalPrice}}
               <br>
             </div>
@@ -311,3 +312,4 @@
 </div>
 
 </div>
+-->

@@ -4,7 +4,7 @@
       {{productPrice(offer.originalPrice,offer.discount)}}
       <div class="card card-w text-dark m-5" [routerLink]="['/', 'product',offer.userId,offer.offerId]">
         <div class="card-img-overlay">
-          <span class="badge badge-pill badge-info card-discount p-3">{{offer.discount}}% OFF</span>
+          <span class="badge badge-pill badge-info card-discount p-3">{{offer.discount}}{{ 'HOMEPAGE.PRODUCT-HEADER.OFF' | translate }}</span>
         </div>
         <img class="card-img card-w" src="../../../../assets/card.jpeg" alt="Card image">
         <div class="card-body card-data">
@@ -13,7 +13,7 @@
               <span class="card-heading">{{offer.offerTitle}}</span>
             </div>
             <div class="col-12">
-              <span class="card-price">₹<del>{{offer.originalPrice}}</del></span>
+              <span class="card-price">{{ 'HOMEPAGE.PRODUCT-LIST.RS' | translate }}<del>{{offer.originalPrice}}</del></span>
               <span class="card-discounted-price">{{priceAfterDiscount}}</span>
             </div>
           </div>
@@ -23,5 +23,5 @@
   </div>
 </div>
 <ng-template #noDeal>
-    Sorry... No deal at your location  
+  {{ 'HOMEPAGE.PRODUCT-HEADER.OFF' | translate }}
 </ng-template>

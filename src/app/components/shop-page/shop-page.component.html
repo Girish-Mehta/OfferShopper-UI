@@ -1,73 +1,61 @@
 <!-- search bar   -->
 <app-search-bar></app-search-bar>
-
-
 <!-- results component being called -->
 <div class="container-fluid">
   <div class="row ml-1" *ngIf="category; else notSearched">
     <div class="col-2">
       <!-- dropdown for sorting -->
-
       <div class="dropdown" *ngIf="results.length">
         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Sorting
+          {{ 'SHOP-PAGE.FILTERS.TITLE' | translate }}
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-
-          <a class="dropdown-item" (click)="sortBy('priceHL')">Price(Highest->Lowest)</a>
-          <a class="dropdown-item" (click)="sortBy('priceLH')">Price(Lowest->Highest)</a>
-
-          <a class="dropdown-item" (click)="sortBy('discountHL')">Discount(Highest->Lowest)</a>
-          <a class="dropdown-item" (click)="sortBy('discountLH')">Discount(Lowest->Highest)</a>
-
+          <a class="dropdown-item" (click)="sortBy('priceHL')">{{ 'SHOP-PAGE.SORTING.PRICE-HIGH' | translate }}</a>
+          <a class="dropdown-item" (click)="sortBy('priceLH')">{{ 'SHOP-PAGE.SORTING.PRICE-LOW' | translate }}</a>
+          <a class="dropdown-item" (click)="sortBy('discountHL')">{{ 'SHOP-PAGE.SORTING.DISCOUNT-HIGH' | translate }}</a>
+          <a class="dropdown-item" (click)="sortBy('discountLH')">{{ 'SHOP-PAGE.SORTING.DISCOUNT-LOW' | translate }}</a>
         </div>
       </div>
       <br>
       <!-- end -->
-
       <!-- filters -->
-
       <!-- discount filter -->
-
       <div *ngIf="results.length">
-      <h5>Filter discounts</h5>
-      <ion-range-slider #sliderElement
-      type="double"
-      max="100"
-      min="0"
-      from="0"
-      from_min="0"
-      from_max="90"
-      from_shadow="true"
-      to="100"
-      to_min="10"
-      to_max="100"
-      to_shadow="true"
-      grid="true"
-      grid_num="10"
-      prefix="Discount: "
-      postfix="%"
-      decorate_both="false"
-      (onFinish)="onFinish($event)">
-    </ion-range-slider>
+        <h5>{{ 'SHOP-PAGE.FILTER' | translate }}</h5>
+        <ion-range-slider #sliderElement
+        type="double"
+        max="100"
+        min="0"
+        from="0"
+        from_min="0"
+        from_max="90"
+        from_shadow="true"
+        to="100"
+        to_min="10"
+        to_max="100"
+        to_shadow="true"
+        grid="true"
+        grid_num="10"
+        prefix="Discount: "
+        postfix="%"
+        decorate_both="false"
+        (onFinish)="onFinish($event)">
+        </ion-range-slider>
+      </div>
+      <!-- end -->
     </div>
-    <!-- end -->
-
+    <div class="col-10" >
+      <app-seach-results  [results]="filteredResults"></app-seach-results>
+    </div>
   </div>
-  <div class="col-10" >
-    <app-seach-results  [results]="filteredResults"></app-seach-results>
-  </div>
-</div>
-
-
-<ng-template #notSearched>
-  <div>
-    <ul>
-      <li *ngFor="let vendor of vendorsByCity">
+  <ng-template #notSearched>
+    <div *ngIf="vendorsByCity; else noVendor">
+      <div *ngFor="let vendor of vendorsByCity">
         {{vendor.email}}
-      </li>
-    </ul>
-
-  </div>
-</ng-template>
+      </div>
+    </div>
+    <ng-template #noVendor>
+     {{ 'SHOP-PAGE.NO-VENDOR' | translate }}
+    </ng-template>
+  </ng-template>
 </div>

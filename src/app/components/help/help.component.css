@@ -1,3 +1,4 @@
+/*CSS for screens greater than 768px*/
 @media (min-width: 768px) {
 	.help-sidebar {
 		position: fixed;
@@ -9,16 +10,20 @@
 		margin-left: 270px;
 	}
 
+	/*active class will be used if url matches with given condition in ngClass*/
 	.active {
 		border: 1px solid #018b8b;
-		/*padding-left: 10px;
-		padding-right: 10px;*/
-		padding-top: 5px;
-		padding-bottom: 5px;
 		width: 210px;
+	}
+
+	/*inactive class will be used if url matches with given condition in ngClass*/
+	.inactive {
+		border-bottom: 1px solid lightgrey;
 	}
 }
 
+
+/*To style the cursor when cursor is hover list*/
 .help-sidebar li {
 	cursor: pointer;
 }

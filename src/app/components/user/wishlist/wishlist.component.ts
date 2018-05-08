@@ -11,6 +11,11 @@ import { MessageService } from './../../../services/message.service';
 })
 export class WishlistComponent implements OnInit {
 
+
+  private priceAfterDiscount: any;
+  private wishlistOffers=[];
+  private userId: string;
+
   constructor(
     private wishlistService: WishlistService,
     private authorizationService: AuthorizationService,
@@ -18,41 +23,47 @@ export class WishlistComponent implements OnInit {
     private _vcr: ViewContainerRef
     ) { }
 
-  priceAfterDiscount: any;
+  
 
   ngOnInit() {
     this.getUserId();
   }
-  public wishlistOffers=[];
-  public userInfo;
-  public userId;
 
+  //method to calculate offer price after discount
   productPrice(offerOriginalPrice,offerDiscount){
-  	this.priceAfterDiscount = (offerOriginalPrice)*(1-(offerDiscount)/100);
+  	this.priceAfterDiscount = Number((offerOriginalPrice)*(1-(offerDiscount)/100)).toFixed(2);
   }
+
+  //method to get user's ID from authorization service
   getUserId() {
     this.authorizationService.getUserId().subscribe((res) =>{
-      this.userInfo = res.text().split(',');
-      this.userId = this.userInfo[2];
+      this.userId = (res.text().split(','))[2];
       this.getWishlist();
     }, (error) =>{
-      console.log(error);
+      this.messageService.showErrorToast(this._vcr,error);
     })
   }
+
+  //method to get array of wishlist offers from wishlist service
   getWishlist() {
     this.wishlistService.getWishlist(this.userId).subscribe((res) =>{
       this.wishlistOffers = res;
       console.log(this.wishlistOffers);
     }, (error) =>{
+      this.messageService.showErrorToast(this._vcr,"Please try after sometime");
     })
   }
+
+  //method to delete offer from wishlist
   deleteOffer(offerId,userId){
+    //calling message service to confirm if user wants to delete offer
     this.messageService.deleteConfirmation(()=>
       this.wishlistService.deleteRestaurant(offerId,userId).subscribe((res) =>{
         this.messageService.showSuccessToast(this._vcr,"Deleted");
         this.getWishlist();
       }, (error) =>{
-        alert(error + "deleting restaurant does not works");
+        this.messageService.showErrorToast(this._vcr,"Please try again");
       }));
   }
+
 }

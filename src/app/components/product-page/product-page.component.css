@@ -4,6 +4,7 @@
 	height: 120%;
 	width: 100%;
 }
+
 #previewimage
 {
 	padding: 10px;
@@ -38,7 +39,7 @@ img {
 }
 
 .btn-add {
-	background:black;
+	background:#018b8b;
 	color:white;
 	border:none;
 }
@@ -50,27 +51,34 @@ img {
 
 .divbody{
   background-color: white;
-  }
+}
 
-  .card {
-  position: relative;
-  height: 41.8vh;
+.card {
+	position: relative;
+	height: 41.8vh;
   display: flex;
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.0rem; }
-  .card > hr {
+  border-radius: 0.0rem;
+}
+
+.card > hr {
     margin-right: 0;
-    margin-left: 0; }
-  .card > .list-group:first-child .list-group-item:first-child {
+    margin-left: 0;
+}
+
+.card > .list-group:first-child .list-group-item:first-child {
     border-top-left-radius: 0.25rem;
-    border-top-right-radius: 0.25rem; }
-  .card > .list-group:last-child .list-group-item:last-child {
+    border-top-right-radius: 0.25rem;
+}
+
+.card > .list-group:last-child .list-group-item:last-child {
     border-bottom-right-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem; }
+    border-bottom-left-radius: 0.25rem;
+}
 
 .card-body {
   flex: 1 1 auto;
@@ -88,8 +96,8 @@ img {
 
 .card-img-top {
   width: 100%;
-  height: auto; 
-  border-radius: 0.25rem; 
+  height: auto;
+  border-radius: 0.25rem;
   transition: .3s;
   border-top-left-radius: calc(0.25rem - 1px);
   border-top-right-radius: calc(0.25rem - 1px);
@@ -99,14 +107,6 @@ img {
   width: 100%;
   border-bottom-right-radius: calc(0.25rem - 1px);
   border-bottom-left-radius: calc(0.25rem - 1px); }
-.textWithblurredImage {
-  
-}
-/*.textWithblurredImage :img{
-  width: 100%;
-  border-radius: .25rem;
-  transition: .3s;
-}*/
 
 .textWithblurredImage :not(img){
   position: absolute;
@@ -128,15 +128,17 @@ img {
 .textWithblurredImage:hover :not(img){
   opacity:1;
 }
+
 .corousel_title{
   color: orange;
   font-size: 1.5em;
 }
+
 #b0,#b1,#b2,#b3,#b4,#b5,#b6,#b7,#b8,#b9,#b10,#b11{
-    color: black; 
+    color: black;
     width: 50%;
     height: 2.2em;
-    top: 55%; 
+    top: 55%;
     align-self: center;
     background-color: #ddd;
     border-radius: 2em;

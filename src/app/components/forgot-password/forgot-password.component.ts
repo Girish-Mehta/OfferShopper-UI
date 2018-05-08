@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, ViewContainerRef } from '@angular/core';
-import { MessageService } from '../../services/message.service';
 import { FormGroup, FormControl, Validators,FormBuilder } from '@angular/forms';
 import { ForgotPasswordService } from '../../services/forgot-password.service';
+import { MessageService } from '../../services/message.service';
 
 @Component({
   selector: 'app-forgot-password',

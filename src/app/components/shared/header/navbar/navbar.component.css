@@ -61,10 +61,6 @@ div a:hover {
   margin-top:10px;
 }
 
-.header-shadow {
-  margin-left: -5px;
-  box-shadow: 10px 0px 3px black;
-}
 
 .text-pride {
     color: #fd4747;
@@ -98,7 +94,7 @@ div a:hover {
   color: white;
 }
 
-@media (max-width: 576px) { 
+@media (max-width: 576px) {
     .logo {
         font-size: 1rem;
     }

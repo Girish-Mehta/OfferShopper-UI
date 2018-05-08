@@ -1,28 +1,33 @@
-
+<!-- wishlist header -->
 <div class="wishlist-header">
   <img src="../../../../../assets/wishcart_jumbo.png" class="img-fluid">
   <div class="wishlist-header-content d-flex align-items-center justify-content-center">
-    WISHLIST
+    {{ 'USER.WISHLIST' | translate }}WISHLIST
   </div>
 </div>
+<!-- wishlist header ended -->
+<!-- display wishlist offers -->
 <div class="wishlist-offer">
+  <!-- if wishlist have offers then display -->
   <div *ngIf="wishlistOffers.length">
     <div class="container mb-2 description-container">
       <div class="row">
         <div class="col-md-3 col-sm-4 col-6">
         </div>
         <div class="col-md-5 col-sm-4 col-6 d-none d-sm-block text-left">
-          <b>PRODUCT</b>
+          <b>{{ 'USER.CARRYBAG-COMP.PRODUCT' | translate }}PRODUCT</b>
         </div>
         <div class="col-md-2 col-sm-4 d-none d-sm-block">
-          <b>PRICE</b>
+          <b>{{ 'USER.CARRYBAG-COMP.PRICE' | translate }}PRICE</b>
         </div>
         <div class="col-md-2 d-none d-md-block text-center">
-          <b>VALIDITY</b>
+          <b>{{ 'USER.CARRYBAG-COMP.VALIDITY' | translate }}VALIDITY</b>
         </div>
       </div>
     </div>
+    <!-- iterating through wishlistOffers array to print wishlist offers -->
     <div *ngFor=" let offerList of wishlistOffers">
+      <!-- calling function in ts file to calculate offer price after discount -->
       {{productPrice(offerList.offerOriginalPrice,offerList.offerDiscount)}}
       <div class="container mb-1">
         <div class="row offer border show-offer-border">
@@ -37,29 +42,31 @@
           <div class="col-md-5 col-sm-4 mt-4 pl-2 col-6 d-block d-sm-none">
             <button class="btn btn-success" [routerLink]="['/', 'vendorInfo',offerList.userId]" ><b>{{offerList.offerTitle}}</b></button>
             <br/>
-            <div class="offer-deleted-price-small">MRP:<del>₹{{offerList.offerOriginalPrice}}</del></div>
-            ₹{{priceAfterDiscount}}       
+            <div class="offer-deleted-price-small">{{ 'HOMEPAGE.PRODUCT-LIST.MRP' | translate }}<del>{{ 'HOMEPAGE.PRODUCT-LIST.RS' | translate }}{{offerList.offerOriginalPrice}}</del></div>
+            {{ 'HOMEPAGE.PRODUCT-LIST.RS' | translate }}{{priceAfterDiscount}}       
             <div class="offer-discount-small d-block d-sm-none border border-danger rounded px-2">
-              {{offerList.offerDiscount}}% OFF
+              {{offerList.offerDiscount}}{{ 'HOMEPAGE.PRODUCT-HEADER.OFF' | translate }}
             </div>
           </div>
           <div class="col-md-2 col-sm-4 d-none d-sm-block offer-center">
             <dl>
-              <dd class="offer-discount-large">{{offerList.offerDiscount}}% off</dd>
-              <dd><div class="text-before-del-large">MRP:</div><del>₹{{offerList.offerOriginalPrice}}</del>  ₹{{priceAfterDiscount}}</dd>
+              <dd class="offer-discount-large">{{offerList.offerDiscount}}{{ 'HOMEPAGE.PRODUCT-HEADER.OFF' | translate }}</dd>
+              <dd><div class="text-before-del-large">{{ 'HOMEPAGE.PRODUCT-LIST.MRP' | translate }}</div><del>{{ 'HOMEPAGE.PRODUCT-LIST.RS' | translate }}{{offerList.offerOriginalPrice}}</del>{{ 'HOMEPAGE.PRODUCT-LIST.RS' | translate }}{{priceAfterDiscount}}</dd>
               <dd></dd>
             </dl>
           </div>
           <div class="col-md-2 d-none d-md-block offer-center">
             {{offerList.offerValidity| date}}
           </div>
-          <button class="btn btn-dark my-2 my-sm-0 container-button d-none d-md-block" type="button" (click)="deleteOffer(offerList.offerId,offerList.userId)"><i class="fas fa-trash-alt"></i> Delete</button>
+          <!-- button to delete wishlist offer -->
+          <button class="btn btn-dark my-2 my-sm-0 container-button d-none d-md-block" type="button" (click)="deleteOffer(offerList.offerId,offerList.userId)"><i class="fas fa-trash-alt"></i> {{ 'BUTTONS.DELETE' | translate }}</button>
           <button class="btn btn-dark my-2 my-sm-0 container-button-small d-block d-sm-none" type="button" (click)="deleteOffer(offerList.offerId,offerList.userId)"><i class="fas fa-trash-alt"></i></button>
         </div>
       </div>
     </div>
   </div>
+  <!-- if wishlist is empty -->
   <div *ngIf="!wishlistOffers.length" class="d-flex justify-content-center">
-    <h1>Wishlist Empty</h1>
+    <h1>{{ 'USER.EMPTY' | translate }}</h1>
   </div>
 </div>

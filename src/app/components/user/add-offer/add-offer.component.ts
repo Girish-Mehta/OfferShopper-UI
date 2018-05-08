@@ -15,7 +15,7 @@ export class AddOfferComponent implements OnInit {
 	offerId:String ;
 	userId: String ;
 	dateOfAnnouncement:any;
-	offerCategories:String;
+	offerCategories:String="Select Category";
 	offerValidity:any;
 	discount:any;
 	keywords:String;
@@ -50,7 +50,6 @@ export class AddOfferComponent implements OnInit {
 	ngOnInit()
 	{
 		this.getUserId();
-
 	}
 
 
@@ -75,7 +74,7 @@ export class AddOfferComponent implements OnInit {
 	})
 	}
 
-	deleteOffer(offerId){
+	deleteOffer(offerId) {
 		this.messageService.deleteConfirmation(()=>
 			this.addOfferService.deleteOffer(offerId).subscribe((res) =>{
 				this.messageService.showSuccessToast(this._vcr,"Deleted");
@@ -144,7 +143,7 @@ export class AddOfferComponent implements OnInit {
 
 	}
 
-	getOffer(){
+	getOffer() {
 		this.addOfferService.getShopAddress(this.userId).subscribe((res) =>{
 			this.shopAddress=res.shopAddress;
 			debugger
@@ -195,9 +194,7 @@ export class AddOfferComponent implements OnInit {
 
 		let time = "T"+hours+":"+minutes+":"+seconds;
 		let datetime = year+"-"+month+"-"+day+time;
-		//2014-01-01T10:10:30
-		console.log("Validity"+this.offerValidity+time);
-		console.log("Announcement"+datetime);
+		
 		this.obj={
 			"userId"  :this.userId,
 			"offerTitle" :this.offerTitle,

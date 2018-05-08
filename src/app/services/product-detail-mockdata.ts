@@ -463,3 +463,198 @@ export const PRODUCTS_OF_A_VENDOR=[
 	"imageURL": null
 }
 ]
+
+export const NEG_PRODUCTS_OF_A_VENDOR=[
+{
+	"offerId": "5ae85e41eb97b43d97258b62",
+	"userId": "megha@gmail.com",
+	"offerTitle": "Formal Shirt",
+	"offerValidity": "2018-04-24T10:04:31.66",
+	"address": {
+		"name": "Only for You",
+		"number": null,
+		"street": "Sector 21",
+		"city": "Gurgaon",
+		"state": "Harayana",
+		"zipCode": 122016
+	},
+	"offerDescription": "Purple solid formal shirt, has a spread collar, button placket, 1 pocket, long sleeves, curved hem Material & Care Cotton and polyester Machine-wash ",
+	"originalPrice": 995,
+	"discount": 40,
+	"offerRating": 4.5,
+	"offerCategories": null,
+	"offerTerms": "30 days return policy",
+	"keywords": "Purple solid formal,  spread collar,  1 pocket",
+	"imageURL": "image_url"
+},
+{
+	"offerId": "5ae87704eb97b43d9725be2b",
+	"userId": "megha@gmail.com",
+	"offerTitle": "Informal Shirt",
+	"offerValidity": "2018-04-24T10:04:31.66",
+	"dateOfAnnouncement": "2018-04-24T10:04:31.66",
+	"address": {
+		"name": "Only for You",
+		"number": null,
+		"street": "Sector 21",
+		"city": "Gurgaon",
+		"state": "Harayana",
+		"zipCode": 122016
+	},
+	"offerDescription": "Purple solid formal shirt, has a spread collar, button placket, 1 pocket, long sleeves, curved hem Material & Care Cotton and polyester Machine-wash ",
+	"originalPrice": 995,
+	"discount": 40,
+	"offerRating": 4.5,
+	"offerCategories": "Clothing",
+	"offerTerms": "30 days return policy",
+	"keywords": "Purple solid formal,  spread collar,  1 pocket",
+	"imageURL": "Solid Formal Shirt"
+},
+{
+	"offerId": "5aea94d0ee9f6508c77be6d4",
+	"userId": "megha@gmail.com",
+	"offerTitle": "vc",
+	"offerValidity": "2018-12-31T10:20:14",
+	"dateOfAnnouncement": "2018-04-24T10:04:31.66",
+	"address": {
+		"name": "Megha Cafe",
+		"number": "874",
+		"street": "garhi cantt",
+		"city": "Dehradun",
+		"state": "Uttarakhand",
+		"zipCode": 248003
+	},
+	"offerDescription": "vc",
+	"originalPrice": 3,
+	"discount": 3,
+	"offerRating": 0,
+	"offerCategories": "vc",
+	"offerTerms": "vc",
+	"keywords": "vc",
+	"imageURL": null
+},
+{
+	"offerId": "5aea95b3ee9f6508c77be6d6",
+	"userId": "megha@gmail.com",
+	"offerTitle": "gb",
+	"offerValidity": "2018-12-31T10:24:01",
+	"dateOfAnnouncement": "2018-04-24T10:04:31.66",
+	"address": {
+		"name": "Megha Cafe",
+		"number": "874",
+		"street": "garhi cantt",
+		"city": "Dehradun",
+		"state": "Uttarakhand",
+		"zipCode": 248003
+	},
+	"offerDescription": "gb",
+	"originalPrice": 3,
+	"discount": 3,
+	"offerRating": 0,
+	"offerCategories": "gb",
+	"offerTerms": "gb",
+	"keywords": "gb",
+	"imageURL": null
+},
+{
+	"offerId": "5aebdc7b80aff11139e76059",
+	"userId": "megha@gmail.com",
+	"offerTitle": "bin",
+	"offerValidity": "2019-02-02T09:35:36",
+	"dateOfAnnouncement": "2014-01-01T10:10:30",
+	"address": {
+		"name": "Megha Cafe",
+		"number": "874",
+		"street": "garhi cantt",
+		"city": "Dehradun",
+		"state": "Uttarakhand",
+		"zipCode": 248003
+	},
+	"offerDescription": "bin",
+	"originalPrice": 10254,
+	"discount": 10,
+	"offerRating": 0,
+	"offerCategories": "Bin",
+	"offerTerms": "bin",
+	"keywords": "bin",
+	"imageURL": null
+},
+{
+	"offerId": "5aebdd2280aff11139e7605b",
+	"userId": "megha@gmail.com",
+	"offerTitle": "bin02",
+	"offerValidity": "2019-02-02T09:38:28",
+	"dateOfAnnouncement": "2014-01-01T10:10:30",
+	"address": {
+		"name": "Megha Cafe",
+		"number": "874",
+		"street": "garhi cantt",
+		"city": "Dehradun",
+		"state": "Uttarakhand",
+		"zipCode": 248003
+	},
+	"offerDescription": "bin",
+	"originalPrice": 10254,
+	"discount": 105,
+	"offerRating": 0,
+	"offerCategories": "Bin",
+	"offerTerms": "bin",
+	"keywords": "bin",
+	"imageURL": null
+},
+{
+	"offerId": "5aebdd3880aff11139e7605d",
+	"userId": "megha@gmail.com",
+	"offerTitle": "bin03",
+	"offerValidity": "2019-02-02T09:38:50",
+	"dateOfAnnouncement": "2014-01-01T10:10:30",
+	"address": {
+		"name": "Megha Cafe",
+		"number": "874",
+		"street": "garhi cantt",
+		"city": "Dehradun",
+		"state": "Uttarakhand",
+		"zipCode": 248003
+	},
+	"offerDescription": "bin",
+	"originalPrice": 10254,
+	"discount": 105,
+	"offerRating": 0,
+	"offerCategories": "Bin",
+	"offerTerms": "bin",
+	"keywords": "bin",
+	"imageURL": null
+},
+{
+	"offerId": "5aec1b1b80aff11139e76061",
+	"userId": "megha@gmail.com",
+	"offerTitle": "bin03",
+	"offerValidity": "2019-02-02T14:02:47",
+	"dateOfAnnouncement": "2018-04-04T14:02:47",
+	"address": null,
+	"offerDescription": "bin",
+	"originalPrice": 1234,
+	"discount": 12,
+	"offerRating": 0,
+	"offerCategories": "bin",
+	"offerTerms": "bin",
+	"keywords": "bin",
+	"imageURL": null
+},
+{
+	"offerId": "5aec268180aff11139e76063",
+	"userId": "megha@gmail.com",
+	"offerTitle": "base",
+	"offerValidity": "2018-01-01T14:54:08",
+	"dateOfAnnouncement": "2018-04-04T14:54:08",
+	"address": null,
+	"offerDescription": "sdaf",
+	"originalPrice": 3,
+	"discount": 5,
+	"offerRating": 0,
+	"offerCategories": "gt",
+	"offerTerms": "woisnf",
+	"keywords": "damn",
+	"imageURL": null
+}
+]

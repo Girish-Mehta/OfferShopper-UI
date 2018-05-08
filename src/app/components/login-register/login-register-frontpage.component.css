@@ -7,15 +7,15 @@
 h1{
 	font-size: 35px;
 }
-}
-
 .cardPadding{
-padding: 4.5rem;
-}
-
-.loginContainer{
-	min-width: 320px;
-	min-height: 500px;
+	padding: 1.5rem;
+	}
+	
+	.loginContainer{
+		min-width: 0px;
+		min-height: 500px;
+	}
+	
 }
 
 @media only screen and (max-width: 367px){
@@ -42,6 +42,15 @@ label,a{
 	color:#bd2121;
 }
 
+.cardPadding{
+	padding: 4.5rem;
+}
+
+.loginContainer{
+	min-width: 320px;
+	min-height: 500px;
+}
+
 }
 
 .btn-submit {
@@ -53,3 +62,4 @@ label,a{
 	background-color: #018b8b;
 	border-color: #018b8b;
 }
+

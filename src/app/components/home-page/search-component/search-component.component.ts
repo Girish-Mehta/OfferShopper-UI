@@ -1,10 +1,10 @@
 
 import { Component, OnInit, Output, EventEmitter,ViewContainerRef } from '@angular/core';
-import { SearchService } from '../../../services/search.service';
 import { Subject } from 'rxjs/Subject';
 import { AuthorizationService } from '../../../services/authorization.service';
 import { MessageService } from '../../../services/message.service';
 import { CarrybagService } from '../../../services/carrybag.service';
+import { SearchService } from '../../../services/search.service';
 
 //for routing to different pages
 import { Router } from '@angular/router';

@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { States } from '../../../configs/state.config';
 import { Cities } from '../../../configs/cities.config';
 import { MessageService } from './../../../services/message.service';
+import { StateCityJson } from '../../../configs/state-city-json.config';
 
 @Component({
   selector: 'app-userdetails',
@@ -21,8 +22,11 @@ export class UserdetailsComponent implements OnInit {
     private messageService: MessageService,
     private _vcr: ViewContainerRef
     ) { }
+
+  homeCities = [];
+  shopCities = [];
+
   states= States.states;
-  cities=Cities.citiesName;
   data:any;
   firstName:string;
   lastName:string;
@@ -175,4 +179,15 @@ export class UserdetailsComponent implements OnInit {
     this.shopCity =  this.city;
   }
 
+  showRelevantCitiesHome(state) {
+    this.homeCities = StateCityJson.stateCityJson[state];
+    this.city = "Please select a city";
+
+  }
+
+  showRelevantCitiesShop(state) {
+    this.shopCities = StateCityJson.stateCityJson[state];
+    this.shopCity = "Please select a city";
+  }
+  
 }

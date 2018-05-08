@@ -1,12 +1,13 @@
 <div class="container mt-5 mb-5" *ngIf="offers">
   <div class="row mb-5">
+    <!-- Offer list-->
     <div class="col-lg-4 col-md-6 card-group mb-3" *ngFor="let offer of offers">
       {{productPrice(offer.originalPrice,offer.discount)}}
       <div class="card" [routerLink]="['/', 'product',offer.userId,offer.offerId]">
           <div class="card-img">
             <img class="card-img-top" src="../../../../assets/opentable-scenic-restaurants.jpg" alt="Card image cap">
             <div class="card-rating bg-white border-bottom px-2 py-1">
-              Rating <span>|</span> {{offer.offerRating}}
+              {{ 'HOMEPAGE.PRODUCT-LIST.RATING' | translate }} <span>|</span> {{offer.offerRating}}
             </div>
           </div>
           <div class="card-body">
@@ -14,12 +15,12 @@
             <p class="card-text text-lead ">
               <span class="border border-danger rounded px-2 py-1 mb-3">{{offer.discount}}% off</span>
               <br/>
-              <span class="offer-deleted-price">MRP:<del>₹{{offer.originalPrice}}</del></span>
-              <span>₹{{priceAfterDiscount}}</span>
+              <span class="offer-deleted-price">{{ 'HOMEPAGE.PRODUCT-LIST.MRP' | translate }}<del>{{ 'HOMEPAGE.PRODUCT-LIST.RS' | translate }}{{offer.originalPrice}}</del></span>
+              <span>{{ 'HOMEPAGE.PRODUCT-LIST.RS' | translate }}{{priceAfterDiscount}}</span>
             </p>
           </div>
           <div class="card-footer py-1">
-            <small class="text-muted">Last updated: {{offer.dateOfAnnouncement | date}}</small>
+            <small class="text-muted">{{ 'HOMEPAGE.PRODUCT-LIST.UPDATE' | translate }}{{offer.dateOfAnnouncement | date}}</small>
           </div>
       </div>
     </div>

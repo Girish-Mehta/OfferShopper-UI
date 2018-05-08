@@ -1,10 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class LocationService {
+
+  public location = new EventEmitter<String>();
 
   constructor(private http : Http) { }
 
@@ -22,6 +24,10 @@ export class LocationService {
 
     return Observable.throw(error.statusText);
 
+  	}
+
+  public updateLocation(){
+  	this.location.emit(localStorage.getItem("loc"));
   }
 
 }

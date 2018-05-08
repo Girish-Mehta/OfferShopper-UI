@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../../services/search.service';
 
+
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
