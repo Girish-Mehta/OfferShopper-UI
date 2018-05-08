@@ -6,11 +6,16 @@ import {Headers, BaseRequestOptions,Response,Http, XHRBackend, RequestMethod} fr
 import {HttpClientModule} from '@angular/common/http';
 
 import { AddOfferService } from './add-offer.service';
+import { OFFERS } from './add-offer-mockdata';
 
-describe('AddOfferService', () => {
+fdescribe('AddOfferService', () => {
 	let mockBackend: MockBackend;
+	let offers : any;
+	let coupons : any;
+	let shopAddress : any;
 
 	beforeEach(async() => {
+		offers = null;
 		TestBed.configureTestingModule({
 			providers: [AddOfferService,
 			MockBackend,
@@ -68,4 +73,272 @@ describe('AddOfferService', () => {
 		expect(service.getShopAddress).toBeTruthy();
 	}));
 
+
+	//test cases for getOffersList positive
+	it('check for getProfile function', async(inject([AddOfferService], (service : AddOfferService)=>{
+		offers = OFFERS;
+		mockBackend.connections.subscribe(
+			(connection: MockConnection) => {
+			  connection.mockRespond(new Response(
+				new ResponseOptions({
+				  body: offers
+				}
+				)));
+			});  
+			//userId being passed
+		  service.getOffersList('userId').subscribe(results=>{
+			expect(results).toEqual(offers);
+		  });
+	})));
+
+	//negative test for getProfile function
+	it('negative check for getProfile function', async(inject([AddOfferService], (service : AddOfferService)=>{
+		offers = OFFERS;
+		mockBackend.connections.subscribe(
+			(connection: MockConnection) => {
+			  connection.mockRespond(new Response(
+				new ResponseOptions({
+					body : [
+						null, 404
+					],
+				}
+				)));
+			});  
+			//userId being passed
+		  service.getOffersList('userId').subscribe(results=>{
+			expect(results[1]).not.toEqual(200);
+		  });
+	})));
+
+		//test for deleteOffer function
+		it('check for deleteOffer function', async(inject([AddOfferService], (service : AddOfferService)=>{
+			mockBackend.connections.subscribe(
+				(connection: MockConnection) => {
+					connection.mockRespond(new Response(
+					new ResponseOptions({
+						status : 200
+					}
+					)));
+				});  
+				//userId being passed
+				service.deleteOffer('offerId').subscribe(results=>{
+				expect(results).toEqual(200);
+				});
+		})));
+	
+	//negative test for deleteOffer function
+	it('negative check for deleteOffer function', async(inject([AddOfferService], (service : AddOfferService)=>{
+		mockBackend.connections.subscribe(
+			(connection: MockConnection) => {
+			  connection.mockRespond(new Response(
+				new ResponseOptions({
+					status : 404
+				}
+				)));
+			});  
+			//userId being passed
+		  service.getOffersList('userId').subscribe(results=>{
+			expect(results).not.toEqual(200);
+		  });
+	})));
+
+	//test for updateOffer function
+	it('check for updateOffer function', async(inject([AddOfferService], (service : AddOfferService)=>{
+		mockBackend.connections.subscribe(
+			(connection: MockConnection) => {
+			  connection.mockRespond(new Response(
+				new ResponseOptions({
+					status : 200
+				}
+				)));
+			});  
+			//userId being passed
+		  service.updateOffer('offerId').subscribe(results=>{
+			expect(results).toEqual(200);
+		  });
+	})));
+
+	//negative test for updateOffer function
+	it('negative check for updateOffer function', async(inject([AddOfferService], (service : AddOfferService)=>{
+		mockBackend.connections.subscribe(
+			(connection: MockConnection) => {
+			  connection.mockRespond(new Response(
+				new ResponseOptions({
+					//offer not found
+					status : 404
+				}
+				)));
+			});  
+			//userId being passed
+		  service.updateOffer('offerId').subscribe(results=>{
+			expect(results).not.toEqual(200);
+		  });
+	})));
+
+		//test for addOffer function
+		it('check for addNewOffer function', async(inject([AddOfferService], (service : AddOfferService)=>{
+			offers = OFFERS;
+			mockBackend.connections.subscribe(
+				(connection: MockConnection) => {
+					connection.mockRespond(new Response(
+					new ResponseOptions({
+						body : 201
+					}
+					)));
+				});  
+				service.addNewOffer(offers).subscribe(results=>{
+				expect(results).toEqual(201);
+				});
+		})));
+
+				//test for addToRedis function
+				it('check for addToRedis function', async(inject([AddOfferService], (service : AddOfferService)=>{
+					offers = OFFERS;
+					mockBackend.connections.subscribe(
+						(connection: MockConnection) => {
+							connection.mockRespond(new Response(
+							new ResponseOptions({
+								body : 201
+							}
+							)));
+						});  
+						service.addToRedis(offers).subscribe(results=>{
+						expect(results).toEqual(201);
+						});
+				})));
+		
+				//test for addToSoundex function
+				it('check for addToSoundex function', async(inject([AddOfferService], (service : AddOfferService)=>{
+					offers = OFFERS;
+					mockBackend.connections.subscribe(
+						(connection: MockConnection) => {
+							connection.mockRespond(new Response(
+							new ResponseOptions({
+								body : 201
+							}
+							)));
+						});  
+						service.addToSoundex(offers).subscribe(results=>{
+						expect(results).toEqual(201);
+						});
+				})));
+
+				//test for couponValidateService function
+				it('check for couponValidateService function', async(inject([AddOfferService], (service : AddOfferService)=>{
+					//data that is getting matched
+					coupons = {};
+					mockBackend.connections.subscribe(
+						(connection: MockConnection) => {
+							connection.mockRespond(new Response(
+							new ResponseOptions({
+								body : coupons
+							}
+							)));
+						});  
+						service.couponValidateService('coupon','vendorId').subscribe(results=>{
+						expect(results).toEqual(coupons);
+						});
+				})));
+
+				//negative test for couponValidateService function
+				it('negative check for couponValidateService function', async(inject([AddOfferService], (service : AddOfferService)=>{
+					//data that is getting matched
+					coupons = {};
+					mockBackend.connections.subscribe(
+						(connection: MockConnection) => {
+							connection.mockRespond(new Response(
+							new ResponseOptions({
+								body : [null, 404]
+							}
+							)));
+						});  
+						service.couponValidateService('coupon','vendorId').subscribe(results=>{
+						expect(results[1]).not.toEqual(200);
+						});
+				})));
+
+
+				//test for changeFlag function
+				it('check for changeFlag function', async(inject([AddOfferService], (service : AddOfferService)=>{
+					//data that is getting matched
+					coupons = {};
+					mockBackend.connections.subscribe(
+						(connection: MockConnection) => {
+							connection.mockRespond(new Response(
+							new ResponseOptions({
+								body : 201
+							}
+							)));
+						});  
+						service.changeFlag(coupons).subscribe(results=>{
+						expect(results).toEqual(201);
+						});
+				})));
+				
+				
+				//test for putOffersInCarryBag function
+				it('check for putOffersInCarryBag function', async(inject([AddOfferService], (service : AddOfferService)=>{
+					//data that is getting matched
+					coupons = {};
+					mockBackend.connections.subscribe(
+						(connection: MockConnection) => {
+							connection.mockRespond(new Response(
+							new ResponseOptions({
+								body : 201
+							}
+							)));
+						});  
+						service.putOffersInCarryBag(coupons).subscribe(results=>{
+						expect(results).toEqual(201);
+						});
+				})));
+
+				//negative test for putOffersInCarryBag function
+				it('negative check for putOffersInCarryBag function', async(inject([AddOfferService], (service : AddOfferService)=>{
+					//data that is getting matched
+					coupons = {};
+					mockBackend.connections.subscribe(
+						(connection: MockConnection) => {
+							connection.mockRespond(new Response(
+							new ResponseOptions({
+								body : 404
+							}
+							)));
+						});  
+						service.putOffersInCarryBag(coupons).subscribe(results=>{
+						expect(results).not.toEqual(201);
+						});
+				})));
+
+				//test for getShopAddress function
+				it('check for getShopAddress function', async(inject([AddOfferService], (service : AddOfferService)=>{
+					shopAddress = {};
+					mockBackend.connections.subscribe(
+						(connection: MockConnection) => {
+							connection.mockRespond(new Response(
+							new ResponseOptions({
+								body : shopAddress
+							}
+							)));
+						});  
+						service.getShopAddress('userId').subscribe(results=>{
+						expect(results).toEqual(shopAddress);
+						});
+				})));
+
+					// negative test for getShopAddress function
+					it('negative check for getShopAddress function', async(inject([AddOfferService], (service : AddOfferService)=>{
+						shopAddress = {};
+						mockBackend.connections.subscribe(
+							(connection: MockConnection) => {
+								connection.mockRespond(new Response(
+								new ResponseOptions({
+									body : [null, 404]
+								}
+								)));
+							});  
+							service.getShopAddress('userId').subscribe(results=>{
+							expect(results[1]).not.toEqual(200);
+							});
+					})));
 });
