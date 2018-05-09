@@ -51,16 +51,16 @@ describe('HeaderComponent', () => {
     expect(component).toBeTruthy();
   });
 
-   it('should call the fav method', async(() => {
+   it('should call the fav favouriteCity', async(() => {
    fixture.detectChanges();
-   spyOn(component,'fav');
-   expect(component.fav).toHaveBeenCalledTimes(0);
+   spyOn(component,'favouriteCity');
+   expect(component.favouriteCity).toHaveBeenCalledTimes(0);
  }));
 
-    it('should call the set method', async(() => {
+    it('should call the setCity method', async(() => {
    fixture.detectChanges();
-   spyOn(component,'set');
-   expect(component.set).toHaveBeenCalledTimes(0);
+   spyOn(component,'setCity');
+   expect(component.setCity).toHaveBeenCalledTimes(0);
  }));
 
      it('should call the getLocation method', async(() => {

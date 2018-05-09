@@ -20,13 +20,13 @@ describe('NavbarComponent', () => {
   beforeEach(async(() => {
    TestBed.configureTestingModule({
      declarations: [ NavbarComponent ],
- //     schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+     schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
      imports: [
        BrowserModule,
        HttpClientModule,
        HttpModule,
        RouterTestingModule,
-      //  ToastModule.forRoot(),
+       ToastModule.forRoot(),
           TranslateModule.forRoot({
           provide: TranslateLoader,
           useFactory: (http: Http) => new TranslateStaticLoader(http, 'public/assets/i18n', '.json'),
@@ -34,8 +34,7 @@ describe('NavbarComponent', () => {
       }),
 
      ],
-      providers: [
-        { provide:  LoginService,AuthorizationService }                                                                      
+      providers: [AuthorizationService                                                                    
     ]                                                                        
    })
    .compileComponents();

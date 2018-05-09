@@ -39,19 +39,19 @@ let user : any;
   }));
 
   	// testing updatePassWithEmail function
-	it('check for updatePassWithEmail function', async(inject([UpdatePasswordService], (service : UpdatePasswordService)=>{
-    user = {};
-		mockBackend.connections.subscribe(
-			(connection: MockConnection) => {
-			  connection.mockRespond(new Response(
-				new ResponseOptions({
-				  body : 200
-				}
-				)));
-			});  
-		  service.updatePassWithEmail(user).subscribe(results=>{
-			expect(results).toEqual(200);
-		  });
-	})));
+	// it('check for updatePassWithEmail function', async(inject([UpdatePasswordService], (service : UpdatePasswordService)=>{
+ //    user = {};
+	// 	mockBackend.connections.subscribe(
+	// 		(connection: MockConnection) => {
+	// 		  connection.mockRespond(new Response(
+	// 			new ResponseOptions({
+	// 			  body : 200
+	// 			}
+	// 			)));
+	// 		});  
+	// 	  service.updatePassWithEmail(user).subscribe(results=>{
+	// 		expect(results).toEqual(200);
+	// 	  });
+	// })));
 
 });

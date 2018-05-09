@@ -27,17 +27,15 @@ describe('AddOfferComponent', () => {
        HttpModule,
        RouterTestingModule,
        FormsModule,
-       ToastModule.forRoot(),
-       ReactiveFormsModule,
+      ToastModule.forRoot(),
+   //    ReactiveFormsModule,
        TranslateModule.forRoot({
           provide: TranslateLoader,
           useFactory: (http: Http) => new TranslateStaticLoader(http, 'public/assets/i18n', '.json'),
           deps: [Http]
       })
      ],
-     providers:[{
-       provide :  [AddOfferService, AuthorizationService, MessageService] 
-     }]
+     providers:[AddOfferService, AuthorizationService, MessageService]
    })
    .compileComponents();
  }));

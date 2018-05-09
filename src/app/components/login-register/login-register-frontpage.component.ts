@@ -11,13 +11,13 @@ import {vendorDetails} from './vendorDetails';
 import { MessageService } from './../../services/message.service';
 import {GooglesigninService} from '../../services/googlesignin.service'
 import {HomeUrl} from '../../configs/homeRedirect.config';
-declare const gapi: any;
+declare const gapi:any;
 
 @Component({
   selector: 'app-login-register-frontpage',
   templateUrl: './login-register-frontpage.component.html',
   styleUrls: ['./login-register-frontpage.component.css'],
-  providers:[ RegisterService,MessageService,GooglesigninService ]
+  providers:[ RegisterService,MessageService,GooglesigninService,LoginService ]
 })
 export class LoginRegisterFrontpageComponent implements OnInit {
   public auth2: any;
