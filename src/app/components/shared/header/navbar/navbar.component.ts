@@ -46,6 +46,7 @@ export class NavbarComponent implements OnInit {
 	isLogin(){
 		if(localStorage.getItem("application-token")){
 			this.login = true;
+			this.getUserId();
 		} else{
 			this.login = false;
 		}
