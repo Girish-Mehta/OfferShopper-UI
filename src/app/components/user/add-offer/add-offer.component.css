@@ -11,3 +11,8 @@
 .card-title{
 	font-family: sans-serif,'Sree Krushnadevaraya','Suranna','Ramaraja',"Mukta Malar";
 }
+
+.btn-util:hover {
+		background-color: #018b8b;
+		color: white;
+}

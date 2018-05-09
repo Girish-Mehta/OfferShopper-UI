@@ -185,17 +185,18 @@
       "FILTER": "Filter discounts",
       "NO-VENDOR": " No vendor at your place"
     },
-    
+
     "USER": {
         "PERSONAL-INFO": "Personal Information",
         "CARRYBAG": "Carrybag",
         "WISHLIST": "Wishlist",
         "SUBSCRIBE": "Subscriptions",
+        "VENDOR-DASHBOARD": "Vendor Dashboard",
         "ADD-OFFER": "Add Offers",
         "BE-SELLER": "Be a Seller",
         "EMPTY": "Empty",
         "OFFERS": "Offers",
-  
+
         "OFFER": {
             "VALIDATE-COUPON": "Validate Coupon",
             "VALIDITY": "Validity:",
