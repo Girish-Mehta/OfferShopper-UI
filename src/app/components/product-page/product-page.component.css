@@ -1,149 +1,297 @@
 #browseimage
+
 {
+
 	padding: 10px;
+
 	height: 120%;
+
 	width: 100%;
+
 }
+
+
 
 #previewimage
+
 {
+
 	padding: 10px;
+
 	height:50px;
+
 }
+
+
 
 img {
+
 	max-height: 650px;
+
 }
+
+
 
 .text-poiret {
+
 	font-family: 'Poiret One', 'Sree Krushnadevaraya','Suranna','Ramaraja',"Mukta Malar",cursive;
+
 }
+
+
 
 .title {
+
 	font-size: 2rem;
+
 }
+
+
 
 .description {
+
 	font-family: 'Quicksand', 'Sree Krushnadevaraya','Suranna','Ramaraja',"Mukta Malar",sans-serif;
+
 	color:gray;
+
 	font-size: 1rem;
+
 }
+
+
 
 .price {
+
 	color:gray;
+
   font-family: 'Julius Sans One', 'Sree Krushnadevaraya','Suranna','Ramaraja',"Mukta Malar",sans-serif;
+
 }
+
+
 
 .back-arrow {
+
 	font-size: 0.8rem;
+
 }
+
+
 
 .btn-add {
+
 	background:#018b8b;
+
 	color:white;
+
 	border:none;
+
 }
+
+
 
 .vendor {
+
 	color: #018b8b;
+
 	cursor: pointer
+
 }
+
+
 
 .divbody{
+
   background-color: white;
+
 }
+
+
 
 .card {
+
 	position: relative;
+
 	height: 41.8vh;
+
   display: flex;
+
   flex-direction: column;
+
   min-width: 0;
+
   word-wrap: break-word;
+
   background-clip: border-box;
+
   border: 1px solid rgba(0, 0, 0, 0.125);
+
   border-radius: 0.0rem;
+
 }
+
+
 
 .card > hr {
+
     margin-right: 0;
+
     margin-left: 0;
+
 }
+
+
 
 .card > .list-group:first-child .list-group-item:first-child {
+
     border-top-left-radius: 0.25rem;
+
     border-top-right-radius: 0.25rem;
+
 }
+
+
 
 .card > .list-group:last-child .list-group-item:last-child {
+
     border-bottom-right-radius: 0.25rem;
+
     border-bottom-left-radius: 0.25rem;
+
 }
+
+
 
 .card-body {
+
   flex: 1 1 auto;
+
   padding: 0.0rem;
+
   text-align: left; }
 
+
+
 .offerprice {
+
   height: 200px;
+
 }
+
+
 
 .card-img {
+
   width: 100%;
+
   border-radius: calc(0.25rem - 1px);
+
   }
+
+
 
 .card-img-top {
+
   width: 100%;
+
   height: auto;
+
   border-radius: 0.25rem;
+
   transition: .3s;
+
   border-top-left-radius: calc(0.25rem - 1px);
+
   border-top-right-radius: calc(0.25rem - 1px);
+
  }
 
+
+
 .card-img-bottom {
+
   width: 100%;
+
   border-bottom-right-radius: calc(0.25rem - 1px);
+
   border-bottom-left-radius: calc(0.25rem - 1px); }
 
+
+
 .textWithblurredImage :not(img){
+
   position: absolute;
+
   font-size: 2em;
+
   top:20%;
+
   z-index: 1;
+
   color: #fff;
+
   text-align: center;
+
   width: 100%;
+
   opacity: 0;
+
   transition: .3s;
+
 }
+
+
 
 .card:hover img {
+
   filter: blur(2px) brightness(30%);
+
   box-shadow: 0 0 1em black;
+
   }
 
+
+
 .textWithblurredImage:hover :not(img){
+
   opacity:1;
+
 }
+
+
 
 .corousel_title{
+
   color: orange;
+
   font-size: 1.5em;
+
 }
 
+
+
 #b0,#b1,#b2,#b3,#b4,#b5,#b6,#b7,#b8,#b9,#b10,#b11{
+
     color: black;
+
     width: 50%;
+
     height: 2.2em;
+
     top: 55%;
+
     align-self: center;
+
     background-color: #ddd;
+
     border-radius: 2em;
+
     text-align: center;
+
     text-decoration: none;
+
     font-size: 1em;
+
     left: 25%;
+
 }
