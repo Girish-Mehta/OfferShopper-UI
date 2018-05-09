@@ -1,19 +1,11 @@
-/*.footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: #efefef;
-  text-align: center;
-  z-index: 1;
+@media (min-width: 768px) {
+  .main {
+    min-height: 500px;
+  }
 }
 
-@media (min-width: 992px) {
-	.body {
-	margin-bottom: 145px;
-	}
-}*/
-
-.main {
-  min-height: 500px;
- }
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .main {
+    min-height: 25rem;
+  }
+}
