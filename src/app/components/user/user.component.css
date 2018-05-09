@@ -31,3 +31,8 @@
 .user-sidebar li {
 	cursor: pointer;
 }
+#sticky-social {
+	left: 0;
+	position: fixed;
+	top: 150px;
+ }

@@ -147,14 +147,18 @@ export class AddOfferComponent implements OnInit {
 		}, (error) =>{
 
 		})
+	
 
 	}
 
 	//Function will retrieve all the offers uploaded by the vendor
 	getOffer() {
 		this.addOfferService.getShopAddress(this.userId).subscribe((res) =>{
+			debugger
 			this.shopAddress=res.shopAddress;
 			this.addOffer();
+			debugger
+			this.reset();
 		}, (error) =>{
 		})
 	}
@@ -199,7 +203,7 @@ export class AddOfferComponent implements OnInit {
 
 		let time = "T"+hours+":"+minutes+":"+seconds;
 		let datetime = year+"-"+month+"-"+day+time;
-		
+		debugger
 		this.obj={
 			"userId"  :this.userId,
 			"offerTitle" :this.offerTitle,
@@ -214,7 +218,7 @@ export class AddOfferComponent implements OnInit {
 			"offerTerms" :this.offerTerms,
 			"keywords" :this.keywords
 		}
-
+		debugger
 		this.addOfferService.addNewOffer(this.obj).subscribe((res) =>{
 			this.getOffers(this.userId);
 			this.messageService.showSuccessToast(this._vcr,"Offer added");
@@ -232,11 +236,11 @@ export class AddOfferComponent implements OnInit {
 			"offerCategories" : this.offerCategories,
 			"keywords" : this.keywords
 		}
-		
-		this.addOfferService.addToSoundex(this.toSoundex).subscribe((res) =>{
-		}, (error) =>{
-		})
-
+				
+			this.addOfferService.addToSoundex(this.toSoundex).subscribe((res) =>{
+			}, (error) =>{
+				alert("not added to soundex");
+			})
 	}
 
 	//Function will validate the coupon code entered by the vendor
