@@ -43,12 +43,12 @@ export class ShopPageComponent implements OnInit {
   //to be loaded when it is routed to this component
   loadOffers() {
      //no results shown
-     if(this.category=="All" && this.searchKey == "") {
+     if(this.category=="Categories" && this.searchKey == "") {
        this.messageService.showErrorToast(this._vcr,"Please select categories or search the item");;
      }
 
   // category based search
-  else if(this.category == "All" && this.searchKey != "") {
+  else if(this.category == "Categories" && this.searchKey != "") {
     this.searchService.searchProducts(this.searchKey)
     .subscribe(res => {
       this.results = res;
@@ -56,7 +56,7 @@ export class ShopPageComponent implements OnInit {
     });
   }  
 
-  else if(this.category != "All" && this.searchKey == "") {
+  else if(this.category != "Categories" && this.searchKey == "") {
     this.searchService.searchProductsCategoryOnly(this.category)
     .subscribe(res => {
       this.results = res;
