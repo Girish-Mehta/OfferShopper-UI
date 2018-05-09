@@ -8,38 +8,21 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
       </ol>
-<<<<<<< HEAD
-      <div class="carousel-inner">
-        <div>
-          <form id="search" class="form-inline my-2 my-lg-0 col-sm-3 col-md-4 col-lg-6">
-            <!-- categories dropdown --> 
-            <select name="category-selected" class="dropdown btn btn-light dropdown-toggle mr-0 " [(ngModel)]="category" >
-=======
       <div class="carousel-inner border border-danger">
         <div class="border border-primary">
           <form id="search" class="border border-primary form-inline my-2 my-lg-0 col-sm-3 col-md-4 col-lg-6">
       
             <select name="category-selected" class="dropdown btn btn-light dropdown-toggle mr-0 col-md-2 col-lg-2 col-sm-2" [(ngModel)]="category">
->>>>>>> 64ff239f15649b9def2aa9763bb67263c475e9b4
               <option class="dropdown-item" selected>{{ 'HOMEPAGE.CATEGORIES.ALL' | translate }}</option>
               <option class="dropdown-item">{{ 'HOMEPAGE.CATEGORIES.SPORTS' | translate }}</option>
               <option class="dropdown-item">{{ 'HOMEPAGE.CATEGORIES.CLOTHES' | translate }}</option>
               <option class="dropdown-item">{{ 'HOMEPAGE.CATEGORIES.FOOD' | translate }}</option>
             </select>
-<<<<<<< HEAD
-            <!-- Search bar -->
             <input (keydown)="enterPressed($event)" id="input" list="suggestions" name="query" [(ngModel)]="query" class="form-control mr-0 search-box col-md-4 col-lg-8 col-sm-2" (keyup)="searchTerm$.next($event.target.value)" autocomplete="off" type="text"
             placeholder="{{ 'HOMEPAGE.PAGE.SEARCH' | translate }}" aria-label="Search">
-            <!-- search button -->
-            <!-- on click of button show values for category and field-->
-=======
-            <input (keydown)="enterPressed($event)" id="input" list="suggestions" name="query" [(ngModel)]="query" class="form-control mr-0 search-box col-md-4 col-lg-8 col-sm-2" (keyup)="searchTerm$.next($event.target.value)" autocomplete="off" type="text"
-            placeholder="{{ 'HOMEPAGE.PAGE.SEARCH' | translate }}" aria-label="Search">
->>>>>>> 64ff239f15649b9def2aa9763bb67263c475e9b4
             <button id="searchButton" (click)="redirectToSearch()" type="button" class="btn btn-light search-btn col-md-1 col-sm-1 col-lg-2"><i class="fas fa-search"></i></button>
           </form>
         </div>
-
         <div class="carousel-image carousel-item active">
           <img class="homepage-image d-block w-100" src="../../../../assets/images/carousel_1.jpg" alt="First slide">
         </div>
@@ -53,7 +36,6 @@
           <img class="homepage-image d-block w-100" src="../../../../assets/images/carousel_4.jpeg" alt="Forth slide">
         </div>
       </div>
-
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">{{ 'BUTTONS.PREV' | translate }}</span>
