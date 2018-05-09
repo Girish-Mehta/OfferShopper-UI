@@ -23,6 +23,10 @@
     </div>
   </div>
 
+
+  <div *ngIf="!carryBagOffers.length" class="carryempty">
+    <h1>{{ 'USER.EMPTY' | translate }}</h1>
+  </div>
   <!-- This div will create the cards of offers added in carrybag -->
   <div *ngFor=" let offerList of carryBagOffers">
     {{productPrice(offerList.offerOriginalPrice,offerList.offerDiscount)}}
@@ -66,9 +70,6 @@
         </div>
       </div>
     </div>
-  </div>
-  <div *ngIf="!carryBagOffers.length" class="carryempty">
-    <h1>{{ 'USER.EMPTY' | translate }}</h1>
   </div>
 
   <!-- This div will create the modal to get feedback -->
