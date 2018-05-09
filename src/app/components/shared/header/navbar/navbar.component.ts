@@ -20,6 +20,7 @@ export class NavbarComponent implements OnInit {
 	private userId: string = "";
 	private user: string = "";
 	private url: string;
+	private urlUserPage: string;
 
 	@Input() userLocation:string;
 
@@ -32,6 +33,7 @@ export class NavbarComponent implements OnInit {
 		router.events.subscribe((data:any) => { 
 			if(data.url) {
 				this.url = (data.url.split('/'))[1];
+				this.urlUserPage = (data.url.split('/'))[2];
 			}
 		});
 	}

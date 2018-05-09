@@ -40,9 +40,9 @@
   .maincities
   {
     height: 4.5rem;
-    width: 4.5rem;
+    width: 4.5rem;/*
     margin-right: 1.5rem;
-    margin-left: 1rem;
+    margin-left: 1rem;*/
   }
 
   .maincitiestext
@@ -85,8 +85,4 @@ li {
 .header-shadow {
   margin-left: -5px;
   box-shadow: 1rem 0rem 1rem black;
-}
-
-.img {
-  height: 100px;
 }
