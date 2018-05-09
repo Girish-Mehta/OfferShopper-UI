@@ -13,6 +13,7 @@
      <br>
      <ul>
        <li>
+<<<<<<< HEAD
         <button  id="_setImg" (click)="setCity('delhi')" data-dismiss="modal">
           <span >
            <img src="https://image.flaticon.com/icons/png/128/181/181427.png" class="maincities" alt="Delhi"/>
@@ -37,6 +38,29 @@
    </button>
  </li> 
 </ul>
+=======
+        <button id="_setImg"  (click)="set('Mumbai')" data-dismiss="modal">
+         <span>
+          <img src="https://image.flaticon.com/icons/png/128/444/444788.png" class="maincities" alt="Mumbai">
+          <p>{{ 'HEADER.LOCATION.CITIES.2' | translate }}</p>
+        </span>
+      </button>
+    </li>
+
+    <li>
+     <button id="_setImg"  (click)="set('Chandigarh')" data-dismiss="modal">
+       <span>
+         <img src="https://cdn.iconscout.com/public/images/icon/premium/png-256/chandigarh-openhand-monument-architecture-symbol-39a0c693561273cd-256x256.png" class="maincities" alt="Chandigarh">
+         <p>{{ 'HEADER.LOCATION.CITIES.1' | translate }}</p>
+       </span>
+     </button>
+   </li>
+
+ </ul>
+
+
+
+>>>>>>> 64ff239f15649b9def2aa9763bb67263c475e9b4
 </div>
 <div class="modal-footer">
   <span>
@@ -47,7 +71,7 @@
 </div>
 </div>
 </div>
-<div class="sticky-top">
+<div class="sticky-top header-shadow">
   <app-location [obj]="selected"></app-location>
   <app-navbar [userLocation]="selected.a"></app-navbar>
 </div>

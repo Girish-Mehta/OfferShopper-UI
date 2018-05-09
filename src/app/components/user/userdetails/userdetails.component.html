@@ -28,7 +28,7 @@
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="inputCity">{{ 'USER.SELLER.ADDRESS.CITY' | translate }}City</label>            
+            <label for="inputCity">{{ 'USER.SELLER.ADDRESS.CITY' | translate }}</label>            
             <select name=slist class="form-control" id="inputCity" disabled [(ngModel)]="city" [ngModelOptions]="{standalone: true}">
               <option value="{{city}}">{{city}}</option>
               <option *ngFor="let city of homeCities" value={{city}}>{{city}}</option>

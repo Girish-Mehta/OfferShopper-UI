@@ -10,7 +10,7 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 	selector: 'app-navbar',
 	templateUrl: './navbar.component.html',
 	styleUrls: ['./navbar.component.css'],
-	providers:[ AuthorizationService ]
+	providers:[ AuthorizationService,LoginService ]
 })
 
 export class NavbarComponent implements OnInit {

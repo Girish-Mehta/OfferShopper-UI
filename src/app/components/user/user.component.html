@@ -2,22 +2,22 @@
   <ul class="nav nav-pills flex-column ">
     <!-- List of actions for user -->
     <li class="text-center py-2" [ngClass]="{active:userList=='userdetails', inactive:userList!='userdetails'}" [routerLink]="['/user', 'userdetails']">
-      {{ 'USER.LIST.PERSONAL-INFO' |  translate }}
+      {{ 'USER.PERSONAL-INFO' |  translate }}
     </li>
     <li class="text-center py-2" [ngClass]="{active:userList=='carrybag', inactive:userList!='carrybag'}" [routerLink]="['/user', 'carrybag']">
-      {{ 'USER.LIST.CARRYBAG' |  translate }}
+      {{ 'USER.CARRYBAG' |  translate }}
     </li>    
     <li class="text-center py-2" [ngClass]="{active:userList=='wishlist', inactive:userList!='wishlist'}" [routerLink]="['/user', 'wishlist']">
-      {{ 'USER.LIST.WISHLIST' |  translate }}
+      {{ 'USER.WISHLIST' |  translate }}
     </li>
     <li class="text-center py-2" [ngClass]="{active:userList=='subscriptionlist', inactive:userList!='subscriptionlist'}" [routerLink]="['/user', 'subscriptionlist']">
-      {{ 'USER.LIST.SUBSCRIBE' |  translate }}
+      {{ 'USER.SUBSCRIBE' |  translate }}
     </li>
     <li class="text-center py-2" [ngClass]="{active:userList=='add-offer', inactive:userList!='add-offer'}" *ngIf="role=='Vendor'||'vendor'" [routerLink]="['/user', 'add-offer']">
-      {{ 'USER.LIST.ADD-OFFER' |  translate }}    
+      {{ 'USER.ADD-OFFER' |  translate }}    
     </li>
     <li class="text-center py-2" [ngClass]="{active:userList=='be-a-seller', inactive:userList!='be-a-seller'}" *ngIf="role=='Customer'" [routerLink]="['/user', 'be-a-seller']">
-      {{ 'USER.LIST.BE-SELLER' |  translate }}
+      {{ 'USER.BE-SELLER' |  translate }}
     </li>
   </ul>
 </div>

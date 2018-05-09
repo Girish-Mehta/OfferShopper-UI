@@ -1,0 +1,12 @@
+#img1{
+    z-index: 1;
+    position: relative;
+    transition-duration: 3s;
+
+}
+#img2{
+    z-index: 2;
+    position: relative;
+    top: -80px;
+   
+}

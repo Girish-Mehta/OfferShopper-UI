@@ -67,5 +67,23 @@ showSuccessToast(_vcr:ViewContainerRef,message:string,title:string='Success!') {
   this.toastr.success(message, title);
 }
 
+showNoSpin() {
+  swal({
+    type: 'error',
+    title: 'Oops...',
+    text: "You have already used today's spin... Please come back tomorrow"
+  })
+}
+
+showOsCash(cash:number) {
+  swal({
+    animation: false,
+    customClass: 'animated tada',
+    type: 'success',
+    title: cash +' Cash Added',
+    showConfirmButton: true,
+    timer: 1500
+  })
+}
 
 }

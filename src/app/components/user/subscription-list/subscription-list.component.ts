@@ -15,7 +15,7 @@ export class SubscriptionListComponent implements OnInit {
   User:any={};
   public userInfo : any;
   public user : any;
-  public subscribeServiceList=[];
+  public subscribeServiceList;
 
   constructor(private subscribeService:SubscribeService,
     private authorizationService:AuthorizationService,
@@ -25,7 +25,9 @@ export class SubscriptionListComponent implements OnInit {
 
   ngOnInit() {
     this.getUserId();
-    this.getAllSubscriptions(this.user);
+    if (this.user) {
+      this.getAllSubscriptions(this.user);
+    }    
   }
 
   //Function will give the userId from token
@@ -42,6 +44,7 @@ export class SubscriptionListComponent implements OnInit {
   getAllSubscriptions(user){
     this.subscribeService.getAllDetails(user).subscribe((res) =>{
       this.subscribeServiceList=res;
+      console.log(this.subscribeServiceList);
     },
     (error) =>{
     })

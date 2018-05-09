@@ -79,5 +79,10 @@ li {
 #_setImg {
  background-color: transparent;
  border: none;
-} 
+}
 
+
+.header-shadow {
+  margin-left: -5px;
+  box-shadow: 1rem 0rem 1rem black;
+}

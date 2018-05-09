@@ -14,10 +14,11 @@
       "VALIDATE": "Validate",
       "CLOSE": "Close",
       "ADD-FEEDBACK": "Add Feedback",
-      "GEN-COUP": "Generate Coupon",
+      "GEN-COUPON": "Generate Coupon",
       "SEE-MORE": "See More",
       "SUBSCRIBE": "Subscribe"
     },
+
     "HOMEPAGE": {
       "CATEGORIES": {
           "CATEGORY": "Categories",
@@ -40,6 +41,7 @@
           "NO-DATA": "Sorry... No deal at your location"
       }
     },
+
     "PRODUCT-PAGE": {
       "ORIGINAL": "Original Price:",
       "DISCOUNT": "Discount",
@@ -48,6 +50,7 @@
       "VALIDITY": "Validity: ",
       "ALSO-BUY": "Customers who bought this item also bought"
     },
+
     "CONTACT-US": {
       "CONTACT": "Contact us",
       "LOVE-TO": "We would love to hear from you",
@@ -55,12 +58,12 @@
       "EMAIL": "Email address",
       "WRITE": "Write here"
     },
+
     "FOOTER": {
       "GETINTOUCH": "Get in touch",
       "CONTACT": "Any questions? Let us know on mail: offershopper@gmail.com, or call us on (+91) 9078563412.",
       "CATEGORIES": {
           "CATEGORY": "Categories",
-          "ALL": "All",
           "SPORTS": "Sports",
           "CLOTHES": "Clothes",
           "FOOD": "Food"
@@ -131,6 +134,7 @@
           "THIRD": "OfferShopper"
       }
     },
+
     "HEADER": {
         "NAVBAR": {
             "HOME": "Home",
@@ -147,6 +151,7 @@
             "CITIES": ["Delhi", "Chandigarh", "Mumbai", "Hyderabad"]
         }
     },
+
     "LOGIN": {
         "TITLE1": "Login",
         "TITLE2": "Register",
@@ -170,6 +175,7 @@
         "ERROR-DIG-LESS": "Less than 10 digits",
         "ERROR-DIG-MORE": "More than 10 digits"
     },
+
     "SHOP-PAGE": {
       "SORTING": {
         "TITLE": "Sorting",
@@ -181,6 +187,7 @@
       "FILTER": "Filter discounts",
       "NO-VENDOR": " No vendor at your place"
     },
+
     "USER": {
       "PERSONAL-INFO": "Personal Information",
       "CARRYBAG": "Carrybag",
