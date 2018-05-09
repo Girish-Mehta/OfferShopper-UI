@@ -38,6 +38,8 @@ export class AddOfferComponent implements OnInit {
 	toRedis={};
 	toSoundex={};
 	User:any={};
+	limitError:String;
+	decimalError:String;
 
 	date = new Date();
 
@@ -115,6 +117,16 @@ export class AddOfferComponent implements OnInit {
 		this.offerTerms=user.offerTerms;
 		this.offerTitle=user.offerTitle;
 		this.originalPrice=user.originalPrice;
+	}
+
+	checkValidation(){
+	//regex=/^[0-9]+$/;
+	console.log("In function:");
+    if ((this.discount >=0) && (this.discount <=100))
+    {
+        alert("Perfect");
+        console.log("Entered");
+    }
 	}
 
 	submit(){
