@@ -140,15 +140,15 @@ export class AddOfferComponent implements OnInit {
 		}, (error) =>{
 
 		})
+	
 
 	}
 
 	getOffer() {
 		this.addOfferService.getShopAddress(this.userId).subscribe((res) =>{
 			this.shopAddress=res.shopAddress;
-			debugger
-			alert(this.shopAddress);
 			this.addOffer();
+			this.reset();
 		}, (error) =>{
 			console.log(error);
 		})
@@ -234,7 +234,6 @@ export class AddOfferComponent implements OnInit {
 			}, (error) =>{
 				alert("not added to soundex");
 			})
-
 	}
 
 	couponValidate()

@@ -42,8 +42,8 @@
         <form>
           <div class="form-row">
             <div class="form-group col-md-6">
-              <select class="custom-select custom-select-md mb-3"  name="offerCategories" [(ngModel)]="offerCategories">
-                <option selected>{{ 'HOMEPAGE.CATEGORIES.CATEGORY' |  translate }}</option>
+              <select required class="custom-select custom-select-md mb-3"  name="offerCategories" [(ngModel)]="offerCategories">
+                <option selected value="{{offerCategories}}">{{offerCategories}}</option>
                 <option value="sports">{{ 'HOMEPAGE.CATEGORIES.SPORTS' |  translate }}</option>
                 <option value="clothing">{{ 'HOMEPAGE.CATEGORIES.CLOTHES' |  translate }}</option>
                 <option value="food">{{ 'HOMEPAGE.CATEGORIES.FOOD' |  translate }}</option>
@@ -102,10 +102,10 @@
         <form>
           <div class="form-row">
             <div class="form-group col-md-6">
-                  <select class="custom-select custom-select-md mb-3"  name="offerCategories" [(ngModel)]="offerCategories">
-                    <option selected>{{ 'HOMEPAGE.CATEGORIES.CATEGORY' |  translate }}Select Category</option>
-                    <option value="sports">{{ 'HOMEPAGE.CATEGORIES.SPORTS' |  translate }}sports</option>
-                    <option value="clothing">{{ 'HOMEPAGE.CATEGORIES.CLOTHES' |  translate }}clothing</option>
+                  <select required class="custom-select custom-select-md mb-3"  name="offerCategories" [(ngModel)]="offerCategories">
+                    <option selected value="Select Category">{{ 'HOMEPAGE.CATEGORIES.CATEGORY' |  translate }}</option>
+                    <option value="sports">{{ 'HOMEPAGE.CATEGORIES.SPORTS' |  translate }}</option>
+                    <option value="clothing">{{ 'HOMEPAGE.CATEGORIES.CLOTHES' |  translate }}</option>
                     <option value="food">{{ 'HOMEPAGE.CATEGORIES.FOOD' |  translate }}</option>
                   </select>
             </div>
