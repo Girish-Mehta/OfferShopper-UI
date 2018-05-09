@@ -1,4 +1,4 @@
-<div class="container mt-5" *ngIf="offers; else noDeal">
+<div class="container mt-5" *ngIf="offers">
   <div class="row">
     <div class="col-lg-4 col-md-6 col-sm-4 card-group mb-3" *ngFor="let offer of offers">
       {{productPrice(offer.originalPrice,offer.discount)}}
@@ -22,6 +22,3 @@
     </div>
   </div>
 </div>
-<ng-template #noDeal>
-  {{ 'HOMEPAGE.PRODUCT-HEADER.OFF' | translate }}
-</ng-template>

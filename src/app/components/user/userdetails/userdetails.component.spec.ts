@@ -16,6 +16,8 @@ import { UserService } from './../../../services/user.service';
 describe('UserdetailsComponent', () => {
   let component: UserdetailsComponent;
   let fixture: ComponentFixture<UserdetailsComponent>;
+  let debug:DebugElement;
+  let el:HTMLElement;
 
    beforeEach(async(() => {
    TestBed.configureTestingModule({
@@ -59,8 +61,9 @@ describe('UserdetailsComponent', () => {
  // }));
 
  //     it('should call the showRelevantCitiesHome method', async(() => {
- //   fixture.detectChanges();
  //   spyOn(component,'showRelevantCitiesHome');
+ //   el=fixture.debugElement.query(By.css('select')).nativeElement;
+ //   el.click();
  //   expect(component.showRelevantCitiesHome).toHaveBeenCalledTimes(0);
  // }));
 
