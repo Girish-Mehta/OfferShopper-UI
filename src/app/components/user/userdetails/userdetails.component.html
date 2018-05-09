@@ -50,7 +50,7 @@
         <!-- only visible when the logged in person is a seller-->
         <div *ngIf="role=='Vendor'">
         <div class="form-group">
-            <label for="inputShopName">{{ 'USER.SELLER.ADDRESS.SHOPE-NAME' | translate }}</label>
+            <label for="inputShopName">{{ 'USER.SELLER.ADDRESS.SHOP-NAME' | translate }}</label>
             <input type="text" class="form-control" id="inputShopName" placeholder="{{shopName}}" disabled [(ngModel)]="shopName" [ngModelOptions]="{standalone: true}">
           </div>
           <div class="checkbox pb-2">
