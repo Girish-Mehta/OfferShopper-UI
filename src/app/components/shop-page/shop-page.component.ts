@@ -110,7 +110,7 @@ export class ShopPageComponent implements OnInit {
 
   //whenever filter is changed
   onFinish(event) {
-    this.filteredResults = this.results.filter((results)=> results.discount > event.from && results.discount < event.to);
+    this.filteredResults = this.results.filter((results)=> results.discount >= event.from && results.discount <= event.to);
   }
 
   //get vendors on basis of location - currently hardcoded to gurgaon
