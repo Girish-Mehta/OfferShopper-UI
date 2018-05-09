@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import{UserService} from './../../../services/user.service';
-import {FormsModule} from '@angular/forms';
 import { AuthorizationService } from '../../../services/authorization.service';
+import {FormsModule} from '@angular/forms';
 import { Router } from '@angular/router';
 import {States} from '../../../configs/state.config';
 import {Cities} from '../../../configs/cities.config';
@@ -10,7 +10,7 @@ import {Cities} from '../../../configs/cities.config';
   selector: 'app-be-a-seller',
   templateUrl: './be-a-seller.component.html',
   styleUrls: ['./be-a-seller.component.css'],
-  providers:[ AuthorizationService ]
+  providers:[ AuthorizationService,UserService ]
 })
 
 export class BeASellerComponent implements OnInit {

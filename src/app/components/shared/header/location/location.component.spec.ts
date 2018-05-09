@@ -10,7 +10,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import {TranslateModule, TranslateStaticLoader, TranslateLoader} from "ng2-translate";
 import {ToastModule} from 'ng2-toastr/ng2-toastr';
 import { LocationComponent } from './location.component';
-
+//import { TranslateStore } from "@ngx-translate/core/src/translate.store";
 
 describe('LocationComponent', () => {
   let component: LocationComponent;
@@ -35,9 +35,9 @@ describe('LocationComponent', () => {
           deps: [Http]
       })
      ],
-     providers:[{
-       provide :  [ TranslateService,LocationService ] 
-     }]
+     providers:[
+       LocationService, TranslateService //,TranslateStore 
+       ]
    })
    .compileComponents();
  }));
