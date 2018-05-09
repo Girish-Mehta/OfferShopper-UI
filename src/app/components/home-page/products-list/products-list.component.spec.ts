@@ -43,6 +43,12 @@ describe('ProductsListComponent', () => {
     expect(component).toBeTruthy();
   });
 
+ it('should call the loadOffers method', async(() => {
+   fixture.detectChanges();
+   spyOn(component,'loadOffers');
+   expect(component.loadOffers).toHaveBeenCalledTimes(0);
+ }));
+
 
 });
 

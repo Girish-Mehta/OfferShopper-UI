@@ -27,3 +27,24 @@
   size:2rem;
   text-align: center;
 }
+.card-w{
+	cursor: pointer;
+	max-width: 18rem;
+	min-height: 22rem;
+	max-height: 22rem;
+}
+
+.card-data {
+	margin-left: -1.1rem;
+	font-family: 'Julius Sans One', sans-serif;
+	margin-top: -0.5rem;
+}
+
+.card-discount {
+	font-family: 'Poiret One', cursive;
+}
+
+.card-heading {
+	font-size: 0.9rem;
+}
+

@@ -6,7 +6,8 @@ import { SearchService } from '../../../services/search.service';
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',
-  styleUrls: ['./search-bar.component.css']
+  styleUrls: ['./search-bar.component.css'],
+  providers:[SearchService]
 })
 export class SearchBarComponent implements OnInit {
 

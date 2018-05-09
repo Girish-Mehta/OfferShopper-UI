@@ -1,18 +1,18 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
-import { UserService } from './../../../services/user.service';
 import { FormsModule } from '@angular/forms';
 import { AuthorizationService } from '../../../services/authorization.service';
+import { MessageService } from './../../../services/message.service';
+import { UserService } from './../../../services/user.service';
 import { Router } from '@angular/router';
 import { States } from '../../../configs/state.config';
 import { Cities } from '../../../configs/cities.config';
-import { MessageService } from './../../../services/message.service';
 import { StateCityJson } from '../../../configs/state-city-json.config';
 
 @Component({
   selector: 'app-userdetails',
   templateUrl: './userdetails.component.html',
   styleUrls: ['./userdetails.component.css'],
-  providers:[ AuthorizationService, MessageService ]
+  providers:[ AuthorizationService, MessageService ,UserService]
 })
 export class UserdetailsComponent implements OnInit {
 

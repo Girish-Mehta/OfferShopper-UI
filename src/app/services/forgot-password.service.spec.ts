@@ -8,7 +8,9 @@ import {HttpClientModule} from '@angular/common/http';
 import { ForgotPasswordService } from './forgot-password.service';
 
 describe('ForgotPasswordService', () => {
- let mockBackend: MockBackend;
+let mockData:any;
+
+  let mockBackend: MockBackend;
 
   beforeEach(async() => {
     TestBed.configureTestingModule({
@@ -26,7 +28,7 @@ describe('ForgotPasswordService', () => {
       imports : [HttpClientModule,HttpModule],
     });
     mockBackend = getTestBed().get(MockBackend);
-
+    mockData = {}
   });
 
 
@@ -37,4 +39,37 @@ describe('ForgotPasswordService', () => {
   it('should have forgotPasswordWithEmail function', inject([ForgotPasswordService], (service: ForgotPasswordService) => {
     expect(service.forgotPasswordWithEmail).toBeTruthy();
   }));
+
+
+
+  it('negative check for forgotPasswordWithEmail function and should return an offer', async(inject([ForgotPasswordService], (service: ForgotPasswordService) => {
+    mockBackend.connections.subscribe(
+      (connection: MockConnection) => {
+        connection.mockRespond(new Response(
+          new ResponseOptions({
+            body: mockData
+          }
+          )));
+      });  
+    service.forgotPasswordWithEmail('megha@gmail.com').subscribe(results=>{
+      expect(results).not.toEqual(mockData);
+    });
+  })));
+
+
+  // it('is a negative check for getOfferById function', async(inject([ForgotPasswordService], (service: ForgotPasswordService) => {
+  //   mockBackend.connections.subscribe(
+  //     (connection: MockConnection) => {
+  //       connection.mockRespond(new Response(
+  //         new ResponseOptions({
+  //           body: negOfferResult
+  //         }
+  //         )));
+  //     });  
+  //   service. getOfferById('offer-204').subscribe(results=>{
+  //     expect(results).not.toEqual(offerResult);
+  //   });
+  // })));
+
+
 });
