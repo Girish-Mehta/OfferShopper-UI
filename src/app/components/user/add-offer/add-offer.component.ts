@@ -110,7 +110,11 @@ export class AddOfferComponent implements OnInit {
 		this.offerCategories=user.offerCategories;
 		this.discount=user.discount;
 		this.keywords=user.keywords;
-		this.offerValidity=user.offerValidity;
+		let date = user.offerValidity.split("T");
+		let newDate = date[0].split("-");
+		let formatDate = newDate[0]+"/"+newDate[1]+"/"+newDate[2];
+		console.log(formatDate);
+		this.offerValidity=formatDate;
 		this.offerDescription=user.offerDescription;
 		this.offerTerms=user.offerTerms;
 		this.offerTitle=user.offerTitle;
@@ -119,11 +123,13 @@ export class AddOfferComponent implements OnInit {
 
 	//Function will update the offer on vendor page
 	submit(){
+		let IsoDate = new Date(this.offerValidity).toISOString();
+		console.log(IsoDate);
 		this.obj={
 			"offerId" :this.User.offerId,
 			"userId"  :this.User.userId,
 			"offerTitle" :this.offerTitle,
-			"offerValidity" :this.offerValidity,
+			"offerValidity" :IsoDate,
 			"dateOfAnnouncement" :this.User.dateOfAnnouncement,
 			"address" :this.User.address,
 			"offerDescription" :this.offerDescription,
