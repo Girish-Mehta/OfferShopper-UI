@@ -12,7 +12,7 @@ import { SEARCH_BY_CATEGORY } from './search-service-mockdata';
 import { SEARCH_BY_CATEGORY_KEY } from './search-service-mockdata';
 
 
-fdescribe('SearchService', () => {
+describe('SearchService', () => {
 let mockBackend: MockBackend;
 let searchResult=[],any;
 let offerResult:any;

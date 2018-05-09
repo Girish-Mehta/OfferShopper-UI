@@ -23,7 +23,7 @@ export class VendorPageComponent implements OnInit {
   lng: number;
   priceAfterDiscount: any;
   shopName:string;
-  address:any;
+  address:any=[];
   data:any;
   street:string;
   city:string;

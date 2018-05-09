@@ -8,7 +8,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { AddOfferService } from './add-offer.service';
 import { OFFERS } from './add-offer-mockdata';
 
-fdescribe('AddOfferService', () => {
+describe('AddOfferService', () => {
 	let mockBackend: MockBackend;
 	let offers : any;
 	let coupons : any;

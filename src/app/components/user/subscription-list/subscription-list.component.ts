@@ -14,7 +14,7 @@ export class SubscriptionListComponent implements OnInit {
   User:any={};
   public userInfo : any;
   public user : any;
-  public subscribeServiceList;
+  public subscribeServiceList=[];
 
   
   constructor(private subscribeService:SubscribeService,

@@ -5,6 +5,7 @@ import { Language } from '../../../../configs/language.config';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from "@angular/router";
 
+
 @Component({
   selector: 'app-location',
   templateUrl: './location.component.html',
