@@ -6,7 +6,7 @@
     </li>
     <li class="text-center py-2" [ngClass]="{active:userList=='carrybag', inactive:userList!='carrybag'}" [routerLink]="['/user', 'carrybag']">
       {{ 'USER.CARRYBAG' |  translate }}
-    </li>    
+    </li>
     <li class="text-center py-2" [ngClass]="{active:userList=='wishlist', inactive:userList!='wishlist'}" [routerLink]="['/user', 'wishlist']">
       {{ 'USER.WISHLIST' |  translate }}
     </li>
@@ -14,7 +14,7 @@
       {{ 'USER.SUBSCRIBE' |  translate }}
     </li>
     <li class="text-center py-2" [ngClass]="{active:userList=='add-offer', inactive:userList!='add-offer'}" *ngIf="role=='Vendor'||'vendor'" [routerLink]="['/user', 'add-offer']">
-      {{ 'USER.ADD-OFFER' |  translate }}    
+      {{ 'USER.VENDOR-DASHBOARD' |  translate }}    
     </li>
     <li class="text-center py-2" [ngClass]="{active:userList=='be-a-seller', inactive:userList!='be-a-seller'}" *ngIf="role=='Customer'" [routerLink]="['/user', 'be-a-seller']">
       {{ 'USER.BE-SELLER' |  translate }}
@@ -25,7 +25,7 @@
   <div [ngSwitch]="userList">
     <div *ngSwitchCase="'userdetails'">
       <app-userdetails></app-userdetails>
-    </div>    
+    </div>
     <div *ngSwitchCase="'carrybag'">
       <app-carrybag></app-carrybag>
     </div>
