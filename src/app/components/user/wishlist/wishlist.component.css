@@ -252,3 +252,11 @@ del {
 .card-discounted-price {
 	color:red;
 }
+
+.over {
+	max-height: 3rem;
+}
+
+.cursor {
+	cursor: pointer
+}
