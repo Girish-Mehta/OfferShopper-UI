@@ -12,6 +12,7 @@ import { MessageService } from './../../../services/message.service';
 
 })
 export class CarrybagComponent implements OnInit {
+
   @ViewChild('myModal')myModal;
   @ViewChild('coupModal')coupModal;
   public carryBagOffers=[];
@@ -28,7 +29,7 @@ export class CarrybagComponent implements OnInit {
   priceAfterDiscount: any;
   public userInfo;
   public userId;
-  
+
   constructor(
     private carrybagService: CarrybagService,
     private authorizationService: AuthorizationService,
@@ -36,12 +37,11 @@ export class CarrybagComponent implements OnInit {
     private _vcr: ViewContainerRef
     ) { }
 
-
   ngOnInit()
   {
-  	this.getUserId();
+    this.getUserId();
   }
-
+  
   //Function will give the logged in userId 
   getUserId() {
     this.authorizationService.getUserId().subscribe((res) =>{
@@ -125,7 +125,7 @@ export class CarrybagComponent implements OnInit {
         this.feedback=undefined;
       }
       else {
-        alert("feedback already done");
+        this.messageService.showErrorToast(this._vcr,"Feedback already completed");
       }
     }, (error) =>{
     })
@@ -140,11 +140,11 @@ export class CarrybagComponent implements OnInit {
       if(data.feedback==null&&data.vendorValidationFlag==true){
         this.myModal.nativeElement.click();
       } else if (data.feedback==null&&data.vendorValidationFlag==false)  {
-        alert("please verify your coupon through vendor");
+        this.messageService.showErrorToast(this._vcr,"Please verify your coupon from Vendor");
       }
       else  {
         this.flag=false;
-        alert("feedback already exists");
+        this.messageService.showSuccessToast(this._vcr,"Feedback already exists");
       }
     }, (error) =>{console.log("error");
   })

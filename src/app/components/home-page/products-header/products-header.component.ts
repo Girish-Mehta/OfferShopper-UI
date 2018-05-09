@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./products-header.component.css'],
   providers: [OffersService]
 })
+
 export class ProductsHeaderComponent implements OnInit {
 
   public offers : any;
@@ -26,17 +27,18 @@ export class ProductsHeaderComponent implements OnInit {
     });
   }
 
+  //Function calculates the discounted price
   productPrice(offerOriginalPrice,offerDiscount){
     this.priceAfterDiscount = Number((offerOriginalPrice)*(1-(offerDiscount)/100)).toFixed(2);
   }
 
-  //loads offers according to location.. currently location is hardcoded
+  //Function loads offers according to location
   loadOffers(){
     this.offersService.getOffersByLocation(this.userLocation)
     .subscribe((res) =>{
       this.offers=res;
-     },(error) =>{
-       this.offers=null;
+    },(error) =>{
+      this.offers=null;
     });
   }
 }

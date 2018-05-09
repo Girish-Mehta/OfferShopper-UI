@@ -1,59 +1,46 @@
-	<!-- <app-navbar></app-navbar> -->
-  <!--Modal -->
-  <div class="modal fade" id="Modal" role="dialog">
-    <div class="modal-dialog">
-     <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title modallabel">{{ 'HEADER.LOCATION.CITY' | translate }}</h4>
-      </div>
-      <!-- this is for body for dropdown to select city -->
-      <div class="modal-body p-2">
-       <select class="dropdown btn btn-light dropdown-toggle " [(ngModel)]="tempselected.a">
-         <option *ngFor=" let city of cities" value={{city}}>{{city}}</option>
-       </select>
-
-       <br>
-
-
-       <ul>
-         <li>
-          <button  id="_setImg" (click)="set('delhi')" data-dismiss="modal">
-            <span >
-             <img src="https://image.flaticon.com/icons/png/128/181/181427.png" class="maincities" alt="Delhi"/>
-             <p >{{ 'HEADER.LOCATION.CITIES.0' | translate }}</p>
-           </span>
-         </button>
-       </li>
-
+<!--Modal -->
+<div class="modal fade" id="Modal" role="dialog">
+  <div class="modal-dialog">
+   <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title modallabel">{{ 'HEADER.LOCATION.CITY' | translate }}</h4>
+    </div>
+    <!-- this is for body for dropdown to select city -->
+    <div class="modal-body p-2">
+     <select class="dropdown btn btn-light dropdown-toggle " [(ngModel)]="tempselected.a">
+       <option *ngFor=" let city of cities" value={{city}}>{{city}}</option>
+     </select>
+     <br>
+     <ul>
        <li>
-        <button id="_setImg"  (click)="set('Mumbai')" data-dismiss="modal">
-         <span>
-          <img src="https://image.flaticon.com/icons/png/128/444/444788.png" class="maincities" alt="Mumbai">
-          <p>{{ 'HEADER.LOCATION.CITIES.2' | translate }}</p>
-        </span>
-      </button>
-    </li>
-
-    <li> 
-     <button id="_setImg"  (click)="set('Chandigarh')" data-dismiss="modal">
+        <button  id="_setImg" (click)="setCity('delhi')" data-dismiss="modal">
+          <span >
+           <img src="https://image.flaticon.com/icons/png/128/181/181427.png" class="maincities" alt="Delhi"/>
+           <p >{{ 'HEADER.LOCATION.CITIES.0' | translate }}</p>
+         </span>
+       </button>
+     </li>
+     <li>
+      <button id="_setImg"  (click)="setCity('Mumbai')" data-dismiss="modal">
        <span>
-         <img src="https://cdn.iconscout.com/public/images/icon/premium/png-256/chandigarh-openhand-monument-architecture-symbol-39a0c693561273cd-256x256.png" class="maincities" alt="Chandigarh">
-         <p>{{ 'HEADER.LOCATION.CITIES.1' | translate }}</p>
-       </span>
-     </button>
-   </li> 
-
- </ul>
-
-
- 
+        <img src="https://image.flaticon.com/icons/png/128/444/444788.png" class="maincities" alt="Mumbai">
+        <p>{{ 'HEADER.LOCATION.CITIES.2' | translate }}</p>
+      </span>
+    </button>
+  </li>
+  <li> 
+   <button id="_setImg"  (click)="setCity('Chandigarh')" data-dismiss="modal">
+     <span>
+       <img src="https://cdn.iconscout.com/public/images/icon/premium/png-256/chandigarh-openhand-monument-architecture-symbol-39a0c693561273cd-256x256.png" class="maincities" alt="Chandigarh">
+       <p>{{ 'HEADER.LOCATION.CITIES.1' | translate }}</p>
+     </span>
+   </button>
+ </li> 
+</ul>
 </div>
-
-
-
 <div class="modal-footer">
   <span>
-    <button type="button" class="btn btn-default " data-dismiss="modal"  (click)="fav(tempselected)">{{ 'HEADER.LOCATION.CONTINUE' | translate }}</button>
+    <button type="button" class="btn btn-default " data-dismiss="modal"  (click)="favouriteCity(tempselected)">{{ 'HEADER.LOCATION.CONTINUE' | translate }}</button>
     <button type="button" class="btn btn-dark " data-dismiss="modal">{{ 'HEADER.LOCATION.SKIP' | translate }}</button>
   </span>
 </div>

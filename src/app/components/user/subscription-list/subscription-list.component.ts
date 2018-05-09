@@ -11,18 +11,24 @@ import { MessageService } from './../../../services/message.service';
 })
 
 export class SubscriptionListComponent implements OnInit {
+
   User:any={};
   public userInfo : any;
   public user : any;
   public subscribeServiceList=[];
 
-  
   constructor(private subscribeService:SubscribeService,
     private authorizationService:AuthorizationService,
     private messageService: MessageService,
     private _vcr: ViewContainerRef
     ) { }
 
+  ngOnInit() {
+    this.getUserId();
+    this.getAllSubscriptions(this.user);
+  }
+
+  //Function will give the userId from token
   getUserId() {
     this.authorizationService.getUserId().subscribe((res) =>{
       this.userInfo = res.text().split(',');
@@ -32,35 +38,23 @@ export class SubscriptionListComponent implements OnInit {
     })
   }
 
-  ngOnInit() {
-    this.getUserId();
-    this.getAllSubscriptions(this.user);
-  }
+  //Function will retrieve the all the vendor subscribed by user
   getAllSubscriptions(user){
-    console.log(user);
     this.subscribeService.getAllDetails(user).subscribe((res) =>{
-      console.log(res);
       this.subscribeServiceList=res;
     },
     (error) =>{
-      alert(error + "does not work");
     })
   }
 
-
+  //Function will unsubscribe the vendor from user profile
   deleteSubscriptions(userId,vendorId){
-    /*this.subscribeService.deleteSubscriptionsById(userId,vendorId).subscribe((res) =>{
-    	console.log("calling get after delete");
-    	this.getAllSubscriptions(userId);
-    }, (error) =>{
-      alert(error + "deleting restaurant does not works");
-    })*/
     this.messageService.deleteConfirmation(()=>
-     this.subscribeService.deleteSubscriptionsById(userId,vendorId).subscribe((res) =>{
-      this.messageService.showSuccessToast(this._vcr,"Deleted");
-      this.getAllSubscriptions(userId);
-    }, (error) =>{
-      alert(error + "deleting restaurant does not works");
-    }));
+      this.subscribeService.deleteSubscriptionsById(userId,vendorId).subscribe((res) =>{
+        this.messageService.showSuccessToast(this._vcr,"Deleted");
+        this.getAllSubscriptions(userId);
+      }, (error) =>{
+        alert(error + "deleting restaurant does not works");
+      }));
   }
 }

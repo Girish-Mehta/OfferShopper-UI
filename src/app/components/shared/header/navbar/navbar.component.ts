@@ -36,14 +36,13 @@ export class NavbarComponent implements OnInit {
 		});
 	}
 
-
 	ngOnInit() {
 		this.isLogin();
 	}
 
+	//Function checks the user is login or not
 	isLogin(){
 		if(localStorage.getItem("application-token")){
-			console.log("Success");
 			this.login = true;
 		} else{
 			this.login = false;
@@ -55,12 +54,14 @@ export class NavbarComponent implements OnInit {
 		this.getUserId();
 	}
 
+	//Function will logout the user
 	logout(){
 		this.authorizationService.logout();
 		this.isLogin();
 		this.loginService.logout();
 	}
 
+	//Function will get the userId from token
 	getUserId() {
 		this.authorizationService.getUserId().subscribe((res:any) =>{
 			this.userId = (res.text().split(','))[2];
@@ -70,6 +71,7 @@ export class NavbarComponent implements OnInit {
 		})
 	}
 
+	//Function loads the user profile
 	loadUserprofile(){
 		this.isLogin();
 		this.router.navigate(['/user/userdetails']);
