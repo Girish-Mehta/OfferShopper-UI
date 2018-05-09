@@ -6,8 +6,9 @@ import {Headers, BaseRequestOptions,Response,Http, XHRBackend, RequestMethod} fr
 import {HttpClientModule} from '@angular/common/http';
 
 import { FeedbackService } from './feedback.service';
-
+import { FEEDBACK_BY_ID } from './../services/feedback-service-mockdata';
 describe('FeedbackService', () => {
+ let feedbackResult:any;
  let mockBackend: MockBackend;
 
   beforeEach(async() => {
@@ -26,6 +27,7 @@ describe('FeedbackService', () => {
       imports : [HttpClientModule,HttpModule],
     });
     mockBackend = getTestBed().get(MockBackend);
+    feedbackResult=FEEDBACK_BY_ID;
 
   });
 
@@ -37,5 +39,33 @@ describe('FeedbackService', () => {
   it('should have getFeed function', inject([FeedbackService], (service: FeedbackService) => {
     expect(service.getFeed).toBeTruthy();
   }));
+
+  it('check for getFeedback function and should return an feedback', async(inject([FeedbackService], (service: FeedbackService) => {
+    mockBackend.connections.subscribe(
+      (connection: MockConnection) => {
+        connection.mockRespond(new Response(
+          new ResponseOptions({
+            body: feedbackResult
+          }
+          )));
+      });  
+    service.getFeed('string').subscribe(results=>{
+      expect(results).toEqual(feedbackResult);
+    });
+  })));
+
+  it('negative test case to check for getFeedback function and should return an feedback', async(inject([FeedbackService], (service: FeedbackService) => {
+    mockBackend.connections.subscribe(
+      (connection: MockConnection) => {
+        connection.mockRespond(new Response(
+          new ResponseOptions({
+          status : 404
+         }
+          )));
+      });  
+    service.getFeed('string').subscribe(results=>{
+      expect(results).not.toEqual(200);
+    });
+  })));
 
 });

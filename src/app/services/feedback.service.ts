@@ -15,11 +15,9 @@ export class FeedbackService {
 		this.options = new RequestOptions({headers: this.header}); 
 	}
 
-		getFeed(userId) {
-			return this.http.get(Feedback.getFeedUrl+userId, this.options)
-			.map(data => data.json(),
-				(error: any)=>console.log("error in getting data from database"));
-		}
-
-
+	getFeed(userId) {
+		return this.http.get(Feedback.getFeedUrl+userId, this.options)
+		.map(data => data.json(),
+		(error: any)=>console.log("error in getting data from database"));
 	}
+}
