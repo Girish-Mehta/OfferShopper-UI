@@ -49,12 +49,12 @@
         <hr/>
         <!-- only visible when the logged in person is a seller-->
         <div *ngIf="role=='Vendor'">
-        <div class="form-group">
+          <div class="form-group">
             <label for="inputShopName">{{ 'USER.SELLER.ADDRESS.SHOP-NAME' | translate }}</label>
             <input type="text" class="form-control" id="inputShopName" placeholder="{{shopName}}" disabled [(ngModel)]="shopName" [ngModelOptions]="{standalone: true}">
           </div>
           <div class="checkbox pb-2">
-            <input type="checkbox" (click)="setCheckboxAddress()" id="SameCheckbox" value="SameAsAbove"> {{ 'USER.SELLER.ADDRESS.SAME' | translate }}
+            <input type="checkbox" (click)="setCheckboxAddress()" id="sameCheckbox" value="SameAsAbove" disabled [(ngModel)]="sameCheckbox" [ngModelOptions]="{standalone: true}"> {{ 'USER.SELLER.ADDRESS.SAME' | translate }}
           </div>
           <div class="form-group">
             <label for="inputShopAddress">{{ 'USER.SELLER.ADDRESS.SHOP' | translate }}</label>
@@ -69,11 +69,11 @@
               </select>
             </div>
             <div class="form-group col-md-4">
-                <label for="inputShopState">{{ 'USER.SELLER.ADDRESS.STATE' | translate }}</label>
-                <select (change)=showRelevantCitiesShop(shopState) name=slist class="form-control" id="inputShopState" disabled [(ngModel)]="shopState" [ngModelOptions]="{standalone: true}">
-                  <option value="{{shopState}}">{{shopState}}</option>
-                  <option *ngFor="let state of states" value={{state}}>{{state}}</option>
-                </select>
+              <label for="inputShopState">{{ 'USER.SELLER.ADDRESS.STATE' | translate }}</label>
+              <select (change)=showRelevantCitiesShop(shopState) name=slist class="form-control" id="inputShopState" disabled [(ngModel)]="shopState" [ngModelOptions]="{standalone: true}">
+                <option value="{{shopState}}">{{shopState}}</option>
+                <option *ngFor="let state of states" value={{state}}>{{state}}</option>
+              </select>
             </div>
             <div class="form-group col-md-2">
               <label for="inputShopZip">{{ 'USER.SELLER.ADDRESS.ZIP' | translate }}</label>

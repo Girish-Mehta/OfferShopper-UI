@@ -119,6 +119,7 @@ export class UserdetailsComponent implements OnInit {
     (<HTMLInputElement>document.getElementById("inputShopCity")).disabled = false;
     (<HTMLInputElement>document.getElementById("inputShopZip")).disabled = false;
     (<HTMLInputElement>document.getElementById("inputShopState")).disabled = false;
+    (<HTMLInputElement>document.getElementById("sameCheckbox")).disabled = false;
   };
 
   submit(){
@@ -134,6 +135,7 @@ export class UserdetailsComponent implements OnInit {
     (<HTMLInputElement>document.getElementById("inputShopCity")).disabled = true;
     (<HTMLInputElement>document.getElementById("inputShopZip")).disabled = true;
     (<HTMLInputElement>document.getElementById("inputShopState")).disabled = true;
+    (<HTMLInputElement>document.getElementById("sameCheckbox")).disabled = true;
     let obj={
       "firstName": this.firstName,
       "lastName": this.lastName,
