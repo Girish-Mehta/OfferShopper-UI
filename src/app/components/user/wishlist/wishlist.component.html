@@ -18,7 +18,7 @@
               <div class="card-img-overlay">
                 <span class="badge badge-pill badge-info card-discount p-3">{{result.offerDiscount}}{{ 'HOMEPAGE.PRODUCT-HEADER.OFF' | translate }}</span>
                 <div class="btn-group" *ngIf="result; else elseBlock">
-                    <button class="btn btn-dark my-2 my-sm-0 " type="button" (click)="deleteOffer(result.userId,result.offerId)"><i class="fas fa-trash-alt"></i> {{ 'BUTTONS.DELETE' | translate }}</button>
+                    <button class="btn btn-dark my-2 my-sm-0 " type="button" (click)="deleteOffer(result.offerId,result.userId)"><i class="fas fa-trash-alt"></i> {{ 'BUTTONS.DELETE' | translate }}</button>
                   </div>
                 <ng-template #elseBlock>
                   <div class="btn-group btn-group-justified">
