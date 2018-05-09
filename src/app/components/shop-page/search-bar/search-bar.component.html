@@ -3,7 +3,7 @@
     <nav class="navbar navbar-light nav justify-content-center">
       <form id="search" class="form-inline my-2 my-lg-0">
         <select name="category-selected" class="dropdown btn btn-light dropdown-toggle mr-0 col-md-2 col-lg-2 col-sm-2" [(ngModel)]="category">
-          <option class="dropdown-item" selected>{{ 'HOMEPAGE.CATEGORIES.ALL' | translate }}</option>
+          <option class="dropdown-item" value="{{ 'HOMEPAGE.CATEGORIES.CATEGORY' | translate }}" selected>{{ 'HOMEPAGE.CATEGORIES.CATEGORY' | translate }}</option>
           <option class="dropdown-item">{{ 'HOMEPAGE.CATEGORIES.SPORTS' | translate }}</option>
           <option class="dropdown-item">{{ 'HOMEPAGE.CATEGORIES.CLOTHES' | translate }}</option>
           <option class="dropdown-item">{{ 'HOMEPAGE.CATEGORIES.FOOD' | translate }}</option>
