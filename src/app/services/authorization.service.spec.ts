@@ -6,7 +6,6 @@ import {Headers, BaseRequestOptions,Response,Http, XHRBackend, RequestMethod} fr
 import {HttpClientModule} from '@angular/common/http';
 import { AuthorizationService } from './authorization.service';
 
-
 describe('AuthorizationService', () => {
 let mockBackend: MockBackend;
 

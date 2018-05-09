@@ -1,3 +1,4 @@
+
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserModule, By } from '@angular/platform-browser';
 import { HttpModule,Http } from '@angular/http';
@@ -42,6 +43,12 @@ describe('ProductsListComponent', () => {
  it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+ it('should call the loadOffers method', async(() => {
+   fixture.detectChanges();
+   spyOn(component,'loadOffers');
+   expect(component.loadOffers).toHaveBeenCalledTimes(0);
+ }));
 
 
 });

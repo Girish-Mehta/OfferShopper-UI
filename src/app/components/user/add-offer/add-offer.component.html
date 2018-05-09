@@ -1,8 +1,14 @@
 <div class="add-offer">
-  <div class="d-flex justify-content-end">
-    <button type="button" class="btn btn-success d-flex justify-content-end" data-toggle="modal" data-target="#couponVerifyModal">{{ 'USER.OFFER.VALIDATE-COUPON' |  translate }}</button>
-      <button type="button" class="btn btn-success d-flex justify-content-end" data-toggle="modal" data-target="#myAddofferModal">{{ 'USER.ADD-OFFER' |  translate }}</button>
+  <!-- Div will create the validate button -->
+  <div class="d-flex bg-dark p-3">
+    <div class="col">
+      <button type="button" class="btn btn-light btn-util" data-toggle="modal" data-target="#myAddofferModal">{{ 'USER.ADD-OFFER' |  translate }}</button>
+    </div>
+    <div class="col d-flex justify-content-end">
+      <button type="button" class="btn btn-light d-flex justify-content-end btn-util" data-toggle="modal" data-target="#couponVerifyModal">{{ 'USER.OFFER.VALIDATE-COUPON' |  translate }}</button>
+    </div>
   </div>
+  <!-- This div will create the cards of offer uploaded by vendor -->
   <div class="container mt-2">
     <div class="row ">
       <div class="col-md-4 add-offer-list justify-content-center d-flex " *ngFor="let offer of offers">
@@ -24,17 +30,15 @@
           </div>
         </div>
       </div>
-    <div>
-  </div>
-</div>
-
-
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog modal-lg">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-     <div class="modal-header ">
+      <div>
+      </div>
+    </div>
+    <!-- This div will create the modal to upload the new offer -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+         <div class="modal-header ">
           <h4 class="modal-title ">{{ 'USER.OFFER.UPDATE-OFFER' |  translate }}</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
@@ -42,8 +46,8 @@
         <form>
           <div class="form-row">
             <div class="form-group col-md-6">
+                <label for="Select Category">{{ 'HOMEPAGE.CATEGORIES.CATEGORY' |  translate }}</label>
               <select required class="custom-select custom-select-md mb-3"  name="offerCategories" [(ngModel)]="offerCategories">
-                <option selected value="{{offerCategories}}">{{offerCategories}}</option>
                 <option value="sports">{{ 'HOMEPAGE.CATEGORIES.SPORTS' |  translate }}</option>
                 <option value="clothing">{{ 'HOMEPAGE.CATEGORIES.CLOTHES' |  translate }}</option>
                 <option value="food">{{ 'HOMEPAGE.CATEGORIES.FOOD' |  translate }}</option>
@@ -85,25 +89,22 @@
       </div>
     </div>
   </div>
-</div>
-
-
-
-<div id="myAddofferModal" class="modal fade" role="dialog">
-  <div class="modal-dialog modal-lg">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header ">
+  </div>
+  <!-- This div will create modal to update the offer -->
+  <div id="myAddofferModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header ">
           <h4 class="modal-title ">{{ 'USER.ADD-OFFER' |  translate }}</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
+        </div>          
       <div class="modal-body">
         <form>
           <div class="form-row">
             <div class="form-group col-md-6">
+                <label for="Select Category">{{ 'HOMEPAGE.CATEGORIES.CATEGORY' |  translate }}</label>
                   <select required class="custom-select custom-select-md mb-3"  name="offerCategories" [(ngModel)]="offerCategories">
-                    <option selected value="Select Category">{{ 'HOMEPAGE.CATEGORIES.CATEGORY' |  translate }}</option>
                     <option value="sports">{{ 'HOMEPAGE.CATEGORIES.SPORTS' |  translate }}</option>
                     <option value="clothing">{{ 'HOMEPAGE.CATEGORIES.CLOTHES' |  translate }}</option>
                     <option value="food">{{ 'HOMEPAGE.CATEGORIES.FOOD' |  translate }}</option>
@@ -149,17 +150,15 @@
       </div>
     </div>
     </div>
-</div>
 
-</div>
+<!-- This div will create modal to verify coupon -->
 <div id="couponVerifyModal" class="modal fade" role="dialog">
   <div class="modal-dialog modal-lg">
-
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header ">
-          <h4 class="modal-title ">{{ 'USER.OFFER.VERIFY-COUPON' |  translate }}</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title ">{{ 'USER.OFFER.VERIFY-COUPON' |  translate }}</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
         <form>
@@ -170,11 +169,11 @@
             </div>
           </div>
           <button type="submit" class="btn  btn-secondary button justify-content-center" data-dismiss="modal" (click)="couponValidate()">{{ 'BUTTONS.VALIDATE' |  translate }}</button>
-      </form>
+        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-dark btn-default" data-dismiss="modal">{{ 'BUTTONS.CLOSE' |  translate }}</button>
       </div>
     </div>
-    </div>
+  </div>
 </div>

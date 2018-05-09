@@ -35,9 +35,9 @@ describe('ProductPageComponent', () => {
           deps: [Http]
       })
      ],
-     providers:[{
-       provide :  [ProductDetailService,WishlistService,CarrybagService,AuthorizationService,MessageService] 
-     }]
+     providers:[
+      ProductDetailService,WishlistService,CarrybagService,AuthorizationService,MessageService
+     ]
    })
    .compileComponents();
  }));
@@ -52,11 +52,46 @@ describe('ProductPageComponent', () => {
     expect(component).toBeTruthy();
   });
 
- //    it('should call the searchProduct method',() => {
+ //   it('should call the addToWishlist method', async(() => {
+ //   fixture.detectChanges();
+ //   spyOn(component,'addToWishlist');
+ //   expect(component.addToWishlist).toHaveBeenCalledTimes(0);
+ // }));
+
+ //      it('should call the searchProduct method', async(() => {
+ //   fixture.detectChanges();
  //   spyOn(component,'searchProduct');
- //   el=fixture.debugElement.query(By.css('button')).nativeElement;
- //   el.click();
  //   expect(component.searchProduct).toHaveBeenCalledTimes(0);
- // })
+ // }));
+
+ //   it('should call the getOfferById method', async(() => {
+ //   fixture.detectChanges();
+ //   spyOn(component,'getOfferById');
+ //   expect(component.getOfferById).toHaveBeenCalledTimes(0);
+ // }));
+
+ //      it('should call the getUserId method', async(() => {
+ //   fixture.detectChanges();
+ //   spyOn(component,'getUserId');
+ //   expect(component.getUserId).toHaveBeenCalledTimes(0);
+ // }));
+
+ //         it('should call the addToWishlist method', async(() => {
+ //   fixture.detectChanges();
+ //   spyOn(component,'addToWishlist');
+ //   expect(component.addToWishlist).toHaveBeenCalledTimes(0);
+ // }));
+
+ //     it('should call the addToCarrybag method', async(() => {
+ //   fixture.detectChanges();
+ //   spyOn(component,'addToCarrybag');
+ //   expect(component.addToCarrybag).toHaveBeenCalledTimes(0);
+ // }));
+
+ //     it('should call the searchRelatedProducts method', async(() => {
+ //   fixture.detectChanges();
+ //   spyOn(component,'searchRelatedProducts');
+ //   expect(component.searchRelatedProducts).toHaveBeenCalledTimes(0);
+ // }));
 
 });

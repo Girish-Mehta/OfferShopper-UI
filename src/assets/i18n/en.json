@@ -107,7 +107,7 @@
                   "TITLE": "Miscellaneous",
                   "BODY": "This Agreement will be governed by the laws of the Indian Republic, without reference to rules governing choice of laws. You may not assign this Agreement, by operation of law or otherwise, without our prior written consent. Subject to that restriction, this Agreement will be binding on, inure to the benefit of, and be enforceable against the parties and their respective successors and assigns. Our failure to enforce your strict performance of any provision of this Agreement will not constitute a waiver of our right to subsequently enforce such provision or any other provision of this Agreement."
               }
-  
+
           },
           "FAQ": {
               "FQ": "FAQs",
@@ -124,7 +124,7 @@
               "A5": "No. There are no hidden costs and conditions. Pay for the price shown in product details and get the best products at reasonable price.",
               "Q6": "What payment modes do I have?",
               "A6": "No payment gateway is given to the user via Offer Shopper. In case you want to buy the product you can use map navigation provided by our site and reach the shop"
-  
+
           }
       },
       "REACHUS": "Want To reach us?",
@@ -194,6 +194,7 @@
       "WISHLIST": "Wishlist",
       "SUBSCRIBE": "Subscriptions",
       "ADD-OFFER": "Add Offers",
+      "VENDOR-DASHBOARD": "Vendor Dashboard",
       "BE-SELLER": "Be a Seller",
       "EMPTY": "Empty",
       "OFFERS": "Offers",
@@ -249,4 +250,3 @@
       }
     }
   }
-  

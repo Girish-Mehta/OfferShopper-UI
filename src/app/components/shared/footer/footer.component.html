@@ -1,8 +1,8 @@
 <!-- Footer -->
 <footer class="container-fluid pt-3 pl-5">
-  <div class="row p-3">
+  <div class="row px-3">
     <!-- Get in touch part-->
-    <div class="col-sm-12 col-md-3 col-lg-4">
+    <div class="col-sm-12 col-md-6 col-lg-4">
       <h4 class="text-heading"> {{ 'FOOTER.GETINTOUCH' | translate }}</h4>
       <p class="text-lead">
         {{ 'FOOTER.CONTACT' | translate }}
@@ -13,17 +13,8 @@
         <li><a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a></li>
       </ul>
     </div>
-    <!-- Categories -->
-    <div class="col-sm-12 col-md-4 col-lg-2">
-        <ul class="categories">
-            <h4 class="text-heading"> {{ 'FOOTER.CATEGORIES.CATEGORY' | translate }} </h4>
-            <li class="text-lead" [routerLink]="['/search', 'sports', '']">{{ 'FOOTER.CATEGORIES.SPORTS' | translate }}</li>
-            <li class="text-lead" [routerLink]="['/search', 'clothes', '']">{{ 'FOOTER.CATEGORIES.CLOTHES' | translate }}</li>
-            <li class="text-lead" [routerLink]="['/search', 'food', '']">{{ 'FOOTER.CATEGORIES.FOOD' | translate }}</li>
-        </ul>
-    </div>
     <!-- Links -->
-    <div class="col-sm-12 col-md-4 col-lg-2">
+    <div class="col-4 col-md-3 col-lg-2">
       <ul class="links">
         <h4 class="text-heading"> {{ 'FOOTER.LINKS.LINK' | translate }} </h4>
         <li class="text-lead" [routerLink]="['/search']">{{ 'FOOTER.LINKS.SEARCH' | translate }}</li>
@@ -31,23 +22,30 @@
         <li class="text-lead" [routerLink]="['/contact']">{{ 'FOOTER.LINKS.CONTACT' | translate }}</li>
       </ul>
     </div>
+    <!-- Categories -->
+    <div class="col-8 col-md-3 col-lg-2">
+      <ul class="categories">
+        <h4 class="text-heading"> {{ 'FOOTER.CATEGORIES.CATEGORY' | translate }} </h4>
+        <li class="text-lead" [routerLink]="['/search', 'sports', '']">{{ 'FOOTER.CATEGORIES.SPORTS' | translate }}</li>
+        <li class="text-lead" [routerLink]="['/search', 'clothes', '']">{{ 'FOOTER.CATEGORIES.CLOTHES' | translate }}</li>
+        <li class="text-lead" [routerLink]="['/search', 'food', '']">{{ 'FOOTER.CATEGORIES.FOOD' | translate }}</li>
+      </ul>
+    </div>
     <!-- Help -->
-    <div class="col-sm-12 col-md-4 col-lg-2">
+    <div class="col-4 col-md-6 col-lg-2">
       <ul class="help">
         <h4 class="text-heading"> {{ 'FOOTER.HELP.TITLE' | translate }}</h4>
         <li class="text-lead footer-terms" [routerLink]="['/help', 'terms']">{{ 'FOOTER.HELP.TC' | translate }}</li>
         <li class="text-lead footer-FAQ" [routerLink]="['/help', 'FAQs']">{{ 'FOOTER.HELP.FAQ.FQ' | translate }}</li>
       </ul>
     </div>
-
     <!-- Newsletter -->
-    <div class="col-sm-12 col-md-12 col-lg-2">
+    <div class="col-8 col-md-6 col-lg-2">
       <h4 class="text-heading"> {{ 'FOOTER.REACHUS' | translate }} </h4>
       <h2><a href="https://gmail.com"><i class="fas fa-envelope"></i></a></h2>
     </div>
   </div>
-
-  <div class="col-12 text-center pb-1 nm-t text-white">
+  <div class="col-12 text-center pb-1 nm-t mt-0 text-white">
     <span class="text-lead">
       {{ 'FOOTER.COPYRIGHT.FIRST' | translate }}
     </span>

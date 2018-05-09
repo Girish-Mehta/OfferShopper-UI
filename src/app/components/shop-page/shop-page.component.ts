@@ -1,24 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewContainerRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SearchService } from '../../services/search.service';
 import { UserService } from '../../services/user.service';
 import { Product } from '../../configs/product.config';
 import { LocationService } from '../../services/location.service';
+import { MessageService } from './../../services/message.service';
 
 @Component({
   selector: 'app-shop-page',
   templateUrl: './shop-page.component.html',
   styleUrls: ['./shop-page.component.css'],
-  providers:[SearchService, UserService]
+  providers:[SearchService, UserService,MessageService,LocationService]
 })
 export class ShopPageComponent implements OnInit {
-
-  constructor( 
-    private route: ActivatedRoute,
-    private searchService : SearchService,
-    private userService : UserService,
-    private locationService: LocationService
-    ) { }
 
   private vendorsByCity = [];
   private category: string = "";
@@ -37,11 +31,20 @@ export class ShopPageComponent implements OnInit {
     });
   }
 
+  constructor( 
+    private route: ActivatedRoute,
+    private searchService : SearchService,
+    private userService : UserService,
+    private locationService: LocationService,
+    private messageService:MessageService,
+    private _vcr:ViewContainerRef
+    ) { }
+
   //to be loaded when it is routed to this component
   loadOffers() {
      //no results shown
      if(this.category=="All" && this.searchKey == "") {
-       alert("Please select a category or search for a deal.");
+       this.messageService.showErrorToast(this._vcr,"Please select categories or search the item");;
      }
 
   // category based search
@@ -107,7 +110,7 @@ export class ShopPageComponent implements OnInit {
 
   //whenever filter is changed
   onFinish(event) {
-    this.filteredResults = this.results.filter((results)=> results.discount > event.from && results.discount < event.to);
+    this.filteredResults = this.results.filter((results)=> results.discount >= event.from && results.discount <= event.to);
   }
 
   //get vendors on basis of location - currently hardcoded to gurgaon

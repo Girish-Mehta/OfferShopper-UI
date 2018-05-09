@@ -1,11 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ForgotPasswordService } from '../../services/forgot-password.service';
-import { MessageService } from '../../services/message.service';
 import { BrowserModule, By } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DebugElement,ViewContainerRef } from '@angular/core';
 import { HttpModule,Http } from '@angular/http';
-
+import { LocationService } from '../../services/location.service';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA }      from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -40,7 +38,7 @@ describe('ShopPageComponent', () => {
       })
      ],
      providers:[{
-       provide :  [ SearchService, UserService ] 
+       provide :  [ SearchService, UserService,LocationService ] 
      }]
    })
    .compileComponents();
@@ -49,8 +47,6 @@ describe('ShopPageComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ShopPageComponent);
     component = fixture.componentInstance;
-     debug=fixture.debugElement.query(By.css('form'));
-   el=debug.nativeElement;
    fixture.detectChanges();
   });
 
@@ -58,11 +54,28 @@ describe('ShopPageComponent', () => {
     expect(component).toBeTruthy();
   });
 
- //    it('should call the loadOffers method',() => {
- //   spyOn(component,'loadOffers');
- //   el=fixture.debugElement.query(By.css('button')).nativeElement;
- //   el.click();
- //   expect(component.loadOffers).toHaveBeenCalledTimes(0);
- // })
+ it('should call the loadOffers method', async(() => {
+   fixture.detectChanges();
+   spyOn(component,'loadOffers');
+   expect(component.loadOffers).toHaveBeenCalledTimes(0);
+ }));
+
+  it('should call the sortBy method', async(() => {
+   fixture.detectChanges();
+   spyOn(component,'sortBy');
+   expect(component.sortBy).toHaveBeenCalledTimes(0);
+ }));
+
+   it('should call the onFinish method', async(() => {
+   fixture.detectChanges();
+   spyOn(component,'onFinish');
+   expect(component.onFinish).toHaveBeenCalledTimes(0);
+ }));
+
+      it('should call the getVendors method', async(() => {
+   fixture.detectChanges();
+   spyOn(component,'getVendors');
+   expect(component.getVendors).toHaveBeenCalledTimes(0);
+ }));
 
 });

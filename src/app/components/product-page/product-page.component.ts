@@ -67,7 +67,6 @@ export class ProductPageComponent implements OnInit {
      this.productDiscount=res[0].offerDiscount;
      this.productSeller=res[0].userId;
      this.shop=res[0].address.name;
-     console.log(res[0].offerTitle);
    },(error) =>{
 
    });
@@ -77,8 +76,6 @@ export class ProductPageComponent implements OnInit {
    this.productDetailService.getOfferById(this.offerId)
    .subscribe((res) =>{
      this.offer=res;
-     console.log("offer");
-     console.log(res);
      this.productName=res.offerTitle;
      this.productDescription=res.offerDescription;
      this.productValidity=res.offerValidity;
@@ -121,7 +118,7 @@ export class ProductPageComponent implements OnInit {
         this.messageService.showErrorToast(this._vcr,"Already in Wishlist");
       }
       else if(res.status==400){
-        this.messageService.showErrorToast(this._vcr,"Service Not Found");
+        this.messageService.showErrorToast(this._vcr,"Already in Wishlist");
       }
     })
  }
@@ -137,7 +134,6 @@ export class ProductPageComponent implements OnInit {
      "offerValidity":offer1.offerValidity,
      "vendorId":offer1.userId
    }
-   console.log(carrybagBean);
    this.carrybagService.addToCarrybag(carrybagBean).subscribe((res) =>{
      this.messageService.showSuccessToast(this._vcr,"Added in Carrybag");
    },(res:Response) =>{
@@ -145,18 +141,14 @@ export class ProductPageComponent implements OnInit {
         this.messageService.showErrorToast(this._vcr,"Already in CarryBag");
       }
       else if(res.status==400){
-        this.messageService.showErrorToast(this._vcr,"Service Not Found");
+        this.messageService.showErrorToast(this._vcr,"Already in CarryBag");
       }
     })
  }
 
  searchRelatedProducts(category){
-   console.log(category);
    this.productDetailService.searchRelatedProducts(category).subscribe((res) =>{
-    console.log("related"); 
-    console.log(res);
     this.relatedProducts=res;
-
    },(error)=>{})
  }
 

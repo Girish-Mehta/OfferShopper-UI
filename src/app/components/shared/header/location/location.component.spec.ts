@@ -5,17 +5,21 @@ import { BrowserModule, By } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DebugElement,ViewContainerRef } from '@angular/core';
 import { HttpModule,Http } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import {TranslateModule, TranslateStaticLoader, TranslateLoader} from "ng2-translate";
 import {ToastModule} from 'ng2-toastr/ng2-toastr';
 import { LocationComponent } from './location.component';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+//import { TranslateStore } from "@ngx-translate/core/src/translate.store";
 
-
-describe('LocationComponent', () => {
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+xdescribe('LocationComponent', () => {
   let component: LocationComponent;
   let fixture: ComponentFixture<LocationComponent>;
-    let debug: DebugElement;
+  let debug: DebugElement;
   let el: HTMLElement;
 
       beforeEach(async(() => {
@@ -29,15 +33,21 @@ describe('LocationComponent', () => {
        FormsModule,
        ToastModule.forRoot(),
        ReactiveFormsModule,
-          TranslateModule.forRoot({
+          /*TranslateModule.forRoot({
           provide: TranslateLoader,
           useFactory: (http: Http) => new TranslateStaticLoader(http, 'public/assets/i18n', '.json'),
           deps: [Http]
-      })
-     ],
-     providers:[{
-       provide :  [ TranslateService,LocationService ] 
-     }]
+      })*/
+     TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  })],
+     providers:[
+       LocationService, //,TranslateStore 
+       ]
    })
    .compileComponents();
  }));
