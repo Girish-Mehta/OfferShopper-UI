@@ -48,6 +48,7 @@ export class WishlistComponent implements OnInit {
   getWishlist() {
     this.wishlistService.getWishlist(this.userId).subscribe((res) =>{
       this.wishlistOffers = res;
+      console.log("wish");
       console.log(this.wishlistOffers);
     }, (error) =>{
       this.messageService.showErrorToast(this._vcr,"Please try after sometime");
