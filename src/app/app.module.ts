@@ -139,7 +139,7 @@ const appRoutes:Routes=[
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
-export class AppModule { 
+export class AppModule {
 }
 
 // AoT requires an exported function for factories
