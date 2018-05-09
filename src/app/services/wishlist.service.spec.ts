@@ -9,7 +9,7 @@ import { Wishlist } from './../configs/wishlist.config';
 import { AuthorizationService } from './authorization.service';
 import { WishlistService } from './wishlist.service';
 
-xdescribe('WishlistService', () => {
+describe('WishlistService', () => {
 	let mockBackend: MockBackend;
 
 	beforeEach(async() => {

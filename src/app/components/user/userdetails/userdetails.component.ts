@@ -122,6 +122,7 @@ export class UserdetailsComponent implements OnInit {
     (<HTMLInputElement>document.getElementById("inputShopCity")).disabled = false;
     (<HTMLInputElement>document.getElementById("inputShopZip")).disabled = false;
     (<HTMLInputElement>document.getElementById("inputShopState")).disabled = false;
+    (<HTMLInputElement>document.getElementById("sameCheckbox")).disabled = false;
   };
 
   //Function will update the user details
@@ -138,6 +139,7 @@ export class UserdetailsComponent implements OnInit {
     (<HTMLInputElement>document.getElementById("inputShopCity")).disabled = true;
     (<HTMLInputElement>document.getElementById("inputShopZip")).disabled = true;
     (<HTMLInputElement>document.getElementById("inputShopState")).disabled = true;
+    (<HTMLInputElement>document.getElementById("sameCheckbox")).disabled = true;
     let obj={
       "firstName": this.firstName,
       "lastName": this.lastName,
@@ -173,6 +175,22 @@ export class UserdetailsComponent implements OnInit {
       this.messageService.showSuccessToast(this._vcr,"Updated");
     }, (error) =>{
     })
+  }
+
+  cancel(){
+    this.getUserId();
+    (<HTMLInputElement>document.getElementById("firstName")).disabled= true;
+    (<HTMLInputElement>document.getElementById("lastName")).disabled = true;
+    (<HTMLInputElement>document.getElementById("phone")).disabled = true;
+    (<HTMLInputElement>document.getElementById("inputAddress")).disabled = true;
+    (<HTMLInputElement>document.getElementById("inputCity")).disabled = true;
+    (<HTMLInputElement>document.getElementById("inputZip")).disabled =true;
+    (<HTMLInputElement>document.getElementById("inputState")).disabled = true;
+    (<HTMLInputElement>document.getElementById("inputShopName")).disabled = true;
+    (<HTMLInputElement>document.getElementById("inputShopAddress")).disabled = true;
+    (<HTMLInputElement>document.getElementById("inputShopCity")).disabled = true;
+    (<HTMLInputElement>document.getElementById("inputShopZip")).disabled = true;
+    (<HTMLInputElement>document.getElementById("inputShopState")).disabled = true;
   }
 
   //Function show the shop details of vendor
