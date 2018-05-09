@@ -84,5 +84,5 @@ li {
 
 .header-shadow {
   margin-left: -5px;
-  box-shadow: 1rem 0rem 1rem black;
+  box-shadow: 0rem 0.1rem 0.4rem black;
 }
