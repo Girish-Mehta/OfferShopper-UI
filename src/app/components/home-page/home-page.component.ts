@@ -10,12 +10,12 @@ import { SearchService } from '../../services/search.service';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() {}
-
   date = new Date();
   token:any;
 
+  constructor() {}
+  
   ngOnInit() {
-		let time = "T"+this.date.getHours()+":"+this.date.getMinutes()+":"+this.date.getSeconds()+"Z";
+    let time = "T"+this.date.getHours()+":"+this.date.getMinutes()+":"+this.date.getSeconds()+"Z";
   }
 }

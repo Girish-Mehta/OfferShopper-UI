@@ -9,7 +9,7 @@ import { VerifyEmailService } from './verify-email.service';
 
 import {RESPONSE1,RESPONSE2,TOKEN } from './verify-email.service-mockdata';
 
-fdescribe('VerifyEmailService', () => {
+describe('VerifyEmailService', () => {
 let mockBackend: MockBackend;
 let response1:any;
 let response2:any;

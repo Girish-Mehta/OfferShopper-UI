@@ -23,32 +23,28 @@ export class UserComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    /*let id = this.route.snapshot.params['id'];
-    this.userList=id;*/
     this.route.paramMap.subscribe(params => {
       this.userList = params.get('id');
       this.isLogin();
     });
   }
-
-  go(idSelected) {
-    this.router.navigate(['/userprofile',idSelected])
-  }
-
+  
+  //Function will check that user is login or not
   isLogin(){
     this.login = this.authorizationService.isLogin();
     this.getUserId();
   }
 
+  //Function will get the userId from token
   getUserId() {
     this.authorizationService.getUserId().subscribe((res) =>{
       this.userInfo = res.text().split(',');
       this.role = this.userInfo[1];
-      console.log(res.text());
     }, (error) =>{
     })
   }
 
+  //Function will change the sidebar if customer changes to vendor
   changeSidebarVender(event) {
     if(event) {
       this.getUserId();

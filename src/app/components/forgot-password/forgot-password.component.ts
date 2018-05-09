@@ -11,12 +11,11 @@ import { MessageService } from '../../services/message.service';
 })
 export class ForgotPasswordComponent implements OnInit {
 
-
-
   registerForm:FormGroup;
   fb: FormBuilder;
+
   constructor(@Inject(FormBuilder)  fb: FormBuilder,
-  	private forgotPasswordService:ForgotPasswordService,
+    private forgotPasswordService:ForgotPasswordService,
     private messageService: MessageService,
     private _vcr: ViewContainerRef
     ) { 
@@ -28,7 +27,8 @@ export class ForgotPasswordComponent implements OnInit {
 
   ngOnInit() {
   }
-
+ 
+  //Function will sent the verification link to mail  
   forgot(){
     let username=this.registerForm.get('username').value;	
     this.forgotPasswordService.forgotPasswordWithEmail(username).subscribe((res) =>{

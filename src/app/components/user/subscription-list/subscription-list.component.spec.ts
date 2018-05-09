@@ -1,22 +1,23 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserModule, By } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DebugElement } from '@angular/core';
 import { HttpModule,Http } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import {TranslateModule, TranslateStaticLoader, TranslateLoader} from "ng2-translate";
 import {ToastModule} from 'ng2-toastr/ng2-toastr';
+import { APP_BASE_HREF } from '@angular/common';
 import { SubscriptionListComponent } from './subscription-list.component';
 import { SubscribeService } from '../../../services/subscribe.service';
 import { AuthorizationService } from '../../../services/authorization.service';
 import { MessageService } from './../../../services/message.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('SubscriptionListComponent', () => {
   let component: SubscriptionListComponent;
   let fixture: ComponentFixture<SubscriptionListComponent>;
 
-       beforeEach(async(() => {
+         beforeEach(async(() => {
    TestBed.configureTestingModule({
      declarations: [ SubscriptionListComponent ],
      imports: [
@@ -33,9 +34,9 @@ describe('SubscriptionListComponent', () => {
           deps: [Http]
       })
      ],
-     providers:[{
-       provide :  [SubscribeService, AuthorizationService, MessageService] 
-     }]
+     providers:[
+ SubscribeService, AuthorizationService, MessageService] 
+     
    })
    .compileComponents();
  }));

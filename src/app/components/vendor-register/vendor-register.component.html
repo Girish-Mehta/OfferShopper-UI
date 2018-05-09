@@ -106,7 +106,7 @@
                 <div class="col-sm-4 form-group">
                   <label>{{ 'USER.SELLER.ADDRESS.CITY' | translate }}</label>
                   
-                  <select name=slist formControlName="city" class="form-control" id="state">
+                  <select name=slist formControlName="city" class="form-control" id="city">
                   <option value="">{{ 'USER.SELLER.ADDRESS.SELECT-CITY' | translate }}</option>
                   <option *ngFor="let city of citiesHome" value={{city}}>{{ city }}</option>
                 </select>
@@ -153,7 +153,7 @@
                   </div>
                   <div class="col-sm-4 form-group">
                       <label>{{ 'USER.SELLER.ADDRESS.CITY' | translate }}</label>
-                      <select name=slist formControlName="vendorCity" class="form-control" id="state">
+                      <select name=slist formControlName="vendorCity" class="form-control" id="vendorCity">
                       <option value="">{{ 'USER.SELLER.ADDRESS.SELECT-CITY' | translate }}</option>
                       <option *ngFor="let city of citiesShop" value={{city}}>{{ city }}</option>
                     </select>
