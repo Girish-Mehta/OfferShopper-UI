@@ -56,6 +56,7 @@ import { BeASellerComponent } from './components/user/be-a-seller/be-a-seller.co
 import { WheelComponent } from './components/wheel/wheel.component';
 import { GooglesigninService } from './services/googlesignin.service';
 
+
 const appRoutes:Routes=[
 
   { path: '', redirectTo: '/homepage/Delhi', pathMatch: 'full' },
