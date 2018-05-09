@@ -31,72 +31,72 @@
               <div class="form-group">
                 <a class="text-pride" routerLink="/forgot-password">{{ 'LOGIN.FORGOTPASSWORD' | translate }}</a>
               </div>
-              <div class="row">
-                <button type="button" class="btn btn-secondary btn-login" [disabled]="loginForm.invalid" (click)="login()">{{ 'LOGIN.TITLE1' | translate }}</button>
-                           <!--                 google Button
-                           -->                 <div id="googleBtn">Google</div>
-                         </div>
-                       </form>
-                     </div>
-                   </div>
-                   <div class="card text-white cardPadding cards bg-pride">
-                    <div class="card-body">
-                      <h1 class="mb-4">{{ 'LOGIN.TITLE2' | translate }}</h1>
-                      <form [formGroup]="registerForm">
-                        <div class="form-group">
-                          <label>{{ 'LOGIN.EMAIL' | translate }}</label>
-                          <input  type="email" formControlName="username" class="form-control" placeholder="{{ 'LOGIN.EMAIL' | translate }}">
-                          <div  class="alert-msg" *ngIf="registerForm.get('username').touched && isAlredyExist">{{ 'LOGIN.ALREADY' | translate }} </div>
-                          <div *ngIf="registerForm.get('username').touched && registerForm.get('username').invalid" class="alert-msg">
-                            <div *ngIf="registerForm.get('username').hasError('required')" class="text-white">
-                              {{ 'LOGIN.ERRORUNREQ' | translate }}
-                            </div>
-                            <div *ngIf="registerForm.get('username').hasError('email') && !registerForm.get('username').hasError('required')" class="text-white">
-                              {{ 'LOGIN.ERRORUNINV' | translate }}
-                            </div>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label>{{ 'LOGIN.PASSWORD' | translate }}</label>
-                          <input type="password" formControlName="password" class="form-control" placeholder="{{ 'LOGIN.PASSWORD' | translate }}">
-                          <div *ngIf="registerForm.get('password').touched && registerForm.get('password').invalid" class="alert-msg">
 
-                            <div *ngIf="registerForm.get('password').hasError('maxlength') && ! registerForm.get('password').hasError('pattern')" class="text-white">
-                              {{ 'LOGIN.ERRORPASSDIG' | translate }}
-                            </div>
-                            <div *ngIf="registerForm.get('password').hasError('required')" class="text-white">
-                              {{ 'LOGIN.ERRORPASSREQ' | translate }}
-                            </div>
-                            <div *ngIf="registerForm.get('password').hasError('pattern')" class="text-white">
-                              {{ 'LOGIN.ERRORPASSINV' | translate }}
-                            </div>
-                          </div>
-
-                          <div *ngIf="registerForm.get('password').touched && registerForm.get('password').errors">
-
-                           <div class="alert-msg" *ngIf="registerForm.get('password').errors.notEquivalent">{{ 'LOGIN.ERRORPASSDIFF' | translate }}
-                           </div>
-                         </div>
-                       </div>
-                       <div class="form-group">
-                        <label>{{ 'LOGIN.PASSWORDRE' | translate }}</label>
-                        <input type="password" formControlName="rePassword" class="form-control" placeholder="{{ 'LOGIN.PASSWORD' | translate }}">
-                        <div *ngIf="registerForm.get('rePassword').touched && registerForm.get('rePassword').errors" class="alert-msg" >
-                         <div *ngIf="registerForm.get('rePassword').errors.required" class="text-white" >
-                          {{ 'LOGIN.PASSWORDCON' | translate }}
-                        </div>
-                        <div *ngIf="registerForm.get('rePassword').errors.notEquivalent" class="text-white" >{{ 'LOGIN.ERRORPASSDIFF' | translate }}
-                        </div>
-                      </div>
-
-                    </div>
-                    <div class="form-group">
-                      <input type="checkbox" name="isVendor" [routerLink]="['/','vendor-register']" [disabled]="registerForm.invalid">{{ 'LOGIN.ASVENDOR' | translate }}
-                    </div>
-                    <button type="submit" class="btn btn-secondary btn-submit" [disabled]="registerForm.invalid" (click)="registerUser()">{{ 'BUTTONS.SUBMIT' | translate }}</button>
-                  </form>
-                </div>
-              </div>
-            </div>
+              <button type="button" class="btn btn-secondary btn-login" [disabled]="loginForm.invalid" (click)="login()">{{ 'LOGIN.TITLE1' | translate }}</button>
+              <!-- <hr> -->
+              <!-- <div id="_google">or connect with </div> -->
+              <div id="googleBtn" class="btn btn-google btn-social mt-4"> <img src="./../../../assets/images/google-icon.png" height="22px"><span class="text-google">Google</span></div>
+            </form>
           </div>
         </div>
+        <div class="card text-white cardPadding cards bg-pride">
+          <div class="card-body">
+            <h1 class="mb-4">{{ 'LOGIN.TITLE2' | translate }}</h1>
+            <form [formGroup]="registerForm">
+              <div class="form-group">
+                <label>{{ 'LOGIN.EMAIL' | translate }}</label>
+                <input  type="email" formControlName="username" class="form-control" placeholder="{{ 'LOGIN.EMAIL' | translate }}">
+                <div  class="alert-msg" *ngIf="registerForm.get('username').touched && isAlredyExist">{{ 'LOGIN.ALREADY' | translate }} </div>
+                <div *ngIf="registerForm.get('username').touched && registerForm.get('username').invalid" class="alert-msg">
+                  <div *ngIf="registerForm.get('username').hasError('required')" class="text-white">
+                    {{ 'LOGIN.ERRORUNREQ' | translate }}
+                  </div>
+                  <div *ngIf="registerForm.get('username').hasError('email') && !registerForm.get('username').hasError('required')" class="text-white">
+                    {{ 'LOGIN.ERRORUNINV' | translate }}
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>{{ 'LOGIN.PASSWORD' | translate }}</label>
+                <input type="password" formControlName="password" class="form-control" placeholder="{{ 'LOGIN.PASSWORD' | translate }}">
+                <div *ngIf="registerForm.get('password').touched && registerForm.get('password').invalid" class="alert-msg">
+
+                  <div *ngIf="registerForm.get('password').hasError('maxlength') && ! registerForm.get('password').hasError('pattern')" class="text-white">
+                    {{ 'LOGIN.ERRORPASSDIG' | translate }}
+                  </div>
+                  <div *ngIf="registerForm.get('password').hasError('required')" class="text-white">
+                    {{ 'LOGIN.ERRORPASSREQ' | translate }}
+                  </div>
+                  <div *ngIf="registerForm.get('password').hasError('pattern')" class="text-white">
+                    {{ 'LOGIN.ERRORPASSINV' | translate }}
+                  </div>
+                </div>
+
+                <div *ngIf="registerForm.get('password').touched && registerForm.get('password').errors">
+
+                 <div class="alert-msg" *ngIf="registerForm.get('password').errors.notEquivalent">{{ 'LOGIN.ERRORPASSDIFF' | translate }}
+                 </div>
+               </div>
+             </div>
+             <div class="form-group">
+              <label>{{ 'LOGIN.PASSWORDRE' | translate }}</label>
+              <input type="password" formControlName="rePassword" class="form-control" placeholder="{{ 'LOGIN.PASSWORD' | translate }}">
+              <div *ngIf="registerForm.get('rePassword').touched && registerForm.get('rePassword').errors" class="alert-msg" >
+               <div *ngIf="registerForm.get('rePassword').errors.required" class="text-white" >
+                {{ 'LOGIN.PASSWORDCON' | translate }}
+              </div>
+              <div *ngIf="registerForm.get('rePassword').errors.notEquivalent" class="text-white" >{{ 'LOGIN.ERRORPASSDIFF' | translate }}
+              </div>
+            </div>
+
+          </div>
+          <div class="form-group">
+            <input type="checkbox" name="isVendor" [routerLink]="['/','vendor-register']" [disabled]="registerForm.invalid">{{ 'LOGIN.ASVENDOR' | translate }}
+          </div>
+          <button type="submit" class="btn btn-secondary btn-submit" [disabled]="registerForm.invalid" (click)="registerUser()">{{ 'BUTTONS.SUBMIT' | translate }}</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
