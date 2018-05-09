@@ -50,12 +50,30 @@
   </div>
   <ng-template #notSearched>
     <div *ngIf="vendorsByCity; else noVendor">
-      <div *ngFor="let vendor of vendorsByCity">
-        {{vendor.email}}
+      <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-4 card-group mb-3" *ngFor="let vendor of vendorsByCity">
+          <div class="card card-w text-dark m-5"[routerLink]="['/', 'vendorInfo',vendor.email]" >
+            <img class="card-img card-w" src="../../../../assets/card.jpeg" alt="Card image">  
+            <div class="card-body card-data">
+                <div class="row">
+                    <div >
+                      <span class="card-heading">{{vendor.shopAddress.name}}</span>
+                    </div>
+                    <div>
+                        Address: {{vendor.shopAddress.number}}
+                        {{vendor.shopAddress.street}}
+                        {{vendor.shopAddress.city}}
+                    </div>
+                    <div >
+                     Contact Number: {{vendor.vendorMobileNo}}
+                    </div>
+                 </div>
+            </div>
+          </div>
       </div>
     </div>
-    <ng-template #noVendor>
-     {{ 'SHOP-PAGE.NO-VENDOR' | translate }}
-    </ng-template>
+    </div>
   </ng-template>
 </div>
+
+

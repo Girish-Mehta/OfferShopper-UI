@@ -7,7 +7,7 @@ import { MessageService } from './../../services/message.service';
   selector: 'app-wheel',
   templateUrl: './wheel.component.html',
   styleUrls: ['./wheel.component.css'],
-  providers:[OsCashService,AuthorizationService]
+  providers:[OsCashService,AuthorizationService, MessageService]
 
 })
 export class WheelComponent implements OnInit{
@@ -19,8 +19,11 @@ export class WheelComponent implements OnInit{
   public user : any;
   public cash=[10,20,30,40,50,60];
 
-  constructor(private osCashService: OsCashService,
-    private authorizationService:AuthorizationService) { }
+  constructor(
+    private osCashService: OsCashService,
+    private authorizationService:AuthorizationService,
+    private messageService: MessageService
+  ) { }
 
   ngOnInit()
   { this.getUserId();
@@ -56,9 +59,15 @@ export class WheelComponent implements OnInit{
       console.log(this.cash[this.sectorNo]);
      this.osCashService.putOffer(this.cash[this.sectorNo],this.user).subscribe((res) =>{
       console.log("i  am respone");
-      }, (error) =>{
-        console.log("i  am error");
-      })
+      this.messageService.showOsCash(this.cash[this.sectorNo]);
+      }, (res:Response) =>{
+        if(res.status==200){
+          this.messageService.showNoSpin();
+        }
+        if(res.status==400){
+          this.messageService.showNoSpin();
+        }
+      });
 
   }
 
