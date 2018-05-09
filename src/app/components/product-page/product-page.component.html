@@ -1,6 +1,6 @@
 <div>
 	<div class="container-fluid mb-5">
-  	<div class="row align-items-top pt-4 mt-1">
+    <div class="row align-items-top pt-4 mt-1">
     	<aside class="col-sm-12 col-md-4 col-lg-4 ml-5">
      		<!-- Offer Images -->
      		<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -70,34 +70,37 @@
 					<span class="text-lead text-poiret">{{productValidity | date}}</span>
 				</div>
 			</div>
-			<div *ngIf="user">
-				 <div class="row mt-5">
-				  <!-- Button to add to wishlist-->
-				  <input class="btn btn-primary col-3 mx-3 btn-add" (click)="addToWishlist(offer)" type="button" value="{{ 'PRODUCT-PAGE.WISHLIST' | translate }}">
-				  <!-- End of button to add to widhlist-->
 
-				  <!-- Button to add to carrybag-->
-				  <input class="btn btn-primary col-3 mx-3 btn-add" (click)="addToCarrybag(offer)" type="button" value="{{ 'PRODUCT-PAGE.CARRYBAG' | translate }}">
-				  <!-- End of button to add to carrybag-->
-				</div>
-			</div>
+<div *ngIf="user">
+ <div class="row mt-5">
+  <!-- Button to add to wishlist-->
+  <input class="btn btn-primary col-3 mx-3 btn-add" (click)="addToWishlist(offer)" type="button" value="{{ 'BUTTONS.WISHLIST' | translate }}">
+  <!-- End of button to add to widhlist-->
 
-			<div *ngIf="!user">
-				 <!-- <div class="container-fluid mt-1 mb-3"> -->
-				 <div class="row mt-5">
-				   <!-- Button to add to wishlist-->
-				   <input class="btn btn-primary col-3 mx-3 btn-add" [routerLink]="['/login']" type="button" value="{{ 'PRODUCT-PAGE.WISHLIST' | translate }}">
-				   <!-- End of button to add to widhlist-->
+  <!-- Button to add to carrybag-->
+  <input class="btn btn-primary col-3 mx-3 btn-add" (click)="addToCarrybag(offer)" type="button" value="{{ 'BUTTONS.CARRYBAG' | translate }}">
+  <!-- End of button to add to carrybag-->
+</div>
+</div>
 
-				   <!-- Button to add to carrybag-->
-				   <input class="btn btn-primary col-3 mx-3 btn-add" [routerLink]="['/login']" type="button" value="{{ 'PRODUCT-PAGE.CARRYBAG' | translate }}">
-				   <!-- End of button to add to carrybag-->
-				 </div>
-				 <!-- </div> -->
-				</div>
-			</div>
-		</div>
-	</div>
+<div *ngIf="!user">
+ <!-- <div class="container-fluid mt-1 mb-3"> -->
+ <div class="row mt-5">
+   <!-- Button to add to wishlist-->
+   <input class="btn btn-primary col-3 mx-3 btn-add" [routerLink]="['/login']" type="button" value="{{ 'BUTTONS.WISHLIST' | translate }}">
+   <!-- End of button to add to widhlist-->
+
+   <!-- Button to add to carrybag-->
+   <input class="btn btn-primary col-3 mx-3 btn-add" [routerLink]="['/login']" type="button" value="{{ 'BUTTONS.CARRYBAG' | translate }}">
+   <!-- End of button to add to carrybag-->
+ </div>
+ <!-- </div> -->
+</div>
+</div>
+</div>
+
+
+</div>
 </div>
 
 
@@ -106,12 +109,12 @@
 <div class="divbody">
   <div id="carouselExampleControls1" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active"> <!-- *ngFor="let i of arr | slice:0:3"
+      <div class="carousel-item active"> <!-- *ngFor="let i of arr | slice:0:3" 
         <div class="py-5">
           <div class="container">
             <div class=corousel_title>{{ 'PRODUCT-PAGE.ALSO-BUY' | translate }}</div>
             <div class="row">
-              <div class="col-md-3" *ngIf="relatedProducts[0]"><!--  *ngFor="let product of relatedProducts | slice:0:3"
+              <div class="col-md-3" *ngIf="relatedProducts[0]"><!--  *ngFor="let product of relatedProducts | slice:0:3" 
                 <a [routerLink]="['/', 'product',relatedProducts[0].userId,relatedProducts[0].offerId]">
                   <div class="card">
                     <div class="textWithblurredImage">

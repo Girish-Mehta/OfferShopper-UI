@@ -1,15 +1,31 @@
 {
+    "BUTTONS": {
+      "SUBMIT": "जमा करें",
+      "SAVE": "सहेजें",
+      "EDIT": "संपादित करें",
+      "PREV": "पूर्व",
+      "NEXT": "अगला",
+      "SEARCH": "खोज",
+      "BACK": "वापस",
+      "WISHLIST": "विशलिस्ट में जोड़ें",
+      "CARRYBAG": "कैरीबैग में जोड़ें",
+      "UPDATE": "अद्यतन",
+      "DELETE": "हटाना",
+      "VALIDATE": "मान्य करें",
+      "CLOSE": "बंद करे",
+      "ADD-FEEDBACK": "प्रतिक्रिया जोड़ें",
+      "GEN-COUPON": "कूपन जेनरेट करें",
+      "SEE-MORE": "और देखें",
+      "SUBSCRIBE": "सदस्यता लें"
+  },
    "HOMEPAGE": {
     "CATEGORIES": {
         "CATEGORY": "वर्ग",
-        "ALL": "All",
         "SPORTS": "Sports",
         "CLOTHES": "Clothing",
         "FOOD": "Food"
     },
     "PAGE": {
-        "PREV": "पूर्व",
-        "NEXT": "अगला",
         "SEARCH": "यहां अपने पसंदीदा सौदों के लिए खोजें"
     },
     "PRODUCT-LIST": {
@@ -24,15 +40,19 @@
     }
   },
   "PRODUCT-PAGE": {
-    "BACK": "वापस",
     "ORIGINAL": "मूल मूल्य:",
     "DISCOUNT": "छूट",
     "PER": "%",
     "SELLER": "विक्रेता का नाम: ",
     "VALIDITY": "वैधता: ",
-    "WISHLIST": "विशलिस्ट में जोड़ें",
-    "CARRYBAG": "कैरीबैग में जोड़ें",
     "ALSO-BUY": "जिन ग्राहकों ने इस आइटम को खरीदा, वे भी इन्हें खरीदा"
+  },
+  "CONTACT-US": {
+    "CONTACT": "हमसे संपर्क करें",
+    "LOVE-TO": "हमें आपसे सुनना प्रिय लगेगा",
+    "NAME": "आपका नाम",
+    "EMAIL": "ईमेल ",
+    "WRITE": "यहाँ लिखें"
   },
   "FOOTER": {
     "GETINTOUCH": "संपर्क करे",
@@ -142,6 +162,82 @@
       "PASSWORDRE": "पासवर्ड फिर से दर्ज करें",
       "PASSWORDCON": "पासवर्ड की पुष्टि की आवश्यकता है।",
       "ASVENDOR": "विक्रेता के रूप में रजिस्टर करें",
-      "SUBMIT": "सब्मिट करें"
+      "FIND-YOU": "अपना खाता खोजे",
+      "UPDATEPASS": "पासवर्ड अपडेट करें",
+      "REQ": "आवश्यक",
+      "INVALID": "अवैध",
+      "ERROR-DIG-LESS": "10 अंकों से कम",
+      "ERROR-DIG-MORE": "10 से अधिक अंक"
+  },
+  "SHOP-PAGE": {
+    "SORTING": {
+      "TITLE": "श्रेणीकरण",
+      "PRICE-LOW": "मूल्य (निम्नतम -> उच्चतम)",
+      "PRICE-HIGH": "मूल्य (उच्चतम -> न्यूनतम)",
+      "DISCOUNT-LOW": "छूट (न्यूनतम -> उच्चतम)",
+      "DISCOUNT-HIGH": "छूट (उच्चतम -> न्यूनतम)"
+    },
+    "FILTER": "छूट फ़िल्टर करें",
+    "NO-VENDOR": " आपकी जगह पर कोई विक्रेता नहीं है"
+  },
+  "USER": {
+    "PERSONAL-INFO": "व्यक्तिगत जानकारी",
+    "CARRYBAG": "कैरीबैग",
+    "WISHLIST": "विशलिस्ट",
+    "SUBSCRIBE": "सदस्यता",
+    "ADD-OFFER": "ऑफर जोड़ें",
+    "BE-SELLER": "विक्रेता बनें",
+    "EMPTY": "खाली",
+    "OFFERS": "ऑफर",
+
+    "OFFER": {
+        "VALIDATE-COUPON": "कूपन मान्य करें",
+        "VALIDITY": "वैधता:",
+        "UPDATE-OFFER": "प्रस्ताव अपडेट करें",
+        "DISCOUNT": "छूट प्रतिशत",
+        "KEYWORD": "कीवर्ड",
+        "DESCRIPTION": "उत्पाद वर्णन",
+        "TAC": "नियम और शर्तें",
+        "NAME": "प्रस्ताव का नाम",
+        "O-PRICE": "मूल कीमत",
+        "PRICE": "उत्पाद की कीमत",
+        "VERIFY-COUPON": "कूपन सत्यापित करें",
+        "COUPON": "कूपन"
+    },
+    "SELLER": {
+        "FIRST-NAME": "मूल नाम",
+        "LAST-NAME": "सरनेम",
+        "CONTACT": "संपर्क",
+        "VENDOR-CONTACT": "विक्रेता का संपर्क नंबर",
+        "EMAIL": "ईमेल",
+        "DOB": "जन्म तिथि",
+        "GENDER": {
+            "TITLE": "लिंग",
+            "MALE": "पुस्र्ष",
+            "FEMALE": "महिला"
+        },
+        "ADDRESS": {
+            "TITLE": "पता",
+            "SHOP": "दुकान का पता",
+            "SAME": "ऊपर की तरह",
+            "SHOP-NAME": "दुकान का नाम",
+            "CITY": "शहर",
+            "STATE": "राज्य",
+            "ZIP": "पिन कोड",
+            "SELECT-CITY": "----शहर चुनें------",
+            "SELECT-STATE": "----राज्य चुनें------"
+        },
+        "SUBSCRIBE": "सदस्यता लें"
+    },
+    "CARRYBAG-COMP": {
+      "PRODUCT": "उत्पाद",
+      "PRICE": "मूल्य",
+      "VALIDITY": "वैधता",
+      "COUP-ID": "आपका कूपन आईडी है:",
+      "FEEDBACK": "प्रतिपुष्टि"
+    },
+    "SUBSCRIPTION": {
+      "OOPS": "ऊप्स! आपने अभी तक किसी विक्रेता को सब्सक्राइब नहीं किया है।"
+    }
   }
 }

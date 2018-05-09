@@ -1,7 +1,64 @@
 {
-    "HOME": {
-      "SELECT": "மொழியை மாற்றவும்"
+    "BUTTONS": {
+      "SUBMIT": "Submit",
+      "SAVE": "Save",
+      "EDIT": "Edit",
+      "PREV": "Previous",
+      "NEXT": "Next",
+      "SEARCH": "Search",
+      "BACK": "Back",
+      "WISHLIST": "Add to Wishlist",
+      "CARRYBAG": "Add to Carrybag",
+      "UPDATE": "Update",
+      "DELETE": "Delete",
+      "VALIDATE": "Validate",
+      "CLOSE": "Close",
+      "ADD-FEEDBACK": "Add Feedback",
+      "GEN-COUPON": "Generate Coupon",
+      "SEE-MORE": "See More",
+      "SUBSCRIBE": "Subscribe"
     },
+
+    "HOMEPAGE": {
+      "CATEGORIES": {
+          "CATEGORY": "Categories",
+          "ALL": "All",
+          "SPORTS": "Sports",
+          "CLOTHES": "Clothing",
+          "FOOD": "Food"
+      },
+      "PAGE": {
+          "SEARCH": "Search for your favorite deals here"
+      },
+      "PRODUCT-LIST": {
+          "RATING": "Rating",
+          "MRP": "MRP:",
+          "RS": "₹",
+          "UPDATE": "Last updated: "
+      },
+      "PRODUCT-HEADER": {
+          "OFF": "% OFF",
+          "NO-DATA": "Sorry... No deal at your location"
+      }
+    },
+
+    "PRODUCT-PAGE": {
+      "ORIGINAL": "Original Price:",
+      "DISCOUNT": "Discount",
+      "PER": "%",
+      "SELLER": "Seller Name: ",
+      "VALIDITY": "Validity: ",
+      "ALSO-BUY": "Customers who bought this item also bought"
+    },
+
+    "CONTACT-US": {
+      "CONTACT": "Contact us",
+      "LOVE-TO": "We would love to hear from you",
+      "NAME": "Your name",
+      "EMAIL": "Email address",
+      "WRITE": "Write here"
+    },
+
     "FOOTER": {
       "GETINTOUCH": "தொடர்பில் இருக்க",
       "CONTACT": "ஏதாவது கேள்விகள்? எங்களுக்கு மின்னஞ்சல் தெரியப்படுத்துங்கள்: offershopper@gmail.com, அல்லது எங்களை அழைக்கவும் (+91) 9078563412",
@@ -75,6 +132,7 @@
           "THIRD": "OfferShopper"
       }
     },
+
     "HEADER": {
         "NAVBAR": {
             "HOME": "முகப்பு",
@@ -90,5 +148,102 @@
             "CONTINUE": "தொடரவும்",
             "CITIES": ["தில்லி", "சண்டிகர்", "மும்பை", "ஹைதெராபாத்"]
         }
-    }
+    },
+
+    "LOGIN": {
+        "TITLE1": "Login",
+        "TITLE2": "Register",
+        "EMAIL": "Email",
+        "ALREADY": " Already present!",
+        "ERRORUNREQ": "Username is required!",
+        "ERRORUNINV": "Username Invalid!",
+        "PASSWORD": "Password",
+        "ERRORPASSREQ": "Password is required!",
+        "FORGOTPASSWORD": "Forgot Password",
+        "ERRORPASSDIG": "More than 20 digits",
+        "ERRORPASSINV": "Password Invalid (Atleast one lowercase, uppercase, specialcharacter, digit, minLength 8) !",
+        "ERRORPASSDIFF": "The new password and confirm password do not match",
+        "PASSWORDRE": "Re-enter Password",
+        "PASSWORDCON": "Confirm password is required",
+        "ASVENDOR": "Register as Vendor",
+        "FIND-YOU": "Find your Account",
+        "UPDATEPASS": "Update Password",
+        "REQ": "required",
+        "INVALID": "Invalid",
+        "ERROR-DIG-LESS": "Less than 10 digits",
+        "ERROR-DIG-MORE": "More than 10 digits"
+    },
+
+    "SHOP-PAGE": {
+      "SORTING": {
+        "TITLE": "Sorting",
+        "PRICE-LOW": "Price(Lowest->Highest)",
+        "PRICE-HIGH": "Price(Highest->Lowest)",
+        "DISCOUNT-LOW": "Discount(Lowest->Highest)",
+        "DISCOUNT-HIGH": "Discount(Highest->Lowest)"
+      },
+      "FILTER": "Filter discounts",
+      "NO-VENDOR": " No vendor at your place"
+    },
+    
+    "USER": {
+        "PERSONAL-INFO": "Personal Information",
+        "CARRYBAG": "Carrybag",
+        "WISHLIST": "Wishlist",
+        "SUBSCRIBE": "Subscriptions",
+        "ADD-OFFER": "Add Offers",
+        "BE-SELLER": "Be a Seller",
+        "EMPTY": "Empty",
+        "OFFERS": "Offers",
+  
+        "OFFER": {
+            "VALIDATE-COUPON": "Validate Coupon",
+            "VALIDITY": "Validity:",
+            "UPDATE-OFFER": "UPDATE OFFER",
+            "DISCOUNT": "Discount Percentage",
+            "KEYWORD": "Keywords",
+            "DESCRIPTION": "Product Description",
+            "TAC": "Terms and Conditions",
+            "NAME": "Offer Name",
+            "O-PRICE": "Original Price",
+            "PRICE": "Price of Product",
+            "VERIFY-COUPON": "Verify Coupon",
+            "COUPON": "COUPON"
+        },
+        "SELLER": {
+            "FIRST-NAME": "First Name",
+            "LAST-NAME": "Last Name",
+            "CONTACT": "Contact Number",
+            "VENDOR-CONTACT": "Vendor Contact Number",
+            "EMAIL": "Email Id",
+            "DOB": "DOB",
+            "GENDER": {
+                "TITLE": "Gender",
+                "MALE": "Male",
+                "FEMALE": "Female"
+            },
+            "ADDRESS": {
+                "TITLE": "Address",
+                "SHOP": "Shop's Address",
+                "SAME": "Same as above",
+                "SHOP-NAME": "Shop Name",
+                "CITY": "City",
+                "STATE": "State",
+                "ZIP": "Zip",
+                "SELECT-CITY": "----Select City------",
+                "SELECT-STATE": "----Select State------"
+            },
+            "SUBSCRIBE": "Subscribe"
+        },
+        "CARRYBAG-COMP": {
+          "PRODUCT": "PRODUCT",
+          "PRICE": "PRICE",
+          "VALIDITY": "VALIDITY",
+          "COUP-ID": "your coupon id is",
+          "FEEDBACK": "Feedback"
+        },
+        "SUBSCRIPTION": {
+          "OOPS": "Oops! You are not subscribed to any vendor for now."
+        }
+      }
   }
