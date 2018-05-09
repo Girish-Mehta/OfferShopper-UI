@@ -30,14 +30,14 @@
           <div class="form-group col-md-6">
             <label for="inputCity">City</label>            
             <select name=slist class="form-control" id="inputCity" disabled [(ngModel)]="city" [ngModelOptions]="{standalone: true}">
-              <option value="">{{city}}</option>
-              <option *ngFor="let city of cities" value={{city}}>{{city}}</option>
+              <option value="{{city}}">{{city}}</option>
+              <option *ngFor="let city of homeCities" value={{city}}>{{city}}</option>
             </select>
           </div>
           <div class="form-group col-md-4">
             <label for="inputState">State</label>
-            <select name=slist class="form-control" id="inputState" disabled [(ngModel)]="state" [ngModelOptions]="{standalone: true}">
-              <option value="">{{state}}</option>
+            <select (change)="showRelevantCitiesHome(state)" name=slist class="form-control" id="inputState" disabled [(ngModel)]="state" [ngModelOptions]="{standalone: true}">
+              <option value="state">{{state}}</option>
               <option *ngFor="let state of states" value={{state}}>{{state}}</option>
             </select>
           </div>
@@ -47,6 +47,7 @@
           </div>          
         </div>
         <hr/>
+        <!-- only visible when the logged in person is a seller-->
         <div *ngIf="role=='Vendor'">
         <div class="form-group">
             <label for="inputShopName">Shop Name</label>
@@ -63,14 +64,14 @@
             <div class="form-group col-md-6">
               <label for="inputShopCity">Shop's City</label>
               <select name=slist class="form-control" id="inputShopCity" disabled [(ngModel)]="shopCity" [ngModelOptions]="{standalone: true}">
-                <option value=""></option>
-                <option *ngFor="let city of cities" value={{city}}>{{city}}</option>
+                <option value="{{shopCity}}">{{shopCity}}</option>
+                <option *ngFor="let city of shopCities" value={{city}}>{{city}}</option>
               </select>
             </div>
             <div class="form-group col-md-4">
                 <label for="inputShopState">Shop's State</label>
-                <select name=slist class="form-control" id="inputShopState" disabled [(ngModel)]="shopState" [ngModelOptions]="{standalone: true}">
-                  <option value=""></option>
+                <select (change)=showRelevantCitiesShop(shopState) name=slist class="form-control" id="inputShopState" disabled [(ngModel)]="shopState" [ngModelOptions]="{standalone: true}">
+                  <option value="{{shopState}}">{{shopState}}</option>
                   <option *ngFor="let state of states" value={{state}}>{{state}}</option>
                 </select>
             </div>

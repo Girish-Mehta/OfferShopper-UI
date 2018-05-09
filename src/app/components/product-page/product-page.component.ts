@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter,ViewContainerRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import { ProductDetailService } from './../../services/product-detail.service';
 import { WishlistService } from './../../services/wishlist.service';
 import { CarrybagService } from './../../services/carrybag.service';
@@ -10,7 +11,7 @@ import { MessageService } from './../../services/message.service';
   selector: 'app-product-page',
   templateUrl: './product-page.component.html',
   styleUrls: ['./product-page.component.css'],
-  providers:[ProductDetailService, WishlistService, AuthorizationService,MessageService]
+  providers:[ProductDetailService, WishlistService, AuthorizationService,MessageService,CarrybagService]
 })
 
 export class ProductPageComponent implements OnInit {

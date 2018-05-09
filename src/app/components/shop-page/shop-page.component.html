@@ -4,20 +4,7 @@
 <div class="container-fluid">
   <div class="row ml-1" *ngIf="category; else notSearched">
     <div class="col-2">
-      <!-- dropdown for sorting -->
-      <div class="dropdown" *ngIf="results.length">
-        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Sorting
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" (click)="sortBy('priceHL')">Price(Highest->Lowest)</a>
-          <a class="dropdown-item" (click)="sortBy('priceLH')">Price(Lowest->Highest)</a>
-          <a class="dropdown-item" (click)="sortBy('discountHL')">Discount(Highest->Lowest)</a>
-          <a class="dropdown-item" (click)="sortBy('discountLH')">Discount(Lowest->Highest)</a>
-        </div>
-      </div>
       <br>
-      <!-- end -->
       <!-- filters -->
       <!-- discount filter -->
       <div *ngIf="results.length">
@@ -41,6 +28,18 @@
         decorate_both="false"
         (onFinish)="onFinish($event)">
         </ion-range-slider>
+      </div>
+      <!-- dropdown for sorting -->
+      <div class="dropdown mt-5" *ngIf="results.length">
+        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sorting
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" (click)="sortBy('priceHL')">Price(Highest->Lowest)</a>
+          <a class="dropdown-item" (click)="sortBy('priceLH')">Price(Lowest->Highest)</a>
+          <a class="dropdown-item" (click)="sortBy('discountHL')">Discount(Highest->Lowest)</a>
+          <a class="dropdown-item" (click)="sortBy('discountLH')">Discount(Lowest->Highest)</a>
+        </div>
       </div>
       <!-- end -->
     </div>

@@ -5,12 +5,13 @@ import { Observable } from 'rxjs/Observable';
 import {Headers, BaseRequestOptions,Response,Http, XHRBackend, RequestMethod} from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
 
+
 import { OffersService } from './offers.service';
 import { PRODUCTS_OF_A_VENDOR, NEG_PRODUCTS_OF_A_VENDOR, OFFER_BY_ID } from './product-detail-mockdata';
 
-fdescribe('OffersService', () => {
+describe('OffersService', () => {
   let mockBackend: MockBackend;
-    let offerResult:any;
+  let offerResult:any;
   let products_of_a_vendor:any;
   let  neg_products_of_a_vendor:any;
   beforeEach(async() => {
@@ -33,137 +34,104 @@ fdescribe('OffersService', () => {
     offerResult=OFFER_BY_ID;
 
     neg_products_of_a_vendor=NEG_PRODUCTS_OF_A_VENDOR;
-
+})
+it('neg check for getOffers function', async(inject([OffersService], (service: OffersService) => {
+  mockBackend.connections.subscribe(
+    (connection: MockConnection) => {
+      connection.mockRespond(new Response(
+        new ResponseOptions({
+          body: neg_products_of_a_vendor
+        }
+        )));
+    });  
+  service.getOffers('vendorId').subscribe(results=>{
+    expect(results).not.toEqual([{}]);
   });
-  it('should be created', inject([OffersService], (service: OffersService) => {
-    expect(service).toBeTruthy();
-  }));
-
-  it('should have getOffers function', inject([OffersService], (service: OffersService) => {
-    expect(service.getOffers).toBeTruthy();
-  }));
-
-  it('should have getAddress function', inject([OffersService], (service: OffersService) => {
-    expect(service.getAddress).toBeTruthy();
-  }));
-
-  it('should have addToCarrybag function', inject([OffersService], (service: OffersService) => {
-    expect(service.addToCarrybag).toBeTruthy();
-  }));
-
-  it('check for getOffers function', async(inject([OffersService], (service: OffersService) => {
-    mockBackend.connections.subscribe(
-      (connection: MockConnection) => {
-        connection.mockRespond(new Response(
-          new ResponseOptions({
-            body: products_of_a_vendor
-          }
-          )));
-      });  
-    service.getOffers('vendorId').subscribe(results=>{
-      expect(results).toEqual(products_of_a_vendor);
-    });
-  })));
-
-  it('neg check for getOffers function', async(inject([OffersService], (service: OffersService) => {
-    mockBackend.connections.subscribe(
-      (connection: MockConnection) => {
-        connection.mockRespond(new Response(
-          new ResponseOptions({
-            body: neg_products_of_a_vendor
-          }
-          )));
-      });  
-    service.getOffers('vendorId').subscribe(results=>{
-      expect(results).not.toEqual([{}]);
-    });
-  })));
+})));
 
 
-  it('check for addToCarrybag function', async(inject([OffersService], (service: OffersService) => {
-    mockBackend.connections.subscribe(
-      (connection: MockConnection) => {
-        connection.mockRespond(new Response(
-          new ResponseOptions({
-            body: true
-          }
-          )));
-      });  
-    service.addToCarrybag('vendorId').subscribe(results=>{
-      expect(results).not.toEqual(true);
-    });
-  })));
+// it('check for addToCarrybag function', async(inject([OffersService], (service: OffersService) => {
+//   mockBackend.connections.subscribe(
+//     (connection: MockConnection) => {
+//       connection.mockRespond(new Response(
+//         new ResponseOptions({
+//           body: true
+//         }
+//         )));
+//     });  
+//   service.addToCarrybag('vendorId').subscribe(results=>{
+//     expect(results).not.toEqual(true);
+//   });
+// })));
 
-  it('neg check for addToCarrybag function', async(inject([OffersService], (service: OffersService) => {
-    mockBackend.connections.subscribe(
-      (connection: MockConnection) => {
-        connection.mockRespond(new Response(
-          new ResponseOptions({
-            body: false
-          }
-          )));
-      });  
-    service.addToCarrybag('vendorId').subscribe(results=>{
-      expect(results).not.toEqual(true);
-    });
-  })));
+// it('neg check for addToCarrybag function', async(inject([OffersService], (service: OffersService) => {
+//   mockBackend.connections.subscribe(
+//     (connection: MockConnection) => {
+//       connection.mockRespond(new Response(
+//         new ResponseOptions({
+//           body: false
+//         }
+//         )));
+//     });  
+//   service.addToCarrybag('vendorId').subscribe(results=>{
+//     expect(results).not.toEqual(true);
+//   });
+// })));
 
-  it('check for getOffersByOfferId function', async(inject([OffersService], (service: OffersService) => {
-    mockBackend.connections.subscribe(
-      (connection: MockConnection) => {
-        connection.mockRespond(new Response(
-          new ResponseOptions({
-            body: offerResult
-          }
-          )));
-      });  
-    service.getOffersByOfferId('vendorId').subscribe(results=>{
-      expect(results).toEqual(offerResult);
-    });
-  })));
+it('check for getOffersByOfferId function', async(inject([OffersService], (service: OffersService) => {
+  mockBackend.connections.subscribe(
+    (connection: MockConnection) => {
+      connection.mockRespond(new Response(
+        new ResponseOptions({
+          body: offerResult
+        }
+        )));
+    });  
+  service.getOffersByOfferId('vendorId').subscribe(results=>{
+    expect(results).toEqual(offerResult);
+  });
+})));
 
-  it('check for getOffersByOfferId function', async(inject([OffersService], (service: OffersService) => {
-    mockBackend.connections.subscribe(
-      (connection: MockConnection) => {
-        connection.mockRespond(new Response(
-          new ResponseOptions({
-            body: offerResult
-          }
-          )));
-      });  
-    service.getOffersByOfferId('vendorId').subscribe(results=>{
-      expect(results).not.toEqual({});
-    });
-  })));
+it('check for getOffersByOfferId function', async(inject([OffersService], (service: OffersService) => {
+  mockBackend.connections.subscribe(
+    (connection: MockConnection) => {
+      connection.mockRespond(new Response(
+        new ResponseOptions({
+          body: offerResult
+        }
+        )));
+    });  
+  service.getOffersByOfferId('vendorId').subscribe(results=>{
+    expect(results).not.toEqual({});
+  });
+})));
 
-   it('check for getOffersByLocation function', async(inject([OffersService], (service: OffersService) => {
-    mockBackend.connections.subscribe(
-      (connection: MockConnection) => {
-        connection.mockRespond(new Response(
-          new ResponseOptions({
-            body: offerResult
-          }
-          )));
-      });  
-    service.getOffersByLocation('vendorId').subscribe(results=>{
-      expect(results).toEqual(offerResult);
-    });
-  })));
+it('check for getOffersByLocation function', async(inject([OffersService], (service: OffersService) => {
+  mockBackend.connections.subscribe(
+    (connection: MockConnection) => {
+      connection.mockRespond(new Response(
+        new ResponseOptions({
+          body: offerResult
+        }
+        )));
+    });  
+  service.getOffersByLocation('vendorId').subscribe(results=>{
+    expect(results).toEqual(offerResult);
+  });
+})));
 
- it('neg check for getOffersByLocation function', async(inject([OffersService], (service: OffersService) => {
-    mockBackend.connections.subscribe(
-      (connection: MockConnection) => {
-        connection.mockRespond(new Response(
-          new ResponseOptions({
-            body: offerResult
-          }
-          )));
-      });  
-    service.getOffersByLocation('vendorId').subscribe(results=>{
-      expect(results).not.toEqual({});
-    });
-  })));
-
-
+it('neg check for getOffersByLocation function', async(inject([OffersService], (service: OffersService) => {
+  mockBackend.connections.subscribe(
+    (connection: MockConnection) => {
+      connection.mockRespond(new Response(
+        new ResponseOptions({
+          body: offerResult
+        }
+        )));
+    });  
+  service.getOffersByLocation('vendorId').subscribe(results=>{
+    expect(results).not.toEqual({});
+  });
+})));
 
 });

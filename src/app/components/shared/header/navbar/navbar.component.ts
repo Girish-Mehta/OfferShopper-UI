@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AuthorizationService } from '../../../../services/authorization.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { LoginService } from '../../../../services/login.service';
+import { AuthorizationService } from '../../../../services/authorization.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 

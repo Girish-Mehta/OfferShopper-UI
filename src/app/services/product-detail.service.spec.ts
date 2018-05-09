@@ -8,7 +8,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { ProductDetailService } from './product-detail.service';
 import { OFFER_BY_ID, RELATED_PRODUCTS, PRODUCTS_OF_A_VENDOR } from './product-detail-mockdata'
 
-fdescribe('ProductDetailService', () => {
+describe('ProductDetailService', () => {
   let offerResult:any;
   let negOfferResult:any;
   let relatedProducts: any

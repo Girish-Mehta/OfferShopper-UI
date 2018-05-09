@@ -7,7 +7,7 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { FeedbackService } from './feedback.service';
 
-fdescribe('FeedbackService', () => {
+describe('FeedbackService', () => {
  let mockBackend: MockBackend;
 
   beforeEach(async() => {

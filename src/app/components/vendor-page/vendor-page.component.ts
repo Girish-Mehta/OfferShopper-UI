@@ -16,11 +16,11 @@ import { FeedbackService } from './../../services/feedback.service';
 
 export class VendorPageComponent implements OnInit {
 
-  lat: number;
-  lng: number;
   offersList:Array<{}>=[];
   offerFeedback:Array<{}>=[];
   feedbacks:Array<{}>=[];
+  lat: number;
+  lng: number;
   priceAfterDiscount: any;
   shopName:string;
   address:any;
@@ -52,6 +52,7 @@ export class VendorPageComponent implements OnInit {
     this.getOfferlist();
   }
 
+  //Function will logged in Email Id 
   getUserId() {
     this.authorizationService.getUserId().subscribe((res) =>{
       this.userInfo = res.text().split(',');
@@ -60,10 +61,12 @@ export class VendorPageComponent implements OnInit {
     })
   }
 
+  //Function will calculate discounted price
   productPrice(offerOriginalPrice,offerDiscount){
     this.priceAfterDiscount = (offerOriginalPrice)*(1-(offerDiscount)/100);
   }
 
+  //Function will retrieve the offers list
   getOfferlist() {
     this.offersService.getOffers(this.vendorId).subscribe((res) =>{
       this.offersList = res;
@@ -79,6 +82,7 @@ export class VendorPageComponent implements OnInit {
     })
   }
 
+  //This function will give the feedback recieved by the vendor
   getFeedback() {
     this.feedbackService.getFeed(this.vendorId).subscribe((res) =>{
       this.feedbacks=res;
@@ -86,7 +90,7 @@ export class VendorPageComponent implements OnInit {
     })
   }
 
-
+  //Function will give the longitude and latitude of shop location
   initMap(){
     this.offersService.getAddress(this.street,this.city,this.state,this.zip).subscribe((res) =>{
       this.address = res;
@@ -96,6 +100,7 @@ export class VendorPageComponent implements OnInit {
     })
   }
 
+  //Function will add offer to carrybag
   addToCarrybag(offer) {
     let carrybagBean = {
       "userId":this.user,
@@ -107,7 +112,6 @@ export class VendorPageComponent implements OnInit {
       "offerValidity":offer.offerValidity,
       "vendorId":offer.userId
     }
-    console.log(carrybagBean);
     this.offersService.addToCarrybag(carrybagBean).subscribe((res) =>{
       this.messageService.showSuccessToast(this._vcr,"Added to CarryBag");
     },(res:Response) =>{
@@ -120,17 +124,18 @@ export class VendorPageComponent implements OnInit {
     })
   }
 
+  //Function will give the message about login
   notLogin(){
     this.messageService.showErrorToast(this._vcr,"Please Login");
   }
 
+  //Function will add vendors to subscription list
   subscribe(){
     let subscribeBean={
       "userId":this.user,
       "vendorId":this.vendorId,
       "shopName":this.shopName,
     }
-    console.log(subscribeBean);
     this.subscribeService.addToSubscriptionList(subscribeBean).subscribe((res) =>{
       this.messageService.showSuccessToast(this._vcr,"Added to Subscription List");
     },(res:Response) =>{
@@ -143,6 +148,7 @@ export class VendorPageComponent implements OnInit {
     })
   }
 
+  //Function will add offers in Wishlist
   addToWishlist(offer1) {
     console.log(offer1);
     let wishlistBean = {

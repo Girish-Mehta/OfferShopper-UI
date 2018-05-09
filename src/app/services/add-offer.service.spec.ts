@@ -7,7 +7,7 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { AddOfferService } from './add-offer.service';
 
-fdescribe('AddOfferService', () => {
+describe('AddOfferService', () => {
 	let mockBackend: MockBackend;
 
 	beforeEach(async() => {

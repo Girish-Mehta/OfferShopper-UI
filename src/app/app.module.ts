@@ -4,7 +4,7 @@ import {HttpClientModule, HttpClient} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA }      from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -134,7 +134,8 @@ const appRoutes:Routes=[
    })
   ],
   providers: [UserService, WishlistService, CarrybagService, SearchService, OffersService, AuthorizationService, VerifyEmailService,UpdatePasswordService, LocationService,  LoginService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { 
 }

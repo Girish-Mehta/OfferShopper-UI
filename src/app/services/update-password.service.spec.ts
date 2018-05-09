@@ -7,7 +7,7 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { UpdatePasswordService } from './update-password.service';
 
-fdescribe('UpdatePasswordService', () => {
+xdescribe('UpdatePasswordService', () => {
 let mockBackend: MockBackend;
 
   beforeEach(async() => {

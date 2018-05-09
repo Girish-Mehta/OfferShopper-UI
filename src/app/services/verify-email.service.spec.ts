@@ -7,7 +7,7 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { VerifyEmailService } from './verify-email.service';
 
-fdescribe('VerifyEmailService', () => {
+describe('VerifyEmailService', () => {
 let mockBackend: MockBackend;
 
   beforeEach(async() => {

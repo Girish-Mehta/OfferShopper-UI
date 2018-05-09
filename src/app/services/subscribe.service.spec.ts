@@ -6,7 +6,7 @@ import {Headers, BaseRequestOptions,Response,Http, XHRBackend, RequestMethod} fr
 import {HttpClientModule} from '@angular/common/http';
 import { SubscribeService } from './subscribe.service';
 
-fdescribe('SubscribeService', () => {
+describe('SubscribeService', () => {
   let mockBackend: MockBackend;
 
   beforeEach(async() => {

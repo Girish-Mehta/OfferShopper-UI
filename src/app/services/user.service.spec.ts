@@ -6,7 +6,7 @@ import {Headers, BaseRequestOptions,Response,Http, XHRBackend, RequestMethod} fr
 import {HttpClientModule} from '@angular/common/http';
 import { UserService } from './user.service';
 
-fdescribe('UserService', () => {
+describe('UserService', () => {
 	let mockBackend: MockBackend;
 
 	beforeEach(async() => {

@@ -5,7 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-products-header',
   templateUrl: './products-header.component.html',
-  styleUrls: ['./products-header.component.css']
+  styleUrls: ['./products-header.component.css'],
+  providers: [OffersService]
 })
 export class ProductsHeaderComponent implements OnInit {
 

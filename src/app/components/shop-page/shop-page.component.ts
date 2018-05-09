@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SearchService } from '../../services/search.service';
-import { Product } from '../../configs/product.config';
 import { UserService } from '../../services/user.service';
+import { Product } from '../../configs/product.config';
 import { LocationService } from '../../services/location.service';
 
 @Component({
   selector: 'app-shop-page',
   templateUrl: './shop-page.component.html',
-  styleUrls: ['./shop-page.component.css']
+  styleUrls: ['./shop-page.component.css'],
+  providers:[SearchService, UserService,LocationService]
 })
 export class ShopPageComponent implements OnInit {
 

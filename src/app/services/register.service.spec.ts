@@ -7,7 +7,7 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { RegisterService } from './register.service';
 
-fdescribe('RegisterService', () => {
+describe('RegisterService', () => {
 let mockBackend: MockBackend;
 
   beforeEach(async() => {

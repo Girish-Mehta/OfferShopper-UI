@@ -7,7 +7,7 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { CarrybagService } from './carrybag.service';
 
-fdescribe('CarrybagService', () => {
+describe('CarrybagService', () => {
 let mockBackend: MockBackend;
 
   beforeEach(async() => {

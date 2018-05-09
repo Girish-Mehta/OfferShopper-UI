@@ -7,7 +7,7 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { SearchService } from './search.service';
 
-fdescribe('SearchService', () => {
+describe('SearchService', () => {
 let mockBackend: MockBackend;
 
   beforeEach(async() => {
