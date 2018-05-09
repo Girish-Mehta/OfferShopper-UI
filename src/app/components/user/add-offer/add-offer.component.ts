@@ -4,6 +4,7 @@ import { FormsModule} from '@angular/forms';
 import { AuthorizationService } from '../../../services/authorization.service';
 import { MessageService } from '../../../services/message.service';
 
+
 @Component({
 	selector: 'app-add-offer',
 	templateUrl: './add-offer.component.html',
@@ -12,6 +13,7 @@ import { MessageService } from '../../../services/message.service';
 })
 
 export class AddOfferComponent implements OnInit {
+
 	offerId:String ;
 	userId: String ;
 	dateOfAnnouncement:any;
@@ -33,16 +35,14 @@ export class AddOfferComponent implements OnInit {
 	coupon:number;
 	public userInfo;
 	shopAddress:any;
-
 	obj={};
 	toRedis={};
 	toSoundex={};
 	User:any={};
-	limitError:String;
-	decimalError:String;
 
 	date = new Date();
-
+	public offers=[];
+	
 	constructor(private addOfferService: AddOfferService,
 		private authorizationService: AuthorizationService,
 		private messageService: MessageService,
@@ -54,7 +54,7 @@ export class AddOfferComponent implements OnInit {
 		this.getUserId();
 	}
 
-
+	//Funtion will retrieve the userId from the token
 	getUserId() {
 		this.authorizationService.getUserId().subscribe((res) =>{
 			this.userInfo = res.text().split(',');
@@ -64,18 +64,16 @@ export class AddOfferComponent implements OnInit {
 		})
 	}
 
-	public offers=[];
-
+	//Function will retrieve the offers using userId 
 	getOffers(userId) {
-
 		this.addOfferService.getOffersList(userId).subscribe((res) =>{
-
 			this.offers = res;
 		}
 		, (error) =>{console.log("error");
 	})
 	}
 
+	//Function will delete the offer uploaded by vendor
 	deleteOffer(offerId) {
 		this.messageService.deleteConfirmation(()=>
 			this.addOfferService.deleteOffer(offerId).subscribe((res) =>{
@@ -85,9 +83,9 @@ export class AddOfferComponent implements OnInit {
 				alert(error + "deleting restaurant does not works");
 			})
 			);
-		
 	}
 
+	//Function will reset the all the feilds of vendor
 	reset(){
 		this.offerId="";
 		this.userId="";
@@ -106,35 +104,33 @@ export class AddOfferComponent implements OnInit {
 		this.street="";
 	}
 
+	//Function will update the offer uploaded by vendor
 	updateOffer(offerId){
 		let user=this.offers.find(ele=>ele.offerId===offerId);
 		this.User=user;
 		this.offerCategories=user.offerCategories;
 		this.discount=user.discount;
 		this.keywords=user.keywords;
-		this.offerValidity=user.offerValidity;
+		let date = user.offerValidity.split("T");
+		let newDate = date[0].split("-");
+		let formatDate = newDate[0]+"/"+newDate[1]+"/"+newDate[2];
+		console.log(formatDate);
+		this.offerValidity=formatDate;
 		this.offerDescription=user.offerDescription;
 		this.offerTerms=user.offerTerms;
 		this.offerTitle=user.offerTitle;
 		this.originalPrice=user.originalPrice;
 	}
 
-	checkValidation(){
-	//regex=/^[0-9]+$/;
-	console.log("In function:");
-    if ((this.discount >=0) && (this.discount <=100))
-    {
-        alert("Perfect");
-        console.log("Entered");
-    }
-	}
-
+	//Function will update the offer on vendor page
 	submit(){
+		let IsoDate = new Date(this.offerValidity).toISOString();
+		console.log(IsoDate);
 		this.obj={
 			"offerId" :this.User.offerId,
 			"userId"  :this.User.userId,
 			"offerTitle" :this.offerTitle,
-			"offerValidity" :this.offerValidity,
+			"offerValidity" :IsoDate,
 			"dateOfAnnouncement" :this.User.dateOfAnnouncement,
 			"address" :this.User.address,
 			"offerDescription" :this.offerDescription,
@@ -152,21 +148,23 @@ export class AddOfferComponent implements OnInit {
 		}, (error) =>{
 
 		})
+	
 
 	}
 
+	//Function will retrieve all the offers uploaded by the vendor
 	getOffer() {
 		this.addOfferService.getShopAddress(this.userId).subscribe((res) =>{
-			this.shopAddress=res.shopAddress;
 			debugger
-			alert(this.shopAddress);
+			this.shopAddress=res.shopAddress;
 			this.addOffer();
+			debugger
+			this.reset();
 		}, (error) =>{
-			console.log(error);
 		})
-
 	}
 
+	//Function will add new offers updated by the vendor
 	addOffer(){
 		this.date = new Date();
 		let minutes = "";
@@ -206,7 +204,7 @@ export class AddOfferComponent implements OnInit {
 
 		let time = "T"+hours+":"+minutes+":"+seconds;
 		let datetime = year+"-"+month+"-"+day+time;
-		
+		debugger
 		this.obj={
 			"userId"  :this.userId,
 			"offerTitle" :this.offerTitle,
@@ -221,13 +219,11 @@ export class AddOfferComponent implements OnInit {
 			"offerTerms" :this.offerTerms,
 			"keywords" :this.keywords
 		}
-
+		debugger
 		this.addOfferService.addNewOffer(this.obj).subscribe((res) =>{
 			this.getOffers(this.userId);
 			this.messageService.showSuccessToast(this._vcr,"Offer added");
 		}, (error) =>{
-			console.log("Error:");
-			console.log(error);
 		})
 
 		this.toRedis={
@@ -246,18 +242,15 @@ export class AddOfferComponent implements OnInit {
 			}, (error) =>{
 				alert("not added to soundex");
 			})
-
 	}
 
+	//Function will validate the coupon code entered by the vendor
 	couponValidate()
 	{
-
 		this.addOfferService.couponValidateService(this.coupon,this.userId).subscribe((res) =>{
-
 			let couponData = res;
-
 			if(couponData==null) {
-				alert("wrong coupon entered");
+				this.messageService.showErrorToast(this._vcr,"Sorry,Wrong CouponId");
 			}
 			else {
 				let obj = {
@@ -274,7 +267,7 @@ export class AddOfferComponent implements OnInit {
 				})
 			}
 		}
-		, (error) =>{console.log("error");
-	})
+		, (error) =>{
+		})
 	}
 }

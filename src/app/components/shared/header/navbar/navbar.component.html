@@ -1,30 +1,16 @@
-<!-- Below commented by Girish - Do not delete-->
-
-<!-- <div class="alert alert-warning alert-dismissible fade show alert-styling" role="alert">
-	<p class="alert-content">
-  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-	</p>
-
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div> -->
-
 <header class="header-shadow">
   <!-- Navbar -->
-  <nav class="navbar mt-0 navbar-expand-lg navbar-dark bg-white">
+  <nav class="navbar m-0 py-0 navbar-expand-lg navbar-dark bg-white">
     <!-- Logo -->
-    <a [routerLink]="['/homepage',userLocation]"><span class="logo justify-self-left">Offer<font class="dot">.</font>Shopper</span></a>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <a [routerLink]="['/homepage',userLocation]" class="pb-2"><span class="logo">Offer<font class="dot">.</font>Shopper</span></a>
+    <button class="navbar-toggler bg-dark header-toggle" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="col-8 d-flex  justify-content-center">
       <div class="collapse navbar-collapse justify-content-center " id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-0 mb-0 mt-2 mt-lg-0 justify-self-center">
           <li class="nav-item nav-text ml-3">
-            <a class="nav-link text-dark" [ngClass]="{active:url=='homepage'}" [routerLink]="['homepage',userLocation]">
+            <a id="home-button" class="nav-link text-dark" [ngClass]="{active:url=='homepage'}" [routerLink]="['homepage',userLocation]">
               {{ 'HEADER.NAVBAR.HOME' | translate }}
               <span class="sr-only">(current)</span>
             </a>
@@ -32,7 +18,7 @@
           <li class="nav-item nav-text">
             <a class="nav-link" [ngClass]="{active:url=='search'}" routerLink="/search">
               <font class="text-pride">
-              {{ 'HEADER.NAVBAR.SHOP' | translate }}
+                {{ 'HEADER.NAVBAR.SHOP' | translate }}
               </font>
             </a>
           </li>
@@ -41,9 +27,34 @@
               {{ 'HEADER.NAVBAR.FAQ' | translate }}
             </a>
           </li>
+          <li class="nav-item nav-text d-block d-lg-none" *ngIf="login">
+            <a class="nav-link text-dark" [ngClass]="{active:urlUserPage=='userdetails'}" (click)="loadUserprofile()">
+              Personal Information
+            </a>
+          </li>
+          <li class="nav-item nav-text d-block d-lg-none" *ngIf="!login">
+            <a class="nav-link text-dark" [ngClass]="{active:urlUserPage=='login'}" routerLink="/login">
+              Login/Register
+            </a>
+          </li>
+          <li class="nav-item nav-text d-block d-lg-none" *ngIf="login">
+            <a class="nav-link text-dark" [ngClass]="{active:urlUserPage=='wishlist'}" [routerLink]="['/user', 'wishlist']">
+              {{ 'HEADER.NAVBAR.WISHLIST' | translate }}
+            </a>
+          </li>
+          <li class="nav-item nav-text d-block d-lg-none" *ngIf="login">
+            <a class="nav-link text-dark" [ngClass]="{active:urlUserPage=='carrybag'}" [routerLink]="['/user', 'carrybag']">
+              {{ 'HEADER.NAVBAR.CARRYBAG' | translate }}
+            </a>
+          </li>
+          <div *ngIf="login">
+            <li class="nav-item nav-text d-block d-lg-none">
+              <a class="nav-link text-dark" (click)="logout()" [routerLink]="['/homepage',userLocation]">{{ 'HEADER.NAVBAR.LOGOUT' | translate }}</a>
+            </li>
+          </div>
         </ul>
       </div>
-      <div class="large mt-2">
+      <div class="large mt-2 d-none d-lg-block">
         <ul class="profile mb-0">
           <div *ngIf="login">
             <li class="pt-2 loggedIn-name">
@@ -81,7 +92,5 @@
         </ul>
       </div>
     </div>
-
   </nav>
-
 </header>

@@ -16,3 +16,8 @@
 		color: red;
 	font-size: 12px;
 }
+
+.btn-util:hover {
+		background-color: #018b8b;
+		color: white;
+}

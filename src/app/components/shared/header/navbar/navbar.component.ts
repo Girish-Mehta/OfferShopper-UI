@@ -10,7 +10,7 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 	selector: 'app-navbar',
 	templateUrl: './navbar.component.html',
 	styleUrls: ['./navbar.component.css'],
-	providers:[ AuthorizationService,LoginService ]
+	providers:[ AuthorizationService ]
 })
 
 export class NavbarComponent implements OnInit {
@@ -20,6 +20,7 @@ export class NavbarComponent implements OnInit {
 	private userId: string = "";
 	private user: string = "";
 	private url: string;
+	private urlUserPage: string;
 
 	@Input() userLocation:string;
 
@@ -29,25 +30,23 @@ export class NavbarComponent implements OnInit {
 		private location:Location,
 		private loginService: LoginService
 		) {
-		router.events.subscribe((data:any) => { 
+		router.events.subscribe((data:any) => {
 			if(data.url) {
 				this.url = (data.url.split('/'))[1];
+				this.urlUserPage = (data.url.split('/'))[2];
 			}
 		});
 	}
-
 
 	ngOnInit() {
 		this.isLogin();
 	}
 
+	//Function checks the user is login or not
 	isLogin(){
-		console.log("in isLogin method")
 		if(localStorage.getItem("application-token")){
-			console.log("Success");
 			this.login = true;
 		} else{
-			console.log("token not found")
 			this.login = false;
 		}
 		this.loginService.isLoggedin.subscribe(status => {
@@ -56,21 +55,24 @@ export class NavbarComponent implements OnInit {
 		});
 	}
 
+	//Function will logout the user
 	logout(){
 		this.authorizationService.logout();
 		this.isLogin();
 		this.loginService.logout();
 	}
 
+	//Function will get the userId from token
 	getUserId() {
 		this.authorizationService.getUserId().subscribe((res:any) =>{
 			this.userId = (res.text().split(','))[2];
-			if(this.userId) 
-				this.user = (this.userId.split('@'))[0];			
+			if(this.userId)
+				this.user = (this.userId.split('@'))[0];
 		}, (error) =>{
 		})
 	}
 
+	//Function loads the user profile
 	loadUserprofile(){
 		this.isLogin();
 		this.router.navigate(['/user/userdetails']);

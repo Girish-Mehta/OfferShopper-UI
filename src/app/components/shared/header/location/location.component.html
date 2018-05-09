@@ -32,8 +32,8 @@
 <div class="lang">
   <label class="text-heading">
    <!-- {{ 'HOME.SELECT' | translate }}-->
-    <select class="text-lang btn btn-light select-btn" #langSelect (change)="translate.use(langSelect.value)">
-    <option class="text-lang btn btn-light select-btn" *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+    <select class="text-lang btn btn-light select-btn dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" #langSelect (change)="translate.use(langSelect.value)">
+    <option class="text-lang btn btn-light select-btn dropdown-menu-right" *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
     </select>
   </label>
   </div>

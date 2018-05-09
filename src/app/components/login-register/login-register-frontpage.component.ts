@@ -17,7 +17,7 @@ declare const gapi: any;
   selector: 'app-login-register-frontpage',
   templateUrl: './login-register-frontpage.component.html',
   styleUrls: ['./login-register-frontpage.component.css'],
-  providers:[ RegisterService,MessageService,LoginService,GooglesigninService ]
+  providers:[ RegisterService,MessageService,GooglesigninService ]
 })
 export class LoginRegisterFrontpageComponent implements OnInit {
   public auth2: any;
@@ -59,7 +59,7 @@ export class LoginRegisterFrontpageComponent implements OnInit {
     this.onChanges();
   }
 
-  
+
   public googleInit() {
     gapi.load('auth2', () => {
       this.auth2 = gapi.auth2.init({
@@ -85,7 +85,7 @@ export class LoginRegisterFrontpageComponent implements OnInit {
           console.log("error in services")
         }
         )
-        
+
 
 
       }, (error) => {
@@ -205,12 +205,3 @@ registerUser(){
 }
 
 }
-
-// ^                 # start-of-string
-// (?=.*[0-9])       # a digit must occur at least once
-// (?=.*[a-z])       # a lower case letter must occur at least once
-// (?=.*[A-Z])       # an upper case letter must occur at least once
-// (?=.*[@#$%^&+=])  # a special character must occur at least once
-// (?=\S+$)          # no whitespace allowed in the entire string
-// .{8,}             # anything, at least eight places though
-// $                 # end-of-string
