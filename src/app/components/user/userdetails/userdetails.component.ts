@@ -172,6 +172,21 @@ export class UserdetailsComponent implements OnInit {
     })
   }
 
+  cancel(){
+    this.getUserId();
+    (<HTMLInputElement>document.getElementById("firstName")).disabled= true;
+    (<HTMLInputElement>document.getElementById("lastName")).disabled = true;
+    (<HTMLInputElement>document.getElementById("phone")).disabled = true;
+    (<HTMLInputElement>document.getElementById("inputAddress")).disabled = true;
+    (<HTMLInputElement>document.getElementById("inputCity")).disabled = true;
+    (<HTMLInputElement>document.getElementById("inputZip")).disabled =true;
+    (<HTMLInputElement>document.getElementById("inputState")).disabled = true;
+    (<HTMLInputElement>document.getElementById("inputShopName")).disabled = true;
+    (<HTMLInputElement>document.getElementById("inputShopAddress")).disabled = true;
+    (<HTMLInputElement>document.getElementById("inputShopCity")).disabled = true;
+    (<HTMLInputElement>document.getElementById("inputShopZip")).disabled = true;
+    (<HTMLInputElement>document.getElementById("inputShopState")).disabled = true;
+  }
   setCheckboxAddress() {
     this.shopState = this.state;
     this.shopZip = this.zip;
