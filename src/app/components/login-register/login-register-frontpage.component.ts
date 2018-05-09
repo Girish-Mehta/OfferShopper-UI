@@ -125,8 +125,6 @@ export class LoginRegisterFrontpageComponent implements OnInit {
     }
 
     this.loginService.loginWithEmailId(username,result).subscribe((res) =>{
-
-      this.router.navigate(['/homepage']);
       this.router.navigate(['/homepage',this.userLocation]);
 
     }, (res:Response) =>{
