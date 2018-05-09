@@ -42,17 +42,18 @@ export class NavbarComponent implements OnInit {
 	}
 
 	isLogin(){
+		console.log("in isLogin method")
 		if(localStorage.getItem("application-token")){
 			console.log("Success");
 			this.login = true;
 		} else{
+			console.log("token not found")
 			this.login = false;
 		}
 		this.loginService.isLoggedin.subscribe(status => {
 			this.login = status;
 			this.getUserId();
 		});
-		this.getUserId();
 	}
 
 	logout(){

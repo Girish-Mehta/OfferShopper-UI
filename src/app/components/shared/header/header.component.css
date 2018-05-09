@@ -86,3 +86,7 @@ li {
   margin-left: -5px;
   box-shadow: 1rem 0rem 1rem black;
 }
+
+.img {
+  height: 100px;
+}

@@ -8,12 +8,12 @@ import { ToastsManager, ToastModule } from 'ng2-toastr/ng2-toastr';
 
 import { MessageService } from './message.service';
 
-xdescribe('MessageService', () => {
+describe('MessageService', () => {
 let mockBackend: MockBackend;
 
   beforeEach(async() => {
     TestBed.configureTestingModule({
-      providers: [MessageService, ToastsManager,ToastModule.forRoot(),
+      providers: [MessageService, ToastsManager,
       MockBackend,
       BaseRequestOptions,
       {
@@ -24,7 +24,7 @@ let mockBackend: MockBackend;
           return new Http(backend, defaultOptions);
         }
       }],
-      imports : [HttpClientModule,HttpModule],
+      imports : [HttpClientModule,HttpModule,ToastModule.forRoot()]
     });
     mockBackend = getTestBed().get(MockBackend);
 
@@ -41,15 +41,6 @@ let mockBackend: MockBackend;
     it('should have showSuccessToast function', inject([MessageService], (service: MessageService) => {
     expect(service.showSuccessToast).toBeTruthy();
   }));
-  //   it('should have newCouponGenerate function', inject([MessageService], (service: MessageService) => {
-  //   expect(service.newCouponGenerate).toBeTruthy();
-  // }));
-  // it('should have checkCouponExistence function', inject([MessageService], (service: MessageService) => {
-  //   expect(service.checkCouponExistence).toBeTruthy();
-  // }));
-  //   it('should have updateFeedback function', inject([MessageService], (service: MessageService) => {
-  //   expect(service.updateFeedback).toBeTruthy();
-  // }));
 
 });
 
