@@ -48,3 +48,14 @@
 	font-size: 0.9rem;
 }
 
+@media(max-width: 520px){
+  .text-sort {
+    font-size: 0.1rem;
+  }
+}
+
+.btn-dropdown {
+  background-color: #018b8b;
+  color: white;
+  width: 100%;
+}

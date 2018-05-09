@@ -1,6 +1,7 @@
 <div class="py-5 px-2 xyz">
   <div class="container abc d-flex align-items-center justify-content-center">
     <div class="row border rounded p-2">
+      <!-- This form will display the vendor details  -->
       <form>
         <div class="form-row">
           <div class="form-group col-md-6">
@@ -61,7 +62,6 @@
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputShopCity">{{ 'USER.SELLER.ADDRESS.CITY' | translate }}</label>
-            <!-- <input type="text" class="form-control" id="inputShopCity" placeholder="{{shopCity}}" disabled [(ngModel)]="shopCity" [ngModelOptions]="{standalone: true}"> -->
             <select name=slist class="form-control" id="inputShopCity" disabled [(ngModel)]="shopCity" [ngModelOptions]="{standalone: true}">
               <option value=""></option>
               <option *ngFor="let city of cities" value={{city}}>{{city}}</option>
@@ -75,7 +75,6 @@
             </div>
             <div *ngIf="shopCity!=city">
               <label for="inputShopState">{{ 'USER.SELLER.ADDRESS.STATE' | translate }}</label>
-              <!-- <input type="text" class="form-control" id="inputShopState" placeholder="{{shopState}}" disabled [(ngModel)]="shopState" [ngModelOptions]="{standalone: true}"> -->
               <select name=slist class="form-control" id="inputShopState" disabled [(ngModel)]="shopState" [ngModelOptions]="{standalone: true}">
                 <option value=""></option>
                 <option *ngFor="let state of states" value={{state}}>{{state}}</option>
