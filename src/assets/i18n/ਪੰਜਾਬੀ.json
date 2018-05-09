@@ -18,7 +18,7 @@
       "SEE-MORE": "See More",
       "SUBSCRIBE": "Subscribe"
     },
-    
+
   "HOMEPAGE": {
       "CATEGORIES": {
           "CATEGORY": "Categories",
@@ -193,6 +193,7 @@
     "CARRYBAG": "Carrybag",
     "WISHLIST": "Wishlist",
     "SUBSCRIBE": "Subscriptions",
+    "VENDOR-DASHBOARD": "Vendor Dashboard",
     "ADD-OFFER": "Add Offers",
     "BE-SELLER": "Be a Seller",
     "EMPTY": "Empty",
