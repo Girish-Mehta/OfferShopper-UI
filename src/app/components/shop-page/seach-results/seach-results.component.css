@@ -1,124 +1,72 @@
 .card-rating {
-
 	border-radius: 0px 5px 0px 0px;
-
 	position: absolute;
-
 	bottom: 0;
-
 	left: 0;
-
 }
-
 
 .offer-deleted-price {
-
 	color: #999;
-
 	font-size: 14px;
-
 }
-
-
 
 .card-rating span {
-
 	color: #999;
-
 }
-
-
 
 .card-footer-button-group {
-
 	width: 100%
-
 }
-
-
 
 .card-footer-button-group button {
-
 	width: 50%;
-
 	border-radius: 4px !important;
-
 }
-
-
 
 .img-hover-cursor {
-
 	cursor: pointer;
-
 }
-
-
 
 h5 {
-
 	cursor: pointer;
-
 }
-
-
 
 /* to center align an image */
 
 #no-products-found{
-
 	margin-left: 30%;
-
 	width: 30%;
-
 }
-
-
 
 .card-w{
-
 	cursor: pointer;
-
 	max-width: 18rem;
-
 	min-height: 22rem;
-
 	max-height: 22rem;
-
 }
-
-
 
 .card-data {
-
 	margin-left: -1.1rem;
-
 	font-family: 'Julius Sans One', sans-serif;
-
 	margin-top: -0.5rem;
-
 }
-
-
 
 .card-discount {
-
 	font-family: 'Poiret One', cursive;
-
 }
-
-
 
 .card-heading {
-
 	font-size: 0.9rem;
-
 }
 
-
-
 .card-discounted-price {
-
 	color:red;
+}
 
+a {
+	color:grey;
+}
+
+a:hover{
+	text-decoration: none;
 }
