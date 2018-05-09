@@ -2,7 +2,6 @@
   <!--Modal -->
   <div class="modal fade" id="Modal" role="dialog">
     <div class="modal-dialog">
-     Modal content
      <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title modallabel">{{ 'HEADER.LOCATION.CITY' | translate }}</h4>
@@ -21,7 +20,7 @@
           <button  id="_setImg" (click)="set('delhi')" data-dismiss="modal">
             <span >
              <img src="https://image.flaticon.com/icons/png/128/181/181427.png" class="maincities" alt="Delhi"/>
-             <p >Delhi</p>
+             <p >{{ 'HEADER.LOCATION.CITIES.0' | translate }}</p>
            </span>
          </button>
        </li>
@@ -30,24 +29,24 @@
         <button id="_setImg"  (click)="set('Mumbai')" data-dismiss="modal">
          <span>
           <img src="https://image.flaticon.com/icons/png/128/444/444788.png" class="maincities" alt="Mumbai">
-          <p>Mumbai</p>
+          <p>{{ 'HEADER.LOCATION.CITIES.2' | translate }}</p>
         </span>
       </button>
     </li>
 
-    <li> 
+    <li>
      <button id="_setImg"  (click)="set('Chandigarh')" data-dismiss="modal">
        <span>
          <img src="https://cdn.iconscout.com/public/images/icon/premium/png-256/chandigarh-openhand-monument-architecture-symbol-39a0c693561273cd-256x256.png" class="maincities" alt="Chandigarh">
-         <p>Chandigarh</p>
+         <p>{{ 'HEADER.LOCATION.CITIES.1' | translate }}</p>
        </span>
      </button>
-   </li> 
+   </li>
 
  </ul>
 
 
- 
+
 </div>
 
 
@@ -61,7 +60,7 @@
 </div>
 </div>
 </div>
-<div class="sticky-top">
+<div class="sticky-top header-shadow">
   <app-location [obj]="selected"></app-location>
   <app-navbar [userLocation]="selected.a"></app-navbar>
 </div>

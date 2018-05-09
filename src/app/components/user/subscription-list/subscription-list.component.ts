@@ -14,7 +14,7 @@ export class SubscriptionListComponent implements OnInit {
   User:any={};
   public userInfo : any;
   public user : any;
-  public subscribeServiceList=[];
+  public subscribeServiceList;
 
   
   constructor(private subscribeService:SubscribeService,
@@ -23,6 +23,13 @@ export class SubscriptionListComponent implements OnInit {
     private _vcr: ViewContainerRef
     ) { }
 
+  ngOnInit() {
+    this.getUserId();
+    if (this.user) {
+      this.getAllSubscriptions(this.user);
+    }
+    
+  }
   getUserId() {
     this.authorizationService.getUserId().subscribe((res) =>{
       this.userInfo = res.text().split(',');
@@ -32,15 +39,10 @@ export class SubscriptionListComponent implements OnInit {
     })
   }
 
-  ngOnInit() {
-    this.getUserId();
-    this.getAllSubscriptions(this.user);
-  }
   getAllSubscriptions(user){
-    console.log(user);
     this.subscribeService.getAllDetails(user).subscribe((res) =>{
-      console.log(res);
       this.subscribeServiceList=res;
+      console.log(this.subscribeServiceList);
     },
     (error) =>{
       alert(error + "does not work");

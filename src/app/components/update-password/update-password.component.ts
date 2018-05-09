@@ -1,8 +1,8 @@
 import { Component, OnInit, Inject, ViewContainerRef } from '@angular/core';
 import { FormGroup, FormControl, Validators,FormBuilder } from '@angular/forms';
 import { UpdatePasswordService } from '../../services/update-password.service';
-import { ActivatedRoute } from '@angular/router';
 import { MessageService } from '../../services/message.service';
+import { ActivatedRoute } from '@angular/router';
 import {Router} from '@angular/router';
 
 @Component({

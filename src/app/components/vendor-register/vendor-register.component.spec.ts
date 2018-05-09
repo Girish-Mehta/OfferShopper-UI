@@ -110,4 +110,8 @@ describe('VendorRegisterComponent', () => {
    expect(component.form.valid).toBeTruthy();
  });
 
+     it('form invalid when empty', () => {
+  expect(component.form.valid).toBeFalsy();
+});
+
 });

@@ -15,7 +15,13 @@ export class VerifyEmailService {
     return this.http.get(VerifyEmail.passEmailId+token)
      .map((res:Response) => {
  },
-	(error: any)=>console.log("error in calling register service"));
+	(error: any)=>{
+    console.log("error in calling register service")
+    this.handleError(error)});
 }
+
+  private handleError(error: Response){
+     return Observable.throw(error.statusText);
+   }
 
 }

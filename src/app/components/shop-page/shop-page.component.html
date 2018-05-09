@@ -4,11 +4,24 @@
 <div class="container-fluid">
   <div class="row ml-1" *ngIf="category; else notSearched">
     <div class="col-2">
+      <!-- dropdown for sorting -->
+      <div class="dropdown" *ngIf="results.length">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{ 'SHOP-PAGE.SORTING.TITLE' | translate }}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" (click)="sortBy('priceHL')">{{ 'SHOP-PAGE.SORTING.PRICE-HIGH' | translate }}</a>
+          <a class="dropdown-item" (click)="sortBy('priceLH')">{{ 'SHOP-PAGE.SORTING.PRICE-LOW' | translate }}</a>
+          <a class="dropdown-item" (click)="sortBy('discountHL')">{{ 'SHOP-PAGE.SORTING.DISCOUNT-HIGH' | translate }}</a>
+          <a class="dropdown-item" (click)="sortBy('discountLH')">{{ 'SHOP-PAGE.SORTING.DISCOUNT-LOW' | translate }}</a>
+        </div>
+      </div>
       <br>
+      <!-- end -->
       <!-- filters -->
       <!-- discount filter -->
       <div *ngIf="results.length">
-        <h5>Filter discounts</h5>
+        <h5>{{ 'SHOP-PAGE.FILTER' | translate }}</h5>
         <ion-range-slider #sliderElement
         type="double"
         max="100"
@@ -29,18 +42,6 @@
         (onFinish)="onFinish($event)">
         </ion-range-slider>
       </div>
-      <!-- dropdown for sorting -->
-      <div class="dropdown mt-5" *ngIf="results.length">
-        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Sorting
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" (click)="sortBy('priceHL')">Price(Highest->Lowest)</a>
-          <a class="dropdown-item" (click)="sortBy('priceLH')">Price(Lowest->Highest)</a>
-          <a class="dropdown-item" (click)="sortBy('discountHL')">Discount(Highest->Lowest)</a>
-          <a class="dropdown-item" (click)="sortBy('discountLH')">Discount(Lowest->Highest)</a>
-        </div>
-      </div>
       <!-- end -->
     </div>
     <div class="col-10" >
@@ -49,12 +50,30 @@
   </div>
   <ng-template #notSearched>
     <div *ngIf="vendorsByCity; else noVendor">
-      <div *ngFor="let vendor of vendorsByCity">
-        {{vendor.email}}
+      <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-4 card-group mb-3" *ngFor="let vendor of vendorsByCity">
+          <div class="card card-w text-dark m-5"[routerLink]="['/', 'vendorInfo',vendor.email]" >
+            <img class="card-img card-w" src="../../../../assets/card.jpeg" alt="Card image">  
+            <div class="card-body card-data">
+                <div class="row">
+                    <div >
+                      <span class="card-heading">{{vendor.shopAddress.name}}</span>
+                    </div>
+                    <div>
+                        Address: {{vendor.shopAddress.number}}
+                        {{vendor.shopAddress.street}}
+                        {{vendor.shopAddress.city}}
+                    </div>
+                    <div >
+                     Contact Number: {{vendor.vendorMobileNo}}
+                    </div>
+                 </div>
+            </div>
+          </div>
       </div>
     </div>
-    <ng-template #noVendor>
-      No vendor at your place
-    </ng-template>
+    </div>
   </ng-template>
 </div>
+
+

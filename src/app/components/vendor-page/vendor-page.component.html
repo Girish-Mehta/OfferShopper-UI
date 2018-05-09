@@ -10,7 +10,7 @@
           <p class="text-secondary address">{{street}}, {{city}}, {{state}}, {{zip}}</p>
         </div>
         <div class="col-lg-12 text-right">
-          <button class="btn my-5 text-right btn-subs" (click)="subscribe()">Subscribe</button>
+          <button class="btn my-5 text-right btn-subs" (click)="subscribe()">{{ 'USER.SELLER.SUBSCRIBE' | translate }}</button>
         </div>
       </div>
     </div>
@@ -23,7 +23,7 @@
           <p class="text-secondary address">{{street}}, {{city}}, {{state}}, {{zip}}</p>
         </div>
         <div class="col-lg-12 text-right">
-          <button class="btn my-5 text-right btn-subs mx-5" (click)="notLogin()">Subscribe</button>
+          <button class="btn my-5 text-right btn-subs mx-5" (click)="notLogin()">{{ 'BUTTONS.SUBSCRIBE' | translate }}</button>
         </div>
       </div>
     </div>
@@ -51,11 +51,11 @@
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
+          <span class="sr-only">{{ 'BUTTONS.PREV' | translate }}</span>
         </a>
         <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
+          <span class="sr-only">{{ 'BUTTONS.NEXT' | translate }}</span>
         </a>
       </div>
     </div>
@@ -70,10 +70,10 @@
   <div class="row my-5">
     <ul class="container nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item col-6">
-        <a class="nav-link active text-pride" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Offers</a>
+        <a class="nav-link active text-pride" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">{{ 'USER.OFFERS' | translate }}</a>
       </li>
       <li class="nav-item col-6">
-        <a class="nav-link text-pride" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false" (click)="getFeedback()">Feedback</a>
+        <a class="nav-link text-pride" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false" (click)="getFeedback()">{{ 'USER.CARRYBAG-COMP.FEEDBACK' | translate }}</a>
       </li>
     </ul>
   </div>

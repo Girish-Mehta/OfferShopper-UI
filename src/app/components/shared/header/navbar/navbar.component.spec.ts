@@ -10,33 +10,28 @@ import { APP_BASE_HREF } from '@angular/common';
 import { NavbarComponent } from './navbar.component';
 import { LoginService } from '../../../../services/login.service';
 import { AuthorizationService } from '../../../../services/authorization.service';
+import { TranslateService } from '@ngx-translate/core';
+import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
   let fixture: ComponentFixture<NavbarComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ NavbarComponent ]
-    })
-    .compileComponents();
-  }));
-
-  beforeEach(async(() => {
    TestBed.configureTestingModule({
      declarations: [ NavbarComponent ],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+ //     schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
      imports: [
        BrowserModule,
        HttpClientModule,
        HttpModule,
        RouterTestingModule,
       //  ToastModule.forRoot(),
-      //     TranslateModule.forRoot({
-      //     provide: TranslateLoader,
-      //     useFactory: (http: Http) => new TranslateStaticLoader(http, 'public/assets/i18n', '.json'),
-      //     deps: [Http]
-      // }),
+          TranslateModule.forRoot({
+          provide: TranslateLoader,
+          useFactory: (http: Http) => new TranslateStaticLoader(http, 'public/assets/i18n', '.json'),
+          deps: [Http]
+      }),
 
      ],
       providers: [
@@ -55,4 +50,29 @@ describe('NavbarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+      it('should call the isLogin method', async(() => {
+   fixture.detectChanges();
+   spyOn(component,'isLogin');
+   expect(component.isLogin).toHaveBeenCalledTimes(0);
+ }));
+
+        it('should call the logout method', async(() => {
+   fixture.detectChanges();
+   spyOn(component,'logout');
+   expect(component.logout).toHaveBeenCalledTimes(0);
+ }));
+
+         it('should call the getUserId method', async(() => {
+   fixture.detectChanges();
+   spyOn(component,'getUserId');
+   expect(component.getUserId).toHaveBeenCalledTimes(0);
+ }));
+
+        it('should call the loadUserprofile method', async(() => {
+   fixture.detectChanges();
+   spyOn(component,'loadUserprofile');
+   expect(component.loadUserprofile).toHaveBeenCalledTimes(0);
+ }));
+
 });

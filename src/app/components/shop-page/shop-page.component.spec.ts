@@ -49,8 +49,6 @@ describe('ShopPageComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ShopPageComponent);
     component = fixture.componentInstance;
-     debug=fixture.debugElement.query(By.css('form'));
-   el=debug.nativeElement;
    fixture.detectChanges();
   });
 
@@ -58,11 +56,28 @@ describe('ShopPageComponent', () => {
     expect(component).toBeTruthy();
   });
 
- //    it('should call the loadOffers method',() => {
- //   spyOn(component,'loadOffers');
- //   el=fixture.debugElement.query(By.css('button')).nativeElement;
- //   el.click();
- //   expect(component.loadOffers).toHaveBeenCalledTimes(0);
- // })
+ it('should call the loadOffers method', async(() => {
+   fixture.detectChanges();
+   spyOn(component,'loadOffers');
+   expect(component.loadOffers).toHaveBeenCalledTimes(0);
+ }));
+
+  it('should call the sortBy method', async(() => {
+   fixture.detectChanges();
+   spyOn(component,'sortBy');
+   expect(component.sortBy).toHaveBeenCalledTimes(0);
+ }));
+
+   it('should call the onFinish method', async(() => {
+   fixture.detectChanges();
+   spyOn(component,'onFinish');
+   expect(component.onFinish).toHaveBeenCalledTimes(0);
+ }));
+
+      it('should call the getVendors method', async(() => {
+   fixture.detectChanges();
+   spyOn(component,'getVendors');
+   expect(component.getVendors).toHaveBeenCalledTimes(0);
+ }));
 
 });

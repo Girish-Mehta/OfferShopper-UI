@@ -9,7 +9,7 @@ import { LocationService } from '../../services/location.service';
   selector: 'app-shop-page',
   templateUrl: './shop-page.component.html',
   styleUrls: ['./shop-page.component.css'],
-  providers:[SearchService, UserService,LocationService]
+  providers:[SearchService, UserService]
 })
 export class ShopPageComponent implements OnInit {
 

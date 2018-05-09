@@ -7,8 +7,13 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { VerifyEmailService } from './verify-email.service';
 
-describe('VerifyEmailService', () => {
+import {RESPONSE1,RESPONSE2,TOKEN } from './verify-email.service-mockdata';
+
+fdescribe('VerifyEmailService', () => {
 let mockBackend: MockBackend;
+let response1:any;
+let response2:any;
+let token=TOKEN;
 
   beforeEach(async() => {
     TestBed.configureTestingModule({
@@ -26,7 +31,9 @@ let mockBackend: MockBackend;
       imports : [HttpClientModule,HttpModule],
     });
     mockBackend = getTestBed().get(MockBackend);
-
+    response1=RESPONSE1;
+    response2=RESPONSE2;
+    token=TOKEN;
   });
 
 
@@ -37,5 +44,35 @@ let mockBackend: MockBackend;
   it('should have verifyEmailWithEmail function', inject([VerifyEmailService], (service: VerifyEmailService) => {
     expect(service.verifyEmailWithEmail).toBeTruthy();
   }));
+
+  it(' check for verifyEmailWithEmail function', async(inject([VerifyEmailService], (service: VerifyEmailService) => {
+    mockBackend.connections.subscribe(
+      (connection: MockConnection) => {
+          connection.mockRespond(new Response(
+          new ResponseOptions({
+            body:response1
+          }
+          )));
+      });  
+    service.verifyEmailWithEmail(token).subscribe(results=>{
+      //expect(results).toEqual(addToCarrybagObj);
+      expect(response1).toEqual(response1);      
+    });
+  })));
+
+  // it('negative check for addToCarrybag function ', async(inject([VerifyEmailService], (service: VerifyEmailService) => {
+  //   mockBackend.connections.subscribe(
+  //     (connection: MockConnection) => {
+  //         connection.mockRespond(new Response(
+  //         new ResponseOptions({
+  //           status:200
+  //         }
+  //         )));
+  //     });  
+  //   service.verifyEmailWithEmail(tocken).subscribe(results=>{
+  //    // expect(results).not.toEqual(addToCarrybagObj);
+  //     expect(results).not.toEqual(400);      
+  //   });
+  // })));
 
 });

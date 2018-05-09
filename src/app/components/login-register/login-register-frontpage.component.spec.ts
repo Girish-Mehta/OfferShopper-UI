@@ -93,6 +93,36 @@ describe('LoginRegisterFrontpageComponent', () => {
    expect(component.registerForm.valid).toBeTruthy();
  });
 
+     it('loginForm invalid when empty', () => {
+  expect(component.loginForm.valid).toBeFalsy();
+});
+
+
+it('submitting a loginForm emits a user', () => {
+    expect(component.loginForm.valid).toBeFalsy();
+   component.loginForm.controls['username'].setValue('girish@gmail.com');
+   component.loginForm.controls['password'].setValue('12345@Aa');
+    expect(component.loginForm.valid).toBeTruthy();
+});
+
+it('registerForm invalid when empty', () => {
+  expect(component.registerForm.valid).toBeFalsy();
+});
+
+
+it('submitting a registerForm emits a user', () => {
+    expect(component.registerForm.valid).toBeFalsy();
+   component.registerForm.controls['username'].setValue('asd@gmail.com');
+   component.registerForm.controls['password'].setValue('Dinesh@123');
+   component.registerForm.controls['rePassword'].setValue('Dinesh@123');
+    expect(component.registerForm.valid).toBeTruthy();
+});
+
+     it('should call the checkIfMatchingPasswords method', async(() => {
+   fixture.detectChanges();
+   spyOn(component,'checkIfMatchingPasswords');
+   expect(component.checkIfMatchingPasswords).toHaveBeenCalledTimes(0);
+ }));
 
 });
 

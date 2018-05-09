@@ -11,7 +11,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
 import { IonRangeSliderModule } from "ng2-ion-range-slider";
-
 import { Router } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/shared/header/header.component';
@@ -55,6 +54,7 @@ import { LocationService } from './services/location.service';
 import { LoginService } from './services/login.service';
 import { BeASellerComponent } from './components/user/be-a-seller/be-a-seller.component';
 import { WheelComponent } from './components/wheel/wheel.component';
+import { TranslateStore } from "@ngx-translate/core/src/translate.store";
 
 const appRoutes:Routes=[
 
@@ -75,7 +75,8 @@ const appRoutes:Routes=[
   //{path:'',redirectTo:'/sidebar' ,pathMatch:'full'},
   //{path:'**',redirectTo:'/sidebar' ,pathMatch:'full'}
   { path:'search/:id1/:id2',component: ShopPageComponent},
-  { path:'search',component: ShopPageComponent}
+  { path:'search',component: ShopPageComponent},
+  { path:'wheel', component: WheelComponent}
 ]
 
 @NgModule({
@@ -114,7 +115,7 @@ const appRoutes:Routes=[
     IonRangeSliderModule,
     NgxPaginationModule,
     BrowserModule,
-    
+       NgxPaginationModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
@@ -133,7 +134,7 @@ const appRoutes:Routes=[
      apiKey: 'AIzaSyBeSuJbAPirjvZ0mEDxd-g05P5_f6gkAlQ'
    })
   ],
-  providers: [UserService, WishlistService, CarrybagService, SearchService, OffersService, AuthorizationService, VerifyEmailService,UpdatePasswordService, LocationService,  LoginService],
+  providers: [UserService, WishlistService, CarrybagService, SearchService, OffersService, AuthorizationService, VerifyEmailService,UpdatePasswordService, LocationService,  LoginService,TranslateStore],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
