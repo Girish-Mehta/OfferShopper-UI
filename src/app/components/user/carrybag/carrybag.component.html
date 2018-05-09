@@ -56,12 +56,27 @@
                     <span class="fa fa-star mx-2"></span>{{offerList.offerRating}}
                   </div>
                   <div class="col-12">
-                    <span class="card-price">{{ 'HOMEPAGE.PRODUCT-LIST.RS' | translate }}<del>{{offerList.originalPrice}}</del></span>
+                    <span class="card-price">{{ 'HOMEPAGE.PRODUCT-LIST.RS' | translate }}<del>{{offerList.offerOriginalPrice}}</del></span>
                     <span class="card-discounted-price">{{priceAfterDiscount}}</span>
                   </div>
+
+                  <div class="col-12 d-none d-md-block offer-center">
+                    {{ 'PRODUCT-PAGE.VALIDITY' | translate }}{{offerList.offerValidity | date}}
+                  </div>
+                  <div class="row col-12 ">
+                      <button class="btn btn-dark my-2 mx-1 my-sm-0 col-4 " type="button" (click)="couponGenerate(offerList.userId,offerList.offerId,offerList.vendorId)">{{ 'BUTTONS.GEN-COUPON' | translate }} </button>
+                      <div data-toggle="modal" data-target="#couponModal" #coupModal ></div>
+                      <button class="btn btn-dark my-2 my-sm-0 mx-1 col-4" type="button" (click)="checkFeedbackExistence(offerList.offerId,offerList.userId)">{{ 'BUTTONS.ADD-FEEDBACK' | translate }}</button>
+                      <div data-toggle="modal" data-target="#feedbackModal"  #myModal ></div>
+                      <div>
+                      </div>
+
+                    </div>
                 </div>
               </div>
+              
             </div>
+            
           </div>
         </div>
   </div>

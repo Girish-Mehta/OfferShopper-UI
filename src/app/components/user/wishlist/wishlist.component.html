@@ -10,68 +10,44 @@
 <div class="wishlist-offer">
   <!-- if wishlist have offers then display -->
   <div class="container" *ngIf="wishlistOffers.length">
+      <!-- iterating through wishlistOffers array to print wishlist offers -->
       <div class="row">
-          <div class="col-md-3 col-sm-4 col-6">
-          </div>
-          <div class="col-md-5 col-sm-4 col-6 d-none d-sm-block text-left">
-            <b>{{ 'USER.CARRYBAG-COMP.PRODUCT' | translate }}</b>
-          </div>
-          <div class="col-md-2 col-sm-4 d-none d-sm-block">
-            <b>{{ 'USER.CARRYBAG-COMP.PRODUCT' | translate }}</b>
-          </div>
-          <div class="col-md-2 d-none d-md-block text-center">
-            <b>{{ 'USER.CARRYBAG-COMP.PRODUCT' | translate }}</b>
-          </div>
-        </div>
-      </div>
-    
-    
-      <div *ngIf="!carryBagOffers.length" class="carryempty">
-        <h1>{{ 'USER.EMPTY' | translate }}</h1>
-      </div>
-      <!-- This div will create the cards of offers added in carrybag -->
-      <div class="container-fluid" >
-          <div class="row">
-              <div class="col-md-4 card-group mb-3" *ngFor=" let offerList of wishlistOffers">
-                  {{productPrice(offerList.offerOriginalPrice,offerList.offerDiscount)}}
-                  <div class="card card-w text-dark m-5">
-                  <div class="card-img-overlay">
-                    <span class="badge badge-pill badge-info card-discount p-3">{{offerList.offerDiscount}}{{ 'HOMEPAGE.PRODUCT-HEADER.OFF' | translate }}</span>
-                    <div class="btn-group" *ngIf="offerList; else elseBlock">
-                        <button class="btn btn-dark my-2 my-sm-0 " type="button" (click)="deleteOffer(offerList.userId,offerList.offerId)"><i class="fas fa-trash-alt"></i> {{ 'BUTTONS.DELETE' | translate }}</button>
-                      </div>
-                    <ng-template #elseBlock>
-                      <div class="btn-group btn-group-justified">
-                        <button class="btn btn-success mr-0 ml-1" type="button" (click)="notLogin()"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
-                        <button class="btn btn-success" type="button" (click)="notLogin()"><i class="fa fa-shopping-basket" aria-hidden="true"></i></button>
-                      </div>
-                    </ng-template>
+          <div class="col-md-4 card-group mb-3" *ngFor=" let result of wishlistOffers">
+            {{productPrice(result.offerOriginalPrice,result.offerDiscount)}}
+            <div class="card card-w text-dark m-5">
+              <div class="card-img-overlay">
+                <span class="badge badge-pill badge-info card-discount p-3">{{result.offerDiscount}}{{ 'HOMEPAGE.PRODUCT-HEADER.OFF' | translate }}</span>
+                <div class="btn-group" *ngIf="result; else elseBlock">
+                    <button class="btn btn-dark my-2 my-sm-0 " type="button" (click)="deleteOffer(result.userId,result.offerId)"><i class="fas fa-trash-alt"></i> {{ 'BUTTONS.DELETE' | translate }}</button>
                   </div>
-        
-                  <img class="card-img card-w" src="../../../../assets/card.jpeg" alt="Card image">
-                  <div class="card-body card-data">
-                    <div class="row">
-                      <div class="col-8">
-                        <a [routerLink]="['/', 'product',offerList.userId,offerList.offerId]"><span class="card-heading">{{offerList.offerTitle}}</span></a>
-                      </div>
-                      <div class="col-4">
-                        <span class="fa fa-star mx-2"></span>{{offerList.offerRating}}
-                      </div>
-                      <div class="col-12">
-                        <span class="card-price">{{ 'HOMEPAGE.PRODUCT-LIST.RS' | translate }}<del>{{offerList.originalPrice}}</del></span>
-                        <span class="card-discounted-price">{{priceAfterDiscount}}</span>
-                      </div>
-                    </div>
+                <ng-template #elseBlock>
+                  <div class="btn-group btn-group-justified">
+                    <button class="btn btn-success mr-0 ml-1" type="button" (click)="notLogin()"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                    <button class="btn btn-success" type="button" (click)="notLogin()"><i class="fa fa-shopping-basket" aria-hidden="true"></i></button>
+                  </div>
+                </ng-template>
+              </div>
+    
+              <img class="card-img card-w" src="../../../../assets/card.jpeg" alt="Card image">
+              <div class="card-body card-data">
+                <div class="row">
+                  <div class="col-8">
+                    <a [routerLink]="['/', 'product',result.userId,result.offerId]"><span class="card-heading">{{result.offerTitle}}</span></a>
+                  </div>
+                  <div class="col-4">
+                    <span class="fa fa-star mx-2"></span>{{result.offerRating}}
+                  </div>
+                  <div class="col-12">
+                    <span class="card-price">{{ 'HOMEPAGE.PRODUCT-LIST.RS' | translate }}<del>{{result.offerOriginalPrice}}</del></span>
+                    <span class="card-discounted-price">{{priceAfterDiscount}}</span>
                   </div>
                 </div>
               </div>
             </div>
-    
-    
-    
-    
-    <div class="row">
-      <!-- iterating through wishlistOffers array to print wishlist offers -->
+          </div>
+        </div>
+      
+      
       <div class="col-sm-5 col-md-4 card-group mb-3 text-dark" *ngFor=" let offerList of wishlistOffers">
           {{productPrice(offerList.offerOriginalPrice,offerList.offerDiscount)}}
           <div class="card  text-dark my-5" >
@@ -111,7 +87,6 @@
                 
               </div>
             </div>
-          </div>
           </div>
           </div>
   <!-- if wishlist is empty -->
