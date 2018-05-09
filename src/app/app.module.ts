@@ -20,7 +20,6 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { ProductPageComponent } from './components/product-page/product-page.component';
 import { SearchComponentComponent } from './components/home-page/search-component/search-component.component';
 import { ProductsHeaderComponent } from './components/home-page/products-header/products-header.component';
-import { ProductsListComponent } from './components/home-page/products-list/products-list.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { UserComponent } from './components/user/user.component';
 import { VendorPageComponent } from './components/vendor-page/vendor-page.component';
@@ -89,7 +88,6 @@ const appRoutes:Routes=[
     HomePageComponent,
     SearchComponentComponent,
     ProductsHeaderComponent,
-    ProductsListComponent,
     ContactUsComponent,
     UserComponent,
     LocationComponent,
