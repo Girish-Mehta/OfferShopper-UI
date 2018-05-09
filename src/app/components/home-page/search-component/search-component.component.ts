@@ -1,12 +1,9 @@
-
 import { Component, OnInit, Output, EventEmitter,ViewContainerRef } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { AuthorizationService } from '../../../services/authorization.service';
 import { MessageService } from '../../../services/message.service';
 import { CarrybagService } from '../../../services/carrybag.service';
 import { SearchService } from '../../../services/search.service';
-
-//for routing to different pages
 import { Router } from '@angular/router';
 
 @Component({
@@ -39,56 +36,56 @@ export class SearchComponentComponent implements OnInit {
     private carrybagService: CarrybagService,) {
     //searching the keyword in redis database
     if(this.searchTerm$){
-    this.searchService.search(this.searchTerm$)
+      this.searchService.search(this.searchTerm$)
       .subscribe(res => {
         this.results = res;
         if(res!="default")
         {
           this.flag=true;
-       }
+        }
         else{
           this.flag=false;
         }
       });
+    }
   }
-}
 
-  ngOnInit() {
-    
+  ngOnInit() { 
     this.getUserId();
     this.category = 'All';
   }
 
+  //Function retrieve the userId from the token 
   getUserId() {
-   this.authorizationService.getUserId().subscribe((res) =>{
-     this.userInfo = res.text().split(',');
-     this.user = this.userInfo[2];
-     console.log(res.text());
-   }, (error) =>{
-   })
- }
+    this.authorizationService.getUserId().subscribe((res) =>{
+      this.userInfo = res.text().split(',');
+      this.user = this.userInfo[2];
+    }, (error) =>{
+    })
+  }
 
-   addToCarrybag(offer1) {
-   let carrybagBean = {
-     "userId":this.user,
-     "offerId":offer1.offerId,
-     "offerTitle":offer1.offerTitle,
-     "offerOriginalPrice":offer1.originalPrice,
-     "offerDiscount":offer1.discount,
-     "offerImage":"abcd",
-     "offerValidity":offer1.offerValidity,
-     "vendorId":offer1.userId
-   }
+  //Function adds the offer in carrybag
+  addToCarrybag(offer1) {
+    let carrybagBean = {
+      "userId":this.user,
+      "offerId":offer1.offerId,
+      "offerTitle":offer1.offerTitle,
+      "offerOriginalPrice":offer1.originalPrice,
+      "offerDiscount":offer1.discount,
+      "offerImage":"abcd",
+      "offerValidity":offer1.offerValidity,
+      "vendorId":offer1.userId
+    }
+    this.carrybagService.addToCarrybag(carrybagBean).subscribe((res) =>{
+      this.messageService.showSuccessToast(this._vcr,"Added");
+    },(error) =>{
+      this.messageService.showSuccessToast(this._vcr,"Already Added");
+    })
+  }
 
-   this.carrybagService.addToCarrybag(carrybagBean).subscribe((res) =>{
-     this.messageService.showSuccessToast(this._vcr,"Added");
-   },(error) =>{
-     this.messageService.showSuccessToast(this._vcr,"Already Added");
-   })
- }
-
- notLogin(){
- this.messageService.showErrorToast(this._vcr,"Please Login");
+  //Function will check the user is logged in or not
+  notLogin(){
+    this.messageService.showErrorToast(this._vcr,"Please Login");
   }
 
   //function called on pressing Enter
@@ -97,7 +94,7 @@ export class SearchComponentComponent implements OnInit {
       document.getElementById("searchButton").click();
   }
 
-  //will redirect to search Component except when category is all and user doesn't input any value
+  //Functions redirects to search Component except when category is all and user doesn't input any value
   redirectToSearch() {
     if(this.category=="All" && this.query =="") {
       this.messageService.showErrorToast(this._vcr,"Please select a category or type to search");
@@ -105,5 +102,5 @@ export class SearchComponentComponent implements OnInit {
     else {
       this.router.navigateByUrl("search/"+this.category+"/"+this.query);
     }
-    }
+  }
 }

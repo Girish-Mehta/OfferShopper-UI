@@ -16,10 +16,8 @@ import {Cities} from '../../../configs/cities.config';
 export class BeASellerComponent implements OnInit {
 
   @Output() success = new EventEmitter<any>();
-
-  constructor(private userdata:UserService,
-    private router: Router,
-    private authorizationService: AuthorizationService) { }
+  offerIdList:Array<String>=[];
+  obj={};
   states= States.states;
   cities=Cities.citiesName;
   data:any;
@@ -38,7 +36,6 @@ export class BeASellerComponent implements OnInit {
   dob:string;
   gender:string;
   spinCount:number;
-  offerIdList:Array<String>=[];
   osCash:number;
   shopName:string;
   shopNumber:string;
@@ -48,14 +45,18 @@ export class BeASellerComponent implements OnInit {
   shopZip:number;
   vendorMobileNo:string;
   timestamp:number;
-  obj={};
+  public userInfo;
+  public userId;
+
+  constructor(private userdata:UserService,
+    private router: Router,
+    private authorizationService: AuthorizationService) { }
 
   ngOnInit() {
     this.getUserId();
   }
-  public userInfo;
-  public userId;
 
+  //Function will give the userId from token
   getUserId() {
     this.authorizationService.getUserId().subscribe((res) =>{
       if(res.text() == "UnAuthorized"){
@@ -67,6 +68,8 @@ export class BeASellerComponent implements OnInit {
     }, (error) =>{
     })
   }
+
+  //Function will retrieve the user details using userId
   getProfile(userId){
     this.userdata.getProfile(userId).subscribe((res) =>{
       this.obj=res;
@@ -96,11 +99,11 @@ export class BeASellerComponent implements OnInit {
       this.vendorMobileNo=this.data.vendorMobileNo;
       this.timestamp=this.data.timestamp;
       this.offerIdList=this.data.offerIdList;
-      console.log(res);
     },(error) =>{
     })
   }
 
+  //Function will make form editable
   undisableTxt() {
     (<HTMLInputElement>document.getElementById("firstName")).disabled= false;
     (<HTMLInputElement>document.getElementById("lastName")).disabled = false;
@@ -116,6 +119,7 @@ export class BeASellerComponent implements OnInit {
     (<HTMLInputElement>document.getElementById("inputShopState")).disabled = false;
   };
 
+  //Function will update the vendor details 
   submit(){
     (<HTMLInputElement>document.getElementById("firstName")).disabled= true;
     (<HTMLInputElement>document.getElementById("lastName")).disabled = true;
@@ -171,11 +175,13 @@ export class BeASellerComponent implements OnInit {
     })
   }
 
+  //Function will set the shop address
   setShopAddress() {
     this.shopState = this.state;
     this.shopZip = this.zip;
   }
 
+  //Function will copy the same address from above
   setCheckboxAddress() {
     this.shopState = this.state;
     this.shopZip = this.zip;

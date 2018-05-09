@@ -28,6 +28,47 @@
     <h1>{{ 'USER.EMPTY' | translate }}</h1>
   </div>
   <!-- This div will create the cards of offers added in carrybag -->
+  <div class="container-fluid" >
+      <div class="row">
+          <div class="col-md-4 card-group mb-3" *ngFor=" let offerList of carryBagOffers">
+              {{productPrice(offerList.offerOriginalPrice,offerList.offerDiscount)}}
+              <div class="card card-w text-dark m-5">
+              <div class="card-img-overlay">
+                <span class="badge badge-pill badge-info card-discount p-3">{{offerList.offerDiscount}}{{ 'HOMEPAGE.PRODUCT-HEADER.OFF' | translate }}</span>
+                <div class="btn-group" *ngIf="offerList; else elseBlock">
+                    <button class="btn btn-dark my-2 my-sm-0 " type="button" (click)="deleteOffer(offerList.userId,offerList.offerId)"><i class="fas fa-trash-alt"></i> {{ 'BUTTONS.DELETE' | translate }}</button>
+                  </div>
+                <ng-template #elseBlock>
+                  <div class="btn-group btn-group-justified">
+                    <button class="btn btn-success mr-0 ml-1" type="button" (click)="notLogin()"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                    <button class="btn btn-success" type="button" (click)="notLogin()"><i class="fa fa-shopping-basket" aria-hidden="true"></i></button>
+                  </div>
+                </ng-template>
+              </div>
+    
+              <img class="card-img card-w" src="../../../../assets/card.jpeg" alt="Card image">
+              <div class="card-body card-data">
+                <div class="row">
+                  <div class="col-8">
+                    <a [routerLink]="['/', 'product',offerList.userId,offerList.offerId]"><span class="card-heading">{{offerList.offerTitle}}</span></a>
+                  </div>
+                  <div class="col-4">
+                    <span class="fa fa-star mx-2"></span>{{offerList.offerRating}}
+                  </div>
+                  <div class="col-12">
+                    <span class="card-price">{{ 'HOMEPAGE.PRODUCT-LIST.RS' | translate }}<del>{{offerList.originalPrice}}</del></span>
+                    <span class="card-discounted-price">{{priceAfterDiscount}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+  
+  
+  
+  
   <div *ngFor=" let offerList of carryBagOffers">
     {{productPrice(offerList.offerOriginalPrice,offerList.offerDiscount)}}
     <div class="container mb-1 mx-2">

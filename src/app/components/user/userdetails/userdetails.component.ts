@@ -15,17 +15,9 @@ import { StateCityJson } from '../../../configs/state-city-json.config';
   providers:[ AuthorizationService, MessageService ,UserService]
 })
 export class UserdetailsComponent implements OnInit {
-
-  constructor(private userdata:UserService,
-    private router: Router,
-    private authorizationService: AuthorizationService,
-    private messageService: MessageService,
-    private _vcr: ViewContainerRef
-    ) { }
-
+ 
   homeCities = [];
   shopCities = [];
-
   states= States.states;
   data:any;
   firstName:string;
@@ -54,13 +46,21 @@ export class UserdetailsComponent implements OnInit {
   vendorMobileNo:string;
   timestamp:number;
   obj={};
+  public userInfo;
+  public userId;
+
+  constructor(private userdata:UserService,
+    private router: Router,
+    private authorizationService: AuthorizationService,
+    private messageService: MessageService,
+    private _vcr: ViewContainerRef
+    ) { }
 
   ngOnInit() {
     this.getUserId();
   }
-  public userInfo;
-  public userId;
 
+  //Function will retrieve the userId from the token 
   getUserId() {
     this.authorizationService.getUserId().subscribe((res) =>{
       if(res.text() == "UnAuthorized"){
@@ -72,6 +72,8 @@ export class UserdetailsComponent implements OnInit {
     }, (error) =>{
     })
   }
+
+  //Function will retrieve the user profile using userId
   getProfile(userId){
     this.userdata.getProfile(userId).subscribe((res) =>{
       this.obj=res;
@@ -106,6 +108,7 @@ export class UserdetailsComponent implements OnInit {
     })
   }
 
+  //Funtion will make form editable
   undisableTxt() {
     (<HTMLInputElement>document.getElementById("firstName")).disabled= false;
     (<HTMLInputElement>document.getElementById("lastName")).disabled = false;
@@ -119,8 +122,10 @@ export class UserdetailsComponent implements OnInit {
     (<HTMLInputElement>document.getElementById("inputShopCity")).disabled = false;
     (<HTMLInputElement>document.getElementById("inputShopZip")).disabled = false;
     (<HTMLInputElement>document.getElementById("inputShopState")).disabled = false;
+    (<HTMLInputElement>document.getElementById("sameCheckbox")).disabled = false;
   };
 
+  //Function will update the user details
   submit(){
     (<HTMLInputElement>document.getElementById("firstName")).disabled= true;
     (<HTMLInputElement>document.getElementById("lastName")).disabled = true;
@@ -134,6 +139,7 @@ export class UserdetailsComponent implements OnInit {
     (<HTMLInputElement>document.getElementById("inputShopCity")).disabled = true;
     (<HTMLInputElement>document.getElementById("inputShopZip")).disabled = true;
     (<HTMLInputElement>document.getElementById("inputShopState")).disabled = true;
+    (<HTMLInputElement>document.getElementById("sameCheckbox")).disabled = true;
     let obj={
       "firstName": this.firstName,
       "lastName": this.lastName,
@@ -165,13 +171,29 @@ export class UserdetailsComponent implements OnInit {
       "offerIdList":this.offerIdList,
       "timestamp": this.timestamp
     }
-    console.log(obj);
     this.userdata.putProfile(obj).subscribe((res) =>{
       this.messageService.showSuccessToast(this._vcr,"Updated");
     }, (error) =>{
     })
   }
 
+  cancel(){
+    this.getUserId();
+    (<HTMLInputElement>document.getElementById("firstName")).disabled= true;
+    (<HTMLInputElement>document.getElementById("lastName")).disabled = true;
+    (<HTMLInputElement>document.getElementById("phone")).disabled = true;
+    (<HTMLInputElement>document.getElementById("inputAddress")).disabled = true;
+    (<HTMLInputElement>document.getElementById("inputCity")).disabled = true;
+    (<HTMLInputElement>document.getElementById("inputZip")).disabled =true;
+    (<HTMLInputElement>document.getElementById("inputState")).disabled = true;
+    (<HTMLInputElement>document.getElementById("inputShopName")).disabled = true;
+    (<HTMLInputElement>document.getElementById("inputShopAddress")).disabled = true;
+    (<HTMLInputElement>document.getElementById("inputShopCity")).disabled = true;
+    (<HTMLInputElement>document.getElementById("inputShopZip")).disabled = true;
+    (<HTMLInputElement>document.getElementById("inputShopState")).disabled = true;
+  }
+
+  //Function show the shop details of vendor
   setCheckboxAddress() {
     this.shopState = this.state;
     this.shopZip = this.zip;
@@ -179,10 +201,10 @@ export class UserdetailsComponent implements OnInit {
     this.shopCity =  this.city;
   }
 
+  //Function will show the relevant cities 
   showRelevantCitiesHome(state) {
     this.homeCities = StateCityJson.stateCityJson[state];
     this.city = "Please select a city";
-
   }
 
   showRelevantCitiesShop(state) {
