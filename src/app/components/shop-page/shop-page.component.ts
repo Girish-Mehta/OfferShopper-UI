@@ -10,7 +10,7 @@ import { MessageService } from './../../services/message.service';
   selector: 'app-shop-page',
   templateUrl: './shop-page.component.html',
   styleUrls: ['./shop-page.component.css'],
-  providers:[SearchService, UserService,MessageService]
+  providers:[SearchService, UserService,MessageService,LocationService]
 })
 export class ShopPageComponent implements OnInit {
 

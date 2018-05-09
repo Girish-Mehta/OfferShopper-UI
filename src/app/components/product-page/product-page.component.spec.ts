@@ -35,9 +35,9 @@ describe('ProductPageComponent', () => {
           deps: [Http]
       })
      ],
-     providers:[{
-       provide :  [ProductDetailService,WishlistService,CarrybagService,AuthorizationService,MessageService] 
-     }]
+     providers:[
+      ProductDetailService,WishlistService,CarrybagService,AuthorizationService,MessageService
+     ]
    })
    .compileComponents();
  }));
@@ -52,7 +52,13 @@ describe('ProductPageComponent', () => {
     expect(component).toBeTruthy();
   });
 
- //   it('should call the searchProduct method', async(() => {
+ //   it('should call the addToWishlist method', async(() => {
+ //   fixture.detectChanges();
+ //   spyOn(component,'addToWishlist');
+ //   expect(component.addToWishlist).toHaveBeenCalledTimes(0);
+ // }));
+
+ //      it('should call the searchProduct method', async(() => {
  //   fixture.detectChanges();
  //   spyOn(component,'searchProduct');
  //   expect(component.searchProduct).toHaveBeenCalledTimes(0);

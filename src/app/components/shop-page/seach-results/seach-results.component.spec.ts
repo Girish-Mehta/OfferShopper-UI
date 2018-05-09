@@ -13,17 +13,12 @@ import { AuthorizationService } from '../../../services/authorization.service';
 import { MessageService } from '../../../services/message.service';
 import { WishlistService } from '../../../services/wishlist.service';
 import { OffersService } from '../../../services/offers.service';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 describe('SeachResultsComponent', () => {
   let component: SeachResultsComponent;
   let fixture: ComponentFixture<SeachResultsComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ SeachResultsComponent ]
-    })
-    .compileComponents();
-  }));
 
      beforeEach(async(() => {
    TestBed.configureTestingModule({
@@ -34,6 +29,7 @@ describe('SeachResultsComponent', () => {
        HttpModule,
        RouterTestingModule,
        FormsModule,
+       NgxPaginationModule,
        ToastModule.forRoot(),
        ReactiveFormsModule,
        TranslateModule.forRoot({
@@ -42,9 +38,8 @@ describe('SeachResultsComponent', () => {
           deps: [Http]
       })
      ],
-     providers:[{
-       provide :  [AuthorizationService,MessageService,WishlistService,OffersService] 
-     }]
+     providers: [AuthorizationService,MessageService,WishlistService,OffersService] 
+     
    })
    .compileComponents();
  }));
@@ -59,4 +54,35 @@ describe('SeachResultsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+       it('should call the getUserId method', async(() => {
+   fixture.detectChanges();
+   spyOn(component,'getUserId');
+   expect(component.getUserId).toHaveBeenCalledTimes(0);
+ }));
+
+         it('should call the productPrice method', async(() => {
+   fixture.detectChanges();
+   spyOn(component,'productPrice');
+   expect(component.productPrice).toHaveBeenCalledTimes(0);
+ }));
+
+          it('should call the addToWishlist method', async(() => {
+   fixture.detectChanges();
+   spyOn(component,'addToWishlist');
+   expect(component.addToWishlist).toHaveBeenCalledTimes(0);
+ }));
+
+       it('should call the addToCarrybag method', async(() => {
+   fixture.detectChanges();
+   spyOn(component,'addToCarrybag');
+   expect(component.addToCarrybag).toHaveBeenCalledTimes(0);
+ }));
+
+        it('should call the notLogin method', async(() => {
+   fixture.detectChanges();
+   spyOn(component,'notLogin');
+   expect(component.notLogin).toHaveBeenCalledTimes(0);
+ }));
+
 });
