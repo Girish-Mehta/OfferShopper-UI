@@ -31,11 +31,11 @@
               <div class="form-group">
                 <a class="text-pride" routerLink="/forgot-password">{{ 'LOGIN.FORGOTPASSWORD' | translate }}</a>
               </div>
-              
+
               <button type="button" class="btn btn-secondary btn-login" [disabled]="loginForm.invalid" (click)="login()">{{ 'LOGIN.TITLE1' | translate }}</button>
-              <hr>
-              <div id="_google">or connect with </div>
-              <div id="googleBtn" class="btn btn-google btn-social"> <img src="./../../../assets/images/google-icon.png" height="22px"> Google</div> 
+              <!-- <hr> -->
+              <!-- <div id="_google">or connect with </div> -->
+              <div id="googleBtn" class="btn btn-google btn-social mt-4"> <img src="./../../../assets/images/google-icon.png" height="22px"><span class="text-google">Google</span></div>
             </form>
           </div>
         </div>

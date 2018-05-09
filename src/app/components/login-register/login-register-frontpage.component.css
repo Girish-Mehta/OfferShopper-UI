@@ -10,12 +10,12 @@
 	.cardPadding{
 		padding: 1.5rem;
 	}
-	
+
 	.loginContainer{
 		min-width: 0px;
 		min-height: 500px;
 	}
-	
+
 }
 
 @media only screen and (max-width: 367px){
@@ -61,15 +61,18 @@
 .btn-login {
 	background-color: #018b8b;
 	border-color: #018b8b;
+	width: 100%;
 }
 
 #googleBtn {
-	background-color: #F5F5F5;
+	width: 100%;
+	border-color: black;
 }
 
 #_google {
 	text-align: center;
 }
+
 .content{
 	position: absolute;
 	left: 0;
