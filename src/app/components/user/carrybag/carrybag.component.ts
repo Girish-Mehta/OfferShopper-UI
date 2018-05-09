@@ -61,6 +61,7 @@ export class CarrybagComponent implements OnInit {
   getCarrybag() {
     this.carrybagService.getCarrybaglist(this.userId).subscribe((res) =>{
       this.carryBagOffers = res;
+      console.log(this.carryBagOffers);
     }, (error) =>{
     })
   }

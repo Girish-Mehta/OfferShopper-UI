@@ -34,7 +34,7 @@ export class SearchBarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.category="All";
+    this.category="Categories";
   }
 
   //Function shows the search result when enter pressed

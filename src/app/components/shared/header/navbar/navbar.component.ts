@@ -10,7 +10,7 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 	selector: 'app-navbar',
 	templateUrl: './navbar.component.html',
 	styleUrls: ['./navbar.component.css'],
-	providers:[ AuthorizationService,LoginService ]
+	providers:[ AuthorizationService ]
 })
 
 export class NavbarComponent implements OnInit {
@@ -30,7 +30,7 @@ export class NavbarComponent implements OnInit {
 		private location:Location,
 		private loginService: LoginService
 		) {
-		router.events.subscribe((data:any) => { 
+		router.events.subscribe((data:any) => {
 			if(data.url) {
 				this.url = (data.url.split('/'))[1];
 				this.urlUserPage = (data.url.split('/'))[2];
@@ -44,11 +44,9 @@ export class NavbarComponent implements OnInit {
 
 	//Function checks the user is login or not
 	isLogin(){
-		console.log("in isLogin method")
 		if(localStorage.getItem("application-token")){
 			this.login = true;
 		} else{
-			console.log("token not found")
 			this.login = false;
 		}
 		this.loginService.isLoggedin.subscribe(status => {
@@ -68,8 +66,8 @@ export class NavbarComponent implements OnInit {
 	getUserId() {
 		this.authorizationService.getUserId().subscribe((res:any) =>{
 			this.userId = (res.text().split(','))[2];
-			if(this.userId) 
-				this.user = (this.userId.split('@'))[0];			
+			if(this.userId)
+				this.user = (this.userId.split('@'))[0];
 		}, (error) =>{
 		})
 	}
