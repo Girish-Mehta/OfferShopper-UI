@@ -21,7 +21,7 @@
 
     "HOMEPAGE": {
       "CATEGORIES": {
-          "CATEGORY": "Select Categories",
+          "CATEGORY": "Categories",
           "ALL": "All",
           "SPORTS": "Sports",
           "CLOTHES": "Clothing",
