@@ -1,5 +1,10 @@
 <div>
 	<div class="container-fluid mb-5">
+		<div class="row mt-3">
+			<div class="col-sm-12 col-md-4 col-lg-4 ml-5">
+				<a (click)='backClicked()'><font class="description"><font class="back-arrow"><</font> Back</font></a>
+			</div>
+		</div>
     <div class="row align-items-top pt-4 mt-1">
     	<aside class="col-sm-12 col-md-4 col-lg-4 ml-5">
      		<!-- Offer Images -->
@@ -109,12 +114,12 @@
 <div class="divbody">
   <div id="carouselExampleControls1" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active"> <!-- *ngFor="let i of arr | slice:0:3" 
+      <div class="carousel-item active"> <!-- *ngFor="let i of arr | slice:0:3"
         <div class="py-5">
           <div class="container">
             <div class=corousel_title>{{ 'PRODUCT-PAGE.ALSO-BUY' | translate }}</div>
             <div class="row">
-              <div class="col-md-3" *ngIf="relatedProducts[0]"><!--  *ngFor="let product of relatedProducts | slice:0:3" 
+              <div class="col-md-3" *ngIf="relatedProducts[0]"><!--  *ngFor="let product of relatedProducts | slice:0:3"
                 <a [routerLink]="['/', 'product',relatedProducts[0].userId,relatedProducts[0].offerId]">
                   <div class="card">
                     <div class="textWithblurredImage">

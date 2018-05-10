@@ -46,6 +46,7 @@ export class HeaderComponent implements OnInit {
   setCity(city){
     this.selected.a=city;
     let value = city;
+    this.tempselected.a=city;
     localStorage.setItem("loc",city);
     this.location = location.pathname;
     this.mainUrl = (this.location.split('/'))[1];
