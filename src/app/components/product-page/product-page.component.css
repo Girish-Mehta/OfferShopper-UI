@@ -10,7 +10,13 @@
 
 }
 
+.back-arrow {
+	font-size: 1rem;
+}
 
+a {
+	cursor: pointer;
+}
 
 #previewimage
 
