@@ -45,7 +45,7 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
-          <form>
+          <form #updateOfferForm="ngForm">
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="Select Category">{{ 'HOMEPAGE.CATEGORIES.CATEGORY' |  translate }}</label>
@@ -57,78 +57,78 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="discount">{{ 'USER.OFFER.DISCOUNT' |  translate }}</label>
-                <input type="discount" class="form-control" id="discount" placeholder="{{discount}}" [(ngModel)]="discount" [ngModelOptions]="{standalone: true}" ngModel #discountField="ngModel" required pattern="^[1-9][0-9]?$|^99$">
-                <div *ngIf="discountField.touched && discountField.errors">
-                  <div class="error" *ngIf="discountField.errors.pattern">
+                <input type="discount" class="form-control" id="discount" placeholder="{{discount}}" [(ngModel)]="discount" [ngModelOptions]="{standalone: true}" ngModel #discountsField="ngModel" required pattern="^[1-9][0-9]?$|^99$">
+                <div *ngIf="discountsField.touched && discountsField.errors">
+                  <div class="error" *ngIf="discountsField.errors.pattern">
                     Please enter numbers only between 0 to 100
                   </div>
-                  <div class="error" *ngIf="discountField.errors.required">
+                  <div class="error" *ngIf="discountsField.errors.required">
                     Discount is required
                   </div>
                 </div>
               </div>
               <div class="form-group col-md-6">
                 <label for="keywords"> {{ 'USER.OFFER.KEYWORD' |  translate }}</label>
-                <input type="keywords" class="form-control" id="keywords" placeholder="{{keywords}}" [(ngModel)]="keywords" [ngModelOptions]="{standalone: true}" ngModel #keywordsField="ngModel" required pattern="^([a-zA-Z]+|[0-9]*)+([a-zA-Z]+[0-9]*|\s*|,*)*[a-zA-Z]+$|^([a-zA-Z]+|[0-9]*)+(\s*|,*|[0-9]+[a-zA-Z]+)*[a-zA-Z]+$">
-                <div *ngIf="keywordsField.touched && keywordsField.errors">
-                  <div class="error" *ngIf="keywordsField.errors.pattern">
+                <input type="keywords" class="form-control" id="keywords" placeholder="{{keywords}}" [(ngModel)]="keywords" [ngModelOptions]="{standalone: true}" ngModel #keywordField="ngModel" required pattern="^([a-zA-Z]+|[0-9]*)+([a-zA-Z]+[0-9]*|\s*|,*)*[a-zA-Z]+$|^([a-zA-Z]+|[0-9]*)+(\s*|,*|[0-9]+[a-zA-Z]+)*[a-zA-Z]+$">
+                <div *ngIf="keywordField.touched && keywordField.errors">
+                  <div class="error" *ngIf="keywordField.errors.pattern">
                     Please enter proper name
                   </div>
-                  <div class="error" *ngIf="keywordsField.errors.required">
+                  <div class="error" *ngIf="keywordField.errors.required">
                     Keywords are required
                   </div>
                 </div>
               </div>
               <div class="form-group col-md-6">
                 <label for="offerValidity"> {{ 'USER.OFFER.VALIDITY' |  translate }}</label>
-                <input type="date" class="form-control" id="offerValidity" placeholder="{{offerValidity}}" [(ngModel)]="offerValidity" [ngModelOptions]="{standalone: true}" required ngModel #validityField="ngModel">
-                <div *ngIf="validityField.touched && validityField.errors">
-                  <div class="error" *ngIf="validityField.errors.required">
+                <input type="date" class="form-control" id="offerValidity" placeholder="{{offerValidity}}" [(ngModel)]="offerValidity" [ngModelOptions]="{standalone: true}" required ngModel #validityyField="ngModel">
+                <div *ngIf="validityyField.touched && validityyField.errors">
+                  <div class="error" *ngIf="validityyField.errors.required">
                     Validity is required
                   </div>
                 </div>
               </div>
               <div class="form-group col-md-6">
                 <label for="offerDescription"> {{ 'USER.OFFER.DESCRIPTION' |  translate }}</label>
-                <input type="offerDescription" class="form-control" id="offerDescription" placeholder="{{offerDescription}}" [(ngModel)]="offerDescription" [ngModelOptions]="{standalone: true}" required ngModel #prodDescField="ngModel" pattern="^[a-zA-Z]+[0-9]+[a-zA-Z]+$|^[a-zA-Z]+$|^[a-zA-Z]+[0-9]+$|^[0-9]+[a-zA-Z]+$">
-                <div *ngIf="prodDescField.touched && prodDescField.errors">
-                  <div class="error" *ngIf="prodDescField.errors.pattern">
+                <input type="offerDescription" class="form-control" id="offerDescription" placeholder="{{offerDescription}}" [(ngModel)]="offerDescription" [ngModelOptions]="{standalone: true}" required ngModel #prodDesField="ngModel" pattern="^([a-zA-Z]+|[0-9]*)+.*([a-zA-Z]+|[0-9]+)+$">
+                <div *ngIf="prodDesField.touched && prodDesField.errors">
+                  <div class="error" *ngIf="prodDesField.errors.pattern">
                     Please enter proper name
                   </div>
-                  <div class="error" *ngIf="prodDescField.errors.required">
+                  <div class="error" *ngIf="prodDesField.errors.required">
                     Description is required
                   </div>
                 </div>
               </div>
               <div class="form-group col-md-6">
                 <label for="offerTerms">{{ 'USER.OFFER.TAC' |  translate }}</label>
-                <input type="offerTerms" class="form-control" id="offerTerms" placeholder="{{offerTerms}}" [(ngModel)]="offerTerms" [ngModelOptions]="{standalone: true}" required ngModel #termsField="ngModel">
-                <div *ngIf="termsField.touched && termsField.errors">
-                  <div class="error" *ngIf="termsField.errors.required">
+                <input type="offerTerms" class="form-control" id="offerTerms" placeholder="{{offerTerms}}" [(ngModel)]="offerTerms" [ngModelOptions]="{standalone: true}" required ngModel #termField="ngModel">
+                <div *ngIf="termField.touched && termField.errors">
+                  <div class="error" *ngIf="termField.errors.required">
                     Terms are required
                   </div>
                 </div>
               </div>
               <div class="form-group col-md-6">
                 <label for="offerTitle">{{ 'USER.OFFER.NAME' |  translate }}</label>
-                <input type="offerTitle" class="form-control" id="offerTitle" placeholder="{{offerTitle}}" [(ngModel)]="offerTitle" [ngModelOptions]="{standalone: true}" ngModel #offerField="ngModel" required pattern="^[a-zA-Z]+[0-9]+[a-zA-Z]+$|^[a-zA-Z]+$|^[a-zA-Z]+[0-9]+$|^[0-9]+[a-zA-Z]+$">
-                <div *ngIf="offerField.touched && offerField.errors">
-                  <div class="error" *ngIf="offerField.errors.pattern">
+                <input type="offerTitle" class="form-control" id="offerTitle" placeholder="{{offerTitle}}" [(ngModel)]="offerTitle" [ngModelOptions]="{standalone: true}" ngModel #offersField="ngModel" required pattern="^([a-zA-Z]+|[0-9]*)+.*([a-zA-Z]+|[0-9]+)+$">
+                <div *ngIf="offersField.touched && offersField.errors">
+                  <div class="error" *ngIf="offersField.errors.pattern">
                     Please enter proper name
                   </div>
-                  <div class="error" *ngIf="offerField.errors.required">
+                  <div class="error" *ngIf="offersField.errors.required">
                     Offer name is required
                   </div>
                 </div>
               </div>
               <div class="form-group col-md-6">
                 <label for="originalPrice">{{ 'USER.OFFER.O-PRICE' |  translate }}</label>
-                <input type="originalPrice" class="form-control" id="originalPrice" placeholder="{{originalPrice}}" [(ngModel)]="originalPrice" [ngModelOptions]="{standalone: true}" required ngModel #priceField="ngModel" pattern="^[0-9]+(\.[0-9]{0,2})?$">
-                <div *ngIf="priceField.touched && priceField.errors">
-                  <div class="error" *ngIf="priceField.errors.pattern">
+                <input type="originalPrice" class="form-control" id="originalPrice" placeholder="{{originalPrice}}" [(ngModel)]="originalPrice" [ngModelOptions]="{standalone: true}" required ngModel #pricesField="ngModel" pattern="^[0-9]+(\.[0-9]{0,2})?$">
+                <div *ngIf="pricesField.touched && pricesField.errors">
+                  <div class="error" *ngIf="pricesField.errors.pattern">
                     Please enter numbers only(upto 2 decimal precision) 
                   </div>
-                  <div class="error" *ngIf="priceField.errors.required">
+                  <div class="error" *ngIf="pricesField.errors.required">
                     Price is required
                   </div>
                 </div>
@@ -197,7 +197,7 @@
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="offerDescription">{{ 'USER.OFFER.DESCRIPTION' |  translate }}</label>
-                  <input type="offerDescription" class="form-control" id="offerDescription" placeholder="{{offerDescription}}" [(ngModel)]="offerDescription" [ngModelOptions]="{standalone: true}" required ngModel #prodDescField="ngModel" pattern="^[a-zA-Z]+[0-9]+[a-zA-Z]+$|^[a-zA-Z]+$|^[a-zA-Z]+[0-9]+$|^[0-9]+[a-zA-Z]+$">
+                  <input type="offerDescription" class="form-control" id="offerDescription" placeholder="{{offerDescription}}" [(ngModel)]="offerDescription" [ngModelOptions]="{standalone: true}" required ngModel #prodDescField="ngModel" pattern="^([a-zA-Z]+|[0-9]*)+.*([a-zA-Z]+|[0-9]+)+$">
                   <div *ngIf="prodDescField.touched && prodDescField.errors">
                     <div class="error" *ngIf="prodDescField.errors.pattern">
                       Please enter proper name
@@ -220,7 +220,7 @@
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="offerTitle">{{ 'USER.OFFER.NAME' |  translate }}</label>
-                  <input type="offerTitle" class="form-control" id="offerTitle" placeholder="{{offerTitle}}" [(ngModel)]="offerTitle" [ngModelOptions]="{standalone: true}" ngModel #offerField="ngModel" required pattern="^[a-zA-Z]+[0-9]+[a-zA-Z]+$|^[a-zA-Z]+$|^[a-zA-Z]+[0-9]+$|^[0-9]+[a-zA-Z]+$">
+                  <input type="offerTitle" class="form-control" id="offerTitle" placeholder="{{offerTitle}}" [(ngModel)]="offerTitle" [ngModelOptions]="{standalone: true}" ngModel #offerField="ngModel" required pattern="^([a-zA-Z]+|[0-9]*)+.*([a-zA-Z]+|[0-9]+)+$">
                   <div *ngIf="offerField.touched && offerField.errors">
                     <div class="error" *ngIf="offerField.errors.pattern">
                       Please enter proper name
