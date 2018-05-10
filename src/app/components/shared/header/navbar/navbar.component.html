@@ -86,7 +86,8 @@
           </li>
           <div *ngIf="login">
              <li class="nav-item nav-text display">
-                <a class="text-dark font-weight-bold " [routerLink]="['/wheel']"><img [src]="'../../../../../../assets/wheel_header.gif'" alt="WHEEL" ></a>
+               <a [routerLink]="['/wheel']"><i class="fab fa-galactic-republic fa-2x wheel"></i></a>
+               <!-- <a class="text-dark font-weight-bold " ><img [src]="'../../../../../../assets/wheel_header.gif'" alt="WHEEL" ></a> -->
             </li>
             <li  class="nav-item nav-text display">
               <a class="text-dark font-weight-bold logout" (click)="logout()" [routerLink]="['/homepage',userLocation]">{{ 'HEADER.NAVBAR.LOGOUT' | translate }}</a>

@@ -123,7 +123,7 @@ export class LoginRegisterFrontpageComponent implements OnInit {
 
     }, (res:Response) =>{
       if(res.status==401){
-        this.messageService.showErrorToast(this._vcr,"Something went wrong ,Please try again");
+        this.messageService.showErrorToast(this._vcr,"Wrong password");
       }
       else if(res.status==500){
         this.messageService.showErrorToast(this._vcr,"Something went wrong ,Please try again");

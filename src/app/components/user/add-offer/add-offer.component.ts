@@ -76,7 +76,7 @@ export class AddOfferComponent implements OnInit {
 			this.offers = res;
 		}
 		, (error) =>{
-	})
+		})
 	}
 
 	//Function will delete the offer uploaded by vendor
@@ -86,7 +86,6 @@ export class AddOfferComponent implements OnInit {
 				this.messageService.showSuccessToast(this._vcr,"Deleted");
 				this.getOffers(this.userId);
 			}, (error) =>{
-				alert(error + "deleting restaurant does not works");
 			})
 			);
 	}
@@ -181,15 +180,8 @@ export class AddOfferComponent implements OnInit {
 				this.messageService.showSuccessToast(this._vcr,"Image uploaded");
 			}, (error) =>{
 			})
-        /*let headers = new Headers();
-        this.http.post("http://10.151.60.204:8801/upload", formData)
-            .map(res => res.json())
-            .subscribe(
-                data => console.log('success'),
-                error => console.log(error)
-                )*/
-            }
-        }
+		}
+	}
 
 	//Function will add new offers updated by the vendor
 	addOffer(){
@@ -267,7 +259,6 @@ export class AddOfferComponent implements OnInit {
 
 		this.addOfferService.addToSoundex(this.toSoundex).subscribe((res) =>{
 		}, (error) =>{
-			alert("not added to soundex");
 		})
 	}
 
@@ -280,8 +271,8 @@ export class AddOfferComponent implements OnInit {
 				this.messageService.showErrorToast(this._vcr,"Sorry,Wrong CouponId");
 			}
 			else if (couponData!=null&&couponData.vendorValidationFlag==true)
-			{
-				alert("already validated");
+			{											
+				this.messageService.showErrorToast(this._vcr,"Already Verified");
 			}
 			else {
 				let obj = {
@@ -292,33 +283,32 @@ export class AddOfferComponent implements OnInit {
 					"rating" : couponData.rating,
 					"vendorValidationFlag" : true
 				}
-				
+
 
 				this.addOfferService.changeFlag(obj).subscribe((res) =>{
 					this.messageService.showSuccessToast(this._vcr,"coupon verified");
 					//code not checked
 					this.addOfferService.getUser(couponData.userId).subscribe((res) =>{
 						let userData = res;
-					
+
 						if(userData==null) {
-							alert("User not found");
 						}
 						else {
 							
-					
+
 							this.addOfferService.getOffer(couponData.offerId).subscribe((off) =>{
-							
+
 								let offerData = off;
 								
 								if(offerData==null) {
-									alert("Offer not found");
+									this.messageService.showErrorToast(this._vcr,"offer not found");
 								}
 								else {
 									if(userData.osCash != 0){
 										
 										var price = offerData.originalPrice-((offerData.discount*offerData.originalPrice)/100);
 										if(price > userData.osCash){
-										
+
 											userData.osCash = 0 ;
 										}
 										else{
