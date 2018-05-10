@@ -1,7 +1,7 @@
-<div class="py-5 px-2 my-3 mt-4 xyz">
+<div class="py-5  my-3 mt-4 xyz">
   <div class="container abc d-flex align-items-center justify-content-center">
-    <div class="row border rounded p-2">
-      <form [formGroup]="form" >
+    <div class="row border rounded py-2 ">
+      <form [formGroup]="form" class="col-12">
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="firstName"> {{ 'USER.SELLER.FIRST-NAME' | translate }}</label>
@@ -136,9 +136,9 @@
         </div>
 
         <!-- If user has fill all the above form then the below form will be enabled-->
-        <button type="submit" class="btn button justify-content-center" (click)="submit()">{{ 'BUTTONS.SAVE' | translate }}</button>
-        <button type="button" class="btn button justify-content-center" (click)="undisableTxt()" [ngClass]="{hidden:status=='edit-mode', visible:status=='none'}">{{ 'BUTTONS.EDIT' | translate }}</button>
-        <button type="button" class="btn button justify-content-center" (click)="cancel()" [ngClass]="{hidden:status=='none', visible:status=='edit-mode'}">Cancel</button>
+        <button type="submit" class="btn button btn-primary justify-content-center" (click)="submit()" [disabled]="form.invalid">{{ 'BUTTONS.SAVE' | translate }}</button>
+        <button type="button" class="btn button btn-primary justify-content-center" (click)="undisableTxt()" [ngClass]="{hidden:status=='edit-mode', visible:status=='none'}">{{ 'BUTTONS.EDIT' | translate }}</button>
+        <button type="button" class="btn button btn-primary justify-content-center" (click)="cancel()" [ngClass]="{hidden:status=='none', visible:status=='edit-mode'}">Cancel</button>
       </form>
     </div>
   </div>

@@ -75,14 +75,13 @@ showNoSpin() {
   })
 }
 
-showOsCash(cash:number) {
+showOsSpin(cash:number) {
   swal({
     animation: false,
     customClass: 'animated tada',
     type: 'success',
     title: cash +' Cash Added',
-    showConfirmButton: true,
-    timer: 1500
+    showConfirmButton: true
   })
 }
 
