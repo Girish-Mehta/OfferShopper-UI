@@ -16,14 +16,15 @@
       "ADD-FEEDBACK": "प्रतिक्रिया जोड़ें",
       "GEN-COUPON": "कूपन जेनरेट करें",
       "SEE-MORE": "और देखें",
-      "SUBSCRIBE": "सदस्यता लें"
+      "SUBSCRIBE": "सदस्यता लें",
+      "CANCEL": "रद्द करें"
   },
    "HOMEPAGE": {
     "CATEGORIES": {
         "CATEGORY": "वर्ग",
-        "SPORTS": "Sports",
-        "CLOTHES": "Clothing",
-        "FOOD": "Food"
+        "SPORTS": "खेल-कूद",
+        "CLOTHES": "परिधान",
+        "FOOD": "भोजन"
     },
     "PAGE": {
         "SEARCH": "यहां अपने पसंदीदा सौदों के लिए खोजें"
@@ -185,7 +186,7 @@
     "CARRYBAG": "कैरीबैग",
     "WISHLIST": "विशलिस्ट",
     "SUBSCRIBE": "सदस्यता",
-    "VENDOR-DASHBOARD": "Vendor Dashboard",
+    "VENDOR-DASHBOARD": "विक्रेता डैशबोर्ड",
     "ADD-OFFER": "ऑफर जोड़ें",
     "BE-SELLER": "विक्रेता बनें",
     "EMPTY": "खाली",

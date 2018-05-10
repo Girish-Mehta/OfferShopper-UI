@@ -3,7 +3,7 @@
 <!-- results component being called -->
 <div class="container-fluid">
   <div class="row ml-1" *ngIf="category; else notSearched">
-    <div class="col-2">
+    <div class="col-2 d-none d-md-block">
       <!-- filters -->
       <!-- discount filter -->
       <div *ngIf="results.length" class="mt-5">
@@ -22,7 +22,7 @@
         to_shadow="true"
         grid="true"
         grid_num="10"
-        prefix="Discount: "
+        prefix="{{ 'PRODUCT-PAGE.DISCOUNT' | translate }}: "
         postfix="%"
         decorate_both="false"
         (onFinish)="onFinish($event)">
@@ -42,7 +42,50 @@
       </div>
     </div>
   </div>
-  <div class="col-10" *ngIf="results.length">
+  <div class="col-12 pl-0 d-block d-md-none">
+    <div class="container-fluid">
+      <div class="row" *ngIf="results.length">
+        <div class="col-5">
+          <div class="dropdown text-center">
+            <button class="btn dropdown-toggle btn-dropdown ml-1 sorting-dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="text-sort">{{ 'SHOP-PAGE.SORTING.TITLE' | translate }}</span>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" (click)="sortBy('priceHL')">{{ 'SHOP-PAGE.SORTING.PRICE-HIGH' | translate }}</a>
+              <a class="dropdown-item" (click)="sortBy('priceLH')">{{ 'SHOP-PAGE.SORTING.PRICE-LOW' | translate }}</a>
+              <a class="dropdown-item" (click)="sortBy('discountHL')">{{ 'SHOP-PAGE.SORTING.DISCOUNT-HIGH' | translate }}</a>
+              <a class="dropdown-item" (click)="sortBy('discountLH')">{{ 'SHOP-PAGE.SORTING.DISCOUNT-LOW' | translate }}</a>
+            </div>
+          </div>
+        </div>
+        <div  class="col-7">
+          <!-- <h5>{{ 'SHOP-PAGE.FILTER' | translate }}</h5> -->
+          <ion-range-slider #sliderElement
+          type="double"
+          max="100"
+          min="0"
+          from="0"
+          from_min="0"
+          from_max="90"
+          from_shadow="true"
+          to="100"
+          to_min="10"
+          to_max="100"
+          to_shadow="true"
+          grid="true"
+          grid_num="10"
+          prefix="Discount: "
+          postfix="%"
+          decorate_both="false"
+          (onFinish)="onFinish($event)" class="offer-range">
+          </ion-range-slider>
+        </div>
+        <!-- end -->
+        <!-- dropdown for sorting -->        
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-10" *ngIf="results.length">
     <app-seach-results  [results]="filteredResults"></app-seach-results>
   </div>
   <div class="col-12 mt-4 d-flex justify-content-center" *ngIf="!results.length">
