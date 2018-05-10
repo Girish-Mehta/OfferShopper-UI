@@ -1,13 +1,16 @@
 <div class="add-offer">
   <!-- Div will create the validate button -->
   <div class="d-flex bg-dark p-3">
-    <div class="col">
-      <button type="button" class="btn btn-light btn-util" data-toggle="modal" data-target="#myAddofferModal">{{ 'USER.ADD-OFFER' |  translate }}</button>
+    <div class="col ">
+      <button type="button" class="btn btn-light btn-util col-sm-2 col-md-3 btn-large" data-toggle="modal" data-target="#myAddofferModal">{{ 'USER.ADD-OFFER' |  translate }}</button>
+      <button type="button" class="btn btn-light btn-util col-sm-2 col-md-3 col-lg-2 btn-small" data-toggle="modal" data-target="#myAddofferModal" title="{{ 'USER.ADD-OFFER' | translate }}"><i class="fas fa-plus"></i></button>
     </div>
     <div class="col d-flex justify-content-end">
-      <button type="button" class="btn btn-light d-flex justify-content-end btn-util" data-toggle="modal" data-target="#couponVerifyModal">{{ 'USER.OFFER.VALIDATE-COUPON' |  translate }}</button>
+      <button type="button" class="btn btn-light d-flex btn-util col-sm-2 col-md-3 justify-content-end btn-large" data-toggle="modal" data-target="#couponVerifyModal">{{ 'USER.OFFER.VALIDATE-COUPON' |  translate }}</button>
+      <button type="button" class="btn btn-light btn-util col-sm-2 col-md-3 col-lg-2 btn-small" data-toggle="modal" data-target="#couponVerifyModal" title="{{ 'USER.OFFER.VALIDATE-COUPON' | translate }}"><i class="far fa-money-bill-alt"></i></button>
     </div>
   </div>
+
   <!-- This div will create the cards of offer uploaded by vendor -->
   <div class="container mt-2">
     <div class="row ">
@@ -26,7 +29,7 @@
           </ul>
           <div class="card-body">
             <button type="button" class="btn btn-secondary" (click)="updateOffer(offer.offerId)" data-toggle="modal" data-target="#myModal">{{ 'BUTTONS.UPDATE' |  translate }}</button>
-            <button type="button" class="btn btn-dark" (click)="deleteOffer(offer.offerId)">{{ 'BUTTONS.DELETE' |  translate }}</button>
+            <button type="button" class="btn btn-dark" (click)="deleteOffer(offer.offerId)"  data-toggle="button" aria-pressed="false"  autocomplete="off" (click)="deleteSubscriptions(subscriptionlist.userId,subscriptionlist.vendorId)" data-toggle="tooltip" data-placement="bottom"  title="{{ 'BUTTONS.DELETE' | translate }}"><i class="fas fa-trash-alt" ></i></button>
           </div>
         </div>
       </div>
