@@ -2,23 +2,23 @@
 <div  class="container-fluid align-items-center user">
 
 <div id='snav' class=' align-items-center en'>
- 
+
   <ul class="align-self-center">
-    
+
     <li class="m-3 p-2">
       <a [ngClass]="{active:userList=='userdetails', inactive:userList!='userdetails'}" [routerLink]="['/user', 'userdetails']">
         <i class="far fa-user-circle"></i>
         <span>{{ 'USER.PERSONAL-INFO' |  translate }}</span>
       </a>
     </li>
-    
+
      <li class="m-3 p-2">
       <a [ngClass]="{active:userList=='carrybag', inactive:userList!='carrybag'}" [routerLink]="['/user', 'carrybag']">
         <i class="fas fa-shopping-bag"></i>
         <span>{{ 'USER.CARRYBAG' |  translate }}</span>
       </a>
     </li>
- 
+
      <li class="m-3 p-2">
       <a [ngClass]="{active:userList=='wishlist', inactive:userList!='wishlist'}" [routerLink]="['/user', 'wishlist']">
         <i class="fas fa-shopping-basket"></i>
@@ -31,9 +31,9 @@
         <i class="fas fa-heart"></i>
         <span >{{ 'USER.SUBSCRIBE' |  translate }}</span>
       </a>
-    </li> 
+    </li>
     <li class="m-3 mb-0 p-2 pb-0">
-      <a [ngClass]="{active:userList=='add-offer', inactive:userList!='add-offer'}" *ngIf="role=='Vendor'||'vendor'" [routerLink]="['/user', 'add-offer']">
+      <a [ngClass]="{active:userList=='add-offer', inactive:userList!='add-offer'}" *ngIf="role=='Vendor'|| role=='vendor'" [routerLink]="['/user', 'add-offer']">
         <i class="fas fa-home"></i>
         <span >{{ 'USER.VENDOR-DASHBOARD' |  translate }}</span>
       </a>
@@ -44,11 +44,11 @@
         <span >{{ 'USER.BE-SELLER' |  translate }}</span>
       </a>
     </li>
-  
+
   </ul>
-  
+
 </div>
-  
+
 
 <div class="user-content ml-5 pl-5">
   <div [ngSwitch]="userList">

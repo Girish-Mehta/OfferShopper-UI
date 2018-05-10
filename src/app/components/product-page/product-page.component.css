@@ -1,13 +1,7 @@
-#browseimage
-
-{
-
+#browseimage {
 	padding: 10px;
-
 	height: 120%;
-
 	width: 100%;
-
 }
 
 .back-arrow {
@@ -18,98 +12,51 @@ a {
 	cursor: pointer;
 }
 
-#previewimage
-
-{
-
+#previewimage {
 	padding: 10px;
-
 	height:50px;
-
 }
-
-
 
 img {
-
 	max-height: 650px;
-
 }
-
-
 
 .text-poiret {
-
 	font-family: 'Poiret One', 'Sree Krushnadevaraya','Suranna','Ramaraja',"Mukta Malar",cursive;
-
 }
-
-
 
 .title {
-
 	font-size: 2rem;
-
 }
-
-
 
 .description {
-
 	font-family: 'Quicksand', 'Sree Krushnadevaraya','Suranna','Ramaraja',"Mukta Malar",sans-serif;
-
 	color:gray;
-
 	font-size: 1rem;
-
 }
-
-
 
 .price {
-
 	color:gray;
-
   font-family: 'Julius Sans One', 'Sree Krushnadevaraya','Suranna','Ramaraja',"Mukta Malar",sans-serif;
-
 }
-
-
 
 .back-arrow {
-
 	font-size: 0.8rem;
-
 }
-
-
 
 .btn-add {
-
 	background:#018b8b;
-
 	color:white;
-
 	border:none;
-
 }
-
-
 
 .vendor {
-
 	color: #018b8b;
-
 	cursor: pointer
-
 }
 
-
-
 .divbody{
-
   background-color: white;
-
 }
 
 
