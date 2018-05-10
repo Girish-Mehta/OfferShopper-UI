@@ -17,7 +17,7 @@ export class WheelComponent implements OnInit{
   sectorNo:number;
   public userInfo : any;
   public user : any;
-  public cash=[20,0,5,0,3,8];
+  public cash=[20,8,3,0,5,0];
 
   constructor(
     private osCashService: OsCashService,
@@ -44,13 +44,8 @@ export class WheelComponent implements OnInit{
     var object = document.getElementById("img1");    
     var randomNumberBetween0and6 = Math.floor(Math.random() * 6);
     this.angle = (randomNumberBetween0and6*60)+(360*8)+this.previousAngle;
-    //this.angle=60+this.previousAngle;
-    console.log("new angle "+ this.angle);
-    console.log("------------------------------------------------------");
     object.style.transform = "rotate("+ this.angle+"deg)";
-   // this.sectorNo = ((this.angle - 25)/60)%6;
-    this.sectorNo = ((this.angle )/60)%6; 
-    console.log("sector no "+ this.sectorNo);
+    this.sectorNo = ((this.angle )/60)%6;
     this.previousAngle = this.angle;
     this.submit();
   }

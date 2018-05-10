@@ -69,7 +69,7 @@ export class AddOfferComponent implements OnInit {
 		this.addOfferService.getOffersList(userId).subscribe((res) =>{
 			this.offers = res;
 		}
-		, (error) =>{console.log("error");
+		, (error) =>{
 	})
 	}
 
@@ -114,7 +114,7 @@ export class AddOfferComponent implements OnInit {
 		let date = user.offerValidity.split("T");
 		let newDate = date[0].split("-");
 		let formatDate = newDate[0]+"/"+newDate[1]+"/"+newDate[2];
-		console.log(formatDate);
+	
 		this.offerValidity=formatDate;
 		this.offerDescription=user.offerDescription;
 		this.offerTerms=user.offerTerms;
@@ -125,7 +125,7 @@ export class AddOfferComponent implements OnInit {
 	//Function will update the offer on vendor page
 	submit(){
 		let IsoDate = new Date(this.offerValidity).toISOString();
-		console.log(IsoDate);
+	
 		this.obj={
 			"offerId" :this.User.offerId,
 			"userId"  :this.User.userId,
@@ -261,35 +261,54 @@ export class AddOfferComponent implements OnInit {
 					"rating" : couponData.rating,
 					"vendorValidationFlag" : true
 				}
-				console.log("originalPrice "+this.originalPrice);
+				
 				this.addOfferService.changeFlag(obj).subscribe((res) =>{
 					this.messageService.showSuccessToast(this._vcr,"coupon verified");
 					//code not checked
-					this.addOfferService.getUser(this.userId).subscribe((res) =>{
+					this.addOfferService.getUser(couponData.userId).subscribe((res) =>{
 						let userData = res;
+					
 						if(userData==null) {
 							alert("User not found");
 						}
 						else {
-							if(userData.osCash != 0){
-								var price = this.originalPrice-((this.discount*this.originalPrice)/100);
-								if(price > userData.osCash){
-									userData.osCash =0 ;
+							
+					
+							this.addOfferService.getOffer(couponData.offerId).subscribe((off) =>{
+							
+								let offerData = off;
+								
+								if(offerData==null) {
+									alert("Offer not found");
 								}
-								else{
-									userData.osCash = userData.osCash-price;
+								else {
+									if(userData.osCash != 0){
+										
+										var price = offerData.originalPrice-((offerData.discount*offerData.originalPrice)/100);
+										if(price > userData.osCash){
+										
+											userData.osCash = 0 ;
+										}
+										else{
+											
+											userData.osCash = userData.osCash-price;
+											
+										}
+										
+										this.addOfferService.updateOsCash(userData.osCash,couponData.userId).subscribe((res) =>{
+											this.messageService.showSuccessToast(this._vcr,"os cash updated");
+										}, (error) =>{
+											
+										})
+									}
 								}
-								this.addOfferService.updateOsCash(userData.osCash,userData.userId).subscribe((res) =>{
-									this.messageService.showSuccessToast(this._vcr,"os cash updated");
-								}, (error) =>{
-									alert("OS cash could not be updated");
-								})
 							}
+							, (error) =>{					
+							});		
 						}
 					}
-					, (error) =>{console.log("error");
+					, (error) =>{
 					})
-					//till here not checked
 				}, (error) =>{
 				})
 			}
@@ -298,6 +317,8 @@ export class AddOfferComponent implements OnInit {
 		})
 	}
 }
+
+
 
 
 
