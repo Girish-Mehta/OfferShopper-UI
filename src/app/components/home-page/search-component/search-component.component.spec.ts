@@ -71,4 +71,11 @@ describe('SearchComponentComponent', () => {
    expect(component.redirectToSearch).toHaveBeenCalledTimes(1);
  })
 
+        it('should call the notLogin method',() => {
+   spyOn(component,'notLogin');
+   el=fixture.debugElement.query(By.css('button')).nativeElement;
+   el.click();
+   expect(component.notLogin).toHaveBeenCalledTimes(0);
+ })
+
 });

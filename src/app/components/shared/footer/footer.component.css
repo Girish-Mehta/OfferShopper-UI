@@ -33,6 +33,18 @@ a {
     padding-left: 0px;
 }
 
+.social-media li {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+@media (max-width: 575.98px) {
+    .container-fluid {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+}
+
 .social-media > li {
     padding: 1rem;
 }

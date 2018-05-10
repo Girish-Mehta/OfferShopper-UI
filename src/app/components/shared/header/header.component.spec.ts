@@ -50,6 +50,25 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+   it('should call the fav method', async(() => {
+   fixture.detectChanges();
+   spyOn(component,'fav');
+   expect(component.fav).toHaveBeenCalledTimes(0);
+ }));
+
+    it('should call the set method', async(() => {
+   fixture.detectChanges();
+   spyOn(component,'set');
+   expect(component.set).toHaveBeenCalledTimes(0);
+ }));
+
+     it('should call the getLocation method', async(() => {
+   fixture.detectChanges();
+   spyOn(component,'getLocation');
+   expect(component.getLocation).toHaveBeenCalledTimes(0);
+ }));
+
 });
 
 

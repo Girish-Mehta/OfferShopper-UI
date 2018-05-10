@@ -23,7 +23,7 @@ export class VendorPageComponent implements OnInit {
   lng: number;
   priceAfterDiscount: any;
   shopName:string;
-  address:any;
+  address:any=[];
   data:any;
   street:string;
   city:string;
@@ -32,6 +32,7 @@ export class VendorPageComponent implements OnInit {
   vendorId:string;
   public userInfo : any;
   public user : any;
+  public p:any;
 
 
   constructor(
@@ -52,7 +53,7 @@ export class VendorPageComponent implements OnInit {
     this.getOfferlist();
   }
 
-  //Function will logged in Email Id 
+  //Function will logged in Email Id
   getUserId() {
     this.authorizationService.getUserId().subscribe((res) =>{
       this.userInfo = res.text().split(',');
@@ -71,7 +72,6 @@ export class VendorPageComponent implements OnInit {
     this.offersService.getOffers(this.vendorId).subscribe((res) =>{
       this.offersList = res;
       this.data = res;
-      console.log(this.data);
       this.shopName=this.data[0].address.name.toUpperCase()
       this.street=this.data[0].address.street.toUpperCase();
       this.city=this.data[0].address.city.toUpperCase();
@@ -150,7 +150,6 @@ export class VendorPageComponent implements OnInit {
 
   //Function will add offers in Wishlist
   addToWishlist(offer1) {
-    console.log(offer1);
     let wishlistBean = {
       "userId":this.user,
       "offerId":offer1.offerId,

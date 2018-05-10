@@ -13,7 +13,7 @@ export class WishlistComponent implements OnInit {
 
 
   private priceAfterDiscount: any;
-  private wishlistOffers=[];
+  public wishlistOffers=[];
   private userId: string;
 
   constructor(
@@ -23,7 +23,7 @@ export class WishlistComponent implements OnInit {
     private _vcr: ViewContainerRef
     ) { }
 
-  
+
 
   ngOnInit() {
     this.getUserId();
@@ -48,6 +48,7 @@ export class WishlistComponent implements OnInit {
   getWishlist() {
     this.wishlistService.getWishlist(this.userId).subscribe((res) =>{
       this.wishlistOffers = res;
+      console.log("wish");
       console.log(this.wishlistOffers);
     }, (error) =>{
       this.messageService.showErrorToast(this._vcr,"Please try after sometime");

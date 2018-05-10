@@ -28,7 +28,7 @@
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="inputCity">{{ 'USER.SELLER.ADDRESS.CITY' | translate }}</label>            
+            <label for="inputCity">{{ 'USER.SELLER.ADDRESS.CITY' | translate }}</label>
             <select name=slist class="form-control" id="inputCity" disabled [(ngModel)]="city" [ngModelOptions]="{standalone: true}">
               <option value="{{city}}">{{city}}</option>
               <option *ngFor="let city of homeCities" value={{city}}>{{city}}</option>
@@ -44,17 +44,17 @@
           <div class="form-group col-md-2">
             <label for="inputZip">{{ 'USER.SELLER.ADDRESS.ZIP' | translate }}</label>
             <input type="text" class="form-control" id="inputZip" placeholder="{{zip}}" disabled [(ngModel)]="zip" [ngModelOptions]="{standalone: true}">
-          </div>          
+          </div>
         </div>
         <hr/>
         <!-- only visible when the logged in person is a seller-->
         <div *ngIf="role=='Vendor'">
-        <div class="form-group">
-            <label for="inputShopName">{{ 'USER.SELLER.ADDRESS.SHOPE-NAME' | translate }}</label>
+          <div class="form-group">
+            <label for="inputShopName">{{ 'USER.SELLER.ADDRESS.SHOP-NAME' | translate }}</label>
             <input type="text" class="form-control" id="inputShopName" placeholder="{{shopName}}" disabled [(ngModel)]="shopName" [ngModelOptions]="{standalone: true}">
           </div>
           <div class="checkbox pb-2">
-            <input type="checkbox" (click)="setCheckboxAddress()" id="SameCheckbox" value="SameAsAbove"> {{ 'USER.SELLER.ADDRESS.SAME' | translate }}
+            <input type="checkbox" (click)="setCheckboxAddress()" id="sameCheckbox" value="SameAsAbove" disabled [(ngModel)]="sameCheckbox" [ngModelOptions]="{standalone: true}"> {{ 'USER.SELLER.ADDRESS.SAME' | translate }}
           </div>
           <div class="form-group">
             <label for="inputShopAddress">{{ 'USER.SELLER.ADDRESS.SHOP' | translate }}</label>
@@ -69,11 +69,11 @@
               </select>
             </div>
             <div class="form-group col-md-4">
-                <label for="inputShopState">{{ 'USER.SELLER.ADDRESS.STATE' | translate }}</label>
-                <select (change)=showRelevantCitiesShop(shopState) name=slist class="form-control" id="inputShopState" disabled [(ngModel)]="shopState" [ngModelOptions]="{standalone: true}">
-                  <option value="{{shopState}}">{{shopState}}</option>
-                  <option *ngFor="let state of states" value={{state}}>{{state}}</option>
-                </select>
+              <label for="inputShopState">{{ 'USER.SELLER.ADDRESS.STATE' | translate }}</label>
+              <select (change)=showRelevantCitiesShop(shopState) name=slist class="form-control" id="inputShopState" disabled [(ngModel)]="shopState" [ngModelOptions]="{standalone: true}">
+                <option value="{{shopState}}">{{shopState}}</option>
+                <option *ngFor="let state of states" value={{state}}>{{state}}</option>
+              </select>
             </div>
             <div class="form-group col-md-2">
               <label for="inputShopZip">{{ 'USER.SELLER.ADDRESS.ZIP' | translate }}</label>
@@ -81,9 +81,11 @@
             </div>
           </div>
         </div>
-        <!-- If user has fill all the above form then the below form will be enabled-->        
-        <button type="submit" class="btn button justify-content-cente" (click)="submit()">{{ 'BUTTONS.SAVE' | translate }}</button>
-        <button type="button" class="btn button justify-content-cente" (click)="undisableTxt()">{{ 'BUTTONS.EDIT' | translate }}</button>    
+        <!-- If user has fill all the above form then the below form will be enabled-->
+        <button type="submit" class="btn button justify-content-center" (click)="submit()">{{ 'BUTTONS.SAVE' | translate }}</button>
+        <button type="button" class="btn button justify-content-center" (click)="undisableTxt()">{{ 'BUTTONS.EDIT' | translate }}</button>    
+        <button type="button" class="btn button justify-content-center" (click)="cancel()">Cancel</button>    
+
       </form>
     </div>
   </div>
