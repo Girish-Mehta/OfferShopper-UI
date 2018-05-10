@@ -11,10 +11,10 @@ import { AuthorizationService } from '../../services/authorization.service';
 })
 export class UserComponent implements OnInit {
 
-  private userList;
+  public userList;
   private login;
   private userInfo;
-  private role;
+  public role;
 
   constructor(
     private route: ActivatedRoute,
@@ -28,7 +28,7 @@ export class UserComponent implements OnInit {
       this.isLogin();
     });
   }
-  
+
   //Function will check that user is login or not
   isLogin(){
     this.login = this.authorizationService.isLogin();
@@ -48,7 +48,7 @@ export class UserComponent implements OnInit {
   changeSidebarVender(event) {
     if(event) {
       this.getUserId();
-      this.router.navigate(['/user/add-offer']); 
+      this.router.navigate(['/user/add-offer']);
     }
   }
 }

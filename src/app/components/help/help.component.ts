@@ -9,7 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HelpComponent implements OnInit {
 
-	private helpOption: string;
+	public helpOption: string;
 
 	constructor( private route: ActivatedRoute ) { }
 
