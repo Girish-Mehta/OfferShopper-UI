@@ -86,6 +86,18 @@ getShopAddress(userId) {
   .map(data => data.json(),
   (error: any)=>console.log("error in getting data from database"));
 }
+//code not checked
+getUser(userId) {
+  return this.http.get(AddOfferConfig.getUserByIdURL+userId, this.options)
+  .map(data => data.json(),
+  (error: any)=>console.log("error in getting data from database"));
+}
 
+updateOsCash(cash:number,user){
+  return this.http.put(AddOfferConfig.updateOsCashURL+cash+"/"+user, "")
+   .map(data => data.json(),
+ (error: any)=>console.log("error"));
+}
+//code not checked
 
 }

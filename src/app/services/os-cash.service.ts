@@ -16,7 +16,6 @@ export class OsCashService {
         this.options = new RequestOptions({headers: this.header}); }
 
   putOffer(obj:number,user){
-    console.log(user);
    return this.http.put(WheelConfig.updateOsCashURL+obj+"/"+user, "")
     .map(data => data.json(),
   (error: any)=>console.log("error"));
