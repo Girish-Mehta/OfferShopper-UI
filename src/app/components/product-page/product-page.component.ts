@@ -6,6 +6,7 @@ import { WishlistService } from './../../services/wishlist.service';
 import { CarrybagService } from './../../services/carrybag.service';
 import { AuthorizationService } from './../../services/authorization.service';
 import { MessageService } from './../../services/message.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-product-page',
@@ -33,6 +34,7 @@ export class ProductPageComponent implements OnInit {
   public user : any;
   public category: any;
   public relatedProducts: any;
+
   constructor(
     private productDetailService : ProductDetailService,
     private route: ActivatedRoute,
@@ -40,7 +42,8 @@ export class ProductPageComponent implements OnInit {
     private authorizationService: AuthorizationService,
     private carrybagService: CarrybagService,
     private messageService: MessageService,
-    private _vcr: ViewContainerRef
+    private _vcr: ViewContainerRef,
+    private _location: Location
     ) { }
 
   ngOnInit() {
@@ -51,7 +54,7 @@ export class ProductPageComponent implements OnInit {
       this.getOfferById();
     }
     else {
-      this.searchProduct();  
+      this.searchProduct();
     }
   }
 
@@ -72,35 +75,34 @@ export class ProductPageComponent implements OnInit {
    });
  }
 
- getOfferById() { 
-   this.productDetailService.getOfferById(this.offerId)
-   .subscribe((res) =>{
-     this.offer=res;
-     this.productName=res.offerTitle;
-     this.productDescription=res.offerDescription;
-     this.productValidity=res.offerValidity;
-     this.productSeller=res.userId;
-     this.productOriginalPrice=res.originalPrice;
-     this.productDiscount=res.discount;
-     this.shop=res.address.name;
-     this.category=res.offerCategories;
-     
-     this.searchRelatedProducts(this.category);
-   },(error) =>{
+  //Function will get the offer using offerId
+  getOfferById() { 
+    this.productDetailService.getOfferById(this.offerId)
+    .subscribe((res) =>{
+      this.offer=res;
+      this.productName=res.offerTitle;
+      this.productDescription=res.offerDescription;
+      this.productValidity=res.offerValidity;
+      this.productSeller=res.userId;
+      this.productOriginalPrice=res.originalPrice;
+      this.productDiscount=res.discount;
+      this.shop=res.address.name;
+      this.category=res.offerCategories;   
+      this.searchRelatedProducts(this.category);
+    },(error) =>{
+    });
+  }
 
-   });
- }
-
+ //Function will get the userId 
  getUserId() {
    this.authorizationService.getUserId().subscribe((res) =>{
      this.userInfo = res.text().split(',');
      this.user = this.userInfo[2];
-     console.log(res.text());
    }, (error) =>{
    })
  }
 
-
+ //Function will add the product in the wishlist
  addToWishlist(offer1) {
    let wishlistBean = {
      "userId":this.user,
@@ -114,15 +116,16 @@ export class ProductPageComponent implements OnInit {
    this.wishlistService.addToWishlist(wishlistBean).subscribe((res) =>{
      this.messageService.showSuccessToast(this._vcr,"Added in wishlist");
    },(res:Response) =>{
-      if(res.status==409){
-        this.messageService.showErrorToast(this._vcr,"Already in Wishlist");
-      }
-      else if(res.status==400){
-        this.messageService.showErrorToast(this._vcr,"Already in Wishlist");
-      }
-    })
+     if(res.status==409){
+       this.messageService.showErrorToast(this._vcr,"Already in Wishlist");
+     }
+     else if(res.status==400){
+       this.messageService.showErrorToast(this._vcr,"Already in Wishlist");
+     }
+   })
  }
 
+ //Function will add the offer in carrybag
  addToCarrybag(offer1) {
    let carrybagBean = {
      "userId":this.user,
@@ -137,19 +140,23 @@ export class ProductPageComponent implements OnInit {
    this.carrybagService.addToCarrybag(carrybagBean).subscribe((res) =>{
      this.messageService.showSuccessToast(this._vcr,"Added in Carrybag");
    },(res:Response) =>{
-      if(res.status==409){
-        this.messageService.showErrorToast(this._vcr,"Already in CarryBag");
-      }
-      else if(res.status==400){
-        this.messageService.showErrorToast(this._vcr,"Already in CarryBag");
-      }
-    })
+     if(res.status==409){
+       this.messageService.showErrorToast(this._vcr,"Already in CarryBag");
+     }
+     else if(res.status==400){
+       this.messageService.showErrorToast(this._vcr,"Already in CarryBag");
+     }
+   })
  }
 
+ //This function will show the offers related to the categories
  searchRelatedProducts(category){
    this.productDetailService.searchRelatedProducts(category).subscribe((res) =>{
-    this.relatedProducts=res;
+     this.relatedProducts=res;
    },(error)=>{})
  }
 
+ backClicked() {
+        this._location.back();
+  }
 }

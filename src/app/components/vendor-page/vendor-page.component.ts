@@ -6,6 +6,7 @@ import { AuthorizationService } from './../../services/authorization.service';
 import { MessageService } from './../../services/message.service';
 import { WishlistService } from './../../services/wishlist.service';
 import { FeedbackService } from './../../services/feedback.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-vendor-page',
@@ -43,13 +44,13 @@ export class VendorPageComponent implements OnInit {
     private route: ActivatedRoute,
     private authorizationService: AuthorizationService,
     private messageService:MessageService,
-    private _vcr:ViewContainerRef
+    private _vcr:ViewContainerRef,
+    private _location: Location
     ) { }
 
   ngOnInit() {
     this.getUserId();
     this.vendorId=this.route.snapshot.params.id;
-    console.log(this.vendorId);
     this.getOfferlist();
   }
 
@@ -170,5 +171,9 @@ export class VendorPageComponent implements OnInit {
       }
     })
   }
+
+  backClicked() {
+         this._location.back();
+   }
 
 }

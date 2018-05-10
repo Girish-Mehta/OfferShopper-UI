@@ -52,7 +52,7 @@ export class SearchComponentComponent implements OnInit {
 
   ngOnInit() { 
     this.getUserId();
-    this.category = 'All';
+    this.category = 'Categories';
   }
 
   //Function retrieve the userId from the token 
@@ -88,7 +88,7 @@ export class SearchComponentComponent implements OnInit {
     this.messageService.showErrorToast(this._vcr,"Please Login");
   }
 
-  //function called on pressing Enter
+  //Function called on pressing Enter
   enterPressed(event) {
     if(event.keyCode == 13)
       document.getElementById("searchButton").click();

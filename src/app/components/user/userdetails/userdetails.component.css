@@ -1,5 +1,18 @@
+.hidden{
+  visibility: hidden;
+}
+
+.visible{
+  visibility: visible;
+}
+
 .abc {
   height: 100%;
+}
+
+.alert-msg{
+  color: red;
+  font-size: 12px;
 }
 
 .xyz {

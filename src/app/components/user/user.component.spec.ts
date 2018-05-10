@@ -68,10 +68,4 @@ describe('UserProfileComponent', () => {
    expect(component.changeSidebarVender).toHaveBeenCalledTimes(0);
  }));
 
-          it('should call the go method', async(() => {
-   fixture.detectChanges();
-   spyOn(component,'go');
-   expect(component.go).toHaveBeenCalledTimes(0);
- }));
-
 });
