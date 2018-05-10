@@ -1,3 +1,58 @@
+@media (min-width: 992px) {
+	.middle-button {
+	  position: absolute;
+	  top: 0;
+	  bottom: 0;
+	  left: 0;
+	  right: 0;
+	  height: 100%;
+	  width: 100%;
+	  opacity: 0;
+	  transition: .5s ease;
+	  background: rgba(0, 0, 0, 0.3);
+	}
+
+	.middle-button-data {
+		color: white;
+	  font-size: 20px;
+	  position: absolute;
+	  top: 84%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  -ms-transform: translate(-50%, -50%);
+	  text-align: center;
+	}
+
+	.middle-button button {
+		border-radius: 50px;
+	}
+
+	.img-over-button {
+		position: relative;
+	    width: 50%;
+	}
+
+	.card-image {
+		display: block;
+	  width: 100%;
+	  height: auto;
+	}
+
+	.img-over-button:hover .middle-button {
+	  opacity: 1;
+	}
+}
+
+@media (max-width: 991.98px) {
+	.middle-button-large {
+		height: 88%;
+	}
+
+	.middle-button-large button {
+		width: 90px;
+	}
+}
+
 .card-rating {
 	border-radius: 0px 5px 0px 0px;
 	position: absolute;
