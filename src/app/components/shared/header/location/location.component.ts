@@ -55,7 +55,7 @@ getlocation(){
         _router.navigate(['/',userMainUrl,"Delhi"]);
     }
     console.log("User refused access to his location");
-  }
+  }``
   function get(varobj){
     navigator.geolocation.getCurrentPosition((position)=>{
       var Latitude  = position.coords.latitude;

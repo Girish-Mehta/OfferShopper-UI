@@ -1,31 +1,56 @@
-<div class="container-fluid">
-<div class="user-sidebar border-right d-flex justify-content-center mt-2 col-4  ">
-  <aside>
-    <ul id="sticky-social" class="nav nav-pills flex-column ">
-      <!-- List of actions for user -->
-      <li class="text-center py-2" [ngClass]="{active:userList=='userdetails', inactive:userList!='userdetails'}" [routerLink]="['/user', 'userdetails']">
-        {{ 'USER.PERSONAL-INFO' |  translate }}
-      </li>
-      <li class="text-center py-2" [ngClass]="{active:userList=='carrybag', inactive:userList!='carrybag'}" [routerLink]="['/user', 'carrybag']">
-        {{ 'USER.CARRYBAG' |  translate }}
-      </li>
-      <li class="text-center py-2" [ngClass]="{active:userList=='wishlist', inactive:userList!='wishlist'}" [routerLink]="['/user', 'wishlist']">
-        {{ 'USER.WISHLIST' |  translate }}
-      </li>
-      <li class="text-center py-2" [ngClass]="{active:userList=='subscriptionlist', inactive:userList!='subscriptionlist'}" [routerLink]="['/user', 'subscriptionlist']">
-        {{ 'USER.SUBSCRIBE' |  translate }}
-      </li>
-      <li class="text-center py-2" [ngClass]="{active:userList=='add-offer', inactive:userList!='add-offer'}" *ngIf="role=='Vendor'||'vendor'" [routerLink]="['/user', 'add-offer']">
-        {{ 'USER.VENDOR-DASHBOARD' |  translate }}
-      </li>
-      <li class="text-center py-2" [ngClass]="{active:userList=='be-a-seller', inactive:userList!='be-a-seller'}" *ngIf="role=='Customer'" [routerLink]="['/user', 'be-a-seller']">
-        {{ 'USER.BE-SELLER' |  translate }}
-      </li>
-    </ul>
-  </aside>
-</div>
 
-<div class="user-content col-8">
+<div  class="container-fluid align-items-center user">
+
+<div id='snav' class=' align-items-center en'>
+ 
+  <ul class="align-self-center">
+    
+    <li class="m-3 p-2">
+      <a [ngClass]="{active:userList=='userdetails', inactive:userList!='userdetails'}" [routerLink]="['/user', 'userdetails']">
+        <i class="far fa-user-circle"></i>
+        <span>{{ 'USER.PERSONAL-INFO' |  translate }}</span>
+      </a>
+    </li>
+    
+     <li class="m-3 p-2">
+      <a [ngClass]="{active:userList=='carrybag', inactive:userList!='carrybag'}" [routerLink]="['/user', 'carrybag']">
+        <i class="fas fa-shopping-bag"></i>
+        <span>{{ 'USER.CARRYBAG' |  translate }}</span>
+      </a>
+    </li>
+ 
+     <li class="m-3 p-2">
+      <a [ngClass]="{active:userList=='wishlist', inactive:userList!='wishlist'}" [routerLink]="['/user', 'wishlist']">
+        <i class="fas fa-shopping-basket"></i>
+        <span >{{ 'USER.WISHLIST' |  translate }}</span>
+      </a>
+    </li>
+
+    <li class="m-3 p-2">
+      <a [ngClass]="{active:userList=='subscriptionlist', inactive:userList!='subscriptionlist'}" [routerLink]="['/user', 'subscriptionlist']">
+        <i class="fas fa-heart"></i>
+        <span >{{ 'USER.SUBSCRIBE' |  translate }}</span>
+      </a>
+    </li> 
+    <li class="m-3 mb-0 p-2 pb-0">
+      <a [ngClass]="{active:userList=='add-offer', inactive:userList!='add-offer'}" *ngIf="role=='Vendor'||'vendor'" [routerLink]="['/user', 'add-offer']">
+        <i class="fas fa-home"></i>
+        <span >{{ 'USER.VENDOR-DASHBOARD' |  translate }}</span>
+      </a>
+    </li>
+    <li class="m-3 mb-0 p-2 pb-0">
+      <a [ngClass]="{active:userList=='be-a-seller', inactive:userList!='be-a-seller'}" *ngIf="role=='Customer'" [routerLink]="['/user', 'be-a-seller']">
+        <i class="fas fa-user-plus"></i>
+        <span >{{ 'USER.BE-SELLER' |  translate }}</span>
+      </a>
+    </li>
+  
+  </ul>
+  
+</div>
+  
+
+<div class="user-content ml-5 pl-5">
   <div [ngSwitch]="userList">
     <div *ngSwitchCase="'userdetails'">
       <app-userdetails></app-userdetails>

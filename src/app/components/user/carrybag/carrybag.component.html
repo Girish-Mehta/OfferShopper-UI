@@ -1,6 +1,6 @@
-<div class="wishlist-header">
+<div class="carrybag-header">
   <img src="../../../../assets/wishcart_jumbo.png" class="img-fluid">
-  <div class="wishlist-header-content d-flex align-items-center justify-content-center">
+  <div class="carrybag-header-content d-flex align-items-center justify-content-center">
     {{ 'USER.CARRYBAG' | translate }}
   </div>
 </div>
@@ -14,26 +14,26 @@
   <!-- This div will create the cards of offers added in carrybag -->
   <div class="container-fluid" >
       <div class="row">
-          <div class="col-md-5 card-group mb-md-3" *ngFor=" let offerList of carryBagOffers">
+          <div class=" col-sm-12 col-md-6 col-lg-4 card-group mb-md-3" *ngFor=" let offerList of carryBagOffers">
               {{productPrice(offerList.offerOriginalPrice,offerList.offerDiscount)}}
-              <div class="card card-w text-dark m-5">
+              <div class="card card-w text-dark my-5">
               <div class="card-img-overlay">
                 <span class="badge badge-pill badge-info card-discount p-3">{{offerList.offerDiscount}}{{ 'HOMEPAGE.PRODUCT-HEADER.OFF' | translate }}</span>
                 <div class="btn-group" *ngIf="offerList">
-                    <button class="btn btn-dark my-2 my-sm-0 " type="button" (click)="deleteOffer(offerList.userId,offerList.offerId)"><i class="fas fa-trash-alt"></i> {{ 'BUTTONS.DELETE' | translate }}</button>
+                    <button class="btn btn-dark my-2 my-sm-0 " type="button" (click)="deleteOffer(offerList.userId,offerList.offerId)"><i class="fas fa-trash-alt"></i> </button>
                   </div>
               </div>
 
               <img class="card-img card-w" src="../../../../assets/card.jpeg" alt="Card image">
               <div class="card-body card-data">
                 <div class="row">
-                  <div class="col-8">
+                  <div class="col-sm-8">
                     <a [routerLink]="['/', 'product',offerList.userId,offerList.offerId]"><div class=" card-heading  text-truncate">{{offerList.offerTitle}}</div></a>
                   </div>
-                  <div class="col-4">
+                  <div class="col-sm-4">
                     <span class="fa fa-star mx-2"></span>{{offerList.offerRating}}
                   </div>
-                  <div class="col-12">
+                  <div class="col-sm-12">
                     <span class="card-price">{{ 'HOMEPAGE.PRODUCT-LIST.RS' | translate }}<del>{{offerList.offerOriginalPrice}}</del></span>
                     <span class="card-discounted-price">{{priceAfterDiscount}}</span>
                   </div>
@@ -42,9 +42,9 @@
                     {{ 'PRODUCT-PAGE.VALIDITY' | translate }}{{offerList.offerValidity | date}}
                   </div>
                   <div class="row col-12 ">
-                      <button class="btn btn-dark my-2 mx-1 my-sm-0 col-4 " type="button" (click)="couponGenerate(offerList.userId,offerList.offerId,offerList.vendorId)">{{ 'BUTTONS.GEN-COUPON' | translate }} </button>
+                      <button class="btn btn-dark my-2 mx-1 my-sm-0 col-5 " type="button" (click)="couponGenerate(offerList.userId,offerList.offerId,offerList.vendorId)" data-toggle="tooltip" data-placement="bottom"  title="{{ 'BUTTONS.GEN-COUPON' | translate }}"> </button>
                       <div data-toggle="modal" data-target="#couponModal" #coupModal ></div>
-                      <button class="btn btn-dark my-2 my-sm-0 mx-1 col-4" type="button" (click)="checkFeedbackExistence(offerList.offerId,offerList.userId)">{{ 'BUTTONS.ADD-FEEDBACK' | translate }}</button>
+                      <button class="btn btn-dark my-2 my-sm-0 mx-1 col-5" type="button" (click)="checkFeedbackExistence(offerList.offerId,offerList.userId)"  data-toggle="tooltip" data-placement="bottom"  title="{{ 'BUTTONS.ADD-FEEDBACK' | translate }}"><i class="fas fa-comment-dots"></i></button>
                       <div data-toggle="modal" data-target="#feedbackModal"  #myModal ></div>
                   </div>
                 </div>

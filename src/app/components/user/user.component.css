@@ -1,38 +1,129 @@
-@media (min-width: 768px) {
-	.user-sidebar {
-		position: fixed;
-		width: 270px;
-		height: 100%;
-	}
-
-	.user-content {
-		margin-left: 270px;
-	}
-
-	.active {
-		border: 1px solid #018b8b;
-		width: 210px;
-	}
-
-	.inactive {
-		border-bottom: 1px solid lightgrey;
-	}
-
-	.active:active,
-	.active:focus,
-	.active.active {
-		background-image: none;
-		outline: 0;
-		-webkit-box-shadow: none;
-		box-shadow: none;
-	}
+@media (max-height: 791px) {
+ 
+  #snav ul li{
+    display: flex;
+  }
 }
 
-.user-sidebar li {
-	cursor: pointer;
+.user {
+	min-height: 300px;
 }
-#sticky-social {
-	left: 0;
-	position: fixed;
-	top: 150px;
- }
+
+.user-content {
+  margin-left:20%
+}
+
+/* LTR CSS */
+#snav.en {
+background: black;
+  left: 0;
+  text-align: left;
+}
+#snav.en ul li a span {
+  left: -100px;
+}
+#snav.en ul li a:hover span {
+  left: 30px;
+}
+
+/* main SideNav.css styles */
+#snav {
+  position: fixed;
+  top: 14rem;
+  z-index: 1;
+  font-size: 18px;
+  font-family: 'Open Sans', sans-serif;
+}
+#snav ul {
+  list-style: none;
+}
+
+
+
+#snav * {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  transition: all .5s ease;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#snav ul li a {
+  text-decoration: none;
+  color: #fff;
+  background: black;
+  display: block;
+  z-index:1;
+  position: relative;
+}
+#snav ul li a i.fas{
+  vertical-align: middle;
+  font-size: 18px;
+  width: 35px;
+  min-height: 40px;
+  line-height: 35px;
+  text-align: center;
+  position: relative;
+  z-index:-1;
+ 
+}
+#snav ul li a span {
+  font-size: 1.2rem;
+  vertical-align: middle;
+  height: 35px;
+  line-height: 35px;
+  width: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  padding: 0 15px;
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+  z-index: -3;
+}
+#snav ul li a:hover i.fas{
+  transform: rotate(720deg);
+}
+#snav ul li a:hover span {
+  visibility: visible;
+}
+
+/* colors styles */
+
+/* menu items title background used for browsers not supporting :nth-child */
+#snav ul li a span {
+  background-color: #555;
+}
+/* icons color and background before hover  */
+#snav ul li a i.fas{
+  background-color: #EEE;
+  color: #555
+}
+/* icons hover color */
+#snav ul li a:hover i.fas{
+  color: #fff;
+}
+/* repeated colors from 1 to 10 each hover color repeated after 10 menu items */
+#snav ul li:nth-child(10n+1) a span, #snav ul li:nth-child(10n+1) a:hover i.fas{
+  background-color: #17a2b8;
+}
+#snav ul li:nth-child(10n+2) a span, #snav ul  li:nth-child(10n+2) a:hover i.fas{
+  background-color: #17a2b8;
+}
+#snav ul li:nth-child(10n+3) a span, #snav ul  li:nth-child(10n+3) a:hover i.fas{
+  background-color: #17a2b8;
+}
+#snav ul li:nth-child(10n+4) a span, #snav ul li:nth-child(10n+4) a:hover i.fas{
+  background-color: #17a2b8;
+}
+#snav ul li:nth-child(10n+5) a span, #snav ul li:nth-child(10n+5) a:hover i.fas{
+  background-color: #17a2b8;
+}
+#snav ul li:nth-child(10n+6) a span, #snav ul li:nth-child(10n+6) a:hover i.fas{
+  background-color: #17a2b8;
+}
