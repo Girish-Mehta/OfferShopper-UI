@@ -43,6 +43,7 @@ export class AddOfferComponent implements OnInit {
 	toRedis={};
 	toSoundex={};
 	User:any={};
+	p: any;
 
 	date = new Date();
 	public offers=[];
