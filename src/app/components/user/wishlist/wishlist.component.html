@@ -1,5 +1,5 @@
 <!-- wishlist header -->
-<div class="wishlist-header">
+<div class="wishlist-header px-2">
   <img src="../../../../../assets/wishcart_jumbo.png" class="img-fluid">
   <div class="wishlist-header-content d-flex align-items-center justify-content-center">
     {{ 'USER.WISHLIST' | translate }}
@@ -12,13 +12,13 @@
   <div class="container" *ngIf="wishlistOffers.length">
       <!-- iterating through wishlistOffers array to print wishlist offers -->
       <div class="row">
-          <div class="col-md-4 card-group mb-3 col-sm-4" *ngFor=" let result of wishlistOffers">
+          <div class="col-sm-12 col-md-6 col-lg-3 card-group mb-3" *ngFor=" let result of wishlistOffers">
             {{productPrice(result.offerOriginalPrice,result.offerDiscount)}}
-            <div class="card card-w text-dark m-5">
+            <div class="card card-w text-dark my-5">
               <div class="card-img-overlay">
                 <span class="badge badge-pill badge-info card-discount p-3">{{result.offerDiscount}}{{ 'HOMEPAGE.PRODUCT-HEADER.OFF' | translate }}</span>
                 <div class="btn-group" *ngIf="result">
-                    <button class="btn btn-dark my-2 my-sm-0 " type="button" (click)="deleteOffer(result.offerId,result.userId)"><i class="fas fa-trash-alt"></i> {{ 'BUTTONS.DELETE' | translate }}</button>
+                    <button class="btn btn-dark my-2  my-sm-0 ml-md-5 ml-lg-3 ml-sm-2 " type="button" (click)="deleteOffer(result.offerId,result.userId)" data-toggle="tooltip" data-placement="bottom"  title="{{ 'BUTTONS.DELETE' | translate }}"><i class="fas fa-trash-alt"></i> </button>
                   </div>
               </div>
     

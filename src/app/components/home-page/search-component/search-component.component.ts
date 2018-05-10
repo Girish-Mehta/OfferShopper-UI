@@ -50,12 +50,12 @@ export class SearchComponentComponent implements OnInit {
     }
   }
 
-  ngOnInit() { 
+  ngOnInit() {
     this.getUserId();
     this.category = 'Categories';
   }
 
-  //Function retrieve the userId from the token 
+  //Function retrieve the userId from the token
   getUserId() {
     this.authorizationService.getUserId().subscribe((res) =>{
       this.userInfo = res.text().split(',');
@@ -96,7 +96,7 @@ export class SearchComponentComponent implements OnInit {
 
   //Functions redirects to search Component except when category is all and user doesn't input any value
   redirectToSearch() {
-    if(this.category=="All" && this.query =="") {
+    if(this.category=="Categories" && this.query =="") {
       this.messageService.showErrorToast(this._vcr,"Please select a category or type to search");
     }
     else {
