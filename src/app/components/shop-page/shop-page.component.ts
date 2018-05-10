@@ -5,6 +5,7 @@ import { UserService } from '../../services/user.service';
 import { Product } from '../../configs/product.config';
 import { LocationService } from '../../services/location.service';
 import { MessageService } from './../../services/message.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shop-page',
@@ -20,15 +21,6 @@ export class ShopPageComponent implements OnInit {
   //results retrieved from searching
   private results : any = [];
   private filteredResults : any = [];
-
-  constructor(
-    private route: ActivatedRoute,
-    private searchService : SearchService,
-    private userService : UserService,
-    private locationService: LocationService,
-    private messageService:MessageService,
-    private _vcr:ViewContainerRef
-    ) { }
   
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -39,6 +31,15 @@ export class ShopPageComponent implements OnInit {
       this.loadOffers();
     });
   }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private searchService : SearchService,
+    private userService : UserService,
+    private locationService: LocationService,
+    private messageService:MessageService,
+    private _vcr:ViewContainerRef
+    ) { }
 
   //to be loaded when it is routed to this component
   loadOffers() {
@@ -115,6 +116,7 @@ export class ShopPageComponent implements OnInit {
 
   //get vendors on basis of location - currently hardcoded to gurgaon
   getVendors(loc){
+    console.log(this.router.url);
     this.userService.getVendorByCity(loc).subscribe(
       (res)=>{
         this.vendorsByCity = res
