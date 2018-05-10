@@ -12,7 +12,7 @@
   <div class="container" *ngIf="wishlistOffers.length">
       <!-- iterating through wishlistOffers array to print wishlist offers -->
       <div class="row">
-          <div class="col-md-4 card-group mb-3" *ngFor=" let result of wishlistOffers">
+          <div class="col-md-4 card-group mb-3 col-sm-4" *ngFor=" let result of wishlistOffers">
             {{productPrice(result.offerOriginalPrice,result.offerDiscount)}}
             <div class="card card-w text-dark m-5">
               <div class="card-img-overlay">
