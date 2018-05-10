@@ -33,11 +33,6 @@ h5 {
 
 /* to center align an image */
 
-#no-products-found{
-	margin-left: 30%;
-	width: 30%;
-}
-
 .card-w{
 	cursor: pointer;
 	max-width: 18rem;

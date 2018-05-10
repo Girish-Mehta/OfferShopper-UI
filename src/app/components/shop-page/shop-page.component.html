@@ -42,14 +42,17 @@
       </div>
     </div>
   </div>
-  <div class="col-10" >
+  <div class="col-10" *ngIf="results.length">
     <app-seach-results  [results]="filteredResults"></app-seach-results>
+  </div>
+  <div class="col-12 mt-4 d-flex justify-content-center" *ngIf="!results.length">
+    <img id="no-products-found" src="../../../assets/images/no_products_found.png" alt="no products found">
   </div>
 </div>
 <ng-template #notSearched>
   <div *ngIf="vendorsByCity; else noVendor">
     <div class="row">
-      <div class="col-lg-4 col-md-6 col-sm-4 card-group mb-3" *ngFor="let vendor of vendorsByCity">
+      <div class="col-lg-4 col-md-6 col-sm-6 card-group mb-3" *ngFor="let vendor of vendorsByCity">
         <div class="card card-w text-dark m-5"[routerLink]="['/', 'vendorInfo',vendor.email]" >
           <img class="card-img card-w" src="../../../../assets/card.jpeg" alt="Card image">
           <div class="card-body card-data">
