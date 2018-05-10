@@ -8,6 +8,11 @@
 
   .search-box {
     width: 75%;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+
   }
 
   .search-btn {
@@ -27,6 +32,10 @@
 
   .search-box{
     width: 60%;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
   }
 
   .search-btn{
@@ -37,6 +46,10 @@
 @media (min-width: 992px) {
   .search-box{
     width: 30rem;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
   }
 
   .search-btn{
@@ -70,10 +83,7 @@
   height: 3rem;
   outline: none;
   margin-right: 0px;
-  border-top-right-radius: 0px;
-  border-top-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-  border-bottom-left-radius: 0px;
+
   border-color: #018b8b;
 }
 
