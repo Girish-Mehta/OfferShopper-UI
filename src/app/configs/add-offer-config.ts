@@ -9,4 +9,7 @@ export class AddOfferConfig {
 	public static getVendorDetailURL="http://10.151.61.152:8765/api/uservendor-activity-service/userdata/";
 	public static addToRedisURL="http://10.151.61.152:8765/api/search-service/load-data";
 	public static addToSoundexURL="http://10.151.61.152:8765/api/search-service/add-code";
+	public static getUserByIdURL="http://10.151.61.152:8765/api/uservendor-activity-service/userdata/";
+	public static updateOsCashURL="http://10.151.61.152:8765/api/uservendor-activity-service/updatespincount/";
+
 }

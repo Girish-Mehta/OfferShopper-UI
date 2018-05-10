@@ -52,7 +52,7 @@ export class SearchComponentComponent implements OnInit {
 
   ngOnInit() { 
     this.getUserId();
-    this.category = 'All';
+    this.category = 'Categories';
   }
 
   //Function retrieve the userId from the token 

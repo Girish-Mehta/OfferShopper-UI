@@ -1,4 +1,5 @@
-<div class="user-sidebar border-right d-flex justify-content-center mt-2">
+<div class="container-fluid">
+<div class="user-sidebar border-right d-flex justify-content-center mt-2 col-4  ">
   <aside>
     <ul id="sticky-social" class="nav nav-pills flex-column ">
       <!-- List of actions for user -->
@@ -24,7 +25,7 @@
   </aside>
 </div>
 
-<div class="user-content">
+<div class="user-content col-8">
   <div [ngSwitch]="userList">
     <div *ngSwitchCase="'userdetails'">
       <app-userdetails></app-userdetails>
@@ -45,4 +46,5 @@
       <app-be-a-seller (success)="changeSidebarVender($event)"></app-be-a-seller>
     </div>
   </div>
+</div>
 </div>

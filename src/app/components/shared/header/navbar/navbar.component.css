@@ -16,6 +16,10 @@
   color: peachpuff
 }
 
+#shop-button {
+  cursor: pointer;
+}
+
 nav a {
   font-family: 'Julius Sans One', sans-serif,'Sree Krushnadevaraya','Suranna','Ramaraja',"Mukta Malar";
   text-decoration: black;

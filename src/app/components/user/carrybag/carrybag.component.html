@@ -14,7 +14,7 @@
   <!-- This div will create the cards of offers added in carrybag -->
   <div class="container-fluid" >
       <div class="row">
-          <div class="col-md-4 card-group mb-3" *ngFor=" let offerList of carryBagOffers">
+          <div class="col-md-5 card-group mb-md-3" *ngFor=" let offerList of carryBagOffers">
               {{productPrice(offerList.offerOriginalPrice,offerList.offerDiscount)}}
               <div class="card card-w text-dark m-5">
               <div class="card-img-overlay">

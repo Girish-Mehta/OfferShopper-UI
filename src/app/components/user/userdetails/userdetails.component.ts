@@ -36,6 +36,7 @@ export class UserdetailsComponent implements OnInit {
   timestamp:number;
   form:FormGroup;
   obj={};
+  status:string;
   public userInfo;
   public userId;
 
@@ -64,6 +65,7 @@ export class UserdetailsComponent implements OnInit {
     private _vcr: ViewContainerRef
     ) { 
 
+      this.status = 'none';
     this.fb=fb;
         this.form=this.fb.group({
       firstName:[{value: null,
@@ -117,7 +119,7 @@ export class UserdetailsComponent implements OnInit {
     this.getUserId();
   }
 
-  //Function will retrieve the userId from the token 
+  //Function will retrieve the userId from the token
   getUserId() {
     this.authorizationService.getUserId().subscribe((res) =>{
       if(res.text() == "UnAuthorized"){
@@ -220,14 +222,40 @@ console.log(res);
   undisableTxt() {
     this.toggle=!this.toggle;
     this.intilizeForm();
+    this.status = 'edit-mode';
+    // (<HTMLInputElement>document.getElementById("firstName")).disabled= false;
+    // (<HTMLInputElement>document.getElementById("lastName")).disabled = false;
+    // (<HTMLInputElement>document.getElementById("phone")).disabled = false;
+    // (<HTMLInputElement>document.getElementById("inputAddress")).disabled = false;
+    // (<HTMLInputElement>document.getElementById("inputCity")).disabled = false;
+    // (<HTMLInputElement>document.getElementById("inputZip")).disabled = false;
+    // (<HTMLInputElement>document.getElementById("inputState")).disabled = false;
+    // (<HTMLInputElement>document.getElementById("inputShopName")).disabled = false;
+    // (<HTMLInputElement>document.getElementById("inputShopAddress")).disabled = false;
+    // (<HTMLInputElement>document.getElementById("inputShopCity")).disabled = false;
+    // (<HTMLInputElement>document.getElementById("inputShopZip")).disabled = false;
+    // (<HTMLInputElement>document.getElementById("inputShopState")).disabled = false;
+    // (<HTMLInputElement>document.getElementById("sameCheckbox")).disabled = false;
   };
 
   //Function will update the user details
   submit(){
     this.toggle=!this.toggle;
     this.intilizeForm();
-
-
+    this.status = 'none';
+    // (<HTMLInputElement>document.getElementById("firstName")).disabled= true;
+    // (<HTMLInputElement>document.getElementById("lastName")).disabled = true;
+    // (<HTMLInputElement>document.getElementById("phone")).disabled = true;
+    // (<HTMLInputElement>document.getElementById("inputAddress")).disabled = true;
+    // (<HTMLInputElement>document.getElementById("inputCity")).disabled = true;
+    // (<HTMLInputElement>document.getElementById("inputZip")).disabled =true;
+    // (<HTMLInputElement>document.getElementById("inputState")).disabled = true;
+    // (<HTMLInputElement>document.getElementById("inputShopName")).disabled = true;
+    // (<HTMLInputElement>document.getElementById("inputShopAddress")).disabled = true;
+    // (<HTMLInputElement>document.getElementById("inputShopCity")).disabled = true;
+    // (<HTMLInputElement>document.getElementById("inputShopZip")).disabled = true;
+    // (<HTMLInputElement>document.getElementById("inputShopState")).disabled = true;
+    // (<HTMLInputElement>document.getElementById("sameCheckbox")).disabled = true;
     let obj={
       "firstName": this.form.get('firstName').value,
       "lastName": this.form.get('lastName').value,
@@ -266,6 +294,7 @@ console.log(res);
   }
 
   cancel(){
+    this.status='none';
     this.getUserId();
     (<HTMLInputElement>document.getElementById("firstName")).disabled= true;
     (<HTMLInputElement>document.getElementById("lastName")).disabled = true;
@@ -313,10 +342,9 @@ console.log(res);
 
   //Function will show the relevant cities 
   showRelevantCitiesHome() {
-    console.log(this.form.get('state').value);
     this.homeCities = StateCityJson.stateCityJson[this.form.get('state').value];
+    // this.homeCities = StateCityJson.stateCityJson[state];
     this.city = "Please select a city";
-    console.log(this.homeCities);
   }
 
   showRelevantCitiesShop() {
@@ -324,5 +352,5 @@ console.log(res);
     this.shopCity = "Please select a city";
     console.log(this.shopCities);
   }
-  
+
 }

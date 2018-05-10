@@ -21,7 +21,7 @@
 
     "HOMEPAGE": {
       "CATEGORIES": {
-          "CATEGORY": "Select Categories",
+          "CATEGORY": "Categories",
           "ALL": "All",
           "SPORTS": "Sports",
           "CLOTHES": "Clothing",
@@ -243,7 +243,7 @@
         "PRODUCT": "PRODUCT",
         "PRICE": "PRICE",
         "VALIDITY": "VALIDITY",
-        "COUP-ID": "your coupon id is",
+        "COUP-ID": "Coupon Id",
         "FEEDBACK": "Feedback"
       },
       "SUBSCRIPTION": {
