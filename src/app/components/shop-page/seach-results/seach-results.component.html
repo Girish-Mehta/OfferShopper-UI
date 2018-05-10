@@ -1,4 +1,4 @@
-  <div class="container-fluid" *ngIf="results.length; else noResultsFound">
+  <div class="container-fluid" *ngIf="results.length">
     <div class="row">
       <div class="col-md-4 card-group mb-3" *ngFor=" let result of results | paginate:{itemsPerPage : 6, currentPage : p}">
         {{productPrice(result.originalPrice,result.discount)}}

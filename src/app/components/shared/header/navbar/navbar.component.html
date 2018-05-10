@@ -6,8 +6,8 @@
     <button class="navbar-toggler bg-dark header-toggle" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="col-8 d-flex  justify-content-center">
-      <div class="collapse navbar-collapse justify-content-center " id="navbarTogglerDemo02">
+    <div class="col-9 d-flex justify-content-center">
+      <div class="collapse navbar-collapse justify-content-center" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-0 mb-0 mt-2 mt-lg-0 justify-self-center">
           <li class="nav-item nav-text ml-3">
             <a id="home-button" class="nav-link text-dark" [ngClass]="{active:url=='homepage'}" [routerLink]="['homepage',userLocation]">
@@ -86,7 +86,8 @@
           </li>
           <div *ngIf="login">
              <li class="nav-item nav-text display">
-                <a class="text-dark font-weight-bold " [routerLink]="['/wheel']"><img [src]="'../../../../../../assets/wheel_header.gif'" alt="WHEEL" ></a>
+               <a [routerLink]="['/wheel']"><i class="fab fa-galactic-republic fa-2x wheel"></i></a>
+               <!-- <a class="text-dark font-weight-bold " ><img [src]="'../../../../../../assets/wheel_header.gif'" alt="WHEEL" ></a> -->
             </li>
             <li  class="nav-item nav-text display">
               <a class="text-dark font-weight-bold logout" (click)="logout()" [routerLink]="['/homepage',userLocation]">{{ 'HEADER.NAVBAR.LOGOUT' | translate }}</a>

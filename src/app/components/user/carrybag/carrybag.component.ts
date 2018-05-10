@@ -61,7 +61,6 @@ export class CarrybagComponent implements OnInit {
   getCarrybag() {
     this.carrybagService.getCarrybaglist(this.userId).subscribe((res) =>{
       this.carryBagOffers = res;
-      console.log(this.carryBagOffers);
     }, (error) =>{
     })
   }
@@ -79,7 +78,7 @@ export class CarrybagComponent implements OnInit {
     this.carrybagService.checkCouponExistence(userId,offerId).subscribe((res) =>{
       let data=res;
       if(data.userId==null&&userId==vendorId) {
-        alert("vendor cannot generate coupon for himself");
+        this.messageService.showErrorToast(this._vcr,"You can't buy your product");
       }
       else if (data.userId==null&&userId!=vendorId) {
         this.obj={

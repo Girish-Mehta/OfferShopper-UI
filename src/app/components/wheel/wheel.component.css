@@ -5,5 +5,19 @@
 
 }
 #img2{
-    top: -10px;  
+    top: -10px;
+}
+
+.wheel-bg {
+  background-color: white;
+}
+
+.btn-spin {
+  background: #018b8b;
+  color: white;
+  width: 10rem;
+}
+
+.arrow{
+  color: #018b8b;
 }

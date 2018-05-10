@@ -1,67 +1,68 @@
 {
   "BUTTONS": {
-      "SUBMIT": "Submit",
-      "SAVE": "Save",
-      "EDIT": "Edit",
-      "PREV": "Previous",
-      "NEXT": "Next",
-      "SEARCH": "Search",
-      "BACK": "Back",
-      "WISHLIST": "Add to Wishlist",
-      "CARRYBAG": "Add to Carrybag",
-      "UPDATE": "Update",
-      "DELETE": "Delete",
-      "VALIDATE": "Validate",
-      "CLOSE": "Close",
-      "ADD-FEEDBACK": "Add Feedback",
-      "GEN-COUPON": "Generate Coupon",
-      "SEE-MORE": "See More",
-      "SUBSCRIBE": "Subscribe"
+      "SUBMIT": "ਜਮ੍ਹਾਂ ਕਰੋ",
+      "SAVE": "ਸੇਵ ਕਰੋ",
+      "EDIT": "ਸੰਪਾਦਨ ਕਰੋ",
+      "PREV": "ਪਿੱਛੇ ਮੁੜੋ",
+      "NEXT": "ਅੱਗੇ ਜਾਓ",
+      "SEARCH": "ਖੋਜੋ",
+      "BACK": "ਵਾਪਸ ਜਾਓ",
+      "WISHLIST": "ਵਿਸ਼ਲਿਸਟ ਵਿੱਚ ਜੋੜੋ",
+      "CARRYBAG": "ਕੈਰੀਬੈਗ ਵਿੱਚ ਜੋੜੋ",
+      "UPDATE": "ਅੱਪਡੇਟ ਕਰੋ",
+      "DELETE": "ਹਟਾਓ",
+      "VALIDATE": "ਪ੍ਰਮਾਣਿਤ ਕਰੋ",
+      "CLOSE": "ਬੰਦ ਕਰੋ",
+      "ADD-FEEDBACK": "ਸੁਝਾਅ ਜੋੜੋ",
+      "GEN-COUPON": "ਕੂਪਨ ਬਣਾਉ",
+      "SEE-MORE": "ਹੋਰ ਦੇਖੋ",
+      "SUBSCRIBE": "ਮੈਂਬਰ ਬਣੋ",
+      "CANCEL": "ਰੱਦ ਕਰੋ"
     },
-
+    
   "HOMEPAGE": {
       "CATEGORIES": {
-          "CATEGORY": "Categories",
-          "ALL": "All",
-          "SPORTS": "Sports",
-          "CLOTHES": "Clothing",
-          "FOOD": "Food"
+          "CATEGORY": "ਵਰਗ",
+          "ALL": "ਸਭ",
+          "SPORTS": "ਖੇਡਾਂ",
+          "CLOTHES": "ਕੱਪੜੇ",
+          "FOOD": "ਭੋਜਨ"
       },
       "PAGE": {
-          "SEARCH": "Search for your favorite deals here"
+          "SEARCH": "ਆਪਣੇ ਮਨਪਸੰਦ ਸੌਦੇ ਲਈ ਇੱਥੇ ਖੋਜੋ"
       },
       "PRODUCT-LIST": {
-          "RATING": "Rating",
-          "MRP": "MRP:",
+          "RATING": "ਰੇਟਿੰਗ",
+          "MRP": "ਕੀਮਤ:",
           "RS": "₹",
-          "UPDATE": "Last updated: "
+          "UPDATE": "ਆਖਰੀ ਅੱਪਡੇਟ: "
       },
       "PRODUCT-HEADER": {
-          "OFF": "% OFF",
-          "NO-DATA": "Sorry... No deal at your location"
+          "OFF": "% ਘੱਟ",
+          "NO-DATA": "ਮੁਆਫ ਕਰਨਾ ... ਤੁਹਾਡੇ ਸਥਾਨ ਤੇ ਕੋਈ ਸੌਦਾ ਨਹੀਂ"
       }
     },
 
     "PRODUCT-PAGE": {
-      "ORIGINAL": "Original Price:",
-      "DISCOUNT": "Discount",
+      "ORIGINAL": "ਅਸਲੀ ਮੁੱਲ:",
+      "DISCOUNT": "ਛੂਟ",
       "PER": "%",
-      "SELLER": "Seller Name: ",
-      "VALIDITY": "Validity: ",
-      "ALSO-BUY": "Customers who bought this item also bought"
+      "SELLER": "ਵਿਕਰੇਤਾ ਦਾ ਨਾਮ: ",
+      "VALIDITY": "ਪ੍ਰਮਾਣਕਤਾ: ",
+      "ALSO-BUY": "ਗਾਹਕ ਅਕਸਰ ਇਹਨਾਂ ਚੀਜ਼ਾਂ ਨੂੰ ਵੀ ਖਰੀਦਦੇ ਹਨ"
     },
 
     "CONTACT-US": {
-      "CONTACT": "Contact us",
-      "LOVE-TO": "We would love to hear from you",
-      "NAME": "Your name",
-      "EMAIL": "Email address",
-      "WRITE": "Write here"
+      "CONTACT": "ਸਾਡੇ ਨਾਲ ਸੰਪਰਕ ਕਰੋ",
+      "LOVE-TO": "ਅਸੀਂ ਤੁਹਾਡੇ ਤੋਂ ਸੁਣਨਾ ਪਸੰਦ ਕਰਾਂਗੇ",
+      "NAME": "Yਤੁਹਾਡਾ ਨਾਮ",
+      "EMAIL": "ਈਮੇਲ ਖਾਤਾ",
+      "WRITE": "ਇੱਥੇ ਲਿਖੋ"
     },
 
   "FOOTER": {
     "GETINTOUCH": "ਸੰਪਰਕ ਵਿੱਚ ਰਹਿਣ ਲੲੀ",
-    "CONTACT": "ਕੋਈ ਸਵਾਲ? Mail ਰਾਹੀਂ ਸਾਨੂੰ ਦੱਸੋ: offershopper@gmail.com, ਜਾਂ ਸਾਨੂੰ ਕਾਲ ਕਰੋ (+91) 9078563412.",
+    "CONTACT": "ਕੋਈ ਸਵਾਲ? ਮੇਲ ਰਾਹੀਂ ਸਾਨੂੰ ਦੱਸੋ: offershopper@gmail.com, ਜਾਂ ਸਾਨੂੰ ਕਾਲ ਕਰੋ (+91) 9078563412.",
     "CATEGORIES": {
         "CATEGORY": "ਸ਼੍ਰੇਣੀਆਂ",
         "SPORTS": "ਖੇਡਾਂ",
@@ -110,7 +111,7 @@
 
         },
         "FAQ": {
-            "FQ": "FAQs",
+            "FQ": "ਆਮ ਸਵਾਲ",
             "TITLE": "ਅਕਸਰ ਪੁੱਛੇ ਜਾਣ ਵਾਲੇ ਸਵਾਲ",
             "Q1": "Offershopper.com ਕੀ ਕਰਦਾ ਹੈ?",
             "A1": "offershopper.com ਦੇਸ਼ ਦੇ ਵੱਖ ਵੱਖ ਦੁਕਾਨਾਂ ਵਿੱਚੋਂ ਵਧੀਆ ਸੌਦੇ ਅਤੇ ਛੂਟ ਕੂਪਨ ਪੇਸ਼ ਕਰਦਾ ਹੈ. ਸਾਡੀ ਵੈੱਬਸਾਈਟ ਰਾਹੀਂ ਸੌਦੇ ਲਵੋ. ਖਰੀਦਦਾਰੀ ਜਾ ਰਿਹਾ ਹੈ? ਪੈਸੇ ਬਚਾਉਣ ਲਈ ਸਾਡੇ ਸੌਦੇ ਚੈੱਕ ਕਰੋ!",
@@ -139,7 +140,7 @@
       "NAVBAR": {
           "HOME": "ਹੋਮ",
           "SHOP": "ਦੁਕਾਨ",
-          "FAQ": "FAQ",
+          "FAQ": "ਆਮ ਸਵਾਲ",
           "WISHLIST": "ਵਿਸ਼ਲਿਸਟ",
           "CARRYBAG": "ਕੈਰੀ ਬੈਗ",
           "LOGOUT": "ਬਾਹਰ ਆਉਣਾ"
@@ -153,100 +154,100 @@
   },
 
   "LOGIN": {
-        "TITLE1": "Login",
-        "TITLE2": "Register",
-        "EMAIL": "Email",
-        "ALREADY": " Already present!",
-        "ERRORUNREQ": "Username is required!",
-        "ERRORUNINV": "Username Invalid!",
-        "PASSWORD": "Password",
-        "ERRORPASSREQ": "Password is required!",
-        "FORGOTPASSWORD": "Forgot Password",
-        "ERRORPASSDIG": "More than 20 digits",
-        "ERRORPASSINV": "Password Invalid (Atleast one lowercase, uppercase, specialcharacter, digit, minLength 8) !",
-        "ERRORPASSDIFF": "The new password and confirm password do not match",
-        "PASSWORDRE": "Re-enter Password",
-        "PASSWORDCON": "Confirm password is required",
-        "ASVENDOR": "Register as Vendor",
-        "FIND-YOU": "Find your Account",
-        "UPDATEPASS": "Update Password",
-        "REQ": "required",
-        "INVALID": "Invalid",
-        "ERROR-DIG-LESS": "Less than 10 digits",
-        "ERROR-DIG-MORE": "More than 10 digits"
+        "TITLE1": "ਲਾਗਇਨ ਕਰੋ",
+        "TITLE2": "ਰਜਿਸਟਰ ਕਰੋ",
+        "EMAIL": "ਈਮੇਲ",
+        "ALREADY": " ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ!",
+        "ERRORUNREQ": "ਯੂਜ਼ਰ ਨਾਮ ਲੋੜੀਂਦਾ ਹੈ!",
+        "ERRORUNINV": "ਉਪਭੋਗਤਾ ਨਾਮ ਗਲਤ ਹੈ!",
+        "PASSWORD": "ਪਾਸਵਰਡ",
+        "ERRORPASSREQ": "ਪਾਸਵਰਡ ਦੀ ਲੋੜ ਹੈ!",
+        "FORGOTPASSWORD": "ਪਾਸਵਰਡ ਭੁੱਲ ਗਏ",
+        "ERRORPASSDIG": "20 ਤੋਂ ਵੱਧ ਅੰਕ",
+        "ERRORPASSINV": "ਪਾਸਵਰਡ ਅਢੁੱਕਵਾਂ (ਘੱਟੋ ਘੱਟ ਇਕ ਲੋਅਰਕੇਸ, ਵੱਡੇ ਅੱਖਰ, ਸਪੈਸ਼ਲਚਰਟਰ, ਅੰਕ, ਮਿਨਲੈਂਥ 8)!",
+        "ERRORPASSDIFF": "ਨਵਾਂ ਪਾਸਵਰਡ ਅਤੇ ਪਾਸਵਰਡ ਦੀ ਪੁਸ਼ਟੀ ਮੇਲ ਨਹੀਂ ਖਾਂਦੇ",
+        "PASSWORDRE": "ਪਾਸਵਰਡ ਦੋਬਾਰਾ ਭਰੋ",
+        "PASSWORDCON": "ਪਾਸਵਰਡ ਦੀ ਪੁਸ਼ਟੀ ਕਰਨ ਦੀ ਲੋੜ ਹੈ",
+        "ASVENDOR": "ਵਿਕਰੇਤਾ ਦੇ ਤੌਰ ਤੇ ਰਜਿਸਟਰ ਕਰੋ",
+        "FIND-YOU": "ਆਪਣਾ ਖਾਤਾ ਲੱਭੋ",
+        "UPDATEPASS": "ਪਾਸਵਰਡ ਅਪਡੇਟ ਕਰੋ",
+        "REQ": "ਲੋੜੀਂਦਾ",
+        "INVALID": "ਗਲਤ",
+        "ERROR-DIG-LESS": "10 ਅੰਕਾਂ ਤੋਂ ਘੱਟ",
+        "ERROR-DIG-MORE": "10 ਤੋਂ ਜਿਆਦਾ ਅੰਕ"
   },
 
   "SHOP-PAGE": {
     "SORTING": {
-      "TITLE": "Sorting",
-      "PRICE-LOW": "Price(Lowest->Highest)",
-      "PRICE-HIGH": "Price(Highest->Lowest)",
-      "DISCOUNT-LOW": "Discount(Lowest->Highest)",
-      "DISCOUNT-HIGH": "Discount(Highest->Lowest)"
+      "TITLE": "ਲੜੀਬੱਧ",
+      "PRICE-LOW": "ਮੁੱਲ(ਘੱਟੋਂ-> ਵੱਧ)",
+      "PRICE-HIGH": "ਮੁੱਲ(ਵੱਧੋਂ->ਘੱਟ)",
+      "DISCOUNT-LOW": "ਛੂਟ(ਘੱਟੋਂ-> ਵੱਧ)",
+      "DISCOUNT-HIGH": "ਛੂਟ(ਵੱਧੋਂ->ਘੱਟ)"
     },
-    "FILTER": "Filter discounts",
-    "NO-VENDOR": " No vendor at your place"
+    "FILTER": "ਫਿਲਟਰ ਛੋਟ",
+    "NO-VENDOR": " ਤੁਹਾਡੇ ਸਥਾਨ 'ਤੇ ਕੋਈ ਵਿਕਰੇਤਾ ਨਹੀਂ"
   },
 
   "USER": {
-    "PERSONAL-INFO": "Personal Information",
-    "CARRYBAG": "Carrybag",
-    "WISHLIST": "Wishlist",
-    "SUBSCRIBE": "Subscriptions",
-    "VENDOR-DASHBOARD": "Vendor Dashboard",
-    "ADD-OFFER": "Add Offers",
-    "BE-SELLER": "Be a Seller",
-    "EMPTY": "Empty",
-    "OFFERS": "Offers",
+    "PERSONAL-INFO": "ਨਿੱਜੀ ਜਾਣਕਾਰੀ",
+    "CARRYBAG": "ਕੈਰੀ ਬੈਗ",
+    "WISHLIST": "ਵਿਸ਼ਲਿਸਟ",
+    "SUBSCRIBE": "ਗਾਹਕੀ",
+    "ADD-OFFER": "ਪੇਸ਼ਕਸ਼ ਜੋੜੋ",
+    "BE-SELLER": "ਵਿਕਰੇਤਾ ਬਣੋ",
+    "EMPTY": "ਖਾਲੀ",
+    "OFFERS": "ਪੇਸ਼ਕਸ਼ਾਂ",
+    "VENDOR-DASHBOARD": "ਵਿਕਰੇਤਾ ਡੈਸ਼ਬੋਰਡ",
 
     "OFFER": {
-        "VALIDATE-COUPON": "Validate Coupon",
-        "VALIDITY": "Validity:",
-        "UPDATE-OFFER": "UPDATE OFFER",
-        "DISCOUNT": "Discount Percentage",
-        "KEYWORD": "Keywords",
-        "DESCRIPTION": "Product Description",
-        "TAC": "Terms and Conditions",
-        "NAME": "Offer Name",
-        "O-PRICE": "Original Price",
-        "PRICE": "Price of Product",
-        "VERIFY-COUPON": "Verify Coupon",
-        "COUPON": "COUPON"
+        "VALIDATE-COUPON": "ਕੂਪਨ ਨੂੰ ਪ੍ਰਮਾਣਿਤ ਕਰੋ",
+        "VALIDITY": "ਪ੍ਰਮਾਣਕਤਾ:",
+        "UPDATE-OFFER": "ਅਪਡੇਟ ਪੇਸ਼ਕਸ਼",
+        "DISCOUNT": "ਛੂਟ ਪ੍ਰਤੀਸ਼ਤ",
+        "KEYWORD": "ਸ਼ਬਦਕੋਸ਼",
+        "DESCRIPTION": "ਉਤਪਾਦ ਵੇਰਵਾ",
+        "TAC": "ਨਿਯਮ ਅਤੇ ਸ਼ਰਤਾਂ",
+        "NAME": "ਉਤਪਾਦ ਦਾ ਨਾਮ",
+        "O-PRICE": "ਅਸਲੀ ਮੁੱਲ",
+        "PRICE": "ਉਤਪਾਦ ਦੀ ਕੀਮਤ",
+        "VERIFY-COUPON": "ਕੂਪਨ ਦੀ ਪੜਤਾਲ",
+        "COUPON": "ਕੂਪਨ"
     },
     "SELLER": {
-        "FIRST-NAME": "First Name",
-        "LAST-NAME": "Last Name",
-        "CONTACT": "Contact Number",
-        "VENDOR-CONTACT": "Vendor Contact Number",
-        "EMAIL": "Email Id",
-        "DOB": "DOB",
+        "FIRST-NAME": "ਪਹਿਲਾ ਨਾਮ",
+        "LAST-NAME": "ਆਖਰੀ ਨਾਮ",
+        "CONTACT": "ਸੰਪਰਕ ਨੰਬਰ",
+        "VENDOR-CONTACT": "ਵਿਕਰੇਤਾ ਸੰਪਰਕ ਨੰਬਰ",
+        "EMAIL": "ਈਮੇਲ ਖਾਤਾ",
+        "DOB": "ਜਨਮ ਤਾਰੀਖ",
         "GENDER": {
-            "TITLE": "Gender",
-            "MALE": "Male",
-            "FEMALE": "Female"
+            "TITLE": "ਲਿੰਗ",
+            "MALE": "ਮਰਦ",
+            "FEMALE": "ਔਰਤ"
         },
         "ADDRESS": {
-            "TITLE": "Address",
-            "SHOP": "Shop's Address",
-            "SAME": "Same as above",
-            "SHOP-NAME": "Shop Name",
-            "CITY": "City",
-            "STATE": "State",
-            "ZIP": "Zip",
-            "SELECT-CITY": "----Select City------",
-            "SELECT-STATE": "----Select State------"
+            "TITLE": "ਪਤਾ",
+            "SHOP": "ਦੁਕਾਨ ਦਾ ਪਤਾ",
+            "SAME": "ਉਪਰੋਕਤ ਵਾਂਗ",
+            "SHOP-NAME": "ਦੁਕਾਨ ਦਾ ਨਾਮ",
+            "CITY": "ਸ਼ਹਿਰ",
+            "STATE": "ਰਾਜ",
+            "ZIP": "ਪਿੰਨ ਕੋਡ",
+            "SELECT-CITY": "----ਸ਼ਹਿਰ ਚੁਣੋ------",
+            "SELECT-STATE": "----ਰਾਜ ਚੁਣੋ------"
         },
-        "SUBSCRIBE": "Subscribe"
+        "SUBSCRIBE": "ਗਾਹਕ ਬਣੋ"
     },
     "CARRYBAG-COMP": {
-      "PRODUCT": "PRODUCT",
-      "PRICE": "PRICE",
-      "VALIDITY": "VALIDITY",
-      "COUP-ID": "your coupon id is",
-      "FEEDBACK": "Feedback"
+      "PRODUCT": "ਉਤਪਾਦ",
+      "PRICE": "ਕੀਮਤ",
+      "VALIDITY": "ਵੈਧਤਾ",
+      "COUP-ID": "ਤੁਹਾਡੀ ਕੂਪਨ ਆਈ ਡੀ ਹੈ",
+      "FEEDBACK": "ਸੁਝਾਅ"
     },
     "SUBSCRIPTION": {
-      "OOPS": "Oops! You are not subscribed to any vendor for now."
+      "OOPS": "ਓਹ! ਤੁਸੀਂ ਕਿਸੇ ਵੀ ਵਿਕਰੇਤਾ ਦੇ ਗਾਹਕ ਨਹੀਂ ਹੋ"
     }
   }
 }

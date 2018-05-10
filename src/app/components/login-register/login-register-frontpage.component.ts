@@ -15,7 +15,7 @@ declare const gapi:any;
   selector: 'app-login-register-frontpage',
   templateUrl: './login-register-frontpage.component.html',
   styleUrls: ['./login-register-frontpage.component.css'],
-  providers:[ RegisterService,MessageService,GooglesigninService,LoginService ]
+  providers:[ RegisterService,MessageService,GooglesigninService ]
 })
 export class LoginRegisterFrontpageComponent implements OnInit {
   public auth2: any;
@@ -107,7 +107,7 @@ export class LoginRegisterFrontpageComponent implements OnInit {
     });
   }
 
-  //Function to login 
+  //Function to login
   login(){
     let username=this.loginForm.get('username').value;
     let  password = this.loginForm.get('password').value;
@@ -123,7 +123,7 @@ export class LoginRegisterFrontpageComponent implements OnInit {
 
     }, (res:Response) =>{
       if(res.status==401){
-        this.messageService.showErrorToast(this._vcr,"Something went wrong ,Please try again");
+        this.messageService.showErrorToast(this._vcr,"Wrong password");
       }
       else if(res.status==500){
         this.messageService.showErrorToast(this._vcr,"Something went wrong ,Please try again");

@@ -41,7 +41,7 @@ export class ProductsHeaderComponent implements OnInit {
     .subscribe((res) =>{
       this.offers=res;
     },(error) =>{
-      this.messageService.showErrorToast(this._vcr,"Something went wrong ,Please try again");
+      //this.messageService.showErrorToast(this._vcr,"Something went wrong ,Please try again");
     });
   }
 }
