@@ -104,10 +104,18 @@ getUser(userId) {
 }
 
 updateOsCash(cash:number,user){
-  return this.http.put(AddOfferConfig.updateOsCashURL+cash+"/"+user, "")
-  .map(data => data.json(),
-    (error: any)=>console.log("error"));
+  return this.http.put(AddOfferConfig.updateOsCashURL+cash+"/"+user, this.options)
+   .map(data => data.json(),
+ (error: any)=>console.log("error"));
 }
+
+getOffer(offerId){
+  return this.http.get(AddOfferConfig.getOfferURL+offerId, this.options)
+  .map(data => data.json(),
+  (error: any)=>console.log("unable to get offer details"));
+}
+
+
 //code not checked
 
 }

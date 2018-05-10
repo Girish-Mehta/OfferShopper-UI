@@ -27,7 +27,7 @@ export class ForgotPasswordComponent implements OnInit {
 
   ngOnInit() {
   }
- 
+  
   //Function will sent the verification link to mail  
   forgot(){
     let username=this.registerForm.get('username').value;	

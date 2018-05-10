@@ -21,7 +21,7 @@ export class ShopPageComponent implements OnInit {
   //results retrieved from searching
   private results : any = [];
   private filteredResults : any = [];
-
+  
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.category = params.get('id1');
@@ -31,7 +31,6 @@ export class ShopPageComponent implements OnInit {
       this.loadOffers();
     });
   }
-
   constructor(
     private router: Router,
     private route: ActivatedRoute,

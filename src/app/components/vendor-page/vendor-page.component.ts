@@ -51,7 +51,6 @@ export class VendorPageComponent implements OnInit {
   ngOnInit() {
     this.getUserId();
     this.vendorId=this.route.snapshot.params.id;
-    console.log(this.vendorId);
     this.getOfferlist();
   }
 

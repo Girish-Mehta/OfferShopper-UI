@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewContainerRef } from '@angular/core';
 import { OffersService } from '../../../services/offers.service';
 import { ActivatedRoute } from '@angular/router';
+import { MessageService } from './../../../services/message.service';
 
 @Component({
   selector: 'app-products-header',
   templateUrl: './products-header.component.html',
   styleUrls: ['./products-header.component.css'],
-  providers: [OffersService]
+  providers: [OffersService,MessageService]
 })
 
 export class ProductsHeaderComponent implements OnInit {
@@ -18,6 +19,8 @@ export class ProductsHeaderComponent implements OnInit {
   constructor(
     private offersService : OffersService,
     private route: ActivatedRoute,
+    private messageService:MessageService,
+    private _vcr:ViewContainerRef
     ) { }
 
   ngOnInit() {
@@ -38,7 +41,7 @@ export class ProductsHeaderComponent implements OnInit {
     .subscribe((res) =>{
       this.offers=res;
     },(error) =>{
-      this.offers=null;
+      this.messageService.showErrorToast(this._vcr,"Something went wrong ,Please try again");
     });
   }
 }
