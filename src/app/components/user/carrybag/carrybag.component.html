@@ -14,17 +14,26 @@
   <!-- This div will create the cards of offers added in carrybag -->
   <div class="container-fluid" >
       <div class="row">
-          <div class=" col-sm-12 col-md-6 col-lg-3 card-group mb-md-3 mx-3" *ngFor=" let offerList of carryBagOffers">
+          <div class=" col-sm-12 col-md-6 col-lg-4 card-group" *ngFor=" let offerList of carryBagOffers">
               {{productPrice(offerList.offerOriginalPrice,offerList.offerDiscount)}}
-              <div class="card card-w text-dark my-5">
+              <div class="card card-w text-dark my-5 img-over-button">
               <div class="card-img-overlay">
                 <span class="badge badge-pill badge-info card-discount p-3">{{offerList.offerDiscount}}{{ 'HOMEPAGE.PRODUCT-HEADER.OFF' | translate }}</span>
-                <div class="btn-group" *ngIf="offerList">
-                    <button class="btn btn-dark my-2 my-sm-0 ml-md-5 ml-lg-5 ml-sm-2" type="button" (click)="deleteOffer(offerList.userId,offerList.offerId)" data-toggle="tooltip" data-placement="bottom"  title="{{ 'BUTTONS.DELETE' | translate }}"><i class="fas fa-trash-alt" ></i> </button>
+                <div class="btn-group middle-button-small d-block d-lg-none d-flex align-items-end justify-content-center" *ngIf="offerList">
+                    <button class="btn btn-success" type="button" (click)="deleteOffer(offerList.userId,offerList.offerId)" data-toggle="tooltip" data-placement="bottom"  title="{{ 'BUTTONS.DELETE' | translate }}"><i class="fas fa-trash-alt" ></i> </button>
+                  </div>              
+                <div class="middle-button d-none d-lg-block">
+                  <div class="middle-button-data">
+                    <button class="btn btn-dark mb-2" type="button" (click)="deleteOffer(offerList.userId,offerList.offerId)" data-toggle="tooltip" data-placement="bottom"  title="{{ 'BUTTONS.DELETE' | translate }}"><i class="fas fa-trash-alt" ></i> DELETE</button>               
+                    <button class="btn btn-dark mb-2" type="button" (click)="checkFeedbackExistence(offerList.offerId,offerList.userId)"  data-toggle="tooltip" data-placement="bottom"  title="{{ 'BUTTONS.ADD-FEEDBACK' | translate }}"><i class="fas fa-comment-dots"></i> ADD FEEDBACK</button>
+                    <div data-toggle="modal" data-target="#feedbackModal"  #myModal ></div>
+                    <button class="btn btn-dark" type="button" (click)="couponGenerate(offerList.userId,offerList.offerId,offerList.vendorId)" data-toggle="tooltip" data-placement="bottom"  title="{{ 'BUTTONS.GEN-COUPON' | translate }}"> <i class="fas fa-ticket-alt"></i>  GENERATE COUPON</button>
+                    <div data-toggle="modal" data-target="#couponModal" #coupModal ></div>
                   </div>
+                </div>
               </div>
-
-              <img class="card-img card-w" src={{offerList.offerImage}} alt="Card image">
+              <img class="card-img card-w card-image" src="../../../../assets/card.jpeg" alt="Card image">
+              <!-- <img class="card-img card-w" src={{offerList.offerImage}} alt="Card image"> -->
               <div class="card-body card-data">
                 <div class="row">
                   <div class="col-sm-8">
@@ -41,11 +50,13 @@
                   <div class="col-12 d-none d-md-block offer-center">
                     {{ 'PRODUCT-PAGE.VALIDITY' | translate }}{{offerList.offerValidity | date}}
                   </div>
-                  <div class="row col-12 ">
-                      <button class="btn btn-dark my-2 mx-1 my-sm-0 col-5 " type="button" (click)="couponGenerate(offerList.userId,offerList.offerId,offerList.vendorId)" data-toggle="tooltip" data-placement="bottom"  title="{{ 'BUTTONS.GEN-COUPON' | translate }}"> <i class="fas fa-ticket-alt"></i></button>
-                      <div data-toggle="modal" data-target="#couponModal" #coupModal ></div>
-                      <button class="btn btn-dark my-2 my-sm-0 mx-1 col-5" type="button" (click)="checkFeedbackExistence(offerList.offerId,offerList.userId)"  data-toggle="tooltip" data-placement="bottom"  title="{{ 'BUTTONS.ADD-FEEDBACK' | translate }}"><i class="fas fa-comment-dots"></i></button>
-                      <div data-toggle="modal" data-target="#feedbackModal"  #myModal ></div>
+                  <div class="container-fluid">
+                    <div class="row d-block d-lg-none text-center">
+                        <button class="btn btn-dark col-5 " type="button" (click)="couponGenerate(offerList.userId,offerList.offerId,offerList.vendorId)" data-toggle="tooltip" data-placement="bottom"  title="{{ 'BUTTONS.GEN-COUPON' | translate }}"> <i class="fas fa-ticket-alt"></i></button>
+                        <span data-toggle="modal" data-target="#couponModal" #coupModal ></span>
+                        <button class="btn btn-dark col-5" type="button" (click)="checkFeedbackExistence(offerList.offerId,offerList.userId)"  data-toggle="tooltip" data-placement="bottom"  title="{{ 'BUTTONS.ADD-FEEDBACK' | translate }}"><i class="fas fa-comment-dots"></i></button>
+                        <div data-toggle="modal" data-target="#feedbackModal"  #myModal ></div>
+                    </div>
                   </div>
                 </div>
               </div>
