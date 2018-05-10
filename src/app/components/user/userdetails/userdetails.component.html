@@ -1,6 +1,6 @@
 <div class="py-5 px-2 xyz">
   <div class="container abc d-flex align-items-center justify-content-center">
-    <div class="row border rounded p-2">
+    <div class="row rounded p-2">
       <form>
         <div class="form-row">
           <div class="form-group col-md-6">
@@ -83,8 +83,8 @@
         </div>
         <!-- If user has fill all the above form then the below form will be enabled-->
         <button type="submit" class="btn button justify-content-center" (click)="submit()">{{ 'BUTTONS.SAVE' | translate }}</button>
-        <button type="button" class="btn button justify-content-center" (click)="undisableTxt()">{{ 'BUTTONS.EDIT' | translate }}</button>    
-        <button type="button" class="btn button justify-content-center" (click)="cancel()">Cancel</button>    
+        <button type="button" class="btn button justify-content-center" (click)="undisableTxt()" [ngClass]="{hidden:status=='edit-mode', visible:status=='none'}">{{ 'BUTTONS.EDIT' | translate }}</button>
+        <button type="button" class="btn button justify-content-center" (click)="cancel()" [ngClass]="{hidden:status=='none', visible:status=='edit-mode'}">Cancel</button>
       </form>
     </div>
   </div>

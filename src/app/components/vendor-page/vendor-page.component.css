@@ -97,7 +97,7 @@ del {
 
 .address {
 		font-size: 0.8rem;
-		margin-top: -3rem;
+		margin-top: -0.5rem;
 		margin-left: 0.3rem;
 }
 
@@ -139,4 +139,18 @@ del {
 
 .card-discounted-price {
 	color:red;
+}
+
+.back-arrow {
+	font-size: 1rem;
+}
+
+a {
+	cursor: pointer;
+}
+
+.description {
+	font-family: 'Quicksand', 'Sree Krushnadevaraya','Suranna','Ramaraja',"Mukta Malar",sans-serif;
+	color:gray;
+	font-size: 1rem;
 }

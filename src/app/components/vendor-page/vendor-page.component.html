@@ -1,32 +1,39 @@
 
 <div class="container justify-content-center">
   <!-- This shows the name and shop address of vendor and Subscribe button-->
-  <div *ngIf="user; else elseblock1;then thenblock1;"></div>
+  <div class="row pt-4">
+    <a (click)='backClicked()'><font class="description ml-3"><font class="back-arrow"><</font> Back</font></a>
+  </div>
+  <div class="row pt-3">
+    <div *ngIf="user; else elseblock1;then thenblock1;"></div>
+  </div>
+
+  <!-- <div class="row mt-3">
+    <div class="col-sm-12 col-md-4 col-lg-4 ml-5">
+      <a (click)='backClicked()'><font class="description"><font class="back-arrow"><</font> Back</font></a>
+    </div>
+  </div> -->
   <ng-template #thenblock1>
-    <div class="row">
       <div class="d-flex">
         <div class="col-lg-12">
-          <h2 class="text-secondary my-5">{{shopName}}</h2>
+          <h2 class="text-secondary my-2">{{shopName}}</h2>
           <p class="text-secondary address">{{street}}, {{city}}, {{state}}, {{zip}}</p>
         </div>
         <div class="col-lg-12 text-right">
-          <button class="btn my-5 text-right btn-subs" (click)="subscribe()">{{ 'USER.SELLER.SUBSCRIBE' | translate }}</button>
+          <button class="btn my-2 text-right btn-subs" (click)="subscribe()">{{ 'USER.SELLER.SUBSCRIBE' | translate }}</button>
         </div>
       </div>
-    </div>
   </ng-template>
   <ng-template #elseblock1>
-    <div class="row">
       <div class="d-flex">
         <div class="col-lg-12">
-          <h2 class="text-secondary my-5">{{shopName}}</h2>
+          <h2 class="text-secondary my-2">{{shopName}}</h2>
           <p class="text-secondary address">{{street}}, {{city}}, {{state}}, {{zip}}</p>
         </div>
         <div class="col-lg-12 text-right">
-          <button class="btn my-5 text-right btn-subs mx-5" (click)="notLogin()">{{ 'BUTTONS.SUBSCRIBE' | translate }}</button>
+          <button class="btn my-2 text-right btn-subs mx-5" (click)="notLogin()">{{ 'BUTTONS.SUBSCRIBE' | translate }}</button>
         </div>
       </div>
-    </div>
   </ng-template>
 
   <!-- This will show the photos of vendor's shop -->
@@ -121,7 +128,7 @@
         </div>
       </div>
     </div>
-    
+
 
     <!--     This card shows feedbacks given to vendor -->
     <div class="tab-pane fade mb-5" id="profile" role="tabpanel" aria-labelledby="profile-tab">
