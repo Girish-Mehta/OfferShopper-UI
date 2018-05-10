@@ -56,19 +56,17 @@ export class WheelComponent implements OnInit{
       console.log(this.cash[this.sectorNo]);
      this.osCashService.putOffer(this.cash[this.sectorNo],this.user).subscribe((res) =>{
       console.log("i  am respone");
-      this.messageService.showOsCash(this.cash[this.sectorNo]);
+    //  this.messageService.showOsCash(this.cash[this.sectorNo]);
       }, (res:Response) =>{
-        if(res.status==200){
+        if(res.status==400){
+          console.log("spin failed");
           this.messageService.showNoSpin();
         }
-        if(res.status==400){
-          this.messageService.showNoSpin();
+        else{
+          console.log("success spin");
+          this.messageService.showOsSpin(this.cash[this.sectorNo]);
         }
       });
 
   }
-
-
-
-
 }
