@@ -98,7 +98,7 @@
         <div class="modal-header ">
           <h4 class="modal-title ">{{ 'USER.ADD-OFFER' |  translate }}</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>          
+        </div>
       <div class="modal-body">
         <form #addOfferForm="ngForm" >
           <div class="form-row">
@@ -109,18 +109,18 @@
                     <option value="clothing">{{ 'HOMEPAGE.CATEGORIES.CLOTHES' |  translate }}</option>
                     <option value="food">{{ 'HOMEPAGE.CATEGORIES.FOOD' |  translate }}</option>
                   </select>
-           <div *ngIf="categorycField.touched && categorycField.errors">
-         <div class="error" *ngIf="categorycField.errors.required">
+           <!-- <div *ngIf="categorycField.touched && categorycField.errors"> -->
+         <!-- <div class="error" *ngIf="categorycField.errors.required">
            Category is required
-         </div>
-       </div>
+         </div> -->
+       <!-- </div> -->
             </div>
 
             <div class="form-group col-md-6">
               <label for="discount">{{ 'USER.OFFER.DISCOUNT' |  translate }}</label>
               <input type="number" id="discount" placeholder="{{discount}}" class="form-control"
                [(ngModel)]="discount" [ngModelOptions]="{standalone: true}" ngModel #discountField="ngModel" required pattern="^[1-9][0-9]?$|^99$">
-       
+
         <div *ngIf="discountField.touched && discountField.errors">
          <div class="error" *ngIf="discountField.errors.pattern">
            Please enter numbers only between 0 to 100
@@ -195,7 +195,7 @@
               <input type="text" class="form-control" id="originalPrice" placeholder="{{originalPrice}}" [(ngModel)]="originalPrice" [ngModelOptions]="{standalone: true}" required ngModel #priceField="ngModel" pattern="^[0-9]+(\.[0-9]{0,2})?$">
       <div *ngIf="priceField.touched && priceField.errors">
          <div class="error" *ngIf="priceField.errors.pattern">
-           Please enter numbers only(upto 2 decimal precision) 
+           Please enter numbers only(upto 2 decimal precision)
          </div>
           <div class="error" *ngIf="priceField.errors.required">
            Price is required
