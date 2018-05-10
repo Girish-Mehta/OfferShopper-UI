@@ -28,6 +28,7 @@ export class ProductPageComponent implements OnInit {
   public productValidity :string;
   public productOriginalPrice :string;
   public productDiscount :string;
+  public imageURL :string;
   public productSeller :string;
   public offer :any;
   public userInfo : any;
@@ -87,7 +88,8 @@ export class ProductPageComponent implements OnInit {
       this.productOriginalPrice=res.originalPrice;
       this.productDiscount=res.discount;
       this.shop=res.address.name;
-      this.category=res.offerCategories;   
+      this.category=res.offerCategories; 
+      this.imageURL=res.imageURL;  
       this.searchRelatedProducts(this.category);
     },(error) =>{
     });
@@ -110,7 +112,7 @@ export class ProductPageComponent implements OnInit {
      "offerTitle":offer1.offerTitle,
      "offerOriginalPrice":offer1.originalPrice,
      "offerDiscount":offer1.discount,
-     "offerImage":"abcd",
+     "offerImage":offer1.imageURL,
      "offerValidity":offer1.offerValidity
    }
    this.wishlistService.addToWishlist(wishlistBean).subscribe((res) =>{
@@ -133,7 +135,7 @@ export class ProductPageComponent implements OnInit {
      "offerTitle":offer1.offerTitle,
      "offerOriginalPrice":offer1.originalPrice,
      "offerDiscount":offer1.discount,
-     "offerImage":"abcd",
+     "offerImage":offer1.imageURL,
      "offerValidity":offer1.offerValidity,
      "vendorId":offer1.userId
    }

@@ -60,6 +60,19 @@ export class AddOfferComponent implements OnInit {
 		this.getUserId();
 	}
 
+	//function to upload image
+	onFileSelected(event: any){
+	if (event.target.files && event.target.files[0]) {
+		var reader = new FileReader();
+
+		reader.onload = (event:any) => {
+			this.imageUrl = event.target.result
+		}
+
+		reader.readAsDataURL(event.target.files[0]);
+		}
+	}
+
 	//Funtion will retrieve the userId from the token
 	getUserId() {
 		this.authorizationService.getUserId().subscribe((res) =>{
@@ -76,7 +89,7 @@ export class AddOfferComponent implements OnInit {
 			this.offers = res;
 		}
 		, (error) =>{
-	})
+		})
 	}
 
 	//Function will delete the offer uploaded by vendor
@@ -299,15 +312,15 @@ export class AddOfferComponent implements OnInit {
 					//code not checked
 					this.addOfferService.getUser(couponData.userId).subscribe((res) =>{
 						let userData = res;
-					
+
 						if(userData==null) {
 							alert("User not found");
 						}
 						else {
 							
-					
+
 							this.addOfferService.getOffer(couponData.offerId).subscribe((off) =>{
-							
+
 								let offerData = off;
 								
 								if(offerData==null) {
@@ -318,7 +331,7 @@ export class AddOfferComponent implements OnInit {
 										
 										var price = offerData.originalPrice-((offerData.discount*offerData.originalPrice)/100);
 										if(price > userData.osCash){
-										
+
 											userData.osCash = 0 ;
 										}
 										else{
