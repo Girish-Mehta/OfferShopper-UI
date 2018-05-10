@@ -23,8 +23,6 @@ export class SeachResultsComponent implements OnInit {
 		private _vcr:ViewContainerRef,
 		private offersService: OffersService ) { }
 
-
-
 	ngOnInit() {
 		this.getUserId();
 	}
@@ -37,13 +35,13 @@ export class SeachResultsComponent implements OnInit {
 		})
 	}
 
+	//Function will calculate the discounted price
 	productPrice(offerOriginalPrice,offerDiscount){
 		this.priceAfterDiscount = Number((offerOriginalPrice)*(1-(offerDiscount)/100)).toFixed(2);
 	}
 
+	//Function will add offer to wishlist
 	addToWishlist(offer1) {
-		console.log(offer1);
-		console.log(offer1.offerId);
 		let wishlistBean = {
 			"userId":this.user,
 			"offerId":offer1.offerId,
@@ -60,11 +58,12 @@ export class SeachResultsComponent implements OnInit {
 				this.messageService.showErrorToast(this._vcr,"Already in Wishlist");
 			}
 			else if(res.status==400){
-				this.messageService.showErrorToast(this._vcr,"Service Not Found");
+				this.messageService.showErrorToast(this._vcr,"Already in Wishlist");
 			}
 		})
 	}
 
+	//Function will add offer to carrybag
 	addToCarrybag(offer) {
 		let carrybagBean = {
 			"userId":this.user,
@@ -76,8 +75,6 @@ export class SeachResultsComponent implements OnInit {
 			"offerValidity":offer.offerValidity,
 			"vendorId":offer.userId
 		}
-		console.log(offer.offerId);
-		console.log(carrybagBean);
 		this.offersService.addToCarrybag(carrybagBean).subscribe((res) =>{
 			this.messageService.showSuccessToast(this._vcr,"Added to CarryBag");
 		},(res:Response) =>{
@@ -85,11 +82,12 @@ export class SeachResultsComponent implements OnInit {
 				this.messageService.showErrorToast(this._vcr,"Already in CarryBag");
 			}
 			else if(res.status==400){
-				this.messageService.showErrorToast(this._vcr,"Service Not Found");
+				this.messageService.showErrorToast(this._vcr,"Already in CarryBag");
 			}
 		})
 	}
 
+	//Function will check user is logged in or not
 	notLogin(){
 		this.messageService.showErrorToast(this._vcr,"Please Login");
 	}

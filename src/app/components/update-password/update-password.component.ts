@@ -47,6 +47,7 @@ export class UpdatePasswordComponent implements OnInit {
     this.userLocation = localStorage.getItem("loc");
   }
 
+  //Function will update the password 
   updatePassword(){
     let password=this.updatePass.get('password').value;
     var xorKey = 129;
@@ -61,22 +62,22 @@ export class UpdatePasswordComponent implements OnInit {
     };
     this.updatePasswordService.updatePassWithEmail(body).subscribe((res) =>{
       this.messageService.showSuccessToast(this._vcr,"Updated");
-       this.router.navigate(['/homepage',this.userLocation]);
+      this.router.navigate(['/homepage',this.userLocation]);
     }, (res:Response) =>{
       if(res.status==401 || res.status==409){
         this.messageService.showErrorToast(this._vcr,"Username already exists");
       }
       else if(res.status==500){
-        this.messageService.showErrorToast(this._vcr,"Internal server error");
+        this.messageService.showErrorToast(this._vcr,"Something went wrong ,Please try again");
       }
       else if(res.status==404){
-        this.messageService.showErrorToast(this._vcr,"Service Not Found");
+        this.messageService.showErrorToast(this._vcr,"Something went wrong ,Please try again");
       }
       else if(res.status==403){
-        this.messageService.showErrorToast(this._vcr,"403 Forbidden");
+        this.messageService.showErrorToast(this._vcr,"Something went wrong ,Please try again");
       }
       else{
-        this.messageService.showErrorToast(this._vcr,"Connection error");
+        this.messageService.showErrorToast(this._vcr,"Something went wrong ,Please try again");
       }
     });
 

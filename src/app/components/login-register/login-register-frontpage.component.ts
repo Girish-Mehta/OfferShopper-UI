@@ -1,5 +1,3 @@
-
-
 import { Component, OnInit,Inject,ViewContainerRef } from '@angular/core';
 import {FormGroup, FormControl, Validators,FormBuilder} from '@angular/forms';
 import {Router} from '@angular/router';
@@ -59,7 +57,7 @@ export class LoginRegisterFrontpageComponent implements OnInit {
     this.onChanges();
   }
 
-
+  //Function to call google server
   public googleInit() {
     gapi.load('auth2', () => {
       this.auth2 = gapi.auth2.init({
@@ -70,24 +68,22 @@ export class LoginRegisterFrontpageComponent implements OnInit {
       this.attachSignin(document.getElementById('googleBtn'));
     });
   }
+
+  //Function to get token from google server
   public attachSignin(element) {
     this.auth2.attachClickHandler(element, {},
       (googleUser) => {
         let id_token = googleUser.getAuthResponse().id_token;
-        console.log(id_token);
-          this.googlesigninservice.getgooglesign(id_token).subscribe(res=>{
+        //Verify token from UAA server
+        this.googlesigninservice.getgooglesign(id_token).subscribe(res=>{
           res=res.toString();
           localStorage.setItem("application-token",res);
           let userLocation = localStorage.getItem("loc");
           let redirectUrl=HomeUrl.homeUrl+userLocation;
           window.location.href = redirectUrl;
         },error=>{
-          console.log("error in services")
         }
         )
-
-
-
       }, (error) => {
         alert(JSON.stringify(error, undefined, 2));
       });
@@ -96,9 +92,6 @@ export class LoginRegisterFrontpageComponent implements OnInit {
   ngAfterViewInit(){
     this.googleInit();
   }
-
-
-
 
   ngOnInit() {
     this.loginForm=new FormGroup({
@@ -114,6 +107,7 @@ export class LoginRegisterFrontpageComponent implements OnInit {
     });
   }
 
+  //Function to login 
   login(){
     let username=this.loginForm.get('username').value;
     let  password = this.loginForm.get('password').value;
@@ -129,27 +123,27 @@ export class LoginRegisterFrontpageComponent implements OnInit {
 
     }, (res:Response) =>{
       if(res.status==401){
-        alert("Unauthorized User");
+        this.messageService.showErrorToast(this._vcr,"Something went wrong ,Please try again");
       }
       else if(res.status==500){
-        alert("Internal server error");
+        this.messageService.showErrorToast(this._vcr,"Something went wrong ,Please try again");
       }
       else if(res.status==201){
-        alert("Successfully logged in");
+        this.messageService.showSuccessToast(this._vcr,"Successfully Login")
       }
       else if(res.status==404){
-        alert("Service Not Found");
+        this.messageService.showErrorToast(this._vcr,"Something went wrong ,Please try again");
       }
       else if(res.status==403){
-        alert("403 Forbidden");
+        this.messageService.showErrorToast(this._vcr,"Something went wrong ,Please try again");
       }
       else{
-        alert("Connection error");
+        this.messageService.showErrorToast(this._vcr,"Something went wrong ,Please try again");
       }
     });
   }
 
-//password match validator
+//Function will matches the password
 checkIfMatchingPasswords(group: FormGroup) {
   let passwordField= group.controls.password,
   confirmPasswordField = group.controls.rePassword;
@@ -160,6 +154,7 @@ checkIfMatchingPasswords(group: FormGroup) {
   }
 }
 
+//Function will register the new user
 registerUser(){
   let tempPassword="";
 
@@ -185,20 +180,22 @@ registerUser(){
       this.messageService.showErrorToast(this._vcr,"Username already exists");
     }
     else if(res.status==500){
-      alert("Internal server error");
+      this.messageService.showErrorToast(this._vcr,"Something went wrong ,Please try again");
     }
     else if(res.status==201){
       this.messageService.showSuccessToast(this._vcr,"Successfully Registered");
     }
     else if(res.status==404){
-      alert("Service Not Found");
+      this.messageService.showErrorToast(this._vcr,"Something went wrong ,Please try again");
     }
     else if(res.status==403){
-      alert("403 Forbidden");
+      this.messageService.showErrorToast(this._vcr,"Something went wrong ,Please try again");
+    }
+    else if(res.status==200){
+      this.messageService.showSuccessToast(this._vcr,"Verfification link sent your Email Id");
     }
     else{
-      alert("Connection error");
-
+      this.messageService.showErrorToast(this._vcr,"Invalid Email Id");
     }
   });
 
