@@ -15,7 +15,7 @@ import { StateCityJson } from '../../../configs/state-city-json.config';
   providers:[ AuthorizationService, MessageService ,UserService]
 })
 export class UserdetailsComponent implements OnInit {
- 
+
   homeCities = [];
   shopCities = [];
   states= States.states;
@@ -46,6 +46,7 @@ export class UserdetailsComponent implements OnInit {
   vendorMobileNo:string;
   timestamp:number;
   obj={};
+  status:string;
   public userInfo;
   public userId;
 
@@ -54,13 +55,15 @@ export class UserdetailsComponent implements OnInit {
     private authorizationService: AuthorizationService,
     private messageService: MessageService,
     private _vcr: ViewContainerRef
-    ) { }
+    ) {
+      this.status = 'none';
+    }
 
   ngOnInit() {
     this.getUserId();
   }
 
-  //Function will retrieve the userId from the token 
+  //Function will retrieve the userId from the token
   getUserId() {
     this.authorizationService.getUserId().subscribe((res) =>{
       if(res.text() == "UnAuthorized"){
@@ -110,6 +113,7 @@ export class UserdetailsComponent implements OnInit {
 
   //Funtion will make form editable
   undisableTxt() {
+    this.status = 'edit-mode';
     (<HTMLInputElement>document.getElementById("firstName")).disabled= false;
     (<HTMLInputElement>document.getElementById("lastName")).disabled = false;
     (<HTMLInputElement>document.getElementById("phone")).disabled = false;
@@ -127,6 +131,7 @@ export class UserdetailsComponent implements OnInit {
 
   //Function will update the user details
   submit(){
+    this.status = 'none';
     (<HTMLInputElement>document.getElementById("firstName")).disabled= true;
     (<HTMLInputElement>document.getElementById("lastName")).disabled = true;
     (<HTMLInputElement>document.getElementById("phone")).disabled = true;
@@ -178,6 +183,7 @@ export class UserdetailsComponent implements OnInit {
   }
 
   cancel(){
+    this.status='none';
     this.getUserId();
     (<HTMLInputElement>document.getElementById("firstName")).disabled= true;
     (<HTMLInputElement>document.getElementById("lastName")).disabled = true;
@@ -201,7 +207,7 @@ export class UserdetailsComponent implements OnInit {
     this.shopCity =  this.city;
   }
 
-  //Function will show the relevant cities 
+  //Function will show the relevant cities
   showRelevantCitiesHome(state) {
     this.homeCities = StateCityJson.stateCityJson[state];
     this.city = "Please select a city";
@@ -211,5 +217,5 @@ export class UserdetailsComponent implements OnInit {
     this.shopCities = StateCityJson.stateCityJson[state];
     this.shopCity = "Please select a city";
   }
-  
+
 }
