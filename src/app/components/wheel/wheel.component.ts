@@ -17,7 +17,7 @@ export class WheelComponent implements OnInit{
   sectorNo:number;
   public userInfo : any;
   public user : any;
-  public cash=[10,20,30,40,50,60];
+  public cash=[20,0,5,0,3,8];
 
   constructor(
     private osCashService: OsCashService,
@@ -27,7 +27,8 @@ export class WheelComponent implements OnInit{
 
   ngOnInit()
   { this.getUserId();
-    this.previousAngle = 25;
+  //  this.previousAngle = 25;
+  this.previousAngle = 0;
   }
 
 
@@ -47,7 +48,8 @@ export class WheelComponent implements OnInit{
     console.log("new angle "+ this.angle);
     console.log("------------------------------------------------------");
     object.style.transform = "rotate("+ this.angle+"deg)";
-    this.sectorNo = ((this.angle - 25)/60)%6;
+   // this.sectorNo = ((this.angle - 25)/60)%6;
+    this.sectorNo = ((this.angle )/60)%6; 
     console.log("sector no "+ this.sectorNo);
     this.previousAngle = this.angle;
     this.submit();
