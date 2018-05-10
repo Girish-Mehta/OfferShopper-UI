@@ -2,7 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import {OsCashService} from '../../services/os-cash.service';
 import { AuthorizationService } from './../../services/authorization.service';
 import { MessageService } from './../../services/message.service';
-
+import { UserService } from './../../services/user.service';
 @Component({
   selector: 'app-wheel',
   templateUrl: './wheel.component.html',
@@ -17,13 +17,15 @@ export class WheelComponent implements OnInit{
   sectorNo:number;
   public userInfo : any;
   public user : any;
+  public osMoney:number;
   public cash=[20,8,3,0,5,0];
 
   constructor(
     private osCashService: OsCashService,
+    private userdata:UserService,
     private authorizationService:AuthorizationService,
     private messageService: MessageService
-  ) { }
+    ) { }
 
   ngOnInit()
   {
@@ -35,7 +37,15 @@ export class WheelComponent implements OnInit{
     this.authorizationService.getUserId().subscribe((res) =>{
       this.userInfo = res.text().split(',');
       this.user = this.userInfo[2];
+      this. getProfile(this.user);
     }, (error) =>{
+    })
+  }
+
+  getProfile(userId){
+    this.userdata.getProfile(userId).subscribe((res) =>{
+      this.osMoney=res.osCash;
+    },(error) =>{
     })
   }
 
@@ -51,17 +61,15 @@ export class WheelComponent implements OnInit{
   }
 
   submit(){
-   this.osCashService.putOffer(this.cash[this.sectorNo],this.user).subscribe((res) =>{
-      }, (res:Response) =>{
-        if(res.status==400){
-          console.log("spin failed");
-          this.messageService.showNoSpin();
-        }
-        else{
-          console.log("success spin");
-          this.messageService.showOsSpin(this.cash[this.sectorNo]);
-        }
-      });
+    this.osCashService.putOffer(this.cash[this.sectorNo],this.user).subscribe((res) =>{
+    }, (res:Response) =>{
+      if(res.status==400){
+        this.messageService.showNoSpin();
+      }
+      else{
+        this.messageService.showOsSpin(this.cash[this.sectorNo]);
+      }
+    });
   }
 
 }

@@ -213,7 +213,6 @@ export class UserdetailsComponent implements OnInit {
         shopState:this.shopState,
         shopZip:this.shopZip
       });
-console.log(res);
     },(error) =>{
     })
   }
