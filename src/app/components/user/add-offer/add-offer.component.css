@@ -21,3 +21,15 @@
 		background-color: #018b8b;
 		color: white;
 }
+
+@media (max-width: 770px) {
+	.btn-large {
+		display: none !important;
+	}
+}
+
+@media (min-width: 769px) {
+	.btn-small {
+		display: none ;
+	}
+}
