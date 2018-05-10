@@ -130,7 +130,7 @@
                 <label>{{ 'USER.SELLER.ADDRESS.SHOP' | translate }}</label>
                 <textarea placeholder="{{ 'USER.SELLER.ADDRESS.SHOP' | translate }}" rows="3" formControlName="vendorAddress" class="form-control" id="VendorAddress"></textarea>
 
-                <div *ngIf="form.get('vendorAddress').touched && form.get('vendorAddress').invalid" class="alert-msg">
+            <div *ngIf="form.get('vendorAddress').touched && form.get('vendorAddress').invalid" class="alert-msg">
                   <div *ngIf="form.get('vendorAddress').hasError('required')">
                     {{ 'USER.SELLER.ADDRESS.TITLE' | translate }}{{ 'LOGIN.REQ' | translate }}
                   </div>
@@ -145,7 +145,7 @@
                     <option *ngFor="let state of states" value={{state}}>{{ state }}</option>
                     
                     </select>
-                    <div *ngIf="form.get('vendorState').touched && form.get('vendorState').invalid" class="alert-msg">
+                  <div *ngIf="form.get('vendorState').touched && form.get('vendorState').invalid" class="alert-msg">
                       <div *ngIf="form.get('vendorState').hasError('required')">
                         {{ 'USER.SELLER.ADDRESS.STATE' | translate }}{{ 'LOGIN.REQ' | translate }}
                       </div>
