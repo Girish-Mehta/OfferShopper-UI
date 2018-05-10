@@ -37,9 +37,9 @@
         <!-- categories dropdown --> 
         <select name="category-selected" class="dropdown btn btn-light dropdown-toggle mx-0 search-dropdown" [(ngModel)]="category">
           <option class="dropdown-item" value="{{ 'HOMEPAGE.CATEGORIES.CATEGORY' | translate }}" selected>{{ 'HOMEPAGE.CATEGORIES.CATEGORY' | translate }}</option>
-          <option class="dropdown-item">{{ 'HOMEPAGE.CATEGORIES.SPORTS' | translate }}</option>
-          <option class="dropdown-item">{{ 'HOMEPAGE.CATEGORIES.CLOTHES' | translate }}</option>
-          <option class="dropdown-item">{{ 'HOMEPAGE.CATEGORIES.FOOD' | translate }}</option>
+          <option class="dropdown-item" value="sports">{{ 'HOMEPAGE.CATEGORIES.SPORTS' | translate }}</option>
+          <option class="dropdown-item" value="clothing">{{ 'HOMEPAGE.CATEGORIES.CLOTHES' | translate }}</option>
+          <option class="dropdown-item" value="food">{{ 'HOMEPAGE.CATEGORIES.FOOD' | translate }}</option>
         </select>
         <!-- Search bar -->
         <input (keydown)="enterPressed($event)" id="input" list="suggestions" name="query" [(ngModel)]="query" class="form-control mx-0 search-box " (keyup)="searchTerm$.next($event.target.value)" autocomplete="off" type="text"

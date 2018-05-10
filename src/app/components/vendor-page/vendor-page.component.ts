@@ -73,6 +73,7 @@ export class VendorPageComponent implements OnInit {
     this.offersService.getOffers(this.vendorId).subscribe((res) =>{
       this.offersList = res;
       this.data = res;
+      console.log(this.data);
       this.shopName=this.data[0].address.name.toUpperCase()
       this.street=this.data[0].address.street.toUpperCase();
       this.city=this.data[0].address.city.toUpperCase();
