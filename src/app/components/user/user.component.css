@@ -1,5 +1,5 @@
 @media (max-height: 791px) {
- 
+
   #snav ul li{
     display: flex;
   }
@@ -69,7 +69,7 @@ background: black;
   text-align: center;
   position: relative;
   z-index:-1;
- 
+
 }
 #snav ul li a span {
   font-size: 1.2rem;
@@ -126,4 +126,8 @@ background: black;
 }
 #snav ul li:nth-child(10n+6) a span, #snav ul li:nth-child(10n+6) a:hover i.fas{
   background-color: #17a2b8;
+}
+
+.hidden {
+  display: none;
 }

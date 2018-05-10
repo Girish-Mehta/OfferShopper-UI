@@ -110,7 +110,7 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="offerValidity"> {{ 'USER.OFFER.VALIDITY' |  translate }}</label>
-                <input type="offerValidity" class="form-control" id="offerValidity" placeholder="{{offerValidity}}" [(ngModel)]="offerValidity" [ngModelOptions]="{standalone: true}" required ngModel #validityField="ngModel">
+                <input type="date" class="form-control" id="offerValidity" placeholder="{{offerValidity}}" [(ngModel)]="offerValidity" [ngModelOptions]="{standalone: true}" required ngModel #validityField="ngModel">
                 <div *ngIf="validityField.touched && validityField.errors">
                   <div class="error" *ngIf="validityField.errors.required">
                     Validity is required
