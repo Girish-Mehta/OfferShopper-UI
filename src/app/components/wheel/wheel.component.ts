@@ -50,7 +50,6 @@ export class WheelComponent implements OnInit{
   }
 
   spinWheel(){
-    console.log(this.angle);
     var object = document.getElementById("img1");
     var randomNumberBetween0and6 = Math.floor(Math.random() * 6);
     this.angle = (randomNumberBetween0and6*60)+(360*8)+this.previousAngle;
@@ -64,10 +63,15 @@ export class WheelComponent implements OnInit{
     this.osCashService.putOffer(this.cash[this.sectorNo],this.user).subscribe((res) =>{
     }, (res:Response) =>{
       if(res.status==400){
-        this.messageService.showNoSpin();
+        setTimeout(()=>{
+          this.messageService.showNoSpin();
+        },3000)
       }
       else{
-        this.messageService.showOsSpin(this.cash[this.sectorNo]);
+        setTimeout(()=>{
+          this.messageService.showOsSpin(this.cash[this.sectorNo]);
+
+        },3000)
       }
     });
   }

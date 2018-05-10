@@ -65,9 +65,9 @@ export class UserdetailsComponent implements OnInit {
     private _vcr: ViewContainerRef
     ) { 
 
-      this.status = 'none';
+    this.status = 'none';
     this.fb=fb;
-        this.form=this.fb.group({
+    this.form=this.fb.group({
       firstName:[{value: null,
         disabled: this.toggle
       }],
@@ -134,35 +134,35 @@ export class UserdetailsComponent implements OnInit {
 
   intilizeForm() {
     if(this.toggle==false){
- this.form.controls['firstName'].enable();
- this.form.controls['lastName'].enable();
- this.form.controls['phone'].enable();
- this.form.controls['street'].enable();
- this.form.controls['city'].enable();
- this.form.controls['state'].enable();
- this.form.controls['zip'].enable();
- this.form.controls['shopName'].enable();
- this.form.controls['shopStreet'].enable();
-  this.form.controls['shopCity'].enable();
- this.form.controls['shopState'].enable();
-  this.form.controls['shopZip'].enable();
-  this.form.controls['sameAddress'].enable();
-}
+      this.form.controls['firstName'].enable();
+      this.form.controls['lastName'].enable();
+      this.form.controls['phone'].enable();
+      this.form.controls['street'].enable();
+      this.form.controls['city'].enable();
+      this.form.controls['state'].enable();
+      this.form.controls['zip'].enable();
+      this.form.controls['shopName'].enable();
+      this.form.controls['shopStreet'].enable();
+      this.form.controls['shopCity'].enable();
+      this.form.controls['shopState'].enable();
+      this.form.controls['shopZip'].enable();
+      this.form.controls['sameAddress'].enable();
+    }
     else{
-  this.form.controls['firstName'].disable();
- this.form.controls['lastName'].disable();
- this.form.controls['phone'].disable();
- this.form.controls['street'].disable();
- this.form.controls['city'].disable();
- this.form.controls['state'].disable();
- this.form.controls['zip'].disable();
- this.form.controls['shopName'].disable();
- this.form.controls['shopStreet'].disable();
-  this.form.controls['shopCity'].disable();
- this.form.controls['shopState'].disable();
-  this.form.controls['shopZip'].disable();
-  this.form.controls['sameAddress'].disable();
-}
+      this.form.controls['firstName'].disable();
+      this.form.controls['lastName'].disable();
+      this.form.controls['phone'].disable();
+      this.form.controls['street'].disable();
+      this.form.controls['city'].disable();
+      this.form.controls['state'].disable();
+      this.form.controls['zip'].disable();
+      this.form.controls['shopName'].disable();
+      this.form.controls['shopStreet'].disable();
+      this.form.controls['shopCity'].disable();
+      this.form.controls['shopState'].disable();
+      this.form.controls['shopZip'].disable();
+      this.form.controls['sameAddress'].disable();
+    }
 
   }
 
@@ -172,31 +172,38 @@ export class UserdetailsComponent implements OnInit {
       console.log(res);
       this.obj=res;
       this.data = res;
-      this.firstName=this.data.firstName;
-      this.lastName=this.data.lastName;
-      this.phone=this.data.mobileNo;
-      this.emailId=this.data.email;
-      this.role=this.data.role;
-      this.name=this.data.address.name;
-      this.number=this.data.address.number;
-      this.street=this.data.address.street;
-      this.city=this.data.address.city;
-      this.zip=this.data.address.zipCode;
-      this.state=this.data.address.state;
-      this.password=this.data.password;
-      this.dob=this.data.dob;
-      this.gender=this.data.gender;
-      this.spinCount=this.data.spinCount;
-      this.osCash=this.data.osCash;
-      this.shopName=this.data.shopAddress.name;
-      this.shopNumber=this.data.shopAddress.number;
-      this.shopStreet=this.data.shopAddress.street;
-      this.shopCity=this.data.shopAddress.city;
-      this.shopState=this.data.shopAddress.state;
-      this.shopZip=this.data.shopAddress.zipCode;
-      this.vendorMobileNo=this.data.vendorMobileNo;
-      this.timestamp=this.data.timestamp;
-      this.offerIdList=this.data.offerIdList;
+      if(this.data){
+        this.firstName=this.data.firstName;
+        this.lastName=this.data.lastName;
+        this.phone=this.data.mobileNo;
+        this.emailId=this.data.email;
+        this.role=this.data.role;
+        if(this.data.address){
+          this.name=this.data.address.name;
+          this.number=this.data.address.number;
+          this.street=this.data.address.street;
+          this.city=this.data.address.city;
+          this.zip=this.data.address.zipCode;
+          this.state=this.data.address.state;
+        }
+        this.password=this.data.password;
+        this.dob=this.data.dob;
+        this.gender=this.data.gender;
+        this.spinCount=this.data.spinCount;
+        this.osCash=this.data.osCash;
+        if(this.data.shopAddress){
+          this.shopName=this.data.shopAddress.name;
+          this.shopNumber=this.data.shopAddress.number;
+          this.shopStreet=this.data.shopAddress.street;
+          this.shopCity=this.data.shopAddress.city;
+          this.shopState=this.data.shopAddress.state;
+          this.shopZip=this.data.shopAddress.zipCode;
+        }
+        this.vendorMobileNo=this.data.vendorMobileNo;
+        this.timestamp=this.data.timestamp;
+        this.offerIdList=this.data.offerIdList;
+
+      }
 
       this.form.patchValue({
         firstName:this.firstName,
@@ -331,11 +338,11 @@ export class UserdetailsComponent implements OnInit {
     }
     else{
       this.form.patchValue({
-          shopStreet:  "",
-          shopState:  "",
-          shopCity: "",
-          shopZip: "",
-        });
+        shopStreet:  "",
+        shopState:  "",
+        shopCity: "",
+        shopZip: "",
+      });
     }
   }
 

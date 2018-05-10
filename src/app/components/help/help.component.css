@@ -1,19 +1,17 @@
 /*CSS for screens greater than 768px*/
 @media (min-width: 768px) {
-	.help-sidebar {
+	.large-help-sidebar {
 		position: fixed;
 		width: 270px;
 		height: 100%;
 	}
 
-	.help-content {
-		margin-left: 270px;
+	.small-help-sidebar {
+		display: none;
 	}
 
-	/*active class will be used if url matches with given condition in ngClass*/
-	.active {
-		border: 1px solid #018b8b;
-		width: 210px;
+	.help-content {
+		margin-left: 270px;
 	}
 
 	/*inactive class will be used if url matches with given condition in ngClass*/
@@ -21,19 +19,71 @@
 		border-bottom: 1px solid lightgrey;
 	}
 
-	.active:active,
-	.active:focus,
-	.active.active {
-		background-image: none;
-		outline: 0;
-		-webkit-box-shadow: none;
-		box-shadow: none;
+	.h1-heading {
+		font-size: 2.2rem;
 	}
-	
+
+	.h3-heading {
+		font-size: 1.75rem;
+	}
 }
 
+@media (min-width: 576px) and (max-width: 767.98px) {
+	.large-help-sidebar li {
+		display: none;
+	}
+
+	.h1-heading {
+		font-size: 2rem;
+	}
+
+	.h3-heading {
+		font-size: 1.4rem;
+	}
+}
+
+@media (max-width: 575.98px) {
+	.large-help-sidebar li {
+		display: none;
+	}
+
+	.small-help-sidebar {
+		font-size: 1rem;
+	}
+
+	.help-content {
+		font-size: 0.9rem !important;	
+	}
+
+	.h1-heading {
+		font-size: 1.7rem !important;
+	}
+
+	.h3-heading {
+		font-size: 1.25rem !important;
+	}
+}
+
+/*active class will be used if url matches with given condition in ngClass*/
+.active {
+	border: 1px solid #018b8b;
+	width: 210px;
+}
+
+.active:active,
+.active:focus,
+.active.active {
+	background-image: none;
+	outline: 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
 
 /*To style the cursor when cursor is hover list*/
-.help-sidebar li {
+.large-help-sidebar li {
+	cursor: pointer;
+}
+
+.small-help-sidebar li {
 	cursor: pointer;
 }

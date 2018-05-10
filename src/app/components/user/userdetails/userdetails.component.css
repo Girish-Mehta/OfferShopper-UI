@@ -1,0 +1,12 @@
+.bg-pride{
+  background: #018b8b;
+}
+
+.hidden {
+  display: none;
+}
+
+.alert-msg{
+	color: red;
+	font-size: 12px;
+}
