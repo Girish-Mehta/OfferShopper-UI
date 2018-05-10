@@ -1,19 +1,17 @@
-<div class="py-5  my-3 mt-4 ">
+<div class="py-5  my-3 mt-4">
   <div class="container align-items-center ">
     <div class="row border rounded py-2 ">
       <form [formGroup]="form" class="col-12">
         <div class="form-row">
-          <div class="form-group col-md-6">
+          <div class="form-group col-md-3">
             <label for="firstName"> {{ 'USER.SELLER.FIRST-NAME' | translate }}</label>
             <input type="text" class="form-control" id="firstName" formControlName="firstName" >
           </div>
-          <div class="form-group col-md-6">
+          <div class="form-group col-md-3">
             <label for="lastName">{{ 'USER.SELLER.LAST-NAME' | translate }}</label>
             <input type="text" class="form-control" id="lastName" formControlName="lastName" >
           </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
+          <div class="form-group col-md-3">
             <label for="phone">{{ 'USER.SELLER.CONTACT' | translate }} </label>
             <input type="text" class="form-control" id="phone" formControlName="phone" >
                     <div *ngIf="form.get('phone').touched && form.get('phone').invalid" class="alert-msg">
@@ -28,6 +26,9 @@
                 </div>
               </div>
           </div>
+
+        </div>
+        <div class="form-row">
           <div class="form-group col-md-6">
             <label for="emailId">{{ 'USER.SELLER.EMAIL' | translate }}</label>
             <input type="emailId" class="form-control" id="emailId" formControlName="emailId">
@@ -38,7 +39,7 @@
           <input type="text" class="form-control" id="inputAddress" formControlName="street">
         </div>
         <div class="form-row">
-          
+
           <div class="form-group col-md-4">
             <label for="inputState">{{ 'USER.SELLER.ADDRESS.STATE' | translate }}</label>
             <select (change)="showRelevantCitiesHome()" name=slist class="form-control" formControlName="state" >
@@ -76,7 +77,7 @@
 
           </div>
 
-          
+
           <div class="form-group">
             <label for="inputShopAddress">{{ 'USER.SELLER.ADDRESS.SHOP' | translate }}</label>
             <input type="text" class="form-control" id="inputShopAddress" formControlName="shopStreet">
@@ -87,7 +88,7 @@
                 </div>
           </div>
           <div class="form-row">
-            
+
             <div class="form-group col-md-4">
               <label for="inputShopState">{{ 'USER.SELLER.ADDRESS.STATE' | translate }}</label>
               <select (change)="showRelevantCitiesShop()" name=slist class="form-control" id="inputShopState" formControlName="shopState" >
@@ -114,8 +115,8 @@
             </div>
             <div class="form-group col-md-2">
               <label for="inputShopZip">{{ 'USER.SELLER.ADDRESS.ZIP' | translate }}</label>
-              <input type="text" class="form-control" id="inputShopZip" formControlName="shopZip">     
-            
+              <input type="text" class="form-control" id="inputShopZip" formControlName="shopZip">
+
               <div *ngIf="form.get('shopZip').touched && form.get('shopZip').invalid" class="alert-msg">
                 <div *ngIf="form.get('shopZip').hasError('required')">
                   {{ 'USER.SELLER.ADDRESS.ZIP' | translate }}{{ 'LOGIN.REQ' | translate }}
@@ -127,16 +128,13 @@
                    {{ 'LOGIN.ERROR-DIGG-LESS' | translate }}
                 </div>
               </div>
-
-
-
-                  
             </div>
           </div>
         </div>
 
         <!-- If user has fill all the above form then the below form will be enabled-->
-        <button type="submit" class="btn button btn-primary justify-content-center" (click)="submit()" [disabled]="form.invalid">{{ 'BUTTONS.SAVE' | translate }}</button>
+        <button *ngIf="role=='Vendor'" type="submit" class="btn button btn-primary justify-content-center" (click)="submit()" [disabled]="form.invalid">{{ 'BUTTONS.SAVE' | translate }}</button>
+        <button *ngIf="role=='Customer'" type="submit" class="btn button btn-primary justify-content-center" (click)="submit()" >{{ 'BUTTONS.SAVE' | translate }}</button>
         <button type="button" class="btn button btn-primary justify-content-center" (click)="undisableTxt()" [ngClass]="{hidden:status=='edit-mode', visible:status=='none'}">{{ 'BUTTONS.EDIT' | translate }}</button>
         <button type="button" class="btn button btn-primary justify-content-center" (click)="cancel()" [ngClass]="{hidden:status=='none', visible:status=='edit-mode'}">{{ 'BUTTONS.CANCEL' | translate }}</button>
       </form>
