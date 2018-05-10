@@ -239,7 +239,6 @@ export class AddOfferComponent implements OnInit {
 
 	couponValidate()
 	{
-
 		this.addOfferService.couponValidateService(this.coupon,this.userId).subscribe((res) =>{
 
 			let couponData = res;
@@ -256,8 +255,35 @@ export class AddOfferComponent implements OnInit {
 					"rating" : couponData.rating,
 					"vendorValidationFlag" : true
 				}
+				console.log("originalPrice "+this.originalPrice);
 				this.addOfferService.changeFlag(obj).subscribe((res) =>{
 					this.messageService.showSuccessToast(this._vcr,"coupon verified");
+					//code not checked
+					this.addOfferService.getUser(this.userId).subscribe((res) =>{
+						let userData = res;
+						if(userData==null) {
+							alert("User not found");
+						}
+						else {
+							if(userData.osCash != 0){
+								var price = this.originalPrice-((this.discount*this.originalPrice)/100);
+								if(price > userData.osCash){
+									userData.osCash =0 ;
+								}
+								else{
+									userData.osCash = userData.osCash-price;
+								}
+								this.addOfferService.updateOsCash(userData.osCash,userData.userId).subscribe((res) =>{
+									this.messageService.showSuccessToast(this._vcr,"os cash updated");
+								}, (error) =>{
+									alert("OS cash could not be updated");
+								})
+							}
+						}
+					}
+					, (error) =>{console.log("error");
+					})
+					//till here not checked
 				}, (error) =>{
 				})
 			}
@@ -266,3 +292,7 @@ export class AddOfferComponent implements OnInit {
 	})
 	}
 }
+
+
+
+
