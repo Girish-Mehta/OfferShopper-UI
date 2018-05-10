@@ -86,7 +86,6 @@ export class AddOfferComponent implements OnInit {
 				this.messageService.showSuccessToast(this._vcr,"Deleted");
 				this.getOffers(this.userId);
 			}, (error) =>{
-				alert(error + "deleting restaurant does not works");
 			})
 			);
 	}
@@ -181,13 +180,6 @@ export class AddOfferComponent implements OnInit {
 				this.messageService.showSuccessToast(this._vcr,"Image uploaded");
 			}, (error) =>{
 			})
-        /*let headers = new Headers();
-        this.http.post("http://10.151.60.204:8801/upload", formData)
-            .map(res => res.json())
-            .subscribe(
-                data => console.log('success'),
-                error => console.log(error)
-                )*/
             }
         }
 
