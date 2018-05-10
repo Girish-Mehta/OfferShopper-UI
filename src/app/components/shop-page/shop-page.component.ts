@@ -15,13 +15,13 @@ import { MessageService } from './../../services/message.service';
 export class ShopPageComponent implements OnInit {
 
   private vendorsByCity = [];
-  private category: string = "";
+  public category: string = "";
   private searchKey: string = "";
   //results retrieved from searching
-  private results : any = [];  
+  private results : any = [];
   private filteredResults : any = [];
-  
-  ngOnInit() {   
+
+  ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.category = params.get('id1');
       this.searchKey = params.get('id2');
@@ -31,7 +31,7 @@ export class ShopPageComponent implements OnInit {
     });
   }
 
-  constructor( 
+  constructor(
     private route: ActivatedRoute,
     private searchService : SearchService,
     private userService : UserService,
@@ -54,7 +54,7 @@ export class ShopPageComponent implements OnInit {
       this.results = res;
       this.filteredResults = this.results;
     });
-  }  
+  }
 
   else if(this.category != "Categories" && this.searchKey == "") {
     this.searchService.searchProductsCategoryOnly(this.category)
@@ -70,7 +70,7 @@ export class ShopPageComponent implements OnInit {
       this.results = res;
       this.filteredResults = this.results;
     });
-    
+
   }
 }
 
@@ -97,7 +97,7 @@ export class ShopPageComponent implements OnInit {
     }
   }
 
- //sorting 
+ //sorting
  sorters = {
    byPrice: function(firstProduct, secondProduct) {
       //sorting on basis of discounted price
