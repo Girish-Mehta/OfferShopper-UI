@@ -23,7 +23,7 @@ export class WheelComponent implements OnInit{
     private osCashService: OsCashService,
     private authorizationService:AuthorizationService,
     private messageService: MessageService
-  ) { }
+    ) { }
 
   ngOnInit()
   {
@@ -51,17 +51,22 @@ export class WheelComponent implements OnInit{
   }
 
   submit(){
-   this.osCashService.putOffer(this.cash[this.sectorNo],this.user).subscribe((res) =>{
-      }, (res:Response) =>{
-        if(res.status==400){
-          console.log("spin failed");
+    this.osCashService.putOffer(this.cash[this.sectorNo],this.user).subscribe((res) =>{
+    }, (res:Response) =>{
+      if(res.status==400){
+        console.log("spin failed");
+        setTimeout(()=>{
           this.messageService.showNoSpin();
-        }
-        else{
-          console.log("success spin");
+        },3000)
+      }
+      else{
+        console.log("success spin");
+        setTimeout(()=>{
           this.messageService.showOsSpin(this.cash[this.sectorNo]);
-        }
-      });
+
+        },3000)
+      }
+    });
   }
 
 }
