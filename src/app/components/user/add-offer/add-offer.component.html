@@ -41,54 +41,54 @@
          <div class="modal-header ">
           <h4 class="modal-title ">{{ 'USER.OFFER.UPDATE-OFFER' |  translate }}</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-row">
-            <div class="form-group col-md-6">
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-row">
+              <div class="form-group col-md-6">
                 <label for="Select Category">{{ 'HOMEPAGE.CATEGORIES.CATEGORY' |  translate }}</label>
-              <select required class="custom-select custom-select-md mb-3"  name="offerCategories" [(ngModel)]="offerCategories">
-                <option value="sports">{{ 'HOMEPAGE.CATEGORIES.SPORTS' |  translate }}</option>
-                <option value="clothing">{{ 'HOMEPAGE.CATEGORIES.CLOTHES' |  translate }}</option>
-                <option value="food">{{ 'HOMEPAGE.CATEGORIES.FOOD' |  translate }}</option>
-              </select>
+                <select required class="custom-select custom-select-md mb-3"  name="offerCategories" [(ngModel)]="offerCategories">
+                  <option value="sports">{{ 'HOMEPAGE.CATEGORIES.SPORTS' |  translate }}</option>
+                  <option value="clothing">{{ 'HOMEPAGE.CATEGORIES.CLOTHES' |  translate }}</option>
+                  <option value="food">{{ 'HOMEPAGE.CATEGORIES.FOOD' |  translate }}</option>
+                </select>
 
 
+              </div>
+              <div class="form-group col-md-6">
+                <label for="discount">{{ 'USER.OFFER.DISCOUNT' |  translate }}</label>
+                <input type="discount" class="form-control" id="discount" placeholder="{{discount}}" [(ngModel)]="discount" [ngModelOptions]="{standalone: true}">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="keywords"> {{ 'USER.OFFER.KEYWORD' |  translate }}</label>
+                <input type="keywords" class="form-control" id="keywords" placeholder="{{keywords}}" [(ngModel)]="keywords" [ngModelOptions]="{standalone: true}">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="offerValidity"> {{ 'USER.OFFER.VALIDITY' |  translate }}</label>
+                <input type="offerValidity" class="form-control" id="offerValidity" placeholder="{{offerValidity}}" [(ngModel)]="offerValidity" [ngModelOptions]="{standalone: true}">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="offerDescription"> {{ 'USER.OFFER.DESCRIPTION' |  translate }}</label>
+                <input type="offerDescription" class="form-control" id="offerDescription" placeholder="{{offerDescription}}" [(ngModel)]="offerDescription" [ngModelOptions]="{standalone: true}">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="offerTerms">{{ 'USER.OFFER.TAC' |  translate }}</label>
+                <input type="offerTerms" class="form-control" id="offerTerms" placeholder="{{offerTerms}}" [(ngModel)]="offerTerms" [ngModelOptions]="{standalone: true}">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="offerTitle">{{ 'USER.OFFER.NAME' |  translate }}</label>
+                <input type="offerTitle" class="form-control" id="offerTitle" placeholder="{{offerTitle}}" [(ngModel)]="offerTitle" [ngModelOptions]="{standalone: true}">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="originalPrice">{{ 'USER.OFFER.O-PRICE' |  translate }}</label>
+                <input type="originalPrice" class="form-control" id="originalPrice" placeholder="{{originalPrice}}" [(ngModel)]="originalPrice" [ngModelOptions]="{standalone: true}">
+              </div>
             </div>
-            <div class="form-group col-md-6">
-              <label for="discount">{{ 'USER.OFFER.DISCOUNT' |  translate }}</label>
-              <input type="discount" class="form-control" id="discount" placeholder="{{discount}}" [(ngModel)]="discount" [ngModelOptions]="{standalone: true}">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="keywords"> {{ 'USER.OFFER.KEYWORD' |  translate }}</label>
-              <input type="keywords" class="form-control" id="keywords" placeholder="{{keywords}}" [(ngModel)]="keywords" [ngModelOptions]="{standalone: true}">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="offerValidity"> {{ 'USER.OFFER.VALIDITY' |  translate }}</label>
-              <input type="offerValidity" class="form-control" id="offerValidity" placeholder="{{offerValidity}}" [(ngModel)]="offerValidity" [ngModelOptions]="{standalone: true}">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="offerDescription"> {{ 'USER.OFFER.DESCRIPTION' |  translate }}</label>
-              <input type="offerDescription" class="form-control" id="offerDescription" placeholder="{{offerDescription}}" [(ngModel)]="offerDescription" [ngModelOptions]="{standalone: true}">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="offerTerms">{{ 'USER.OFFER.TAC' |  translate }}</label>
-              <input type="offerTerms" class="form-control" id="offerTerms" placeholder="{{offerTerms}}" [(ngModel)]="offerTerms" [ngModelOptions]="{standalone: true}">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="offerTitle">{{ 'USER.OFFER.NAME' |  translate }}</label>
-              <input type="offerTitle" class="form-control" id="offerTitle" placeholder="{{offerTitle}}" [(ngModel)]="offerTitle" [ngModelOptions]="{standalone: true}">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="originalPrice">{{ 'USER.OFFER.O-PRICE' |  translate }}</label>
-              <input type="originalPrice" class="form-control" id="originalPrice" placeholder="{{originalPrice}}" [(ngModel)]="originalPrice" [ngModelOptions]="{standalone: true}">
-            </div>
-          </div>
-          <button type="submit" class="btn button justify-content-center" data-dismiss="modal" (click)="submit()">{{ 'BUTTONS.SUBMIT' |  translate }}</button>
-      </form>
+            <button type="submit" class="btn button justify-content-center" data-dismiss="modal" (click)="submit()">{{ 'BUTTONS.SUBMIT' |  translate }}</button>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
   </div>
   <!-- This div will create modal to update the offer -->
   <div id="myAddofferModal" class="modal fade" role="dialog">
@@ -99,27 +99,27 @@
           <h4 class="modal-title ">{{ 'USER.ADD-OFFER' |  translate }}</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-      <div class="modal-body">
-        <form #addOfferForm="ngForm" >
-          <div class="form-row">
-            <div class="form-group col-md-6">
+        <div class="modal-body">
+          <form #addOfferForm="ngForm" >
+            <div class="form-row">
+              <div class="form-group col-md-6">
                 <label for="Select Category">{{ 'HOMEPAGE.CATEGORIES.CATEGORY' |  translate }}</label>
-                  <select required class="custom-select custom-select-md mb-3"  name="offerCategories" [(ngModel)]="offerCategories">
-                    <option value="sports">{{ 'HOMEPAGE.CATEGORIES.SPORTS' |  translate }}</option>
-                    <option value="clothing">{{ 'HOMEPAGE.CATEGORIES.CLOTHES' |  translate }}</option>
-                    <option value="food">{{ 'HOMEPAGE.CATEGORIES.FOOD' |  translate }}</option>
-                  </select>
-           <!-- <div *ngIf="categorycField.touched && categorycField.errors"> -->
+                <select required class="custom-select custom-select-md mb-3"  name="offerCategories" [(ngModel)]="offerCategories">
+                  <option value="sports">{{ 'HOMEPAGE.CATEGORIES.SPORTS' |  translate }}</option>
+                  <option value="clothing">{{ 'HOMEPAGE.CATEGORIES.CLOTHES' |  translate }}</option>
+                  <option value="food">{{ 'HOMEPAGE.CATEGORIES.FOOD' |  translate }}</option>
+                </select>
+                <!-- <div *ngIf="categorycField.touched && categorycField.errors"> -->
          <!-- <div class="error" *ngIf="categorycField.errors.required">
            Category is required
          </div> -->
-       <!-- </div> -->
-            </div>
+         <!-- </div> -->
+       </div>
 
-            <div class="form-group col-md-6">
-              <label for="discount">{{ 'USER.OFFER.DISCOUNT' |  translate }}</label>
-              <input type="number" id="discount" placeholder="{{discount}}" class="form-control"
-               [(ngModel)]="discount" [ngModelOptions]="{standalone: true}" ngModel #discountField="ngModel" required pattern="^[1-9][0-9]?$|^99$">
+       <div class="form-group col-md-6">
+        <label for="discount">{{ 'USER.OFFER.DISCOUNT' |  translate }}</label>
+        <input type="number" id="discount" placeholder="{{discount}}" class="form-control"
+        [(ngModel)]="discount" [ngModelOptions]="{standalone: true}" ngModel #discountField="ngModel" required pattern="^[1-9][0-9]?$|^99$">
 
         <div *ngIf="discountField.touched && discountField.errors">
          <div class="error" *ngIf="discountField.errors.pattern">
@@ -129,86 +129,90 @@
            Discount is required
          </div>
        </div>
+     </div>
+   </div>
+   <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="keywords"> {{ 'USER.OFFER.KEYWORD' |  translate }}</label>
+      <input type="keywords" class="form-control" id="keywords" placeholder="{{keywords}}" [(ngModel)]="keywords" [ngModelOptions]="{standalone: true}" ngModel #keywordsField="ngModel" required pattern="^([a-zA-Z]+|[0-9]*)+([a-zA-Z]+[0-9]*|\s*|,*)*[a-zA-Z]+$|^([a-zA-Z]+|[0-9]*)+(\s*|,*|[0-9]+[a-zA-Z]+)*[a-zA-Z]+$">
+      <div *ngIf="keywordsField.touched && keywordsField.errors">
+       <div class="error" *ngIf="keywordsField.errors.pattern">
+         Please enter proper name
+       </div>
+       <div class="error" *ngIf="keywordsField.errors.required">
+         Keywords are required
+       </div>
+     </div>
+   </div>
+   <div class="form-group col-md-6">
+    <label for="offerValidity">{{ 'USER.OFFER.VALIDITY' |  translate }}</label>
+    <input type="date" class="form-control" id="offerValidity" placeholder="{{offerValidity}}" [(ngModel)]="offerValidity" [ngModelOptions]="{standalone: true}" required ngModel #validityField="ngModel">
+    <div *ngIf="validityField.touched && validityField.errors">
+      <div class="error" *ngIf="validityField.errors.required">
+       Validity is required
+     </div>
+   </div>
  </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="keywords"> {{ 'USER.OFFER.KEYWORD' |  translate }}</label>
-              <input type="keywords" class="form-control" id="keywords" placeholder="{{keywords}}" [(ngModel)]="keywords" [ngModelOptions]="{standalone: true}" ngModel #keywordsField="ngModel" required pattern="^([a-zA-Z]+|[0-9]*)+([a-zA-Z]+[0-9]*|\s*|,*)*[a-zA-Z]+$|^([a-zA-Z]+|[0-9]*)+(\s*|,*|[0-9]+[a-zA-Z]+)*[a-zA-Z]+$">
-                    <div *ngIf="keywordsField.touched && keywordsField.errors">
-         <div class="error" *ngIf="keywordsField.errors.pattern">
-           Please enter proper name
-         </div>
-         <div class="error" *ngIf="keywordsField.errors.required">
-           Keywords are required
-         </div>
-       </div>
-            </div>
-            <div class="form-group col-md-6">
-              <label for="offerValidity">{{ 'USER.OFFER.VALIDITY' |  translate }}</label>
-              <input type="date" class="form-control" id="offerValidity" placeholder="{{offerValidity}}" [(ngModel)]="offerValidity" [ngModelOptions]="{standalone: true}" required ngModel #validityField="ngModel">
-           <div *ngIf="validityField.touched && validityField.errors">
-          <div class="error" *ngIf="validityField.errors.required">
-           Validity is required
-         </div>
-       </div>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="offerDescription">{{ 'USER.OFFER.DESCRIPTION' |  translate }}</label>
-              <input type="offerDescription" class="form-control" id="offerDescription" placeholder="{{offerDescription}}" [(ngModel)]="offerDescription" [ngModelOptions]="{standalone: true}" required ngModel #prodDescField="ngModel" pattern="^[a-zA-Z]+[0-9]+[a-zA-Z]+$|^[a-zA-Z]+$|^[a-zA-Z]+[0-9]+$|^[0-9]+[a-zA-Z]+$">
-                            <div *ngIf="prodDescField.touched && prodDescField.errors">
-         <div class="error" *ngIf="prodDescField.errors.pattern">
-           Please enter proper name
-         </div>
-          <div class="error" *ngIf="prodDescField.errors.required">
-           Description is required
-         </div>
-       </div>
-            </div>
-            <div class="form-group col-md-6">
-              <label for="offerTerms">{{ 'USER.OFFER.TAC' |  translate }}</label>
-              <input type="offerTerms" class="form-control" id="offerTerms" placeholder="{{offerTerms}}" [(ngModel)]="offerTerms" [ngModelOptions]="{standalone: true}" required ngModel #termsField="ngModel">
-            <div *ngIf="termsField.touched && termsField.errors">
-          <div class="error" *ngIf="termsField.errors.required">
-          Terms are required
-         </div>
-       </div>
-            </div>
-          </div>
-           <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="offerTitle">{{ 'USER.OFFER.NAME' |  translate }}</label>
-              <input type="offerTitle" class="form-control" id="offerTitle" placeholder="{{offerTitle}}" [(ngModel)]="offerTitle" [ngModelOptions]="{standalone: true}" ngModel #offerField="ngModel" required pattern="^[a-zA-Z]+[0-9]+[a-zA-Z]+$|^[a-zA-Z]+$|^[a-zA-Z]+[0-9]+$|^[0-9]+[a-zA-Z]+$">
-                                   <div *ngIf="offerField.touched && offerField.errors">
-         <div class="error" *ngIf="offerField.errors.pattern">
-           Please enter proper name
-         </div>
-          <div class="error" *ngIf="offerField.errors.required">
-           Offer name is required
-         </div>
-       </div>
-            </div>
-            <div class="form-group col-md-6">
-              <label for="originalPrice">{{ 'USER.OFFER.PRICE' |  translate }}</label>
-              <input type="text" class="form-control" id="originalPrice" placeholder="{{originalPrice}}" [(ngModel)]="originalPrice" [ngModelOptions]="{standalone: true}" required ngModel #priceField="ngModel" pattern="^[0-9]+(\.[0-9]{0,2})?$">
-      <div *ngIf="priceField.touched && priceField.errors">
-         <div class="error" *ngIf="priceField.errors.pattern">
-           Please enter numbers only(upto 2 decimal precision)
-         </div>
-          <div class="error" *ngIf="priceField.errors.required">
-           Price is required
-         </div>
-       </div>
+</div>
+<div class="form-row">
+  <div class="form-group col-md-6">
+    <label for="offerDescription">{{ 'USER.OFFER.DESCRIPTION' |  translate }}</label>
+    <input type="offerDescription" class="form-control" id="offerDescription" placeholder="{{offerDescription}}" [(ngModel)]="offerDescription" [ngModelOptions]="{standalone: true}" required ngModel #prodDescField="ngModel" pattern="^[a-zA-Z]+[0-9]+[a-zA-Z]+$|^[a-zA-Z]+$|^[a-zA-Z]+[0-9]+$|^[0-9]+[a-zA-Z]+$">
+    <div *ngIf="prodDescField.touched && prodDescField.errors">
+     <div class="error" *ngIf="prodDescField.errors.pattern">
+       Please enter proper name
+     </div>
+     <div class="error" *ngIf="prodDescField.errors.required">
+       Description is required
+     </div>
+   </div>
  </div>
-          </div>
-          <button type="submit" class="btn  btn-secondary button justify-content-center" data-dismiss="modal"  [disabled]="addOfferForm.invalid" (click)="getOffer()">{{ 'USER.ADD-OFFER' |  translate }}</button>
-      </form>
-      </div>
-    </div>
+ <div class="form-group col-md-6">
+  <label for="offerTerms">{{ 'USER.OFFER.TAC' |  translate }}</label>
+  <input type="offerTerms" class="form-control" id="offerTerms" placeholder="{{offerTerms}}" [(ngModel)]="offerTerms" [ngModelOptions]="{standalone: true}" required ngModel #termsField="ngModel">
+  <div *ngIf="termsField.touched && termsField.errors">
+    <div class="error" *ngIf="termsField.errors.required">
+      Terms are required
     </div>
   </div>
+</div>
+</div>
+<div class="form-row">
+  <div class="form-group col-md-6">
+    <label for="offerTitle">{{ 'USER.OFFER.NAME' |  translate }}</label>
+    <input type="offerTitle" class="form-control" id="offerTitle" placeholder="{{offerTitle}}" [(ngModel)]="offerTitle" [ngModelOptions]="{standalone: true}" ngModel #offerField="ngModel" required pattern="^[a-zA-Z]+[0-9]+[a-zA-Z]+$|^[a-zA-Z]+$|^[a-zA-Z]+[0-9]+$|^[0-9]+[a-zA-Z]+$">
+    <div *ngIf="offerField.touched && offerField.errors">
+     <div class="error" *ngIf="offerField.errors.pattern">
+       Please enter proper name
+     </div>
+     <div class="error" *ngIf="offerField.errors.required">
+       Offer name is required
+     </div>
+   </div>
+ </div>
+ <div class="form-group col-md-6">
+  <label for="originalPrice">{{ 'USER.OFFER.PRICE' |  translate }}</label>
+  <input type="text" class="form-control" id="originalPrice" placeholder="{{originalPrice}}" [(ngModel)]="originalPrice" [ngModelOptions]="{standalone: true}" required ngModel #priceField="ngModel" pattern="^[0-9]+(\.[0-9]{0,2})?$">
+  <div *ngIf="priceField.touched && priceField.errors">
+   <div class="error" *ngIf="priceField.errors.pattern">
+     Please enter numbers only(upto 2 decimal precision)
+   </div>
+   <div class="error" *ngIf="priceField.errors.required">
+     Price is required
+   </div>
+ </div>
+</div>
+</div>
+<form>
+  <label>Upload a file </label><br>
+  <input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".png,.jpeg,.jpg">
+</form>
+<button type="submit" class="btn  btn-secondary button justify-content-center" data-dismiss="modal"  [disabled]="addOfferForm.invalid" (click)="getOffer()">{{ 'USER.ADD-OFFER' |  translate }}</button>
+</form>
+</div>
+</div>
+</div>
+</div>
 
 <!-- This div will create modal to verify coupon -->
 <div id="couponVerifyModal" class="modal fade" role="dialog">
