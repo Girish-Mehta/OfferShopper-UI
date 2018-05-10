@@ -33,11 +33,14 @@
   size:2rem;
   text-align: center;
 }
+
 .card-w{
 	cursor: pointer;
-	max-width: 18rem;
+  border: none;
+	/*max-width: 18rem;*/
+/*  width: 28rem;
 	min-height: 22rem;
-	max-height: 22rem;
+	max-height: 22rem;*/
 }
 
 .card-data {
@@ -58,4 +61,15 @@
   background-color: #018b8b;
   color: white;
   width: 100%;
+}
+
+.map {
+  height: 15rem;
+  max-height: 25rem;
+  width: 100%;
+}
+
+.vendor-route{
+  text-decoration: none;
+  color: gray;
 }

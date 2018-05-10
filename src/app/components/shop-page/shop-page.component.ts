@@ -6,40 +6,67 @@ import { Product } from '../../configs/product.config';
 import { LocationService } from '../../services/location.service';
 import { MessageService } from './../../services/message.service';
 import { Router } from '@angular/router';
+import {Location} from '@angular/common';
+import { OffersService } from '../../services/offers.service';
 
 @Component({
   selector: 'app-shop-page',
   templateUrl: './shop-page.component.html',
   styleUrls: ['./shop-page.component.css'],
-  providers:[SearchService, UserService,MessageService,LocationService]
+  providers:[SearchService, UserService,MessageService,LocationService,OffersService]
 })
 export class ShopPageComponent implements OnInit {
 
   private vendorsByCity = [];
+  vendorAddress:Array<{}>=[];
+  
+  address:any;
+  
   public category: string = "";
   private searchKey: string = "";
   //results retrieved from searching
   private results : any = [];
   private filteredResults : any = [];
   
-  ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      this.category = params.get('id1');
-      this.searchKey = params.get('id2');
-      this.getVendors(localStorage.getItem("loc"));
-      this.locationService.location.subscribe(loc => this.getVendors(loc));
-      this.loadOffers();
-    });
-  }
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    private searchService : SearchService,
-    private userService : UserService,
-    private locationService: LocationService,
-    private messageService:MessageService,
-    private _vcr:ViewContainerRef
-    ) { }
+    //Function will give the longitude and latitude of shop location
+    initMap(){
+      this.vendorAddress=[];
+      this.vendorsByCity.forEach(vendor=>{
+        let address=vendor.shopAddress;
+        this.offersService.getAddress(address.street,address.city,address.state,address.zip).subscribe((res) =>{
+          this.address = res;
+          let location={};
+          location['shopName']=vendor.shopAddress.name;
+          location['lat']=(this.address.results[0].geometry.location.lat);
+          location['lng']=(this.address.results[0].geometry.location.lng);
+          this.vendorAddress.push(location)
+        }, (error) =>{
+        })
+      })
+
+    }
+
+    ngOnInit() {
+
+      this.route.paramMap.subscribe(params => {
+        this.category = params.get('id1');
+        this.searchKey = params.get('id2');
+        this.getVendors(localStorage.getItem("loc"));
+        this.locationService.location.subscribe(loc => this.getVendors(loc));
+        this.loadOffers();
+      });
+
+    }
+    constructor(
+      private router: Router,
+      private route: ActivatedRoute,
+      private searchService : SearchService,
+      private userService : UserService,
+      private locationService: LocationService,
+      private offersService:OffersService,
+      private messageService:MessageService,
+      private _vcr:ViewContainerRef
+      ) { }
 
   //to be loaded when it is routed to this component
   loadOffers() {
@@ -68,6 +95,7 @@ export class ShopPageComponent implements OnInit {
   else {
     this.searchService.searchProductsCategoryAndKey(this.category, this.searchKey)
     .subscribe(res => {
+
       this.results = res;
       this.filteredResults = this.results;
     });
@@ -119,7 +147,8 @@ export class ShopPageComponent implements OnInit {
     console.log(this.router.url);
     this.userService.getVendorByCity(loc).subscribe(
       (res)=>{
-        this.vendorsByCity = res
+        this.vendorsByCity = res;
+        this.initMap();
       },(error) =>{
         this.vendorsByCity=null;
       });

@@ -61,6 +61,19 @@ export class AddOfferComponent implements OnInit {
 		this.getUserId();
 	}
 
+	//function to upload image
+	onFileSelected(event: any){
+	if (event.target.files && event.target.files[0]) {
+		var reader = new FileReader();
+
+		reader.onload = (event:any) => {
+			this.imageUrl = event.target.result
+		}
+
+		reader.readAsDataURL(event.target.files[0]);
+		}
+	}
+
 	//Funtion will retrieve the userId from the token
 	getUserId() {
 		this.authorizationService.getUserId().subscribe((res) =>{

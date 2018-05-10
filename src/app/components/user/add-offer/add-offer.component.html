@@ -137,7 +137,15 @@
                 </div>
               </div>
             </div>
-            <button type="submit" class="btn button justify-content-center" data-dismiss="modal" (click)="submit()">{{ 'BUTTONS.SUBMIT' |  translate }}</button>
+            <div class = form-comp>
+              <div class = "name">
+                <label for="exampleInputFile">
+                 Upload Image
+                </label></div>
+                <input type="file" (change)="onFileSelected($event)" class="form-control-file" id="exampleInputFile">
+              </div>
+
+              <button type="submit" class="btn button justify-content-center" data-dismiss="modal" (click)="submit()">{{ 'BUTTONS.SUBMIT' |  translate }}</button>
             </form>
           </div>
         </div>
@@ -246,40 +254,43 @@
                   </div>
                 </div>
               </div>
-              <form>
-                <label>Upload a file </label><br>
-                <input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".png,.jpeg,.jpg">
-              </form>
-              <button type="submit" class="btn  btn-secondary button justify-content-center" data-dismiss="modal"  [disabled]="addOfferForm.invalid" (click)="getOffer()">{{ 'USER.ADD-OFFER' |  translate }}</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- This div will create modal to verify coupon -->
-    <div id="couponVerifyModal" class="modal fade" role="dialog">
-      <div class="modal-dialog modal-lg">
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header ">
-            <h4 class="modal-title ">{{ 'USER.OFFER.VERIFY-COUPON' |  translate }}</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="coupon">{{ 'USER.OFFER.COUPON' |  translate }}</label>
-                  <input type="coupon" class="form-control" id="coupon" [(ngModel)]="coupon" [ngModelOptions]="{standalone: true}">
+              <div class = form-comp>
+                <div class = "name">
+                  <label for="exampleInputFile">
+                    Upload Image
+                  </label></div>
+                  <input type="file" (change)="onFileSelected($event)" class="form-control-file" id="exampleInputFile">
                 </div>
-              </div>
-              <button type="submit" class="btn  btn-secondary button justify-content-center" data-dismiss="modal" (click)="couponValidate()">{{ 'BUTTONS.VALIDATE' |  translate }}</button>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-dark btn-default" data-dismiss="modal">{{ 'BUTTONS.CLOSE' |  translate }}</button>
+                <button type="submit" class="btn  btn-secondary button justify-content-center" data-dismiss="modal"  [disabled]="addOfferForm.invalid" (click)="getOffer()">{{ 'USER.ADD-OFFER' |  translate }}</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+
+      <!-- This div will create modal to verify coupon -->
+      <div id="couponVerifyModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header ">
+              <h4 class="modal-title ">{{ 'USER.OFFER.VERIFY-COUPON' |  translate }}</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="coupon">{{ 'USER.OFFER.COUPON' |  translate }}</label>
+                    <input type="coupon" class="form-control" id="coupon" [(ngModel)]="coupon" [ngModelOptions]="{standalone: true}">
+                  </div>
+                </div>
+                <button type="submit" class="btn  btn-secondary button justify-content-center" data-dismiss="modal" (click)="couponValidate()">{{ 'BUTTONS.VALIDATE' |  translate }}</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-dark btn-default" data-dismiss="modal">{{ 'BUTTONS.CLOSE' |  translate }}</button>
+            </div>
+          </div>
+        </div>
+      </div>

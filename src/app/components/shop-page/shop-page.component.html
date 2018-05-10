@@ -1,5 +1,6 @@
 <!-- search bar   -->
 <app-search-bar></app-search-bar>
+
 <!-- results component being called -->
 <div class="container-fluid">
   <div class="row ml-1" *ngIf="category; else notSearched">
@@ -94,20 +95,22 @@
 </div>
 <ng-template #notSearched>
   <div *ngIf="vendorsByCity; else noVendor">
-    <div class="row">
-      <div class="col-lg-4 col-md-6 col-sm-6 card-group mb-3" *ngFor="let vendor of vendorsByCity">
-        <div class="card card-w text-dark m-5"[routerLink]="['/', 'vendorInfo',vendor.email]" >
-          <img class="card-img card-w" src="../../../../assets/card.jpeg" alt="Card image">
-          <div class="card-body card-data">
-            <div class="row">
-              <div class="col">
-                <span class="card-heading">{{vendor.shopAddress.name}}</span>
-              </div>
+
+    <div class="row justify-content-center">
+      <div class="col-md-4 card-deck" *ngFor="let vendor of vendorAddress">
+        <div class="card card-w my-2 mx-3">
+          <div class="card-body">
+            <agm-map class="map" [latitude]="vendor.lat" [longitude]="vendor.lng">
+              <agm-marker [latitude]="vendor.lat" [longitude]="vendor.lng"></agm-marker>
+            </agm-map>
+            <div class="mt-2">
+              <a [routerLink]="['/', 'vendorInfo',vendor.email]" class="vendor-route">{{vendor.shopName}}</a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
 </ng-template>
 </div>

@@ -48,7 +48,7 @@ export class SeachResultsComponent implements OnInit {
 			"offerTitle":offer1.offerTitle,
 			"offerOriginalPrice":offer1.originalPrice,
 			"offerDiscount":offer1.discount,
-			"offerImage":"abcd",
+			"offerImage":offer1.imageURL,
 			"offerValidity":offer1.offerValidity
 		}
 		this.wishlistService.addToWishlist(wishlistBean).subscribe((res) =>{
@@ -71,7 +71,7 @@ export class SeachResultsComponent implements OnInit {
 			"offerTitle":offer.offerTitle,
 			"offerOriginalPrice":offer.originalPrice,
 			"offerDiscount":offer.discount,
-			"offerImage":"abcd",
+			"offerImage":offer.imageURL,
 			"offerValidity":offer.offerValidity,
 			"vendorId":offer.userId
 		}
