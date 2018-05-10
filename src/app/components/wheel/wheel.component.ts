@@ -8,8 +8,8 @@ import { MessageService } from './../../services/message.service';
   templateUrl: './wheel.component.html',
   styleUrls: ['./wheel.component.css'],
   providers:[OsCashService,AuthorizationService, MessageService]
-
 })
+
 export class WheelComponent implements OnInit{
   previousAngle : number;
   angle: number;
@@ -26,11 +26,10 @@ export class WheelComponent implements OnInit{
   ) { }
 
   ngOnInit()
-  { this.getUserId();
-  //  this.previousAngle = 25;
-  this.previousAngle = 0;
+  {
+    this.getUserId();
+    this.previousAngle = 0;
   }
-
 
   getUserId() {
     this.authorizationService.getUserId().subscribe((res) =>{
@@ -39,9 +38,10 @@ export class WheelComponent implements OnInit{
     }, (error) =>{
     })
   }
+
   spinWheel(){
     console.log(this.angle);
-    var object = document.getElementById("img1");    
+    var object = document.getElementById("img1");
     var randomNumberBetween0and6 = Math.floor(Math.random() * 6);
     this.angle = (randomNumberBetween0and6*60)+(360*8)+this.previousAngle;
     object.style.transform = "rotate("+ this.angle+"deg)";
@@ -51,12 +51,7 @@ export class WheelComponent implements OnInit{
   }
 
   submit(){
-
-      console.log("i  am vish");
-      console.log(this.cash[this.sectorNo]);
-     this.osCashService.putOffer(this.cash[this.sectorNo],this.user).subscribe((res) =>{
-      console.log("i  am respone");
-    //  this.messageService.showOsCash(this.cash[this.sectorNo]);
+   this.osCashService.putOffer(this.cash[this.sectorNo],this.user).subscribe((res) =>{
       }, (res:Response) =>{
         if(res.status==400){
           console.log("spin failed");
@@ -67,6 +62,6 @@ export class WheelComponent implements OnInit{
           this.messageService.showOsSpin(this.cash[this.sectorNo]);
         }
       });
-
   }
+
 }
