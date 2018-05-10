@@ -1,3 +1,49 @@
+@media (max-width: 575.98px) {
+  #search {
+    width: 100%;
+  }
+  .search-categories {
+    display: none;
+  }
+
+  .search-box {
+    width: 75%;
+  }
+
+  .search-btn {
+    width: 25%;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+
+  #search {
+    width: 100%;
+  }
+
+  .search-categories {
+    width: 20%;
+  }
+
+  .search-box{
+    width: 60%;
+  }
+
+  .search-btn{
+    width:20% !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .search-box{
+    width: 30rem;
+  }
+
+  .search-btn{
+    width:120px !important;
+  }
+}
+
 #suggestion {
     border: tan;
     color:black;
@@ -21,7 +67,6 @@
 }
 
 .search-box{
-  width: 30rem;
   height: 3rem;
   outline: none;
   margin-right: 0px;
@@ -33,7 +78,6 @@
 }
 
 .search-btn{
-  
   width:4rem;
   height: 3rem;
   margin-left: 0px;
