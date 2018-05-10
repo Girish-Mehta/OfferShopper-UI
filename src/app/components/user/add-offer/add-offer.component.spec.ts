@@ -28,7 +28,6 @@ describe('AddOfferComponent', () => {
        RouterTestingModule,
        FormsModule,
       ToastModule.forRoot(),
-   //    ReactiveFormsModule,
        TranslateModule.forRoot({
           provide: TranslateLoader,
           useFactory: (http: Http) => new TranslateStaticLoader(http, 'public/assets/i18n', '.json'),
