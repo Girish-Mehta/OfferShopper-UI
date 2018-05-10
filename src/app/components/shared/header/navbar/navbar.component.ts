@@ -15,11 +15,11 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 
 export class NavbarComponent implements OnInit {
 
-	private login:boolean = false;
+	public login:boolean = false;
 	private token:any;
 	private userId: string = "";
 	private user: string = "";
-	private url: string;
+	public url: string;
 	private urlUserPage: string;
 
 	@Input() userLocation:string;

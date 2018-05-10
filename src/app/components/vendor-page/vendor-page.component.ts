@@ -32,6 +32,7 @@ export class VendorPageComponent implements OnInit {
   vendorId:string;
   public userInfo : any;
   public user : any;
+  public p:any;
 
 
   constructor(
@@ -52,7 +53,7 @@ export class VendorPageComponent implements OnInit {
     this.getOfferlist();
   }
 
-  //Function will logged in Email Id 
+  //Function will logged in Email Id
   getUserId() {
     this.authorizationService.getUserId().subscribe((res) =>{
       this.userInfo = res.text().split(',');

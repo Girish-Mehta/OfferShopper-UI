@@ -17,15 +17,17 @@ export class LocationComponent implements OnInit {
   languages = Language.languages;
   private location: string;
   private mainUrl: string;
-  
+  public cities: any;
+  public selected:any;
+
   constructor(
-    private locationService: LocationService, 
+    private locationService: LocationService,
     public translate: TranslateService,
     location: Location,
     private router: Router
     ) {
 
-  //translation 
+  //translation
   translate.addLangs(this.languages);
   translate.setDefaultLang('en');
 
@@ -43,9 +45,9 @@ getlocation(){
   let userMainUrl = (location.pathname.split('/'))[1];
   if (!navigator.geolocation){
     return;
-  }  
-  
-  function error() {    
+  }
+
+  function error() {
     if(userMainUrl == "homepage") {
       if(localStorage.getItem("loc"))
         _router.navigate(['/',userMainUrl,localStorage.getItem("loc")]);
@@ -53,7 +55,7 @@ getlocation(){
         _router.navigate(['/',userMainUrl,"Delhi"]);
     }
     console.log("User refused access to his location");
-  }  
+  }
   function get(varobj){
     navigator.geolocation.getCurrentPosition((position)=>{
       var Latitude  = position.coords.latitude;
@@ -74,7 +76,7 @@ getlocation(){
         if(userMainUrl == "homepage") {
           _router.navigate(['/',userMainUrl,varobj.a]);
         }
-      }, (error) =>{ console.log("error")    
+      }, (error) =>{ console.log("error")
     })
 
     }, error);
@@ -94,7 +96,7 @@ ngOnInit(){
     }
     else {
       this.obj.a=value.trim();
-      this.homeResultRelatedToLocation(this.obj.a); 
+      this.homeResultRelatedToLocation(this.obj.a);
     }
   }
   else
@@ -110,5 +112,16 @@ homeResultRelatedToLocation(userLocation) {
     this.router.navigate(['/',this.mainUrl,userLocation]);
 }
 
+//Function shows the favourite locations
+favouriteCity(tempselected){
+  this.selected.a=tempselected.a;
+  let value = tempselected.a;
+  localStorage.setItem("loc",tempselected.a);
+  this.locationService.updateLocation();
+  this.location = location.pathname;
+  this.mainUrl = (this.location.split('/'))[1];
+  if(this.mainUrl=="homepage")
+    this.router.navigate(['/',this.mainUrl,tempselected.a]);
 }
 
+}

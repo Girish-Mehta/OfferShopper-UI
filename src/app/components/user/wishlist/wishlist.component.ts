@@ -13,7 +13,7 @@ export class WishlistComponent implements OnInit {
 
 
   private priceAfterDiscount: any;
-  private wishlistOffers=[];
+  public wishlistOffers=[];
   private userId: string;
 
   constructor(
@@ -23,7 +23,7 @@ export class WishlistComponent implements OnInit {
     private _vcr: ViewContainerRef
     ) { }
 
-  
+
 
   ngOnInit() {
     this.getUserId();

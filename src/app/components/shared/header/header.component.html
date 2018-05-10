@@ -15,7 +15,7 @@
        <div class="container-fluid">
          <div class=" row text-center pt-2">
           <div class="col-6 col-sm-4 col-lg-2 px-0">
-           <button id="_setImg"  (click)="set('Hyderabad')" data-dismiss="modal">
+           <button id="_setImg"  (click)="setCity('Hyderabad')" data-dismiss="modal">
              <span>
                <img src="../../../assets/hyderabad.png" class="maincities" alt="Hyderabad">
                <p>Hyderabad</p>
@@ -23,7 +23,7 @@
            </button>
          </div>
          <div class="col-6 col-sm-4 col-lg-2 px-0">
-          <button id="_setImg"  (click)="set('Mumbai')" data-dismiss="modal">
+          <button id="_setImg"  (click)="setCity('Mumbai')" data-dismiss="modal">
            <span>
             <img src="https://image.flaticon.com/icons/png/128/444/444788.png" class="maincities" alt="Mumbai">
             <p>{{ 'HEADER.LOCATION.CITIES.2' | translate }}</p>
@@ -31,7 +31,7 @@
         </button>
       </div>
       <div class="col-6 col-sm-4 col-lg-2 px-0">
-       <button id="_setImg"  (click)="set('Chandigarh')" data-dismiss="modal">
+       <button id="_setImg"  (click)="setCity('Chandigarh')" data-dismiss="modal">
          <span>
            <img src="https://cdn.iconscout.com/public/images/icon/premium/png-256/chandigarh-openhand-monument-architecture-symbol-39a0c693561273cd-256x256.png" class="maincities" alt="Chandigarh">
            <p>{{ 'HEADER.LOCATION.CITIES.1' | translate }}</p>
@@ -39,7 +39,7 @@
        </button>
      </div>
      <div class="col-6 col-sm-4 col-lg-2 px-0">
-      <button  id="_setImg" (click)="set('delhi')" data-dismiss="modal">
+      <button  id="_setImg" (click)="setCity('delhi')" data-dismiss="modal">
         <span >
          <img src="../../../assets/delhi.png" class="maincities" alt="Delhi"/>
          <p >{{ 'HEADER.LOCATION.CITIES.0' | translate }}</p>
@@ -47,7 +47,7 @@
      </button>
    </div>
    <div class="col-6 col-sm-4 col-lg-2 px-0">
-     <button id="_setImg"  (click)="set('Ahmedabad')" data-dismiss="modal">
+     <button id="_setImg"  (click)="setCity('Ahmedabad')" data-dismiss="modal">
        <span>
          <img src="../../../assets/ahmedabad.png" class="maincities" alt="Ahmedabad">
          <p>Ahmedabad</p>
@@ -55,7 +55,7 @@
      </button>
    </div>
    <div class="col-6 col-sm-4 col-lg-2 px-0">
-     <button id="_setImg"  (click)="set('Bengaluru')" data-dismiss="modal">
+     <button id="_setImg"  (click)="setCity('Bengaluru')" data-dismiss="modal">
        <span>
          <img src="../../../assets/bengaluru.png" class="maincities" alt="Bengaluru">
          <p>Bengaluru</p>
@@ -67,7 +67,7 @@
 </div>
 <div class="modal-footer">
   <span>
-    <button type="button" class="btn btn-default " data-dismiss="modal"  (click)="fav(tempselected)">{{ 'HEADER.LOCATION.CONTINUE' | translate }}</button>
+    <button type="button" class="btn btn-default " data-dismiss="modal"  (click)="favouriteCity(tempselected)">{{ 'HEADER.LOCATION.CONTINUE' | translate }}</button>
     <button type="button" class="btn btn-dark " data-dismiss="modal">{{ 'HEADER.LOCATION.SKIP' | translate }}</button>
   </span>
 </div>
