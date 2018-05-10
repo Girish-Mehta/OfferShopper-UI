@@ -32,21 +32,23 @@
         <span >{{ 'USER.SUBSCRIBE' |  translate }}</span>
       </a>
     </li>
-    <li class="m-3 mb-0 p-2 pb-0">
-      <a [ngClass]="{active:userList=='add-offer', inactive:userList!='add-offer'}" *ngIf="role=='Vendor'|| role=='vendor'" [routerLink]="['/user', 'add-offer']">
-        <i class="fas fa-home"></i>
-        <span >{{ 'USER.VENDOR-DASHBOARD' |  translate }}</span>
-      </a>
-    </li>
-    <li class="m-3 mb-0 p-2 pb-0">
-      <a [ngClass]="{active:userList=='be-a-seller', inactive:userList!='be-a-seller'}" *ngIf="role=='Customer'" [routerLink]="['/user', 'be-a-seller']">
-        <i class="fas fa-user-plus"></i>
-        <span >{{ 'USER.BE-SELLER' |  translate }}</span>
-      </a>
-    </li>
-
+    <div *ngIf="role=='Vendor'">
+      <li class="m-3 mb-0 p-2 pb-0">
+        <a [ngClass]="{active:userList=='add-offer', inactive:userList!='add-offer'}" *ngIf="role=='Vendor'|| role=='vendor'" [routerLink]="['/user', 'add-offer']">
+          <i class="fas fa-home"></i>
+          <span >{{ 'USER.VENDOR-DASHBOARD' |  translate }}</span>
+        </a>
+      </li>
+    </div>
+    <div *ngIf="role=='Customer'">
+      <li class="m-3 mb-0 p-2 pb-0" [ngClass]="{visible:role=='Cutomer', hidden:role=='Vendor'}">
+        <a [ngClass]="{active:userList=='be-a-seller', inactive:userList!='be-a-seller'}" *ngIf="role=='Customer'" [routerLink]="['/user', 'be-a-seller']">
+          <i class="fas fa-user-plus"></i>
+          <span >{{ 'USER.BE-SELLER' |  translate }}</span>
+        </a>
+      </li>
+    </div>
   </ul>
-
 </div>
 
 
