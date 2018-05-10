@@ -1,5 +1,5 @@
-<!--Sidebar of help compomnent-->
-<div class="help-sidebar border-right d-flex justify-content-center mt-2">
+<!--Sidebar of help compomnent when size screen greater than medium-->
+<div class="large-help-sidebar border-right d-flex justify-content-center mt-2">
 	<ul class="nav nav-pills flex-column ">
 		<li class="text-center py-2" [ngClass]="{active:helpOption=='FAQs', inactive:helpOption!='FAQs'}" [routerLink]="['/help', 'FAQs']">
 			{{ 'FOOTER.HELP.FAQ.FQ' | translate }}
@@ -9,6 +9,17 @@
 		</li>		
 	</ul>
 </div>
+<!--Sidebar of help compomnent when size screen less than medium-->
+<div class="container-fluid pb-2 d-block d-md-none">
+	<div class="row small-help-sidebar border-bottom d-flex justify-content-center">
+		<div class="col-6 text-center py-2" [ngClass]="{active:helpOption=='FAQs', inactive:helpOption!='FAQs'}" [routerLink]="['/help', 'FAQs']">
+			{{ 'FOOTER.HELP.FAQ.FQ' | translate }}
+		</div>
+		<div class="col-6 text-center py-2" [ngClass]="{active:helpOption=='terms', inactive:helpOption!='terms'}" [routerLink]="['/help', 'terms']">
+			{{ 'FOOTER.HELP.TAC.TAC' | translate }}
+		</div>	
+	</div>
+</div>
 
 <!--Help content-->
 <div class="help-content pl-2">
@@ -16,8 +27,9 @@
 	<div [ngSwitch]="helpOption">
 		<!--Data to display if user selected Terms and Conditions-->
 		<div *ngSwitchCase="'terms'">
-			<h1>{{ 'FOOTER.HELP.TAC.TAC' | translate }}</h1>
-			<h3>{{ 'FOOTER.HELP.TAC.OPERATING.TITLE' | translate }}</h3>
+			<span class="h1-heading">{{ 'FOOTER.HELP.TAC.TAC' | translate }}</span>
+			<br/>
+			<span class="h3-heading">{{ 'FOOTER.HELP.TAC.OPERATING.TITLE' | translate }}</span>
 			<p>{{ 'FOOTER.HELP.TAC.OPERATING.BODY' | translate }}</p>
 			<ul>
 				<li>
@@ -45,7 +57,7 @@
 		
 		<!--Data to display if user selected FAQs-->
 		<div *ngSwitchCase="'FAQs'">
-			<h1> {{ 'FOOTER.HELP.FAQ.TITLE' | translate }}</h1>
+			<span class="h1-heading"> {{ 'FOOTER.HELP.FAQ.TITLE' | translate }}</span>
 			<ol>
 				<li>
 					<h6><strong>{{ 'FOOTER.HELP.FAQ.Q1' | translate }}</strong></h6>
