@@ -11,7 +11,7 @@
   <!-- This div will create the cards of offer uploaded by vendor -->
   <div class="container mt-2">
     <div class="row ">
-      <div class="col-md-4 add-offer-list justify-content-center d-flex " *ngFor="let offer of offers">
+      <div class="col-md-4 add-offer-list justify-content-center d-flex " *ngFor="let offer of offers  | paginate:{itemsPerPage : 6, currentPage : p}">
         <div class="card border border-dark add-offer-card ">
           <div class="card-body ">
             <h5 class="card-title">{{offer.offerTitle.toUpperCase()}}</h5>
@@ -33,7 +33,10 @@
       <div>
       </div>
     </div>
-    <!-- This div will create the modal to upload the new offer -->
+    <div class="text-center pt-5">
+        <pagination-controls (pageChange)="p=$event"></pagination-controls>
+      </div>
+    <!-- This div will create the modal to update the existing offer -->
     <div id="myModal" class="modal fade" role="dialog">
       <div class="modal-dialog modal-lg">
         <!-- Modal content-->

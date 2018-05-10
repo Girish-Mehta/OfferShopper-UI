@@ -22,6 +22,7 @@ export class NavbarComponent implements OnInit {
 	public url: string;
 	private urlUserPage: string;
 
+
 	@Input() userLocation:string;
 
 	constructor(
@@ -77,5 +78,9 @@ export class NavbarComponent implements OnInit {
 	loadUserprofile(){
 		this.isLogin();
 		this.router.navigate(['/user/userdetails']);
+	}
+
+	routeToSearch() {
+		this.router.navigateByUrl("/search/"+localStorage.getItem("loc"));
 	}
 }

@@ -120,7 +120,6 @@ export class AddOfferComponent implements OnInit {
 		let date = user.offerValidity.split("T");
 		let newDate = date[0].split("-");
 		let formatDate = newDate[0]+"/"+newDate[1]+"/"+newDate[2];
-		console.log(formatDate);
 		this.offerValidity=formatDate;
 		this.offerDescription=user.offerDescription;
 		this.offerTerms=user.offerTerms;
@@ -131,7 +130,6 @@ export class AddOfferComponent implements OnInit {
 	//Function will update the offer on vendor page
 	submit(){
 		let IsoDate = new Date(this.offerValidity).toISOString();
-		console.log(IsoDate);
 		this.obj={
 			"offerId" :this.User.offerId,
 			"userId"  :this.User.userId,
@@ -149,7 +147,7 @@ export class AddOfferComponent implements OnInit {
 			"imageURL":this.imageUrl
 		}
 		this.addOfferService.putOffer(this.obj).subscribe((res) =>{
-			this.getOffers(this.userId);
+			this.getOffers(res.userId);
 			this.reset();
 		}, (error) =>{
 
@@ -161,10 +159,10 @@ export class AddOfferComponent implements OnInit {
 	//Function will retrieve all the offers uploaded by the vendor
 	getOffer() {
 		this.addOfferService.getShopAddress(this.userId).subscribe((res) =>{
-			debugger
+			
 			this.shopAddress=res.shopAddress;
 			this.addOffer();
-			debugger
+			
 			this.reset();
 		}, (error) =>{
 		})
@@ -231,7 +229,6 @@ export class AddOfferComponent implements OnInit {
 
 		let time = "T"+hours+":"+minutes+":"+seconds;
 		let datetime = year+"-"+month+"-"+day+time;
-		debugger
 		this.obj={
 			"userId"  :this.userId,
 			"offerTitle" :this.offerTitle,
@@ -247,9 +244,9 @@ export class AddOfferComponent implements OnInit {
 			"keywords" :this.keywords,
 			"imageURL" :this.imageUrl
 		}
-		console.log(this.obj);
 		this.addOfferService.addNewOffer(this.obj).subscribe((res) =>{
-			this.getOffers(this.userId);
+			
+			this.getOffers(res.userId);
 			this.messageService.showSuccessToast(this._vcr,"Offer added");
 		}, (error) =>{
 		})
@@ -280,6 +277,10 @@ export class AddOfferComponent implements OnInit {
 			if(couponData==null) {
 				this.messageService.showErrorToast(this._vcr,"Sorry,Wrong CouponId");
 			}
+			else if (couponData!=null&&couponData.vendorValidationFlag==true)
+			{
+				alert("already validated");
+			}
 			else {
 				let obj = {
 					"couponId" : couponData.couponId,
@@ -289,7 +290,7 @@ export class AddOfferComponent implements OnInit {
 					"rating" : couponData.rating,
 					"vendorValidationFlag" : true
 				}
-				console.log("originalPrice "+this.originalPrice);
+
 				this.addOfferService.changeFlag(obj).subscribe((res) =>{
 					this.messageService.showSuccessToast(this._vcr,"coupon verified");
 					//code not checked

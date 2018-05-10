@@ -6,6 +6,7 @@ import { WishlistService } from './../../services/wishlist.service';
 import { CarrybagService } from './../../services/carrybag.service';
 import { AuthorizationService } from './../../services/authorization.service';
 import { MessageService } from './../../services/message.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-product-page',
@@ -40,7 +41,8 @@ export class ProductPageComponent implements OnInit {
     private authorizationService: AuthorizationService,
     private carrybagService: CarrybagService,
     private messageService: MessageService,
-    private _vcr: ViewContainerRef
+    private _vcr: ViewContainerRef,
+    private _location: Location
     ) { }
 
   ngOnInit() {
@@ -51,7 +53,7 @@ export class ProductPageComponent implements OnInit {
       this.getOfferById();
     }
     else {
-      this.searchProduct();  
+      this.searchProduct();
     }
   }
 
@@ -72,7 +74,7 @@ export class ProductPageComponent implements OnInit {
    });
  }
 
- getOfferById() { 
+ getOfferById() {
    this.productDetailService.getOfferById(this.offerId)
    .subscribe((res) =>{
      this.offer=res;
@@ -84,7 +86,7 @@ export class ProductPageComponent implements OnInit {
      this.productDiscount=res.discount;
      this.shop=res.address.name;
      this.category=res.offerCategories;
-     
+
      this.searchRelatedProducts(this.category);
    },(error) =>{
 
@@ -152,4 +154,7 @@ export class ProductPageComponent implements OnInit {
    },(error)=>{})
  }
 
+ backClicked() {
+        this._location.back();
+  }
 }
