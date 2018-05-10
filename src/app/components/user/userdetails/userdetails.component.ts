@@ -106,7 +106,6 @@ export class UserdetailsComponent implements OnInit {
       this.vendorMobileNo=this.data.vendorMobileNo;
       this.timestamp=this.data.timestamp;
       this.offerIdList=this.data.offerIdList;
-      console.log(res);
     },(error) =>{
     })
   }
