@@ -38,20 +38,29 @@ export class HeaderComponent implements OnInit {
     this.locationService.updateLocation();
     this.location = location.pathname;
     this.mainUrl = (this.location.split('/'))[1];
-    if(this.mainUrl=="homepage")
+
+    if(this.mainUrl=="homepage") {
       this.router.navigate(['/',this.mainUrl,tempselected.a]);
+    }
+    else if(this.mainUrl == "search") {
+      this.router.navigate(['/',this.mainUrl,tempselected.a]);
+    }
   }
 
   //Function sets the city name
   setCity(city){
     this.selected.a=city;
     let value = city;
+    this.tempselected.a=city;
     localStorage.setItem("loc",city);
     this.location = location.pathname;
     this.mainUrl = (this.location.split('/'))[1];
-    if(this.mainUrl=="homepage")
+    if(this.mainUrl=="homepage"){ 
       this.router.navigate(['/',this.mainUrl,city]);
-
+    } 
+    else if(this.mainUrl == "search") {
+      this.router.navigate(['/',this.mainUrl,city]);
+    }
   }
 
   getLocation(event) {

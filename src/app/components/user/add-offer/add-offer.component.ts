@@ -3,6 +3,9 @@ import { AddOfferService } from '../../../services/add-offer.service';
 import { FormsModule} from '@angular/forms';
 import { AuthorizationService } from '../../../services/authorization.service';
 import { MessageService } from '../../../services/message.service';
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 
 @Component({
@@ -21,6 +24,7 @@ export class AddOfferComponent implements OnInit {
 	offerValidity:any;
 	discount:any;
 	keywords:String;
+	imageUrl: String;
 	offerDescription:String;
 	offerTerms:String;
 	offerTitle:String;
@@ -43,10 +47,12 @@ export class AddOfferComponent implements OnInit {
 	date = new Date();
 	public offers=[];
 	
-	constructor(private addOfferService: AddOfferService,
+	constructor(
+		private addOfferService: AddOfferService,
 		private authorizationService: AuthorizationService,
 		private messageService: MessageService,
-		private _vcr: ViewContainerRef
+		private _vcr: ViewContainerRef,
+		private http: Http
 		) { }
 
 	ngOnInit()
@@ -114,7 +120,6 @@ export class AddOfferComponent implements OnInit {
 		let date = user.offerValidity.split("T");
 		let newDate = date[0].split("-");
 		let formatDate = newDate[0]+"/"+newDate[1]+"/"+newDate[2];
-	
 		this.offerValidity=formatDate;
 		this.offerDescription=user.offerDescription;
 		this.offerTerms=user.offerTerms;
@@ -140,29 +145,50 @@ export class AddOfferComponent implements OnInit {
 			"offerCategories" :this.offerCategories,
 			"offerTerms" :this.offerTerms,
 			"keywords" :this.keywords,
-			"imageURL":"image_url"
+			"imageURL":this.imageUrl
 		}
 		this.addOfferService.putOffer(this.obj).subscribe((res) =>{
-			this.getOffers(this.userId);
+			this.getOffers(res.userId);
 			this.reset();
 		}, (error) =>{
 
 		})
-	
+
 
 	}
 
 	//Function will retrieve all the offers uploaded by the vendor
 	getOffer() {
 		this.addOfferService.getShopAddress(this.userId).subscribe((res) =>{
-			debugger
+			
 			this.shopAddress=res.shopAddress;
 			this.addOffer();
-			debugger
+			
 			this.reset();
 		}, (error) =>{
 		})
 	}
+
+	fileChange(event) {
+		let fileList: FileList = event.target.files;
+		if(fileList.length > 0) {
+			let file: File = fileList[0];
+			let formData:FormData = new FormData();
+			formData.append('file', file);
+			this.addOfferService.addImage(formData).subscribe((res: any) =>{				
+				this.imageUrl=res.text();
+				this.messageService.showSuccessToast(this._vcr,"Image uploaded");
+			}, (error) =>{
+			})
+        /*let headers = new Headers();
+        this.http.post("http://10.151.60.204:8801/upload", formData)
+            .map(res => res.json())
+            .subscribe(
+                data => console.log('success'),
+                error => console.log(error)
+                )*/
+            }
+        }
 
 	//Function will add new offers updated by the vendor
 	addOffer(){
@@ -204,7 +230,6 @@ export class AddOfferComponent implements OnInit {
 
 		let time = "T"+hours+":"+minutes+":"+seconds;
 		let datetime = year+"-"+month+"-"+day+time;
-		debugger
 		this.obj={
 			"userId"  :this.userId,
 			"offerTitle" :this.offerTitle,
@@ -217,11 +242,12 @@ export class AddOfferComponent implements OnInit {
 			"offerRating" :0.0,
 			"offerCategories" :this.offerCategories,
 			"offerTerms" :this.offerTerms,
-			"keywords" :this.keywords
+			"keywords" :this.keywords,
+			"imageURL" :this.imageUrl
 		}
-		debugger
 		this.addOfferService.addNewOffer(this.obj).subscribe((res) =>{
-			this.getOffers(this.userId);
+			
+			this.getOffers(res.userId);
 			this.messageService.showSuccessToast(this._vcr,"Offer added");
 		}, (error) =>{
 		})
@@ -237,11 +263,11 @@ export class AddOfferComponent implements OnInit {
 			"offerCategories" : this.offerCategories,
 			"keywords" : this.keywords
 		}
-				
-			this.addOfferService.addToSoundex(this.toSoundex).subscribe((res) =>{
-			}, (error) =>{
-				alert("not added to soundex");
-			})
+
+		this.addOfferService.addToSoundex(this.toSoundex).subscribe((res) =>{
+		}, (error) =>{
+			alert("not added to soundex");
+		})
 	}
 
 	//Function will validate the coupon code entered by the vendor
@@ -251,6 +277,10 @@ export class AddOfferComponent implements OnInit {
 			let couponData = res;
 			if(couponData==null) {
 				this.messageService.showErrorToast(this._vcr,"Sorry,Wrong CouponId");
+			}
+			else if (couponData!=null&&couponData.vendorValidationFlag==true)
+			{
+				alert("already validated");
 			}
 			else {
 				let obj = {
@@ -262,6 +292,7 @@ export class AddOfferComponent implements OnInit {
 					"vendorValidationFlag" : true
 				}
 				
+
 				this.addOfferService.changeFlag(obj).subscribe((res) =>{
 					this.messageService.showSuccessToast(this._vcr,"coupon verified");
 					//code not checked
