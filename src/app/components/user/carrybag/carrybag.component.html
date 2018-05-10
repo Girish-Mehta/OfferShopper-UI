@@ -5,7 +5,7 @@
   </div>
 </div>
 
-<!-- This will display the offers added in Carrybag --> 
+<!-- This will display the offers added in Carrybag -->
 <div *ngIf="carryBagOffers.length">
 
   <div *ngIf="!carryBagOffers.length" class="carryempty">
@@ -14,7 +14,7 @@
   <!-- This div will create the cards of offers added in carrybag -->
   <div class="container-fluid" >
       <div class="row">
-          <div class="col-md-4 card-group mb-3" *ngFor=" let offerList of carryBagOffers">
+          <div class="col-md-5 card-group mb-md-3" *ngFor=" let offerList of carryBagOffers">
               {{productPrice(offerList.offerOriginalPrice,offerList.offerDiscount)}}
               <div class="card card-w text-dark m-5">
               <div class="card-img-overlay">
@@ -23,7 +23,7 @@
                     <button class="btn btn-dark my-2 my-sm-0 " type="button" (click)="deleteOffer(offerList.userId,offerList.offerId)"><i class="fas fa-trash-alt"></i> {{ 'BUTTONS.DELETE' | translate }}</button>
                   </div>
               </div>
-    
+
               <img class="card-img card-w" src="../../../../assets/card.jpeg" alt="Card image">
               <div class="card-body card-data">
                 <div class="row">
@@ -46,18 +46,13 @@
                       <div data-toggle="modal" data-target="#couponModal" #coupModal ></div>
                       <button class="btn btn-dark my-2 my-sm-0 mx-1 col-4" type="button" (click)="checkFeedbackExistence(offerList.offerId,offerList.userId)">{{ 'BUTTONS.ADD-FEEDBACK' | translate }}</button>
                       <div data-toggle="modal" data-target="#feedbackModal"  #myModal ></div>
-                      <div>
-                      </div>
-
-                    </div>
+                  </div>
                 </div>
               </div>
-              
             </div>
-            
           </div>
         </div>
-  </div>
+      </div>
 
 
   <!-- This div will create the modal to get feedback -->
@@ -101,5 +96,3 @@
       </div>
     </div>
   </div>
-
-

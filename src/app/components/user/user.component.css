@@ -1,4 +1,4 @@
-@media (min-width: 768px) {
+
 	.user-sidebar {
 		position: fixed;
 		width: 270px;
@@ -6,7 +6,7 @@
 	}
 
 	.user-content {
-		margin-left: 270px; 
+		margin-left: 270px;
 	}
 
 	.active {
@@ -17,7 +17,7 @@
 	.inactive {
 		border-bottom: 1px solid lightgrey;
 	}
-	
+
 	.active:active,
 	.active:focus,
 	.active.active {
@@ -26,7 +26,7 @@
 		-webkit-box-shadow: none;
 		box-shadow: none;
 	}
-}
+
 
 .user-sidebar li {
 	cursor: pointer;

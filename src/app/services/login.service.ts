@@ -19,7 +19,6 @@ export class LoginService {
     this.header.append('Authorization',localStorage.getItem("application-token"));
   }
 
-
   loginWithEmailId(username,password){
     const options = new RequestOptions({headers: this.header});
     let body= {
