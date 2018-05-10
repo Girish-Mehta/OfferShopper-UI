@@ -9,46 +9,46 @@
     <div class="col-8 d-flex  justify-content-center">
       <div class="collapse navbar-collapse justify-content-center " id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-0 mb-0 mt-2 mt-lg-0 justify-self-center">
-          <li class="nav-item nav-text ml-3" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <li class="nav-item nav-text ml-3">
             <a id="home-button" class="nav-link text-dark" [ngClass]="{active:url=='homepage'}" [routerLink]="['homepage',userLocation]">
               {{ 'HEADER.NAVBAR.HOME' | translate }}
               <span class="sr-only">(current)</span>
             </a>
           </li>
-          <li class="nav-item nav-text" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <li class="nav-item nav-text">
             <a class="nav-link" [ngClass]="{active:url=='search'}" routerLink="/search">
               <font class="text-pride">
                 {{ 'HEADER.NAVBAR.SHOP' | translate }}
               </font>
             </a>
           </li>
-          <li class="nav-item nav-text" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <li class="nav-item nav-text">
             <a class="nav-link text-dark" [ngClass]="{active:url=='help'}" routerLink="/help/FAQs">
               {{ 'HEADER.NAVBAR.FAQ' | translate }}
             </a>
           </li>
-          <li class="nav-item nav-text d-block d-lg-none" *ngIf="login" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <li class="nav-item nav-text d-block d-lg-none" *ngIf="login">
             <a class="nav-link text-dark" [ngClass]="{active:urlUserPage=='userdetails'}" (click)="loadUserprofile()">
               Personal Information
             </a>
           </li>
-          <li class="nav-item nav-text d-block d-lg-none" *ngIf="!login" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <li class="nav-item nav-text d-block d-lg-none" *ngIf="!login">
             <a class="nav-link text-dark" [ngClass]="{active:urlUserPage=='login'}" routerLink="/login">
               Login/Register
             </a>
           </li>
-          <li class="nav-item nav-text d-block d-lg-none" *ngIf="login" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <li class="nav-item nav-text d-block d-lg-none" *ngIf="login">
             <a class="nav-link text-dark" [ngClass]="{active:urlUserPage=='wishlist'}" [routerLink]="['/user', 'wishlist']">
               {{ 'HEADER.NAVBAR.WISHLIST' | translate }}
             </a>
           </li>
-          <li class="nav-item nav-text d-block d-lg-none" *ngIf="login" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <li class="nav-item nav-text d-block d-lg-none" *ngIf="login">
             <a class="nav-link text-dark" [ngClass]="{active:urlUserPage=='carrybag'}" [routerLink]="['/user', 'carrybag']">
               {{ 'HEADER.NAVBAR.CARRYBAG' | translate }}
             </a>
           </li>
           <div *ngIf="login">
-            <li class="nav-item nav-text d-block d-lg-none" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <li class="nav-item nav-text d-block d-lg-none">
               <a class="nav-link text-dark" (click)="logout()" [routerLink]="['/homepage',userLocation]">{{ 'HEADER.NAVBAR.LOGOUT' | translate }}</a>
             </li>
           </div>
