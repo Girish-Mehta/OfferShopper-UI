@@ -1,49 +1,61 @@
-<div class="py-5 px-2 xyz">
+<div class="py-5 px-2 my-3 mt-4 xyz">
   <div class="container abc d-flex align-items-center justify-content-center">
-    <div class="row rounded p-2">
-      <form>
+    <div class="row border rounded p-2">
+      <form [formGroup]="form" >
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="firstName"> {{ 'USER.SELLER.FIRST-NAME' | translate }}</label>
-            <input type="firstName" class="form-control" id="firstName" placeholder="{{firstName}}" disabled [(ngModel)]="firstName" [ngModelOptions]="{standalone: true}">
+            <input type="text" class="form-control" id="firstName" formControlName="firstName" >
           </div>
           <div class="form-group col-md-6">
             <label for="lastName">{{ 'USER.SELLER.LAST-NAME' | translate }}</label>
-            <input type="lastName" class="form-control" id="lastName" placeholder="{{lastName}}" disabled [(ngModel)]="lastName" [ngModelOptions]="{standalone: true}">
+            <input type="text" class="form-control" id="lastName" formControlName="lastName" >
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="phone">{{ 'USER.SELLER.CONTACT' | translate }} </label>
-            <input type="phone" class="form-control" id="phone" placeholder="{{phone}}" disabled [(ngModel)]="phone" [ngModelOptions]="{standalone: true}">
+            <input type="text" class="form-control" id="phone" formControlName="phone" >
+                    <div *ngIf="form.get('phone').touched && form.get('phone').invalid" class="alert-msg">
+                  <div *ngIf="form.get('phone').hasError('minlength') && !form.get('phone').hasError('pattern')">
+                    {{ 'LOGIN.ERROR-DIG-LESS' | translate }}
+                  </div>
+                  <div *ngIf="form.get('phone').hasError('maxlength') && !form.get('phone').hasError('pattern')">
+                    {{ 'LOGIN.ERROR-DIG-MORE' | translate }}
+                </div>
+                <div *ngIf="form.get('phone').hasError('pattern')">
+                  {{ 'LOGIN.INVALID' | translate }}{{ 'USER.SELLER.CONTACT' | translate }}
+                </div>
+              </div>
           </div>
           <div class="form-group col-md-6">
             <label for="emailId">{{ 'USER.SELLER.EMAIL' | translate }}</label>
-            <input type="emailId" class="form-control" id="emailId" placeholder="{{emailId}}" disabled [(ngModel)]="emailId" [ngModelOptions]="{standalone: true}">
+            <input type="emailId" class="form-control" id="emailId" formControlName="emailId">
           </div>
         </div>
         <div class="form-group">
           <label for="inputAddress">{{ 'USER.SELLER.ADDRESS.TITLE' | translate }}</label>
-          <input type="text" class="form-control" id="inputAddress" placeholder="{{street}}" disabled [(ngModel)]="street" [ngModelOptions]="{standalone: true}">
+          <input type="text" class="form-control" id="inputAddress" formControlName="street">
         </div>
         <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputCity">{{ 'USER.SELLER.ADDRESS.CITY' | translate }}</label>
-            <select name=slist class="form-control" id="inputCity" disabled [(ngModel)]="city" [ngModelOptions]="{standalone: true}">
-              <option value="{{city}}">{{city}}</option>
-              <option *ngFor="let city of homeCities" value={{city}}>{{city}}</option>
-            </select>
-          </div>
+          
           <div class="form-group col-md-4">
             <label for="inputState">{{ 'USER.SELLER.ADDRESS.STATE' | translate }}</label>
-            <select (change)="showRelevantCitiesHome(state)" name=slist class="form-control" id="inputState" disabled [(ngModel)]="state" [ngModelOptions]="{standalone: true}">
+            <select (change)="showRelevantCitiesHome()" name=slist class="form-control" formControlName="state" >
               <option value="state">{{state}}</option>
               <option *ngFor="let state of states" value={{state}}>{{state}}</option>
             </select>
           </div>
+          <div class="form-group col-md-6">
+            <label for="inputCity">{{ 'USER.SELLER.ADDRESS.CITY' | translate }}</label>
+            <select name=slist class="form-control" id="inputCity" formControlName="city">
+              <option value="{{city}}">{{city}}</option>
+              <option *ngFor="let cityy of homeCities" value={{cityy}}>{{cityy}}</option>
+            </select>
+          </div>
           <div class="form-group col-md-2">
             <label for="inputZip">{{ 'USER.SELLER.ADDRESS.ZIP' | translate }}</label>
-            <input type="text" class="form-control" id="inputZip" placeholder="{{zip}}" disabled [(ngModel)]="zip" [ngModelOptions]="{standalone: true}">
+            <input type="text" class="form-control" id="inputZip" formControlName="zip">
           </div>
         </div>
         <hr/>
@@ -51,41 +63,82 @@
         <div *ngIf="role=='Vendor'">
           <div class="form-group">
             <label for="inputShopName">{{ 'USER.SELLER.ADDRESS.SHOP-NAME' | translate }}</label>
-            <input type="text" class="form-control" id="inputShopName" placeholder="{{shopName}}" disabled [(ngModel)]="shopName" [ngModelOptions]="{standalone: true}">
+            <input type="text" class="form-control" id="inputShopName" formControlName="shopName">
+              <div *ngIf="form.get('shopName').touched && form.get('shopName').invalid" class="alert-msg">
+                  <div *ngIf="form.get('shopName').hasError('required')">
+                    {{ 'USER.SELLER.ADDRESS.SHOP' | translate }}{{ 'LOGIN.REQ' | translate }}
+                  </div>
+                </div>
           </div>
           <div class="checkbox pb-2">
-            <input type="checkbox" (click)="setCheckboxAddress()" id="sameCheckbox" value="SameAsAbove" disabled [(ngModel)]="sameCheckbox" [ngModelOptions]="{standalone: true}"> {{ 'USER.SELLER.ADDRESS.SAME' | translate }}
+            <input type="checkbox" formControlName="sameAddress" (click)="setAddress()" id="SameCheckbox" value="SameAsAbove"> {{ 'USER.SELLER.ADDRESS.SAME' | translate }}
+
+
           </div>
+
+          
           <div class="form-group">
             <label for="inputShopAddress">{{ 'USER.SELLER.ADDRESS.SHOP' | translate }}</label>
-            <input type="text" class="form-control" id="inputShopAddress" placeholder="{{shopStreet}}" disabled [(ngModel)]="shopStreet" [ngModelOptions]="{standalone: true}">
+            <input type="text" class="form-control" id="inputShopAddress" formControlName="shopStreet">
+                  <div *ngIf="form.get('shopStreet').touched && form.get('shopStreet').invalid" class="alert-msg">
+                  <div *ngIf="form.get('shopStreet').hasError('required')">
+                    {{ 'USER.SELLER.ADDRESS.TITLE' | translate }}{{ 'LOGIN.REQ' | translate }}
+                  </div>
+                </div>
           </div>
           <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputShopCity">{{ 'USER.SELLER.ADDRESS.CITY' | translate }}</label>
-              <select name=slist class="form-control" id="inputShopCity" disabled [(ngModel)]="shopCity" [ngModelOptions]="{standalone: true}">
-                <option value="{{shopCity}}">{{shopCity}}</option>
-                <option *ngFor="let city of shopCities" value={{city}}>{{city}}</option>
-              </select>
-            </div>
+            
             <div class="form-group col-md-4">
               <label for="inputShopState">{{ 'USER.SELLER.ADDRESS.STATE' | translate }}</label>
-              <select (change)=showRelevantCitiesShop(shopState) name=slist class="form-control" id="inputShopState" disabled [(ngModel)]="shopState" [ngModelOptions]="{standalone: true}">
+              <select (change)="showRelevantCitiesShop()" name=slist class="form-control" id="inputShopState" formControlName="shopState" >
                 <option value="{{shopState}}">{{shopState}}</option>
                 <option *ngFor="let state of states" value={{state}}>{{state}}</option>
               </select>
+                     <div *ngIf="form.get('shopState').touched && form.get('shopState').invalid" class="alert-msg">
+                      <div *ngIf="form.get('shopState').hasError('required')" >
+                        {{ 'USER.SELLER.ADDRESS.STATE' | translate }}{{ 'LOGIN.REQ' | translate }}
+                      </div>
+                    </div>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputShopCity">{{ 'USER.SELLER.ADDRESS.CITY' | translate }}</label>
+              <select name=slist class="form-control" id="inputShopCity" formControlName="shopCity" >
+                <option value="{{shopCity}}">{{shopCity}}</option>
+                <option *ngFor="let shopCityy of shopCities" value={{shopCityy}}>{{shopCityy}}</option>
+              </select>
+                        <div *ngIf="form.get('shopCity').touched && form.get('shopCity').invalid" class="alert-msg">
+                      <div *ngIf="form.get('shopCity').hasError('required')">
+                        {{ 'USER.SELLER.ADDRESS.CITY' | translate }}{{ 'LOGIN.REQ' | translate }}
+                      </div>
+                    </div>
             </div>
             <div class="form-group col-md-2">
               <label for="inputShopZip">{{ 'USER.SELLER.ADDRESS.ZIP' | translate }}</label>
-              <input type="text" class="form-control" id="inputShopZip" placeholder="{{shopZip}}" disabled [(ngModel)]="shopZip" [ngModelOptions]="{standalone: true}">
+              <input type="text" class="form-control" id="inputShopZip" formControlName="shopZip">     
+            
+              <div *ngIf="form.get('shopZip').touched && form.get('shopZip').invalid" class="alert-msg">
+                <div *ngIf="form.get('shopZip').hasError('required')">
+                  {{ 'USER.SELLER.ADDRESS.ZIP' | translate }}{{ 'LOGIN.REQ' | translate }}
+                </div>
+                 <div *ngIf="form.get('shopZip').hasError('pattern')">
+                  {{ 'LOGIN.INVALID' | translate }}{{ 'USER.SELLER.ADDRESS.ZIP' | translate }}
+                </div>
+                <div *ngIf="form.get('shopZip').hasError('minlength')">
+                   {{ 'LOGIN.ERROR-DIGG-LESS' | translate }}
+                </div>
+              </div>
+
+
+
+                  
             </div>
           </div>
         </div>
+
         <!-- If user has fill all the above form then the below form will be enabled-->
         <button type="submit" class="btn button justify-content-center" (click)="submit()">{{ 'BUTTONS.SAVE' | translate }}</button>
         <button type="button" class="btn button justify-content-center" (click)="undisableTxt()" [ngClass]="{hidden:status=='edit-mode', visible:status=='none'}">{{ 'BUTTONS.EDIT' | translate }}</button>
         <button type="button" class="btn button justify-content-center" (click)="cancel()" [ngClass]="{hidden:status=='none', visible:status=='edit-mode'}">Cancel</button>
-
       </form>
     </div>
   </div>

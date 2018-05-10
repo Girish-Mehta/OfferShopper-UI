@@ -170,10 +170,11 @@
         "ASVENDOR": "Register as Vendor",
         "FIND-YOU": "Find your Account",
         "UPDATEPASS": "Update Password",
-        "REQ": "required",
-        "INVALID": "Invalid",
+        "REQ": " required ",
+        "INVALID": " Invalid",
         "ERROR-DIG-LESS": "Less than 10 digits",
-        "ERROR-DIG-MORE": "More than 10 digits"
+        "ERROR-DIG-MORE": "More than 10 digits",
+        "ERROR-DIGG-LESS": "Must greater than 6 digits"
     },
 
     "SHOP-PAGE": {
