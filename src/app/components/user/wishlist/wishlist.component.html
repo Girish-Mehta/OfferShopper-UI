@@ -12,17 +12,22 @@
   <div class="container" *ngIf="wishlistOffers.length">
       <!-- iterating through wishlistOffers array to print wishlist offers -->
       <div class="row">
-          <div class="col-sm-12 col-md-6 col-lg-3 card-group mb-3" *ngFor=" let result of wishlistOffers">
+          <div class="col-sm-12 col-md-6 col-lg-4 card-group mb-5" *ngFor=" let result of wishlistOffers">
             {{productPrice(result.offerOriginalPrice,result.offerDiscount)}}
-            <div class="card card-w text-dark my-5">
+            <div class="card card-w text-dark my-5 img-over-button">
               <div class="card-img-overlay">
                 <span class="badge badge-pill badge-info card-discount p-3">{{result.offerDiscount}}{{ 'HOMEPAGE.PRODUCT-HEADER.OFF' | translate }}</span>
-                <div class="btn-group" *ngIf="result">
-                    <button class="btn btn-dark my-2  my-sm-0 ml-md-5 ml-lg-3 ml-sm-2 " type="button" (click)="deleteOffer(result.offerId,result.userId)" data-toggle="tooltip" data-placement="bottom"  title="{{ 'BUTTONS.DELETE' | translate }}"><i class="fas fa-trash-alt"></i> </button>
+                <div class="btn-group middle-button-small d-block d-lg-none d-flex align-items-end justify-content-center" *ngIf="result">
+                    <button class="btn btn-success" type="button" (click)="deleteOffer(result.offerId,result.userId)" data-toggle="tooltip" data-placement="bottom"  title="{{ 'BUTTONS.DELETE' | translate }}"><i class="fas fa-trash-alt"></i> </button>
                   </div>
+                  <div class="middle-button d-none d-lg-block">
+                  <div class="middle-button-data">
+                    <button class="btn btn-dark" type="button" (click)="deleteOffer(result.offerId,result.userId)" data-toggle="tooltip" data-placement="bottom"  title="{{ 'BUTTONS.DELETE' | translate }}"><i class="fas fa-trash-alt"></i> DELETE</button>
+                  </div>
+                </div>
               </div>
-    
-              <img class="card-img card-w" src="{{result.offerImage}}" alt="Card image">
+              <img class="card-img card-w card-image" src="../../../../assets/card.jpeg" alt="Card image">
+              <!-- <img class="card-img card-w" src="{{result.offerImage}}" alt="Card image"> -->
               <div class="card-body card-data">
                 <div class="row">
                   <div class="col-8">

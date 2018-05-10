@@ -10,11 +10,11 @@
               <button class="btn btn-success" type="button" (click)="addToWishlist(result)"><i class="fa fa-shopping-basket" aria-hidden="true"></i></button>
             </div>
             <div class="middle-button d-none d-lg-block" *ngIf="user; else elseBlock">
-            <div class="middle-button-data">
-              <button class="btn btn-dark mb-2" type="button" (click)="addToWishlist(result)"><i class="fa fa-shopping-basket" aria-hidden="true"></i> ADD TO WISHLIST</button>
-              <button class="btn btn-dark" type="button" (click)="addToCarrybag(result)"><i class="fa fa-cart-plus" aria-hidden="true"></i> ADD TO CARRYBAG</button>              
+              <div class="middle-button-data">
+                <button class="btn btn-dark mb-2" type="button" (click)="addToWishlist(result)"><i class="fa fa-shopping-basket" aria-hidden="true"></i> ADD TO WISHLIST</button>
+                <button class="btn btn-dark" type="button" (click)="addToCarrybag(result)"><i class="fa fa-cart-plus" aria-hidden="true"></i> ADD TO CARRYBAG</button>              
+              </div>
             </div>
-          </div>
             <ng-template #elseBlock>
               <div class="btn-group btn-group-justified">
                 <button class="btn btn-success mr-0 ml-1" type="button" (click)="notLogin()"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
@@ -22,7 +22,7 @@
               </div>
             </ng-template>
           </div>
-          <img class="card-img card-w" [src]="result.imageURL" alt="Card image">
+          <img class="card-img card-w card-image" [src]="result.imageURL" alt="Card image">
           <div class="card-body card-data">
             <div class="row">
               <div class="col-8">
