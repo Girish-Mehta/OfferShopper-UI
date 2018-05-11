@@ -54,6 +54,7 @@ export class UserdetailsComponent implements OnInit {
   shopState:string;
   shopZip:number;
   toggle:boolean=true;
+  saveStatus:boolean=true;
   sameAsAboveCity:boolean=false;
   defaultCity:boolean=false;
 
@@ -63,7 +64,7 @@ export class UserdetailsComponent implements OnInit {
     private authorizationService: AuthorizationService,
     private messageService: MessageService,
     private _vcr: ViewContainerRef
-    ) { 
+    ) {
 
     this.status = 'none';
     this.fb=fb;
@@ -112,7 +113,7 @@ export class UserdetailsComponent implements OnInit {
         disabled: this.toggle
       }]
     });
-    
+
   }
 
   ngOnInit() {
@@ -126,6 +127,9 @@ export class UserdetailsComponent implements OnInit {
         this.router.navigate(['/login']);
       }
       this.userInfo = res.text().split(',');
+      // debugger
+      this.role = this.userInfo[1];
+      this.saveStatus=true;
       this.userId = this.userInfo[2];
       this.getProfile(this.userId);
     }, (error) =>{
@@ -229,19 +233,8 @@ export class UserdetailsComponent implements OnInit {
     this.toggle=!this.toggle;
     this.intilizeForm();
     this.status = 'edit-mode';
-    // (<HTMLInputElement>document.getElementById("firstName")).disabled= false;
-    // (<HTMLInputElement>document.getElementById("lastName")).disabled = false;
-    // (<HTMLInputElement>document.getElementById("phone")).disabled = false;
-    // (<HTMLInputElement>document.getElementById("inputAddress")).disabled = false;
-    // (<HTMLInputElement>document.getElementById("inputCity")).disabled = false;
-    // (<HTMLInputElement>document.getElementById("inputZip")).disabled = false;
-    // (<HTMLInputElement>document.getElementById("inputState")).disabled = false;
-    // (<HTMLInputElement>document.getElementById("inputShopName")).disabled = false;
-    // (<HTMLInputElement>document.getElementById("inputShopAddress")).disabled = false;
-    // (<HTMLInputElement>document.getElementById("inputShopCity")).disabled = false;
-    // (<HTMLInputElement>document.getElementById("inputShopZip")).disabled = false;
-    // (<HTMLInputElement>document.getElementById("inputShopState")).disabled = false;
-    // (<HTMLInputElement>document.getElementById("sameCheckbox")).disabled = false;
+    this.saveStatus = false;
+    (<HTMLInputElement>document.getElementById("save")).disabled= false;
   };
 
   //Function will update the user details
@@ -249,19 +242,6 @@ export class UserdetailsComponent implements OnInit {
     this.toggle=!this.toggle;
     this.intilizeForm();
     this.status = 'none';
-    // (<HTMLInputElement>document.getElementById("firstName")).disabled= true;
-    // (<HTMLInputElement>document.getElementById("lastName")).disabled = true;
-    // (<HTMLInputElement>document.getElementById("phone")).disabled = true;
-    // (<HTMLInputElement>document.getElementById("inputAddress")).disabled = true;
-    // (<HTMLInputElement>document.getElementById("inputCity")).disabled = true;
-    // (<HTMLInputElement>document.getElementById("inputZip")).disabled =true;
-    // (<HTMLInputElement>document.getElementById("inputState")).disabled = true;
-    // (<HTMLInputElement>document.getElementById("inputShopName")).disabled = true;
-    // (<HTMLInputElement>document.getElementById("inputShopAddress")).disabled = true;
-    // (<HTMLInputElement>document.getElementById("inputShopCity")).disabled = true;
-    // (<HTMLInputElement>document.getElementById("inputShopZip")).disabled = true;
-    // (<HTMLInputElement>document.getElementById("inputShopState")).disabled = true;
-    // (<HTMLInputElement>document.getElementById("sameCheckbox")).disabled = true;
     let obj={
       "firstName": this.form.get('firstName').value,
       "lastName": this.form.get('lastName').value,
@@ -302,18 +282,31 @@ export class UserdetailsComponent implements OnInit {
   cancel(){
     this.status='none';
     this.getUserId();
-    (<HTMLInputElement>document.getElementById("firstName")).disabled= true;
-    (<HTMLInputElement>document.getElementById("lastName")).disabled = true;
-    (<HTMLInputElement>document.getElementById("phone")).disabled = true;
-    (<HTMLInputElement>document.getElementById("inputAddress")).disabled = true;
-    (<HTMLInputElement>document.getElementById("inputCity")).disabled = true;
-    (<HTMLInputElement>document.getElementById("inputZip")).disabled =true;
-    (<HTMLInputElement>document.getElementById("inputState")).disabled = true;
-    (<HTMLInputElement>document.getElementById("inputShopName")).disabled = true;
-    (<HTMLInputElement>document.getElementById("inputShopAddress")).disabled = true;
-    (<HTMLInputElement>document.getElementById("inputShopCity")).disabled = true;
-    (<HTMLInputElement>document.getElementById("inputShopZip")).disabled = true;
-    (<HTMLInputElement>document.getElementById("inputShopState")).disabled = true;
+    if(this.role=="Vendor"){
+      (<HTMLInputElement>document.getElementById("firstName")).disabled= true;
+      (<HTMLInputElement>document.getElementById("lastName")).disabled = true;
+      (<HTMLInputElement>document.getElementById("phone")).disabled = true;
+      (<HTMLInputElement>document.getElementById("inputAddress")).disabled = true;
+      (<HTMLInputElement>document.getElementById("inputCity")).disabled = true;
+      (<HTMLInputElement>document.getElementById("inputZip")).disabled =true;
+      (<HTMLInputElement>document.getElementById("inputState")).disabled = true;
+      (<HTMLInputElement>document.getElementById("inputShopName")).disabled = true;
+      (<HTMLInputElement>document.getElementById("inputShopAddress")).disabled = true;
+      (<HTMLInputElement>document.getElementById("inputShopCity")).disabled = true;
+      (<HTMLInputElement>document.getElementById("inputShopZip")).disabled = true;
+      (<HTMLInputElement>document.getElementById("inputShopState")).disabled = true;
+    }
+    else if(this.role=="Customer"){
+      (<HTMLInputElement>document.getElementById("firstName")).disabled= true;
+      (<HTMLInputElement>document.getElementById("lastName")).disabled = true;
+      (<HTMLInputElement>document.getElementById("phone")).disabled = true;
+      (<HTMLInputElement>document.getElementById("inputAddress")).disabled = true;
+      (<HTMLInputElement>document.getElementById("inputCity")).disabled = true;
+      (<HTMLInputElement>document.getElementById("inputZip")).disabled =true;
+      (<HTMLInputElement>document.getElementById("inputState")).disabled = true;
+    }
+    (<HTMLInputElement>document.getElementById("send_c")).disabled= true;
+    (<HTMLInputElement>document.getElementById("send_v")).disabled= true;
   }
 
   //Function show the shop details of vendor
@@ -346,7 +339,7 @@ export class UserdetailsComponent implements OnInit {
     }
   }
 
-  //Function will show the relevant cities 
+  //Function will show the relevant cities
   showRelevantCitiesHome() {
     this.homeCities = StateCityJson.stateCityJson[this.form.get('state').value];
     // this.homeCities = StateCityJson.stateCityJson[state];

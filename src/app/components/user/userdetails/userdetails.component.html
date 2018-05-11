@@ -38,7 +38,7 @@
         </div>
           <div class="form-group col-md-2">
             <label for="inputState">{{ 'USER.SELLER.ADDRESS.STATE' | translate }}</label>
-            <select (change)="showRelevantCitiesHome()" name=slist class="form-control" formControlName="state" >
+            <select (change)="showRelevantCitiesHome()" name=slist id="inputState" class="form-control" formControlName="state" >
               <option value="state">{{state}}</option>
               <option *ngFor="let state of states" value={{state}}>{{state}}</option>
             </select>
@@ -131,14 +131,27 @@
             <div class="row mt-2">
               <div class="col justify-content-start">
                 <!-- If user has fill all the above form then the below form will be enabled-->
-                <button *ngIf="role=='Vendor'" type="submit" class="btn button btn-user justify-content-center" (click)="submit()" [disabled]="form.invalid">{{ 'BUTTONS.SAVE' | translate }}</button>
-                <button *ngIf="role=='Customer'" type="submit" class="btn button btn-user justify-content-center" (click)="submit()" >{{ 'BUTTONS.SAVE' | translate }}</button>
+                <button *ngIf="role=='Vendor'" type="submit" class="btn button btn-user justify-content-center" (click)="submit()" [disabled]="saveStatus">{{ 'BUTTONS.SAVE' | translate }}</button>
+                <button *ngIf="role=='Customer'" type="submit" class="btn button btn-user justify-content-center" (click)="submit()" [disabled]="saveStatus">{{ 'BUTTONS.SAVE' | translate }}</button>
               </div>
               <div class="col justify-content-end text-right">
-                <button type="button" class="btn button btn-user" (click)="undisableTxt()" [ngClass]="{hidden:status=='edit-mode', visible:status=='none'}">{{ 'BUTTONS.EDIT' | translate }}</button>
+                <button type="button" class="btn button btn-user" id="save" (click)="undisableTxt()" [ngClass]="{hidden:status=='edit-mode', visible:status=='none'}">{{ 'BUTTONS.EDIT' | translate }}</button>
                 <button type="button" class="btn button btn-user" (click)="cancel()" [ngClass]="{hidden:status=='none', visible:status=='edit-mode'}">{{ 'BUTTONS.CANCEL' | translate }}</button>
               </div>
             </div>
+        </div>
+        <div *ngIf="role=='Customer'" class="justify-content-start">
+          <div class="row mt-2">
+            <div class="col justify-content-start">
+              <!-- If user has fill all the above form then the below form will be enabled-->
+              <button *ngIf="role=='Vendor'" id="send_v" type="submit" class="btn button btn-user justify-content-center" (click)="submit()" [disabled]="saveStatus">{{ 'BUTTONS.SAVE' | translate }}</button>
+              <button *ngIf="role=='Customer'" id="send_c" type="submit" class="btn button btn-user justify-content-center" (click)="submit()" [disabled]="saveStatus">{{ 'BUTTONS.SAVE' | translate }}</button>
+            </div>
+            <div class="col justify-content-end text-right">
+              <button type="button" class="btn button btn-user" (click)="undisableTxt()" [ngClass]="{hidden:status=='edit-mode', visible:status=='none'}">{{ 'BUTTONS.EDIT' | translate }}</button>
+              <button type="button" class="btn button btn-user" (click)="cancel()" [ngClass]="{hidden:status=='none', visible:status=='edit-mode'}">{{ 'BUTTONS.CANCEL' | translate }}</button>
+            </div>
+          </div>
         </div>
     </form>
   <div>
