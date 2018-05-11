@@ -37,6 +37,7 @@ export class ShopPageComponent implements OnInit {
           this.address = res;
           let location={};
           location['shopName']=vendor.shopAddress.name;
+          location['email']=vendor.email;
           location['lat']=(this.address.results[0].geometry.location.lat);
           location['lng']=(this.address.results[0].geometry.location.lng);
           this.vendorAddress.push(location)
