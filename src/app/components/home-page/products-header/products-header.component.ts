@@ -15,6 +15,7 @@ export class ProductsHeaderComponent implements OnInit {
   public offers : any;
   public priceAfterDiscount: any;
   private userLocation: string;
+  private osCash;
 
   constructor(
     private offersService : OffersService,
@@ -24,6 +25,7 @@ export class ProductsHeaderComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    this.osCash = localStorage.getItem("os-cash");
     this.route.paramMap.subscribe(params => {
       this.userLocation = params.get('id');
       this.loadOffers();

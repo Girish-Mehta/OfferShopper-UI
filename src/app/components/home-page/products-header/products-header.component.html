@@ -1,5 +1,6 @@
 <!-- This will create the header of the product -->
-<div class="container mt-5" *ngIf="offers">
+<div class="jumbotron bg-white">
+<div class="container" *ngIf="offers">
   <div class="row">
     <div class="col-lg-4 col-md-6 col-sm-4 card-group mb-3" *ngFor="let offer of offers">
       {{productPrice(offer.originalPrice,offer.discount)}}
@@ -16,10 +17,11 @@
             <div class="col-12">
               <span class="card-price">{{ 'HOMEPAGE.PRODUCT-LIST.RS' | translate }}<del>{{offer.originalPrice}}</del></span>
               <span class="card-discounted-price">{{priceAfterDiscount}}</span>
-            </div>
+            </div>          
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>

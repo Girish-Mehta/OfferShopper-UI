@@ -11,8 +11,8 @@
             </div>
             <div class="middle-button d-none d-lg-block" *ngIf="user; else elseBlock">
               <div class="middle-button-data">
-                <button class="btn btn-dark mb-2" type="button" (click)="addToWishlist(result)"><i class="fa fa-shopping-basket" aria-hidden="true"></i> ADD TO WISHLIST</button>
-                <button class="btn btn-dark" type="button" (click)="addToCarrybag(result)"><i class="fa fa-cart-plus" aria-hidden="true"></i> ADD TO CARRYBAG</button>              
+                <button class="btn btn-dark mb-2" type="button" (click)="addToWishlist(result)"><i class="fa fa-shopping-basket" aria-hidden="true"></i> {{ 'BUTTONS.WISHLIST' | translate }}</button>
+                <button class="btn btn-dark" type="button" (click)="addToCarrybag(result)"><i class="fa fa-cart-plus" aria-hidden="true"></i> {{ 'BUTTONS.CARRYBAG' | translate }}</button>              
               </div>
             </div>
             <ng-template #elseBlock>
@@ -22,8 +22,8 @@
               </div>
               <div class="middle-button d-none d-lg-block">
               <div class="middle-button-data">
-                <button class="btn btn-dark mb-2" type="button" (click)="notLogin()"><i class="fa fa-shopping-basket" aria-hidden="true"></i> ADD TO WISHLIST</button>
-                <button class="btn btn-dark" type="button" (click)="notLogin()"><i class="fa fa-cart-plus" aria-hidden="true"></i> ADD TO CARRYBAG</button>              
+                <button class="btn btn-dark mb-2" type="button" (click)="notLogin()"><i class="fa fa-shopping-basket" aria-hidden="true"></i>{{ 'BUTTONS.WISHLIST' | translate }}</button>
+                <button class="btn btn-dark" type="button" (click)="notLogin()"><i class="fa fa-cart-plus" aria-hidden="true"></i>{{ 'BUTTONS.CARRYBAG' | translate }}</button>              
               </div>
             </div>
             </ng-template>

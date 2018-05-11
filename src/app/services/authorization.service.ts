@@ -37,6 +37,7 @@ export class AuthorizationService {
 
 	logout() {
 		localStorage.removeItem("application-token");
+		localStorage.removeItem("os-cash");
 	}
 
 	// authorization() {

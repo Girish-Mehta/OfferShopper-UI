@@ -138,8 +138,6 @@ export class VendorRegisterComponent implements OnInit {
         let street= this.form.get('address').value;
         let zipCode=this.form.get('zip').value;
 
-        console.log(city);
-        debugger
         this.form.patchValue({
           vendorAddress:  street,
           vendorState:  state,

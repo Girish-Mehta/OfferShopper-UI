@@ -62,7 +62,7 @@ export class UpdatePasswordComponent implements OnInit {
     };
     this.updatePasswordService.updatePassWithEmail(body).subscribe((res) =>{
       this.messageService.showSuccessToast(this._vcr,"Updated");
-      this.router.navigate(['/homepage',this.userLocation]);
+      this.router.navigate(['/login']);
     }, (res:Response) =>{
       if(res.status==401 || res.status==409){
         this.messageService.showErrorToast(this._vcr,"Username already exists");

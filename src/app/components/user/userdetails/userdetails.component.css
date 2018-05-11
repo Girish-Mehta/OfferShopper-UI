@@ -10,14 +10,3 @@
 	color: red;
 	font-size: 12px;
 }
-
-.cst-border {
-  border: 10px;
-  border-bottom-color: white;
-}
-
-.btn-user{
-  background: white;
-  color: black;
-  width:8rem;
-}

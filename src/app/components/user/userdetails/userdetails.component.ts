@@ -220,6 +220,7 @@ export class UserdetailsComponent implements OnInit {
         shopState:this.shopState,
         shopZip:this.shopZip
       });
+      console.log(res);
     },(error) =>{
     })
   }
@@ -302,6 +303,7 @@ export class UserdetailsComponent implements OnInit {
   cancel(){
     this.status='none';
     this.getUserId();
+    debugger
     (<HTMLInputElement>document.getElementById("firstName")).disabled= true;
     (<HTMLInputElement>document.getElementById("lastName")).disabled = true;
     (<HTMLInputElement>document.getElementById("phone")).disabled = true;
@@ -310,6 +312,7 @@ export class UserdetailsComponent implements OnInit {
     (<HTMLInputElement>document.getElementById("inputZip")).disabled =true;
     (<HTMLInputElement>document.getElementById("inputState")).disabled = true;
     (<HTMLInputElement>document.getElementById("inputShopName")).disabled = true;
+    //document.getElementById("inputShopName")['disabled'] = true;
     (<HTMLInputElement>document.getElementById("inputShopAddress")).disabled = true;
     (<HTMLInputElement>document.getElementById("inputShopCity")).disabled = true;
     (<HTMLInputElement>document.getElementById("inputShopZip")).disabled = true;

@@ -45,6 +45,7 @@ export class WheelComponent implements OnInit{
   getProfile(userId){
     this.userdata.getProfile(userId).subscribe((res) =>{
       this.osMoney=res.osCash;
+      localStorage.setItem("os-cash",res.osCash);
     },(error) =>{
     })
   }
@@ -72,6 +73,7 @@ export class WheelComponent implements OnInit{
           this.messageService.showOsSpin(this.cash[this.sectorNo]);
 
         },3000)
+      this.getProfile(this.user);
       }
     });
   }

@@ -25,10 +25,10 @@
                   </div>
                 <div class="middle-button d-none d-lg-block">
                   <div class="middle-button-data">
-                    <button class="btn btn-dark mb-2" type="button" (click)="deleteOffer(offerList.userId,offerList.offerId)" data-toggle="tooltip" data-placement="bottom"  title="{{ 'BUTTONS.DELETE' | translate }}"><i class="fas fa-trash-alt" ></i> DELETE</button>
-                    <button class="btn btn-dark mb-2" type="button" (click)="checkFeedbackExistence(offerList.offerId,offerList.userId)"  data-toggle="tooltip" data-placement="bottom"  title="{{ 'BUTTONS.ADD-FEEDBACK' | translate }}"><i class="fas fa-comment-dots"></i> ADD FEEDBACK</button>
+                    <button class="btn btn-dark mb-2" type="button" (click)="deleteOffer(offerList.userId,offerList.offerId)" data-toggle="tooltip" data-placement="bottom"  title="{{ 'BUTTONS.DELETE' | translate }}"><i class="fas fa-trash-alt" ></i> {{ 'BUTTONS.DELETE' | translate }}</button>
+                    <button class="btn btn-dark mb-2" type="button" (click)="checkFeedbackExistence(offerList.offerId,offerList.userId)"  data-toggle="tooltip" data-placement="bottom"  title="{{ 'BUTTONS.ADD-FEEDBACK' | translate }}"><i class="fas fa-comment-dots"></i> {{ 'BUTTONS.ADD-FEEDBACK' | translate }}</button>
                     <div data-toggle="modal" data-target="#feedbackModal"  #myModal ></div>
-                    <button class="btn btn-dark" type="button" (click)="couponGenerate(offerList.userId,offerList.offerId,offerList.vendorId)" data-toggle="tooltip" data-placement="bottom"  title="{{ 'BUTTONS.GEN-COUPON' | translate }}"> <i class="fas fa-ticket-alt"></i>  GENERATE COUPON</button>
+                    <button class="btn btn-dark" type="button" (click)="couponGenerate(offerList.userId,offerList.offerId,offerList.vendorId)" data-toggle="tooltip" data-placement="bottom"  title="{{ 'BUTTONS.GEN-COUPON' | translate }}"> <i class="fas fa-ticket-alt"></i> {{ 'BUTTONS.GEN-COUPON' | translate }}</button>
                     <div data-toggle="modal" data-target="#couponModal" #coupModal ></div>
                   </div>
                 </div>

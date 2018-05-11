@@ -49,9 +49,18 @@
           </li>
           <div *ngIf="login">
             <li class="nav-item nav-text d-block d-lg-none">
-              <a class="nav-link text-dark" (click)="logout()" [routerLink]="['/homepage',userLocation]">{{ 'HEADER.NAVBAR.LOGOUT' | translate }}</a>
+              <a class="nav-link text-dark" [ngClass]="{active:url=='wheel'}" [routerLink]="['/wheel']">
+                {{ 'HEADER.NAVBAR.SPIN-WHEEL' | translate }}
+              </a>
             </li>
           </div>
+          <div *ngIf="login">
+            <li class="nav-item nav-text d-block d-lg-none">
+              <a class="nav-link text-dark" (click)="logout()" [routerLink]="['/homepage',userLocation]">
+                {{ 'HEADER.NAVBAR.LOGOUT' | translate }}
+              </a>
+            </li>
+          </div>          
         </ul>
       </div>
       <div class="large mt-2 d-none d-lg-block">

@@ -67,10 +67,13 @@ export class CarrybagComponent implements OnInit {
 
   //Function will delete offer from carrybag
   deleteOffer(userId, offerId){
+    this.messageService.deleteConfirmation(()=>
     this.carrybagService.deleteCarrybag(offerId,userId).subscribe((res) =>{
+      this.messageService.showSuccessToast(this._vcr,"Deleted");
       this.getCarrybag();
     }, (error) =>{
-    })
+      this.messageService.showErrorToast(this._vcr,"Please try again");
+    }));    
   }
 
   //Function will generate the coupon

@@ -121,7 +121,7 @@ export class VendorPageComponent implements OnInit {
         this.messageService.showErrorToast(this._vcr,"Already in CarryBag");
       }
       else if(res.status==400){
-        this.messageService.showErrorToast(this._vcr,"Service Not Found");
+        this.messageService.showErrorToast(this._vcr,"Already in CarryBag");
       }
     })
   }
@@ -145,7 +145,7 @@ export class VendorPageComponent implements OnInit {
         this.messageService.showErrorToast(this._vcr,"Already in Subscription List");
       }
       else if(res.status==400){
-        this.messageService.showErrorToast(this._vcr,"Service Not Found");
+        this.messageService.showErrorToast(this._vcr,"Already in Subscription List");
       }
     })
   }
@@ -168,7 +168,7 @@ export class VendorPageComponent implements OnInit {
         this.messageService.showErrorToast(this._vcr,"Already in Wishlist");
       }
       else if(res.status==400){
-        this.messageService.showErrorToast(this._vcr,"Service Not Found");
+        this.messageService.showErrorToast(this._vcr,"Already in Wishlist");
       }
     })
   }
