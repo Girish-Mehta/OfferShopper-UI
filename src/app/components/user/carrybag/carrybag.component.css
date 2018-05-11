@@ -177,3 +177,12 @@ del {
 	min-height: 22rem;
 	max-height: 22rem;
 }
+
+a {
+	text-decoration: none;
+	color: gray;
+}
+
+a:hover{
+	text-decoration: underline;
+}

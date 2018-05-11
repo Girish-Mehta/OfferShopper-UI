@@ -26,6 +26,7 @@ export class UserComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.userList = params.get('id');
       this.isLogin();
+      console.log(this.role);
     });
   }
 
