@@ -93,7 +93,7 @@
           <div class="row">
             <div class="col-md-4 card-group mb-3 text-dark" *ngFor=" let result of offersList | paginate:{itemsPerPage : 6, currentPage : p}">
               {{productPrice(result.originalPrice,result.discount)}}
-              <div class="card card-w text-dark m-5" [routerLink]="['/', 'product',result.userId,result.offerId]">
+              <div class="card card-w text-dark m-5">
                 <div class="card-img-overlay">
                   <span class="badge badge-pill badge-info card-discount p-3">{{result.discount}}% OFF</span>
                   <div class="btn-group" *ngIf="user; else elseBlock">
@@ -111,7 +111,7 @@
                 <div class="card-body card-data">
                   <div class="row">
                     <div class="col-8">
-                      <span class="card-heading">{{result.offerTitle}}</span>
+                      <span class="card-heading" [routerLink]="['/', 'product',result.userId,result.offerId]">{{result.offerTitle}}</span>
                     </div>
                     <div class="col-4">
                       <span class="fa fa-star mx-2"></span>{{result.offerRating}}
