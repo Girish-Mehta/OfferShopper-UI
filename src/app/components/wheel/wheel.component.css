@@ -2,8 +2,8 @@
     z-index: 1;
     position: relative;
     transition-duration: 3s;
-
 }
+
 #img2{
     top: -10px;
 }
@@ -20,4 +20,15 @@
 
 .arrow{
   color: #018b8b;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 767.98px) {
+  .arrow {
+    height:3rem;
+  }
+
+  .text {
+    font-size: 1rem;
+  }
 }
